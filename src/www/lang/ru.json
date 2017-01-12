@@ -1,0 +1,591 @@
+{
+   "domain": "messages",
+   "locale_data": {
+      "messages": {
+         "": {
+            "domain": "messages",
+            "plural_forms": "nplurals=2; plural=(n != 1)",
+            "lang": "ru"
+         },
+         "Choose your product platform to see requirements": [
+            "Выберите платформу продукта, чтобы посмотреть требования"
+         ],
+         "%d Mb": [
+            "%d Мбайт"
+         ],
+         "Click to choose your project ZIP-file, or drop it here": [
+            "Нажмите, чтобы выбрать ZIP-файл проекта или перетащите его сюда"
+         ],
+         "Please collect your product in one ZIP-archive and upload it": [
+            "Соберите свой продукт в один ZIP-архив и загрузите его"
+         ],
+         "Wrong file format, please upload your product in ZIP-archive": [
+            "Неверный формат файла, пожалуйста, загрузите продукт в ZIP-архиве"
+         ],
+         "Archive is too large, please reduce its size to 1 GB": [
+            "Размер архива слишком большой, уменьшите его до 1 Гбайт"
+         ],
+         "Product type": [
+            "Тип продукта"
+         ],
+         "Product name": [
+            "Название продукта"
+         ],
+         "Comment for the reviewers (optional)": [
+            "Оставить комментарий (по желанию)"
+         ],
+         "By clicking the button below you accept our": [
+            "При нажатии на кнопку ниже, вы принимаете наши"
+         ],
+         "terms.php": [
+            "ru/terms.html"
+         ],
+         "Terms of Use": [
+            "Условия использования"
+         ],
+         "privacy-policy.php": [
+            "ru/privacy-policy.html"
+         ],
+         "Privacy Policy": [
+            "Политика конфиденциальности"
+         ],
+         "Contributor’s Agreement": [
+            "Соглашение контрибьютора"
+         ],
+         "Send Product for a Review": [
+            "Отправить продукт на проверку"
+         ],
+         "Thank you for your work!": [
+            "Спасибо за вашу работу!"
+         ],
+         "Your product is sent to our experts for review.": [
+            "Ваш продукт был отправлен нашим специалистам на проверку."
+         ],
+         "We'll email you with the review result.": [
+            "Мы отправим вам e-mail с результатами проверки."
+         ],
+         "Products": [
+            "Продукты"
+         ],
+         "View Upload Requirements": [
+            "Посмотреть требования загрузки"
+         ],
+         "Upload Product": [
+            "Загрузить продукт"
+         ],
+         "Country": [
+            "Страна"
+         ],
+         "City": [
+            "Город"
+         ],
+         "Save": [
+            "Сохранить"
+         ],
+         "Close": [
+            "Закрыть"
+         ],
+         "Billing info was saved!": [
+            "Информация о платежах сохранена!"
+         ],
+         "Billing": [
+            "Биллинг"
+         ],
+         "Edit Billing info": [
+            "Редактировать информацию о платежах"
+         ],
+         "Billing information": [
+            "Информация об оплате"
+         ],
+         "%d hour": [
+            "%d час"
+         ],
+         "%d hours": [
+            "%d час"
+         ],
+         "%d minute": [
+            "%d минута"
+         ],
+         "%d minutes": [
+            "%d минута"
+         ],
+         "First and last name": [
+            "Имя и фамилия"
+         ],
+         "ZIP or postal code": [
+            "Почтовый индекс"
+         ],
+         "Street (optional)": [
+            "Улица (необязательно)"
+         ],
+         "from %f Mb": [
+            "от %f Мбайт"
+         ],
+         "Please, write the product name": [
+            "Введите название продукта"
+         ],
+         "Upload your product": [
+            "Загрузите свой продукт"
+         ],
+         "Your products will live here": [
+            "Ваши продукты будут показаны здесь"
+         ],
+         "You'll be able to view them from here": [
+            "Вы можете их просмотреть"
+         ],
+         "Design index": [
+            "Лучший дизайн"
+         ],
+         "Users rating": [
+            "Рейтинг пользователей"
+         ],
+         "Review in progress": [
+            "Осуществляется проверка продукта"
+         ],
+         "Product was declined": [
+            "Продукт отклонен"
+         ],
+         "Unfortunately quality does not meet our guidelines": [
+            "К сожалению, качество не соответствует нашим требованиям"
+         ],
+         "Total views": [
+            "Всего просмотров"
+         ],
+         "Total purchases": [
+            "Всего покупок"
+         ],
+         "Your revenue": [
+            "Ваш доход"
+         ],
+         "Upload New Product": [
+            "Загрузить новый продукт"
+         ],
+         "You'll get %(discountPrice)s per sale": [
+            "Вы получите %(discountPrice)s за продажи продукта"
+         ],
+         "ZIP-code": [
+            "Индекс"
+         ],
+         "No results match": [
+            "Нет результата"
+         ],
+         "Start enter country": [
+            "Начните вводить страну"
+         ],
+         "Start enter state": [
+            "Начните вводить регион"
+         ],
+         "State/Province": [
+            "Страна/Область"
+         ],
+         "Please specify a valid street name": [
+            "Укажите точное название улицы"
+         ],
+         "Please enter City": [
+            "Введите название города"
+         ],
+         "Please specify a valid city": [
+            "Укажите правильное название города"
+         ],
+         "Please enter First and last name": [
+            "Введите ваше Имя и фамилию"
+         ],
+         "Please specify your full name (first and last)": [
+            "Уточните ваше полное имя"
+         ],
+         "Please enter ZIP or postal code": [
+            "Введите ваш почтовый индекс"
+         ],
+         "Please specify a valid ZIP or postal code": [
+            "Уточните правильность вашего почтового индекса"
+         ],
+         "Start enter platform name": [
+            "Начните вводить название платформы"
+         ],
+         "Oops...something went wrong": [
+            "Ой... что-то пошло не так"
+         ],
+         "It can be a problem with internet connection or our internal error. Please try again or": [
+            "Возможно, это проблема с подключением к Интернету или наша внутренняя ошибка. Пожалуйста, повторите попытку или"
+         ],
+         "choose another file": [
+            "выбрать другой файл"
+         ],
+         "Try Again": [
+            "Повторить попытку"
+         ],
+         "&": [
+            "&"
+         ],
+         "Please remove special symbols": [
+            "Пожалуйста, удалите специальные символы"
+         ],
+         "Not connected": [
+            "Соединение отсутствует"
+         ],
+         "Not added yet": [
+            "Еще не добавлено"
+         ],
+         "User Profile": [
+            "Страница пользователя"
+         ],
+         "Preview profile": [
+            "Предварительный просмотр профиля"
+         ],
+         "E-mail": [
+            "E-mail"
+         ],
+         "Change": [
+            "Изменить"
+         ],
+         "It’s your login as well.": [
+            "Логин подтвержден."
+         ],
+         "Password": [
+            "Пароль"
+         ],
+         "Keep it in secret & use for logining only.": [
+            "Храните его в секрете и используйте только для входа на сайт"
+         ],
+         "Phone Number": [
+            "Номер телефона"
+         ],
+         "Add": [
+            "Добавить"
+         ],
+         "We will use it to contact you.": [
+            "Мы воспользуемся ним, чтобы связаться с вами."
+         ],
+         "Facebook Account": [
+            "Аккаунт Facebook "
+         ],
+         "Disconnect": [
+            "Разъединить"
+         ],
+         "Connect": [
+            "Подключить"
+         ],
+         "You can use it for one-click logining & avatar sync.": [
+            "Воспользуйтесь этим для быстрого входа на сайт и синхронизации аватара."
+         ],
+         "It can be used for one-click logining & avatar sync.": [
+            "Он может быть использован для быстрого входа на сайт и синхронизации аватара."
+         ],
+         "Nickname": [
+            "Никнейм"
+         ],
+         "It is visible on TemplateMonster.": [
+            "Это видно на TemplateMonster."
+         ],
+         "First & last name": [
+            "Имя и Фамилия"
+         ],
+         "Street": [
+            "Улица"
+         ],
+         "Save Information": [
+            "Сохранить информацию"
+         ],
+         "Change Email": [
+            "Изменить Email"
+         ],
+         "New email": [
+            "Новый Email"
+         ],
+         "Change password": [
+            "Изменить пароль"
+         ],
+         "New password": [
+            "Новый пароль"
+         ],
+         "Change Phone Number": [
+            "Изменить номер телефона"
+         ],
+         "Add Phone Number": [
+            "Добавить номер телефона"
+         ],
+         "New phone number": [
+            "Новый номер телефона"
+         ],
+         "Change Nickname": [
+            "Изменить Никнейм"
+         ],
+         "Add Nickname": [
+            "Добавить Никнейм"
+         ],
+         "New nickname": [
+            "Новый Никнейм"
+         ],
+         "Download": [
+            "Загрузить"
+         ],
+         "Ready to download!": [
+            "Готово к скачке!"
+         ],
+         "Regenerate Download Link": [
+            "Повторно созать ссылку для закачки"
+         ],
+         "Download link has expired": [
+            "Время на загрузку истекло"
+         ],
+         "Pending": [
+            "В ожидании"
+         ],
+         "Approved": [
+            "Принято"
+         ],
+         "Refunded": [
+            "Возврат"
+         ],
+         "Order": [
+            "Заказ"
+         ],
+         "Created": [
+            "Создан"
+         ],
+         "Status": [
+            "Статус"
+         ],
+         "Amount": [
+            "Количество"
+         ],
+         "Your downloads will live here": [
+            "Ваши загрузки будут находиться здесь"
+         ],
+         "You'll be able to view and download them from here": [
+            "Вы сможете просматривать и скачивать их отсюда"
+         ],
+         "Go & Find Your Dream Template": [
+            "Вперед на поиски шаблона Вашей мечты"
+         ],
+         "Downloads": [
+            "Загрузки"
+         ],
+         "Your Products": [
+            "Ваши продукты"
+         ],
+         "/uploader": [
+            ""
+         ],
+         "Your rate:": [
+            "Ваша оценка:"
+         ],
+         "contact support": [
+            "связаться с поддержкой"
+         ],
+         "Link is inactive.%(br)s Please %(link)s if assistance is needed.": [
+            "Ссылка неактивна.%(br)s Пожалуйста %(link)s, если нужна помощь."
+         ],
+         "Download link will be ready within few minutes, you don’t need to reload the page.": [
+            "Ссылка для скачивания будет готова в течение нескольких минут, вам не нужно перезагружать страницу."
+         ],
+         "Offer": [
+            "Предложение"
+         ],
+         " License": [
+            "Лицензия"
+         ],
+         "Your bonus:": [
+            "Ваш бонус:"
+         ],
+         "To get 20% bonus buy for $653": [
+            "Чтобы получить 20% бонуса, совершите покупку на $653"
+         ],
+         "Balance:": [
+            "Баланс:"
+         ],
+         "Add Funds": [
+            "Пополнить счет"
+         ],
+         "Control panel": [
+            "Панель управления"
+         ],
+         "Collections": [
+            "Коллекции"
+         ],
+         "Referral Program": [
+            "Партнерская программа"
+         ],
+         "Reviews & Ratings": [
+            "Отзывы и Оценки"
+         ],
+         "Support Tickets": [
+            "Обращения в службу поддержки"
+         ],
+         "Became a contributor": [
+            "Стать контрибьютором"
+         ],
+         "Settings": [
+            "Настройки"
+         ],
+         "Have a questions about contributing products?": [
+            "У Вас есть вопросы по поводу того, как добавить свои продукты на наш сайт?"
+         ],
+         "Contact us via %(link)s": [
+            "Свяжитесь с нами через %(link)s"
+         ],
+         "All Rights Reserved": [
+            "Все права защищены"
+         ],
+         "refund-policy.php": [
+            ""
+         ],
+         "Refund Policy": [
+            "Политика возврата"
+         ],
+         "Secure Payment": [
+            "Безопасные платежи"
+         ],
+         "Go to Homepage": [
+            "Вернуться на домашнюю страницу"
+         ],
+         "What you want to find": [
+            "То, что вы хотите найти"
+         ],
+         "Help": [
+            "Помощь"
+         ],
+         "Collection": [
+            "Коллекция"
+         ],
+         "Notifications": [
+            "Уведомления"
+         ],
+         "Account": [
+            "Акаунт"
+         ],
+         "Cart": [
+            "Корзина"
+         ],
+         "Operation": [
+            "Операция"
+         ],
+         "Date": [
+            "Дата"
+         ],
+         "Account & Transaction ID": [
+            "Счет и ID транзакции"
+         ],
+         "From": [
+            "От"
+         ],
+         "Order ID": [
+            "ID заказа:"
+         ],
+         "Billing history is empty yet": [
+            "История платежей до сих пор пуста "
+         ],
+         "After the first purchase you'll be able to view all the billing info in here": [
+            "После первой покупки Вы сможете просматривать всю информацию о платежах"
+         ],
+         "Please enter new email": [
+            "Введите новый email"
+         ],
+         "Please specify a valid email": [
+            "Уточните действующий email"
+         ],
+         "Please enter new password": [
+            "Введите новый пароль"
+         ],
+         "Six characters minimum and 50 maximum.": [
+            "Шесть символов минимум и максимум 50."
+         ],
+         "Please enter new phone number": [
+            "Введите новый номер телефона"
+         ],
+         "Please specify a valid phone number": [
+            "Укажите точный номер телефона"
+         ],
+         "Phone number saved!": [
+            "Номер телефона сохранен!"
+         ],
+         "Nickname saved!": [
+            "Никнейм сохранен!"
+         ],
+         "One More Step": [
+            "Еще один шаг"
+         ],
+         "confirm your new password": [
+            "подтвердите ваш новый пароль"
+         ],
+         "confirm your new email": [
+            "подтвердите ваш новый email"
+         ],
+         "We care about your security. Please, %(bold)s. We've sent you a confirmation link on %(email)s": [
+            "Мы беспокоимся о Вашей безопасности. Пожалуйста, %(bold)s. Мы отправили Вам ссылку для подтверждения на %(email)s"
+         ],
+         "Go to Gmail": [
+            "Перейти к Gmail"
+         ],
+         "Ok, Got It": [
+            "Хорошо"
+         ],
+         "You haven't left any review or rating": [
+            "Вы не оставили ни одного отзыва или оценки"
+         ],
+         "Here you will be able to rate your products & preview your raviews and ratings.": [
+            "Здесь вы сможете оценить товары, просмотреть свои отзывы и оценки"
+         ],
+         "Right now you have no products to rate": [
+            "Товаров для оценки отсутствуют"
+         ],
+         "My products": [
+            "Мои товары"
+         ],
+         "My reviews": [
+            "Мои отзывы"
+         ],
+         "Rate purchased template and get a discount up to 25% on all templatemonster themes": [
+            "Оцените приобретенный шаблон и получите скидку до 25% на все темы от TemplateMonster"
+         ],
+         "15%": [
+            "15%"
+         ],
+         "25%": [
+            "25%"
+         ],
+         "For your review you'll get an email with promo code discount of %(firstDiscount)s for 60+ characters and %(secondDiscount)s for 400+ characters": [
+            "За отзыв Вы получите электронное письмо с промо-кодом на скидку %(firstDiscount)s, если он будет содержать более 60 символов, и %(secondDiscount)s - за более 400 символов."
+         ],
+         "All": [
+            "Все"
+         ],
+         "For your review you'll get an email with promo code discount of %(firstDiscount)s for 60+ characters and %(secondDiscount)s 400+ characters": [
+            "За отзыв Вы получите электронное письмо с промо-кодом на скидку %(firstDiscount)s, если он будет содержать более 60 символов, и %(secondDiscount)s - за более 400 символов."
+         ],
+         "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
+            "Отзыв виден только Вам. Извините, но нам нужно проверить Ваш отзыв перед публикацией. В случае, если Ваш отзыв соответствует нашим правилам, он будет опубликован в ближайшее время :)"
+         ],
+         "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "К сожалению, мы не можем опубликовать Ваш отзыв, потому что он не соответствует нашим правилам. Пожалуйста, попробуйте написать другой отзыв."
+         ],
+         "Your review:": [
+            "Ваш отзыв:"
+         ],
+         "Please rate:": [
+            "Пожалуйста, поставьте оценку:"
+         ],
+         "Please contact us to verify the order": [
+            "Свяжитесь с нами для подтверждения заказа"
+         ],
+         "You've successfully made the payment, but we need additional confirmation. We're doing it for safety of your money. Please contact us in chat at any time.": [
+            "Вы успешно осуществили платеж, но нам необходимо дополнительное подтверждение. Мы делаем это для сохранности ваших денег. Пожалуйста, свяжитесь с нами в чате в любое время."
+         ],
+         "Start Chat": [
+            "Начать чат"
+         ],
+         "contact us": [
+            "связаться с нами"
+         ],
+         "We need additional confirmation by calling you on %(tel)s. You’ve successfully made the payment, but we’re doing it for safety of your money.%(br)s Waiting for the call for more than 15 minutes? Please %(link)s, we'll assist you shortly!": [
+            "Нам необходимо дополнительное подтверждение, мы свяжемся с Вами по %(tel)s. Вы успешно осуществили платеж, но мы делаем это для сохранности ваших денег. %(br)s Ожидаете звонок более 15 минут? Пожалуйста, %(link)s, мы поможем вам в ближайшее время!"
+         ],
+         "Not processed": [
+            "Не обработано"
+         ],
+         "Free": [
+            "Бесплатно"
+         ]
+      }
+   }
+}
