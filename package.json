@@ -53,7 +53,7 @@
     "postcss-inline-svg": "^2.3.0",
     "postcss-loader": "^1.2.0",
     "postcss-safe-parser": "^2.0.0",
-    "quark": "/home/stevenreed/Desktop/QUARK-React",
+    "quark": "git@github.com:templatemonster/QUARK-React.git",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
