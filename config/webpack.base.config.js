@@ -7,7 +7,7 @@ var nodeModulesPath = path.resolve(baseDir, 'node_modules');
 module.exports = {
   entry     : {
     MascotAndSocialProof : './entry/MascotAndSocialProof.js',
-    index    : './entry/index.js'
+    index                : './entry/index.js'
   },
   externals : {
     'react'     : 'React',

@@ -13,7 +13,7 @@ export default class MascotTest extends Component {
         </ul>
         <MascotComponent
           type="chan"
-          text="Plop Plop! I’m Dro, OpenCart monster. My mission is to give you some useful info."
+          text="<b>Plop Plop! I’m Dro</b>, OpenCart monster. My mission is to give you some useful info."
           timeout={0}
           button={{
             text   : 'it`s ok',

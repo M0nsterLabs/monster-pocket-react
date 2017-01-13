@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'quark/css/main.css';
+import HtmlToJsx from '../html-to-js';
 import {connectNotificationTrigger} from 'quark/lib/utils';
 import Mascot from './Mascot.jsx';
+import 'quark/css/main.css';
 
 export default class MascotWrapper extends React.Component {
   static propTypes = {
@@ -74,9 +75,9 @@ export default class MascotWrapper extends React.Component {
     return (<MascotWrapperTrigger
       notification={{
         code     : 'N1G',
-        text     : this.props.text,
+        text     : (<HtmlToJsx html={this.props.text} />),
         minWidth : "250px",
-        button   : this.props.button
+        button : this.props.button
       }}
       afterClose={this.closeMascot}
       notificationAlt={{status : false}}
