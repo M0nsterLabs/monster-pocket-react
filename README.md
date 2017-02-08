@@ -10,3 +10,14 @@
 
 a. npm test<br />
 b. npm test-coverage
+
+
+
+
+Work remote:
+
+who is MascotAndSocialProof look the entry point.
+
+var componentObject = MascotAndSocialProof('componentName');
+
+componentObject.show('className where show', params);

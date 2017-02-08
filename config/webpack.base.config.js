@@ -65,8 +65,6 @@ module.exports = {
       ],
       path.resolve(baseDir, 'src')
     )
-    // new ExtractTextPlugin('[name].css'),
-    // new OptimizeCssAssetsPlugin()
   ],
   resolve   : {
     extensions : ['', '.js', '.jsx']
