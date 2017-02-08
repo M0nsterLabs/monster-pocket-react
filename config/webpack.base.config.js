@@ -25,11 +25,11 @@ module.exports = {
     loaders    : [
       {
         test   : /\.css$/,
-        loader : ExtractTextPlugin.extract('style', 'css!postcss')
+        loader : 'style-loader!css-loader'
       },
       {
         test   : /\.less$/,
-        loader : ExtractTextPlugin.extract('style', 'css!postcss!less')
+        loader : 'style-loader!css-loader!less-loader'
       },
       {
         test    : /\.jsx?$/,
@@ -64,9 +64,9 @@ module.exports = {
         {from : 'www'}
       ],
       path.resolve(baseDir, 'src')
-    ),
-    new ExtractTextPlugin('[name].css'),
-    new OptimizeCssAssetsPlugin()
+    )
+    // new ExtractTextPlugin('[name].css'),
+    // new OptimizeCssAssetsPlugin()
   ],
   resolve   : {
     extensions : ['', '.js', '.jsx']

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && webpack-dev-server",
     "prepublish": "npm version patch",
-    "build": "webpack",
+    "build": "rm -rf ./build && webpack",
     "watch": "webpack -w",
     "rebuild": "npm install",
     "test": "jest",
