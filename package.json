@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && webpack-dev-server",
-    "prepublish" : "npm run build npm version patch",
+    "prepublish" : "npm run build && npm version patch",
     "build": "webpack",
     "watch": "webpack -w",
     "rebuild": "npm install",
