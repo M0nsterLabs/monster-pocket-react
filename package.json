@@ -30,6 +30,8 @@
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.9",
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
@@ -80,6 +82,13 @@
       "stage-0"
     ],
     "plugins": [
+      [
+        "transform-runtime",
+        {
+          "polyfill": false,
+          "regenerator": true
+        }
+      ],
       [
         "resolver",
         {
