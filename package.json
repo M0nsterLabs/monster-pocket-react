@@ -65,12 +65,12 @@
     "transfer-webpack-plugin": "^0.1.4",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2",
-    "webpack-merge": "^2.3.1"
-  },
-  "dependencies": {
+    "webpack-merge": "^2.3.1",
     "bluebird": "^3.4.6",
     "lodash": "^4.17.2",
     "nools": "^0.4.4"
+  },
+  "dependencies": {
   },
   "babel": {
     "presets": [
