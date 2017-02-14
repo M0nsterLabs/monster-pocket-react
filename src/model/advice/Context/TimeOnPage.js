@@ -1,9 +1,9 @@
 export default class TimeOnPage {
-	static seconds(n) {
-		return new TimeOnPage(n);
-	}
+  static seconds (n) {
+    return new TimeOnPage(n);
+  }
 
-	constructor(seconds) {
-		this.seconds = seconds;
-	}
+  constructor (seconds) {
+    this.seconds = seconds;
+  }
 }

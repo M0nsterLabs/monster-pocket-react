@@ -4,12 +4,12 @@ var baseDir = process.cwd();
 var buildPath = path.resolve(baseDir, 'build');
 module.exports = {
 
-  output    : {
+  output: {
     path     : buildPath,
     filename : '../build/[name].js',
     library  : ['[name]']
   },
-  devServer : {
+  devServer: {
     contentBase        : '../src/www',
     host               : '0.0.0.0',
     port               : 8001,
@@ -18,8 +18,8 @@ module.exports = {
     hot                : false,
     https              : false
   },
-  devtool   : ['source-map', 'css-loader?sourceMap'],
-  plugins   : [
+  devtool : ['source-map', 'css-loader?sourceMap'],
+  plugins : [
     new HtmlWebpackPlugin({
       template : baseDir + '/src/www/index.template.ejs',
       inject   : 'body',

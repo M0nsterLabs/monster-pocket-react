@@ -1,23 +1,21 @@
-var path = require('path');
-var TransferWebpackPlugin = require('transfer-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-var baseDir = process.cwd();
-var nodeModulesPath = path.resolve(baseDir, 'node_modules');
+const path = require('path');
+const TransferWebpackPlugin = require('transfer-webpack-plugin');
+const baseDir = process.cwd();
+const nodeModulesPath = path.resolve(baseDir, 'node_modules');
 
 module.exports = {
-  node: {fs: "empty"},
-  entry     : {
-    MascotAndSocialProof : './entry/MascotAndSocialProof.js',
-    advice: './src/model/advice/Advice.js',
+  node  : {fs: 'empty'},
+  entry : {
+    advice               : './src/model/advice/Advice.js',
+    mascotAndSocialProof : './entry/MascotAndSocialProof.js',
     index                : './entry/index.js'
   },
-  externals : {
+  externals: {
     'react'     : 'React',
     'react-dom' : 'ReactDOM'
   },
-  module    : {
-    preLoaders : [
+  module: {
+    preLoaders: [
       {
         test    : /\.js$/,
         loader  : 'eslint',
@@ -25,7 +23,7 @@ module.exports = {
         exclude : [nodeModulesPath]
       }
     ],
-    loaders    : [
+    loaders: [
       {
         test   : /\.css$/,
         loader : 'style-loader!css-loader'
@@ -38,13 +36,13 @@ module.exports = {
         test    : /\.jsx?$/,
         loader  : 'babel',
         exclude : nodeModulesPath,
-        query   : {presets : ['es2015', 'react', 'stage-0']}
+        query   : {presets: ['es2015', 'react', 'stage-0']}
       },
       {
         test    : /\.js?$/,
         loader  : 'babel',
         exclude : nodeModulesPath,
-        query   : {presets : ['es2015', 'react', 'stage-0']}
+        query   : {presets: ['es2015', 'react', 'stage-0']}
       },
       {
         test    : /\.(png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
@@ -52,24 +50,24 @@ module.exports = {
       }
     ]
   },
-  postcss   : function() {
+  postcss: function () {
     return [
       require('postcss-inline-svg'),
       require('autoprefixer')
     ];
   },
-  eslint    : {
-    configFile : '.eslintrc'
+  eslint: {
+    configFile: '.eslintrc'
   },
-  plugins   : [
+  plugins: [
     new TransferWebpackPlugin(
       [
-        {from : 'www'}
+        {from: 'www'}
       ],
       path.resolve(baseDir, 'src')
     )
   ],
-  resolve   : {
-    extensions : ['', '.js', '.jsx']
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   }
 };
