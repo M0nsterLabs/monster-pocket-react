@@ -4,9 +4,12 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var baseDir = process.cwd();
 var nodeModulesPath = path.resolve(baseDir, 'node_modules');
+
 module.exports = {
+  node: {fs: "empty"},
   entry     : {
     MascotAndSocialProof : './entry/MascotAndSocialProof.js',
+    advice: './src/model/advice/Advice.js',
     index                : './entry/index.js'
   },
   externals : {
