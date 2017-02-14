@@ -5,6 +5,7 @@ import App from '../src/pages/App';
 import Home from '../src/pages/Home';
 import Mascot from '../src/pages/MascotTest';
 import Socials from '../src/pages/SocialTest';
+import PopUp from '../src/pages/PopUpTest';
 
 import {
   Router,
@@ -19,6 +20,7 @@ render(
       <IndexRoute component={Home}/>
       <Route path='/mascot_test' component={Mascot}/>
       <Route path='/socials_test' component={Socials}/>
+      <Route path='/popups_test' component={PopUp}/>
     </Route>
   </Router>
   ,

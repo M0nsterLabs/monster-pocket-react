@@ -1,0 +1,35 @@
+@import "../../../www/styles/variables";
+
+.subscription-type__card {
+	padding: @s2;
+	height: 100%;
+	flex-grow: 1;
+	box-shadow: 0 10px 20px 0 red ;//243238
+
+	&:nth-of-type(1),
+	&:nth-of-type(5){
+		background: #243238;
+		height: ~'calc(100% - 40px)';
+	}
+
+	&:nth-of-type(3) {
+		background: #455A64;
+	}
+
+	&:nth-of-type(2),
+	&:nth-of-type(4) {
+		background: #334650;
+		height: ~'calc(100% - 20px)';
+	}
+
+	//temp styles - absence of H4 in QUARK
+	&__title {
+		text-transform: uppercase;
+		font-weight: bold;
+		margin-bottom: @s2;
+	}
+
+	&__img {
+		width: 120px;
+	}
+}
