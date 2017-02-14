@@ -23,27 +23,26 @@ export default class MascotWrapper extends React.Component {
   };
 
   status = {
-    umounted : false
+    umounted: false
   };
 
   state = {
-    hide : false
+    hide: false
   };
 
   closeMascot = () => {
     ReactDOM.findDOMNode(this.trigger.target.domNode).addEventListener('animationend', () => {
       this.setState({
-        hide : true
+        hide: true
       });
     });
     this.trigger.hideNotification(this, true);
   };
 
-
   showTooltip = () => {
     this.trigger.showNotification();
     let notice = ReactDOM.findDOMNode(this.trigger.notification.notification);
-    notice.style.width = "240px";
+    notice.style.width = '240px';
   };
 
   componentDidUpdate () {
@@ -69,18 +68,17 @@ export default class MascotWrapper extends React.Component {
     this.status.umounted = false;
   }
 
-
   render () {
     const MascotWrapperTrigger = connectNotificationTrigger(Mascot);
     return (<MascotWrapperTrigger
       notification={{
         code     : 'N1G',
         text     : (<HtmlToJsx html={this.props.text} />),
-        minWidth : "250px",
-        button : this.props.button
+        minWidth : '250px',
+        button   : this.props.button
       }}
       afterClose={this.closeMascot}
-      notificationAlt={{status : false}}
+      notificationAlt={{status: false}}
       trigger={this.trigger}
       ref={c => this.trigger = c}
       hide={this.state.hide}

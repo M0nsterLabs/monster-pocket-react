@@ -16,8 +16,8 @@ export default class MascotTest extends Component {
           text="<b>Plop Plop! I’m Dro</b>, OpenCart monster. My mission is to give you some useful info."
           timeout={0}
           button={{
-            text   : 'it`s ok',
-            action : 'close'
+            text    : 'it`s ok',
+            onClick : 'close'
           }}
         />
         {this.props.children}
