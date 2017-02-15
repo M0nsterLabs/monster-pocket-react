@@ -43,6 +43,20 @@ export default class SubscriptionTypeCard extends React.Component {
               <span className="sale">{currencySign} {saleAmount} off</span>
               per template
             </span>
+            <div>
+              <span>
+                <span>45</span>
+                <b>downloads</b>
+              </span>
+              <span>
+                <span>6</span>
+                <b>months</b>
+              </span>
+              <span>
+                <span>$999</span>
+                <b>to pay</b>
+              </span>
+            </div>
         </section>
       </div>
     );

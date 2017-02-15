@@ -4,16 +4,18 @@
 	padding: @s2 @s2 @s4;
 	min-height: 100%;
 	flex-grow: 1;
-	box-shadow: 0 10px 20px 0 #231d1d ;//243238
+
 
 	&:nth-of-type(1),
 	&:nth-of-type(5){
 		background: #243238;
 		padding-bottom: @s2;
+		box-shadow: 0 10px 20px 0 #243238 ;//243238
 	}
 
 	&:nth-of-type(3) {
 		background: #455A64;
+		box-shadow: 0 20px 20px -10px #243238;
 
 		.subscription-type__card__img {
 			width: 120px;
@@ -25,6 +27,8 @@
 		background: #334650;
 		padding-bottom: @s2 + @s1;
 		padding-top: @s2 + @s1;
+		box-shadow: 0 20px 20px -10px #243238;
+		z-index: 10;
 	}
 
 	//temp styles - absence of H4 in QUARK
@@ -68,10 +72,11 @@
 		}
 
 		&__sale-per-template {
+			color: #b0bec5;
 			display: table-cell;
-			vertical-align: top;
+			vertical-align: middle;
 			font-size: 14px;
-			padding: 5px 0;
+			//padding: 5px 0;
 			
 			.sale {
 				color: #FFE082;
