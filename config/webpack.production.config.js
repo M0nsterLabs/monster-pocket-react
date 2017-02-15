@@ -18,6 +18,7 @@ module.exports = {
     hot                : false,
     https              : false
   },
+  devtool : ['source-map'],
   plugins: [
     new Webpack.DefinePlugin({
       'process.env': {

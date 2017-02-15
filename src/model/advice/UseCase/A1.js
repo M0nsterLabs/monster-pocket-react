@@ -3,6 +3,8 @@ import TimeSpentOnPage from 'model/advice/Condition/TimeSpentOnPage';
 import Sales from 'model/advice/Condition/Sales';
 
 export default class A1 extends AbstractUseCase {
+  id = 'A1';
+
   conditions () {
     return [
       TimeSpentOnPage.seconds(5),

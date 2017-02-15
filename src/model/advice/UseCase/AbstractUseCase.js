@@ -1,6 +1,6 @@
 export default class AbstractUseCase {
   name () {
-    return this.constructor.name;
+    return this.id;
   }
 
   conditions () {
