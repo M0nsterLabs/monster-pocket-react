@@ -12,11 +12,15 @@
     padding-left: 50px;
     padding-right: 50px;
     border-radius: 3px;
-    color: #ffffff;
     position: relative;
     transition: margin .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     -webkit-transition: margin .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     -moz-transition: margin .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    .notice-text{
+      &.t3{
+        color: #ffffff;
+      }
+    }
     &_show {
       .animation-notice(show_notice);
     }

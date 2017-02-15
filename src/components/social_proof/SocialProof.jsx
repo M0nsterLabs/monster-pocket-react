@@ -4,11 +4,11 @@ import Shortid from 'shortid';
 import './SocialProof.less';
 export default class SocialProof extends React.Component {
   static propTypes = {
-    notice : React.PropTypes.oneOfType([
+    notice: React.PropTypes.oneOfType([
       React.PropTypes.array,
       React.PropTypes.object
     ]),
-    width  : React.PropTypes.number
+    width: React.PropTypes.number
   };
 
   static defaultProps = {
@@ -18,7 +18,7 @@ export default class SocialProof extends React.Component {
     }
   };
   state = {
-    notice : []
+    notice: []
   };
   isUpdate = false;
   refsArray = [];
@@ -32,7 +32,7 @@ export default class SocialProof extends React.Component {
         item.hide = false;
         return item;
       });
-    }else{
+    } else {
       let item = props.notice;
       item.type = item.type || 'default';
       item.icon = item.icon || false;
@@ -42,9 +42,9 @@ export default class SocialProof extends React.Component {
   };
 
   onHideNotice = (id) => {
-    const noticeHTML = this.refsArray.find((element)=>{
-      let result = undefined;
-      if(element.getAttribute('data-id') == id){
+    const noticeHTML = this.refsArray.find((element) => {
+      let result = null;
+      if (element.getAttribute('data-id') === id) {
         result = element;
       }
       return result;
@@ -55,7 +55,7 @@ export default class SocialProof extends React.Component {
     }, 1);
     state.notice = this.state.notice.map((element) => {
       let item = element;
-      if (item.id == id) {
+      if (item.id === id) {
         item.hide = true;
       }
       return item;
@@ -64,7 +64,7 @@ export default class SocialProof extends React.Component {
     this.setState(state);
     noticeHTML.addEventListener('animationend', () => {
       state.notice = this.state.notice.filter((element) => {
-        return element.id != id;
+        return element.id !== id;
       });
       this.setState(state);
       if (!this.state.notice.length) {
@@ -95,7 +95,7 @@ export default class SocialProof extends React.Component {
     }
     this.refsArray.forEach((element, i) => {
       if (totalHeight) {
-        if (i == 0) {
+        if (i === 0) {
           element.style.marginTop = (totalHeight * -1) + 'px';
         } else {
           element.style.marginTop = '20px';
@@ -146,16 +146,15 @@ export default class SocialProof extends React.Component {
     this.calcMarginTop();
   };
 
-
   componentWillMount = () => {
     let state = this.state;
     let notice = [];
     [...state.notice].forEach((element, i) => {
       element.id = Shortid.generate();
       if (element.className) {
-        element.className += ' notice_show'
+        element.className += ' notice_show';
       } else {
-        element.className = ' notice_show'
+        element.className = ' notice_show';
       }
       notice[i] = element;
     });
@@ -166,14 +165,14 @@ export default class SocialProof extends React.Component {
   render () {
     this.refsArray = [];
     return (
-      <div className="notice-wrapper" style={{width : this.props.width}}>
+      <div className="notice-wrapper" style={{width: this.props.width}}>
         {this.state.notice.map((item) => {
           const iconClass = (item.icon) ? `notice_has-icon notice_icon-${item.icon}` : '';
           return (
             <div
               className={`notice notice_type-${item.type} ${iconClass} ${(item.hide) ? 'notice_hide' : ''} ${item.className.length ? item.className : ''}`}
               key={item.id}
-              style={{marginTop : '-20px'}}
+              style={{marginTop: '-20px'}}
               data-id={item.id}
               ref={(e) => {
                 if (e) this.refsArray.push(e);
