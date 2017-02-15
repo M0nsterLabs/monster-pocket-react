@@ -1,6 +1,6 @@
 {
   "name": "monster-pocket-react",
-  "version": "1.0.17",
+  "version": "1.0.20",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -63,7 +63,7 @@
     "postcss-inline-svg": "^2.3.0",
     "postcss-loader": "^1.2.0",
     "postcss-safe-parser": "^2.0.0",
-    "quark": "git+https://git@github.com/templatemonster/QUARK-React.git",
+    "quark": "git+https://git@github.com/templatemonster/QUARK-React.git#v1.0.1",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
