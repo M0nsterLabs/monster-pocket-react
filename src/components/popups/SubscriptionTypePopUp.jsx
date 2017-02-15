@@ -1,6 +1,7 @@
 import React from 'react';
 import POP2 from 'quark/lib/popups/POP2';
 import Typography from 'quark/lib/typography';
+import Buttons from 'quark/lib/buttons';
 
 import SubscriptionTypeCard from './bits-and-pieces/SubscriptionTypeCard.jsx';
 import './SubscriptionTypePopUp.less';
@@ -56,23 +57,24 @@ export default class SubscriptionTypePopUp extends React.Component {
 
         <section className="subscription-type-popup__licenses">
           <SubscriptionTypeCard
-            subscriptionName="Bronze"
+            subscriptionType="bronze"
             subscriptionTypeImg="./img/license_types/bronze.png"
           />
           <SubscriptionTypeCard
-            subscriptionName="Silver"
+            subscriptionType="silver"
             subscriptionTypeImg="./img/license_types/silver.png"
           />
           <SubscriptionTypeCard
-            subscriptionName="Gold"
+            buttonType={Buttons.B1C}
+            subscriptionType="gold"
             subscriptionTypeImg="./img/license_types/gold.png"
           />
           <SubscriptionTypeCard
-            subscriptionName="Platinum"
+            subscriptionType="platinum"
             subscriptionTypeImg="./img/license_types/platinum.png"
           />
           <SubscriptionTypeCard
-            subscriptionName="Diamond"
+            subscriptionType="diamond"
             subscriptionTypeImg="./img/license_types/diamond.png"
           />
         </section>

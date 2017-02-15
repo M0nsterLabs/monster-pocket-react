@@ -1,35 +1,86 @@
 @import "../../../www/styles/variables";
 
 .subscription-type__card {
-	padding: @s2;
-	height: 100%;
+	padding: @s2 @s2 @s4;
+	min-height: 100%;
 	flex-grow: 1;
-	box-shadow: 0 10px 20px 0 red ;//243238
+	box-shadow: 0 10px 20px 0 #231d1d ;//243238
 
 	&:nth-of-type(1),
 	&:nth-of-type(5){
 		background: #243238;
-		height: ~'calc(100% - 40px)';
+		padding-bottom: @s2;
 	}
 
 	&:nth-of-type(3) {
 		background: #455A64;
+
+		.subscription-type__card__img {
+			width: 120px;
+		}
 	}
 
 	&:nth-of-type(2),
 	&:nth-of-type(4) {
 		background: #334650;
-		height: ~'calc(100% - 20px)';
+		padding-bottom: @s2 + @s1;
+		padding-top: @s2 + @s1;
 	}
 
 	//temp styles - absence of H4 in QUARK
 	&__title {
+		display: block;
 		text-transform: uppercase;
 		font-weight: bold;
 		margin-bottom: @s2;
 	}
 
 	&__img {
-		width: 120px;
+		width: 100px;
+		margin-bottom: @s4;
 	}
+
+	&__button {
+		margin-bottom: 20px;
+		text-transform: capitalize;
+	}
+
+	&__price-info {
+
+		&__price-per-template {
+			color: #76D48F;
+			font-weight: bold;
+			font-size: 40px;
+			display: table-cell;
+			padding-right: 10px;
+
+			.currency-sign {
+				font-size: 20px;
+				vertical-align: super;
+				margin-right: 1px;
+			}
+
+			.price {
+				vertical-align: text-top;
+				margin-top: 2px;
+				display: inline-block;
+			}
+		}
+
+		&__sale-per-template {
+			display: table-cell;
+			vertical-align: top;
+			font-size: 14px;
+			padding: 5px 0;
+			
+			.sale {
+				color: #FFE082;
+				font-size: 12px;
+				display: block;
+				text-align: left;
+				padding-bottom: 4px;
+			}
+		}
+	}
+
 }
