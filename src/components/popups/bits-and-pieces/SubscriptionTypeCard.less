@@ -4,6 +4,7 @@
 	padding: @s2 @s2 @s4;
 	min-height: 100%;
 	flex-grow: 1;
+	position: relative;
 
 
 	&:nth-of-type(1),
@@ -50,6 +51,11 @@
 	}
 
 	&__price-info {
+		position: relative;
+
+		&__wrapper {
+			margin-bottom: 20px;
+		}
 
 		&__price-per-template {
 			color: #76D48F;
@@ -86,6 +92,49 @@
 				padding-bottom: 4px;
 			}
 		}
+
+		&_detailed {
+			display: block;
+			margin-bottom: @s2;
+
+			&:last-of-type {
+				margin: 0;
+			}
+
+			&__value {
+				display: table-cell;
+				min-width: 58px;
+				text-align: right;
+				font-weight: bold;
+			}
+
+			&__label {
+				display: table-cell;
+				padding-left: 8px;
+				vertical-align: middle;
+			}
+		}
 	}
 
+	&__advice {
+		position: absolute;
+		left: -288px;
+		right: 98px;
+		bottom: -73px;
+		display: flex;
+		color: #ffecb3;
+
+		span {
+			font-family: 'BadScript', cursive;
+			font-size: 20px;
+			flex-grow: 2;
+			padding-top: 30px;
+			padding-right: 20px;
+		}
+
+		img {
+			display: inline-block;
+			flex-shrink: 3;
+		}
+	}
 }

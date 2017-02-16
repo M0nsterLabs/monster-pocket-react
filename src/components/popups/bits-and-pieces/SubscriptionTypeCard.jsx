@@ -11,16 +11,26 @@ export default class SubscriptionTypeCard extends React.Component {
     const currencySign = '$';
     const pricePerTemplate = '22';
     const saleAmount = '108';
+    const downloads = '45';
+    const months = '6';
+    const toPay = '999';
+
+    const DetailedInfo = (props) => (
+      <span className="subscription-type__card__price-info_detailed">
+          <T1 className="subscription-type__card__price-info_detailed__value">
+            {props.value}
+          </T1>
+          <T3 className="subscription-type__card__price-info_detailed__label">
+            {props.label}
+          </T3>
+        </span>
+    );
 
     return (
       <div className="subscription-type__card">
-        <Typography.T1
-          className   = "subscription-type__card__title"
-          themeType   = 'dark'
-          type        = 'default'
-        >
+        <T1 className="subscription-type__card__title">
           {this.props.subscriptionType}
-        </Typography.T1>
+        </T1>
         <img
           className   = "subscription-type__card__img"
           src         = {this.props.subscriptionTypeImg}
@@ -35,30 +45,55 @@ export default class SubscriptionTypeCard extends React.Component {
           {'Choose' + ' ' + this.props.subscriptionType}
         </Button>
         <section className="subscription-type__card__price-info">
-            <span className="subscription-type__card__price-info__price-per-template">
-              <span className="currency-sign">{currencySign}</span>
-              <span className="price">{pricePerTemplate}</span>
-            </span>
-            <span className="subscription-type__card__price-info__sale-per-template">
-              <span className="sale">{currencySign} {saleAmount} off</span>
-              per template
-            </span>
-            <div>
-              <span>
-                <span>45</span>
-                <b>downloads</b>
+            <div className="subscription-type__card__price-info__wrapper">
+              <span className="subscription-type__card__price-info__price-per-template">
+                <span className="currency-sign">{currencySign}</span>
+                <span className="price">{pricePerTemplate}</span>
               </span>
-              <span>
-                <span>6</span>
-                <b>months</b>
-              </span>
-              <span>
-                <span>$999</span>
-                <b>to pay</b>
+              <span className="subscription-type__card__price-info__sale-per-template">
+                <span className="sale">{currencySign} {saleAmount} off</span>
+                <T3>
+                  per template
+                </T3>
               </span>
             </div>
+            <div>
+              <DetailedInfo
+                value={downloads}
+                label="downloads"
+              />
+              <DetailedInfo
+                value={months}
+                label="months"
+              />
+              <DetailedInfo
+                value={currencySign+toPay}
+                label="to pay"
+              />
+            </div>
         </section>
+        {this.props.children}
       </div>
     );
   }
 }
+
+const T1 = (props) => (
+  <Typography.T1
+    className   = {props.className}
+    themeType   = 'dark'
+    type        = 'default'
+  >
+    {props.children}
+  </Typography.T1>
+);
+
+const T3 = (props) => (
+  <Typography.T3
+    className   = {props.className}
+    themeType   = 'dark'
+    type        = 'secondary'
+  >
+    {props.children}
+  </Typography.T3>
+);

@@ -11,14 +11,6 @@ export default class SubscriptionTypePopUp extends React.Component {
     showPopup: true
   };
 
-  static propTypes = {
-    //
-  };
-
-  static defaultProps = {
-    //
-  };
-
   hidePopUp = () => {
     this.licenceTypePopup.popup.animateClose();
     this.setState({
@@ -27,6 +19,29 @@ export default class SubscriptionTypePopUp extends React.Component {
   };
 
   render () {
+    const licenseTypes = ['bronze','silver','gold','platinum','diamond'];
+
+    const cards = licenseTypes.map((item, key) => {
+      const imgUrl = `./img/license_types/${item}.png`;
+      return (
+        <SubscriptionTypeCard
+          key                 = {key}
+          subscriptionType    = {item}
+          subscriptionTypeImg = {imgUrl}
+          buttonType          = {item ==='gold' ? Buttons.B1C : ''}
+        >
+          {item ==='gold' &&
+            <span className="subscription-type__card__advice">
+              <span>55% of customers choose this subscription</span>
+              <img
+                src="./img/license_types/arrow.svg"
+              />
+            </span>
+          }
+        </SubscriptionTypeCard>
+      )
+    });
+
     return (
       <POP2
         id               = "subscription-type-popup"
@@ -49,35 +64,18 @@ export default class SubscriptionTypePopUp extends React.Component {
           <Typography.T1
             themeType='dark'
             type='default'
-            className=''
           >
             You’ll be able to download certain quantity of any of 260+ Shopify templates for a chosen period of time!
           </Typography.T1>
         </div>
 
         <section className="subscription-type-popup__licenses">
-          <SubscriptionTypeCard
-            subscriptionType="bronze"
-            subscriptionTypeImg="./img/license_types/bronze.png"
-          />
-          <SubscriptionTypeCard
-            subscriptionType="silver"
-            subscriptionTypeImg="./img/license_types/silver.png"
-          />
-          <SubscriptionTypeCard
-            buttonType={Buttons.B1C}
-            subscriptionType="gold"
-            subscriptionTypeImg="./img/license_types/gold.png"
-          />
-          <SubscriptionTypeCard
-            subscriptionType="platinum"
-            subscriptionTypeImg="./img/license_types/platinum.png"
-          />
-          <SubscriptionTypeCard
-            subscriptionType="diamond"
-            subscriptionTypeImg="./img/license_types/diamond.png"
-          />
+          {cards}
         </section>
+
+        <span className="subscription-type-popup__advice">
+
+        </span>
       </POP2>
     );
   }
