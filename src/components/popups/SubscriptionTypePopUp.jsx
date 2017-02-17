@@ -3,7 +3,7 @@ import POP2 from 'quark/lib/popups/POP2';
 import Typography from 'quark/lib/typography';
 import Buttons from 'quark/lib/buttons';
 
-import SubscriptionTypeCard from './bits-and-pieces/SubscriptionTypeCard.jsx';
+import SubscriptionTypeCard, {T1, T3} from './bits-and-pieces/SubscriptionTypeCard.jsx';
 import './SubscriptionTypePopUp.less';
 
 export default class SubscriptionTypePopUp extends React.Component {
@@ -42,6 +42,25 @@ export default class SubscriptionTypePopUp extends React.Component {
       )
     });
 
+    const AskedQuestion = (props) => {
+      return (
+        <div className="subscription-type-popup__questions__item">
+          <img
+            className="subscription-type-popup__questions__item__icon"
+            src={props.icon}
+          />
+          <span className="subscription-type-popup__questions__item__description">
+            <T1 className="subscription-type-popup__questions__item__description__title font_bold">
+              {props.title}
+            </T1>
+            <T3 type="default">
+              {props.text}
+            </T3>
+          </span>
+        </div>
+      )
+    }
+
     return (
       <POP2
         id               = "subscription-type-popup"
@@ -73,9 +92,31 @@ export default class SubscriptionTypePopUp extends React.Component {
           {cards}
         </section>
 
-        <span className="subscription-type-popup__advice">
+        <Typography.H3
+          themeType='dark'
+          type='default'
+        >
+          The consumers usually ask before the purchase:
+        </Typography.H3>
 
+        <span className="subscription-type-popup__questions">
+          <AskedQuestion
+            icon  = "./img/license_types/icon-question.svg"
+            title = "What’s going to happen if the subscription expires but there are still downloads left?"
+            text  = "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. Unfortunately unused downloads will be unavailable."
+          />
+          <AskedQuestion
+            icon  = "./img/license_types/icon-support.svg"
+            title = "What’s going to happen if downloads are up before the subscription expires?"
+            text  = "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price."
+          />
         </span>
+
+        <T3
+          type="default"
+        >
+          Still have questions? <a href="#" className="font_bold">Contact us in chat</a>, we will help with the choice!
+        </T3>
       </POP2>
     );
   }

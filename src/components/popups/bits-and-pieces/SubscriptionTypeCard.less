@@ -9,14 +9,14 @@
 
 	&:nth-of-type(1),
 	&:nth-of-type(5){
-		background: #243238;
+		background: @subscription-card-bg;
 		padding-bottom: @s2;
-		box-shadow: 0 10px 20px 0 #243238 ;//243238
+		box-shadow: 0 10px 20px 0 @shadow-color;
 	}
 
 	&:nth-of-type(3) {
 		background: #455A64;
-		box-shadow: 0 20px 20px -10px #243238;
+		box-shadow: 0 20px 20px -10px @shadow-color;
 
 		.subscription-type__card__img {
 			width: 120px;
@@ -28,7 +28,7 @@
 		background: #334650;
 		padding-bottom: @s2 + @s1;
 		padding-top: @s2 + @s1;
-		box-shadow: 0 20px 20px -10px #243238;
+		box-shadow: 0 20px 20px -10px @shadow-color;
 		z-index: 10;
 	}
 
@@ -38,6 +38,22 @@
 		text-transform: uppercase;
 		font-weight: bold;
 		margin-bottom: @s2;
+
+		&.bronze {
+			color: #d7995c;
+		}
+		&.silver {
+			color: #cfd8dc;
+		}
+		&.gold {
+			color: #ffd54f;
+		}
+		&.platinum {
+			color: #ffffff;
+		}
+		&.diamond {
+			color: #90caf9;
+		}
 	}
 
 	&__img {

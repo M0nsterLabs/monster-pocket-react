@@ -28,7 +28,7 @@ export default class SubscriptionTypeCard extends React.Component {
 
     return (
       <div className="subscription-type__card">
-        <T1 className="subscription-type__card__title">
+        <T1 className={'subscription-type__card__title'+' '+this.props.subscriptionType}>
           {this.props.subscriptionType}
         </T1>
         <img
@@ -78,7 +78,7 @@ export default class SubscriptionTypeCard extends React.Component {
   }
 }
 
-const T1 = (props) => (
+export const T1 = (props) => (
   <Typography.T1
     className   = {props.className}
     themeType   = 'dark'
@@ -88,11 +88,11 @@ const T1 = (props) => (
   </Typography.T1>
 );
 
-const T3 = (props) => (
+export const T3 = (props) => (
   <Typography.T3
     className   = {props.className}
     themeType   = 'dark'
-    type        = 'secondary'
+    type        = {props.type || 'secondary'}
   >
     {props.children}
   </Typography.T3>

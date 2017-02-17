@@ -9,6 +9,7 @@ button {
 
   .popup__content {
     width: 984px;
+    margin: @s4 0 @s8;
 
     //костыль чтобы крестик был внутри контейнера
     .popup__close-btn {
@@ -34,7 +35,30 @@ button {
     justify-content: space-between;
     align-items: center;
     min-height: 300px;
-    margin-bottom: 40px;
+    margin-bottom: 155px;
   }
 
+  &__questions {
+    margin: @s4 0;
+    display: flex;
+    justify-content: space-between;
+
+    &__item {
+      display: inherit;
+      align-items: flex-start;
+
+      &__icon {
+        margin-right: @s2;
+      }
+
+      &__description {
+        text-align: left;
+        width: 392px;
+
+        &__title {
+          margin-bottom: @s2;
+        }
+      }
+    }
+  }
 }
