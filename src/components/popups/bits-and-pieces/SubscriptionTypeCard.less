@@ -1,22 +1,29 @@
 @import "../../../www/styles/variables";
+@import "../../../www/styles/animations";
 
 .subscription-type__card {
 	padding: @s2 @s2 @s4;
 	min-height: 100%;
 	flex-grow: 1;
 	position: relative;
+	.easeInOutBack(all, .3s, 0s);
 
+	&.scaled {
+		transform: scale(.8);
+	}
 
 	&:nth-of-type(1),
 	&:nth-of-type(5){
 		background: @subscription-card-bg;
 		padding-bottom: @s2;
 		box-shadow: 0 10px 20px 0 @shadow-color;
+		transition-delay: 0.3s;
 	}
 
 	&:nth-of-type(3) {
 		background: #455A64;
 		box-shadow: 0 20px 20px -10px @shadow-color;
+		transition-delay: 0.1s;
 
 		.subscription-type__card__img {
 			width: 120px;
@@ -30,6 +37,7 @@
 		padding-top: @s2 + @s1;
 		box-shadow: 0 20px 20px -10px @shadow-color;
 		z-index: 10;
+		transition-delay: 0.2s;
 	}
 
 	//temp styles - absence of H4 in QUARK
@@ -64,6 +72,7 @@
 	&__button {
 		margin-bottom: 20px;
 		text-transform: capitalize;
+		text-decoration: none;
 	}
 
 	&__price-info {
@@ -146,6 +155,8 @@
 			flex-grow: 2;
 			padding-top: 30px;
 			padding-right: 20px;
+			max-width: 334px;
+			display: table;
 		}
 
 		img {

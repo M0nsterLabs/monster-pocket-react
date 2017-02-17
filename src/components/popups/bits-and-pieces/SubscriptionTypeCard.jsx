@@ -1,19 +1,27 @@
 import React from 'react';
 import Typography from 'quark/lib/typography';
 import Buttons from 'quark/lib/buttons';
-import {sprintf} from 'sprintf-js';
 import './SubscriptionTypeCard.less';
 
 export default class SubscriptionTypeCard extends React.Component {
+  state = {
+    isCardVisible: false
+  };
+
+  componentDidMount () {
+    /** timeout is needed for demonstrating card appear animation **/
+    setTimeout(() => {
+      this.setState({
+        isCardVisible: true
+      });
+    }, 100);
+  }
 
   render () {
-    let Button = (this.props.buttonType) || Buttons.B2C;
-    const currencySign = '$';
-    const pricePerTemplate = '22';
-    const saleAmount = '108';
-    const downloads = '45';
-    const months = '6';
-    const toPay = '999';
+    let   Button            = (this.props.buttonType) || Buttons.B2C;
+    let   cardVisibility    = this.state.isCardVisible ? '' : 'opacity_null scaled';
+    // тут нужно передавать ссылку на продукт который попадет в виртуальную корзину (про виртуальную корзину читать тут http://confluence.devoffice.com/pages/viewpage.action?pageId=19399881)
+    const urlToAdd          = 'https://www.templatemonster.com/checkout.php?add=62046&channel=preview&price_variant=regular&p_62046_512=1&sc_62046_512=656&pr_62046_512=5937&oids%5B%5D=512&p_62046_239=2&sc_62046_239=656&pr_62046_239=1311&oids%5B%5D=239&p_62046_515=3&sc_62046_515=656&pr_62046_515=5948&oids%5B%5D=515&p_62046_420=4&sc_62046_420=656&pr_62046_420=3987&oids%5B%5D=420&_tmvcid=_vc_ats'
 
     const DetailedInfo = (props) => (
       <span className="subscription-type__card__price-info_detailed">
@@ -27,8 +35,8 @@ export default class SubscriptionTypeCard extends React.Component {
     );
 
     return (
-      <div className="subscription-type__card">
-        <T1 className={'subscription-type__card__title'+' '+this.props.subscriptionType}>
+      <div className={'subscription-type__card' + ' ' + cardVisibility}>
+        <T1 className={'subscription-type__card__title' + ' ' + this.props.subscriptionType}>
           {this.props.subscriptionType}
         </T1>
         <img
@@ -36,10 +44,10 @@ export default class SubscriptionTypeCard extends React.Component {
           src         = {this.props.subscriptionTypeImg}
         />
         <Button
-          onClick     = {() => {}}
+          href        = {urlToAdd}
           className   = "subscription-type__card__button"
           roundedType = "all"
-          type        = "text"
+          type        = "link"
           icon        = ""
         >
           {'Choose' + ' ' + this.props.subscriptionType}
@@ -47,11 +55,11 @@ export default class SubscriptionTypeCard extends React.Component {
         <section className="subscription-type__card__price-info">
             <div className="subscription-type__card__price-info__wrapper">
               <span className="subscription-type__card__price-info__price-per-template">
-                <span className="currency-sign">{currencySign}</span>
-                <span className="price">{pricePerTemplate}</span>
+                <span className="currency-sign">{this.props.currencySign}</span>
+                <span className="price">{this.props.pricePerTemplate}</span>
               </span>
               <span className="subscription-type__card__price-info__sale-per-template">
-                <span className="sale">{currencySign} {saleAmount} off</span>
+                <span className="sale">{this.props.currencySign} {this.props.saleAmount} off</span>
                 <T3>
                   per template
                 </T3>
@@ -59,15 +67,15 @@ export default class SubscriptionTypeCard extends React.Component {
             </div>
             <div>
               <DetailedInfo
-                value={downloads}
+                value={this.props.downloads}
                 label="downloads"
               />
               <DetailedInfo
-                value={months}
+                value={this.props.months}
                 label="months"
               />
               <DetailedInfo
-                value={currencySign+toPay}
+                value={this.props.currencySign + this.props.toPay}
                 label="to pay"
               />
             </div>

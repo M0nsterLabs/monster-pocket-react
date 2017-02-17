@@ -19,18 +19,32 @@ export default class SubscriptionTypePopUp extends React.Component {
   };
 
   render () {
-    const licenseTypes = ['bronze','silver','gold','platinum','diamond'];
+    // этот комопнент на вход должен получить по сути только объект с данными по лицензиям и колбек для открытия чата
+    const licenseTypes = ['bronze', 'silver', 'gold', 'platinum', 'diamond'];
+    const currencySign = '$';
 
     const cards = licenseTypes.map((item, key) => {
       const imgUrl = `./img/license_types/${item}.png`;
+      const pricePerTemplate  = '22';
+      const saleAmount        = '108';
+      const downloads         = '45';
+      const months            = '6';
+      const toPay             = '999';
+
       return (
         <SubscriptionTypeCard
           key                 = {key}
           subscriptionType    = {item}
           subscriptionTypeImg = {imgUrl}
-          buttonType          = {item ==='gold' ? Buttons.B1C : ''}
+          buttonType          = {item === 'gold' ? Buttons.B1C : ''}
+          currencySign        = {currencySign}
+          pricePerTemplate    = {pricePerTemplate}
+          saleAmount          = {saleAmount}
+          downloads           = {downloads}
+          months              = {months}
+          toPay               = {toPay}
         >
-          {item ==='gold' &&
+          {item === 'gold' &&
             <span className="subscription-type__card__advice">
               <span>55% of customers choose this subscription</span>
               <img
@@ -39,7 +53,7 @@ export default class SubscriptionTypePopUp extends React.Component {
             </span>
           }
         </SubscriptionTypeCard>
-      )
+      );
     });
 
     const AskedQuestion = (props) => {
@@ -58,8 +72,8 @@ export default class SubscriptionTypePopUp extends React.Component {
             </T3>
           </span>
         </div>
-      )
-    }
+      );
+    };
 
     return (
       <POP2
@@ -115,7 +129,7 @@ export default class SubscriptionTypePopUp extends React.Component {
         <T3
           type="default"
         >
-          Still have questions? <a href="#" className="font_bold">Contact us in chat</a>, we will help with the choice!
+          Still have questions? <a href="#" onClick={() => this.props.contacUsCallback()} className="font_bold">Contact us in chat</a>, we will help with the choice!
         </T3>
       </POP2>
     );
