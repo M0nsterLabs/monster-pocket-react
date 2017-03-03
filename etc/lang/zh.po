@@ -1,0 +1,61 @@
+#
+# Translators
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Template Monster\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-03 10:59+0200\n"
+"PO-Revision-Date: 2017-02-03 03:39:39-0500\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Resource-Id-Version: monster-react\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Collections"
+msgstr ""
+
+#, javascript-format
+msgid "%d Awesome Curated Collections"
+msgstr ""
+
+msgid ""
+"Don’t waste your time for searching a right template. Check these carefully "
+"selected best products."
+msgstr ""
+
+msgid "Create collection"
+msgstr ""
+
+#, javascript-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#, javascript-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#, javascript-format
+msgid "© %d Jetimpex, Inc. All Rights Reserved"
+msgstr ""
+
+msgid "4801 South University Drive, Suite 237, Ft. Lauderdale, FL 33328s"
+msgstr ""
+
+msgid "Privacy Policy"
+msgstr ""
+
+msgid "Refund Policy"
+msgstr ""
+
+msgid "Secure Payment"
+msgstr ""
+
+msgid "Home"
+msgstr ""

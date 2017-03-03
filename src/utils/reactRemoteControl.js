@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Shortid from 'shortid';
+import i18n from '../i18n/';
 
 export default class ReactRemoteControl {
   container = false;
   wrapper = false;
   components = {};
 
-  constructor (componentName) {
+  constructor (componentName, locale = 'en') {
     this.componentName = componentName;
     this.renderWrap();
   }
@@ -27,22 +28,33 @@ export default class ReactRemoteControl {
       document.getElementById(this.wrapper.id).remove();
     };
 
-    let Component = this.components[this.componentName];
-
-    ReactDOM.render(<Component  {...props} />,
-      this.wrapper.nodeElement
-    );
-    return {
-      props
-    };
+    const Component = this.components[this.componentName];
+    const localeService = new i18n.Factory('en');
+    localeService.whenLocaleIsLoaded(function (provider) {
+      ReactDOM.render(
+        <i18n.Provider i18n={provider}>
+          <Component  {...props} />
+        </i18n.Provider>,
+        this.wrapper.nodeElement
+      );
+      return {
+        props
+      };
+    });
   };
 
   update = (props = {}) => {
     let Component = this.components[this.componentName];
     if (this.container) {
-      ReactDOM.render(<Component  {...props}/>,
-        this.wrapper.nodeElement
-      );
+      const localeService = new i18n.Factory('en');
+      localeService.whenLocaleIsLoaded(function (provider) {
+        ReactDOM.render(
+          <i18n.Provider i18n={provider}>
+            <Component  {...props}/>
+          </i18n.Provider>,
+          this.wrapper.nodeElement
+        );
+      });
     } else {
       return `Component "${this.componentName}" is undefined`;
     }
@@ -62,5 +74,5 @@ export default class ReactRemoteControl {
 
   insertAfter = (newNode, referenceNode) => {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-  }
+  };
 }

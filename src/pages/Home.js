@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 export default class Home extends Component {
+  static contextTypes = {
+    i18n: React.PropTypes.object
+  };
   render () {
     return (
       <div className='container'>

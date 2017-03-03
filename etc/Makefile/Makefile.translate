@@ -1,0 +1,58 @@
+LANG.SRC.DIR = etc/lang
+LANG.DST.DIR = src/www/lang
+LANG.REF = $(LANG.SRC.DIR)/messages.pot
+LANG.AVAIL = $(patsubst %.po,%,$(notdir $(shell find $(LANG.SRC.DIR) -name ??.po)))
+LANG.PO = $(addprefix $(LANG.SRC.DIR)/,$(addsuffix .po, $(LANG.AVAIL)))
+LANG.JSON = $(addprefix $(LANG.DST.DIR)/,$(addsuffix .json, $(LANG.AVAIL)))
+
+TMP.TRANSLATE.DIR = $(TMP.DIR)/translate
+
+
+
+
+translate: $(LANG.JSON)
+
+
+$(LANG.DST.DIR)/%.json: $(LANG.SRC.DIR)/%.po
+	$(BIN)/po2json $< $@ -F -f jed1.x -p
+
+
+gettext:
+	rm -rf $(TMP.TRANSLATE.DIR)
+	$(BIN)/babel src/app -d $(TMP.TRANSLATE.DIR)/src
+	find $(TMP.TRANSLATE.DIR)/src -type f \
+		| xargs -t xgettext --keyword="l:1" \
+		 --keyword="l:1,2c" \
+		 --keyword="nl:1,2" \
+		 --keyword="nl:1,2,4c" \
+		 --language=JavaScript \
+		 --no-location \
+		 --from-code=UTF-8 \
+		 --output=$(LANG.REF)
+		 
+	find $(LANG.SRC.DIR) -name ??.po | xargs -L 1 -t -i msgmerge --backup=off -U {} $(LANG.REF)
+	rm -rf $(TMP.TRANSLATE.DIR)
+
+
+fetch:
+	wget -O $(LANG.SRC.DIR)/uk.po "http://ui.transifex.template-help.com/project/6/resource/329/language/88/export/"
+	wget -O $(LANG.SRC.DIR)/ar.po "http://ui.transifex.template-help.com/project/6/resource/329/language/3/export/"
+	wget -O $(LANG.SRC.DIR)/zh.po "http://ui.transifex.template-help.com/project/6/resource/329/language/91/export/"
+	wget -O $(LANG.SRC.DIR)/cs.po "http://ui.transifex.template-help.com/project/6/resource/329/language/13/export/"
+	wget -O $(LANG.SRC.DIR)/nl.po "http://ui.transifex.template-help.com/project/6/resource/329/language/62/export/"
+	wget -O $(LANG.SRC.DIR)/fr.po "http://ui.transifex.template-help.com/project/6/resource/329/language/28/export/"
+	wget -O $(LANG.SRC.DIR)/de.po "http://ui.transifex.template-help.com/project/6/resource/329/language/16/export/"
+	wget -O $(LANG.SRC.DIR)/hu.po "http://ui.transifex.template-help.com/project/6/resource/329/language/38/export/"
+	wget -O $(LANG.SRC.DIR)/it.po "http://ui.transifex.template-help.com/project/6/resource/329/language/43/export/"
+	wget -O $(LANG.SRC.DIR)/pl.po "http://ui.transifex.template-help.com/project/6/resource/329/language/68/export/"
+	wget -O $(LANG.SRC.DIR)/pt.po "http://ui.transifex.template-help.com/project/6/resource/329/language/70/export/"
+	wget -O $(LANG.SRC.DIR)/ru.po "http://ui.transifex.template-help.com/project/6/resource/329/language/72/export/"
+	wget -O $(LANG.SRC.DIR)/es.po "http://ui.transifex.template-help.com/project/6/resource/329/language/23/export/"
+	wget -O $(LANG.SRC.DIR)/tr.po "http://ui.transifex.template-help.com/project/6/resource/329/language/86/export/"
+	wget -O $(LANG.SRC.DIR)/uk.po "http://ui.transifex.template-help.com/project/6/resource/329/language/88/export/"
+	wget -O $(LANG.SRC.DIR)/sv.po "http://ui.transifex.template-help.com/project/6/resource/329/language/80/export/"
+
+
+lang-%:
+	$(if $(guile (shouldbe-language "$*")),$(info Creating translation into $*),$(error Invalid language identifier $*))
+	msginit -i $(LANG.REF) -l $* --no-translator -o $(LANG.SRC.DIR)/$*.po
