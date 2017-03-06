@@ -31,10 +31,8 @@ export default class MascotWrapper extends React.Component {
   };
 
   closeMascot = () => {
-    ReactDOM.findDOMNode(this.trigger.target.domNode).addEventListener('animationend', () => {
-      this.setState({
-        hide: true
-      });
+    this.setState({
+      hide : true
     });
     this.trigger.hideNotification(this, true);
   };
@@ -57,9 +55,9 @@ export default class MascotWrapper extends React.Component {
 
   componentDidMount () {
     let MascotDomElement = ReactDOM.findDOMNode(this.trigger.target.domNode).getElementsByClassName('mascot')[0];
-    MascotDomElement.addEventListener('animationend', () => {
+    setTimeout(() => {
       this.showTooltip();
-    });
+    }, 150);
     if (this.props.timeout) {
       setTimeout(() => {
         this.closeMascot();
