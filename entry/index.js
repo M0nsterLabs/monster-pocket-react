@@ -5,6 +5,7 @@ import App from '../src/pages/App';
 import Home from '../src/pages/Home';
 import Mascot from '../src/pages/MascotTest';
 import Socials from '../src/pages/SocialTest';
+import i18n from '../src/i18n';
 
 import {
   Router,
@@ -12,15 +13,19 @@ import {
   IndexRoute,
   browserHistory
 } from 'react-router';
-
-render(
-  <Router history={browserHistory}>
-    <Route path='/' component={App}>
-      <IndexRoute component={Home}/>
-      <Route path='/mascot_test' component={Mascot}/>
-      <Route path='/socials_test' component={Socials}/>
-    </Route>
-  </Router>
-  ,
-  document.getElementById('root')
-);
+const localeService = new i18n.Factory('ru');
+localeService.whenLocaleIsLoaded(function (provider) {
+  console.log('provider', provider);
+  render(
+    <i18n.Provider i18n={provider}>
+      <Router history={browserHistory}>
+        <Route path='/' component={App}>
+          <IndexRoute component={Home}/>
+          <Route path='/mascot_test' component={Mascot}/>
+          <Route path='/socials_test' component={Socials}/>
+        </Route>
+      </Router>
+    </i18n.Provider>,
+    document.getElementById('root')
+  );
+});

@@ -1,4 +1,14 @@
+NPM = npm
+WEBPACK = node_modules/.bin/webpack
+WEBPACK.SERVER = node_modules/.bin/webpack-dev-server
+TMP.DIR = tmp
+BIN = node_modules/.bin
 
+
+nothing:
+
+
+include etc/Makefile/Makefile.*
 
 build: always
 	npm run build
