@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 10:45+0200\n"
+"POT-Creation-Date: 2017-03-07 12:01+0200\n"
 "PO-Revision-Date: 2017-02-03 03:39:42-0500\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,9 @@ msgstr "Маскоты тест"
 
 msgid "Social test"
 msgstr "Социальный тест"
+
+msgid "test"
+msgstr "тест"
 
 #~ msgid "Collections"
 #~ msgstr "Коллекции"

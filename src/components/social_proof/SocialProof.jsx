@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import Shortid from 'shortid';
 import './SocialProof.less';
 export default class SocialProof extends React.Component {
+  static contextTypes = {
+    i18n: React.PropTypes.object
+  };
+
   static propTypes = {
     notice: React.PropTypes.oneOfType([
       React.PropTypes.array,
@@ -172,6 +176,7 @@ export default class SocialProof extends React.Component {
             <div
               className={`notice notice_type-${item.type} ${iconClass} ${(item.hide) ? 'notice_hide' : ''} ${item.className.length ? item.className : ''}`}
               key={item.id}
+              data-test={this.context.i18n.l('test')}
               style={{marginTop: '-20px'}}
               data-id={item.id}
               ref={(e) => {
