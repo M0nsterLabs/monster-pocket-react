@@ -14,7 +14,7 @@ export default class ReactRemoteControl {
     this.renderWrap();
   }
 
-  show = (whereRenderClass, props = {}) => {
+  show = (whereRenderClass, props = {}, wrapper = false) => {
     this.container = document.querySelector(whereRenderClass);
 
     /* if wrapper is undefined */
