@@ -32,7 +32,7 @@ export default class MascotWrapper extends React.Component {
 
   closeMascot = () => {
     this.setState({
-      hide: true
+      hide : true
     });
     this.trigger.hideNotification(this, true);
   };
