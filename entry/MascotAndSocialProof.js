@@ -3,8 +3,8 @@ import Mascot from 'components/mascot/MascotWrapper.jsx';
 import RRC from 'utils/reactRemoteControl.js';
 
 export default class IndexPage extends RRC {
-  constructor (componentName) {
-    super(componentName);
+  constructor (...params) {
+    super(...params);
     this.components = {
       Mascot,
       SocialProof

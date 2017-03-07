@@ -1,12 +1,12 @@
 import Tools from './Tools';
 
-function loadInternationalizationFile (localeToLoad) {
+function loadInternationalizationFile (localeToLoad, path) {
   if (localeToLoad === 'en') {
     // No need to load as UI already in English
     return Promise.resolve({});
   }
 
-  return fetch(`./lang/${localeToLoad}.json`).then(res => {
+  return fetch(`${path}/lang/${localeToLoad}.json`).then(res => {
     if (res.status >= 400) {
       throw new Error('Bad response from server');
     }
@@ -16,16 +16,21 @@ function loadInternationalizationFile (localeToLoad) {
 }
 
 export default class Factory {
-  constructor (locale = 'en') {
+  constructor (locale = 'en', path = '.') {
     if (typeof Factory.instance === 'object') {
       return Factory.instance;
     }
     this._locale = locale;
+    this._path = path;
     Factory.instance = this;
   }
 
   get loclae () {
     return this._locale;
+  }
+
+  get path () {
+    return this._path;
   }
 
   isLoaded () {
@@ -37,9 +42,10 @@ export default class Factory {
   }
 
   whenLocaleIsLoaded (callback) {
-    let locale = this._locale;
+    const locale = this._locale;
+    const path = this.path;
 
-    this::loadInternationalizationFile(locale).then(localeData => {
+    this::loadInternationalizationFile(locale, path).then(localeData => {
       this.i18nProvider = new Tools({
         localeData,
         locale
