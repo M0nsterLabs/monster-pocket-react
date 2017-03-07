@@ -1,6 +1,6 @@
 {
-  "name": "monster-pocket-react",
-  "version": "1.0.26",
+  "name": "plasma-pocket-react",
+  "version": "1.0.27",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/M0nsterLabs/monster-pocket-react.git"
+    "url": "https://github.com/Plasma-Platform/Plasma-Pocket-React.git"
   },
   "author": "stevenreed",
   "license": "ISC",
