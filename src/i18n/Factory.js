@@ -7,6 +7,7 @@ function loadInternationalizationFile (localeToLoad, path) {
   }
 
   return fetch(`${path}/lang/${localeToLoad}.json`).then(res => {
+    console.log('res', res);
     if (res.status >= 400) {
       throw new Error('Bad response from server');
     }
