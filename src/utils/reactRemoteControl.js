@@ -14,7 +14,7 @@ export default class ReactRemoteControl {
     this.renderWrap();
   }
 
-  show = (whereRenderClass, props = {}, wrapper = false) => {
+  show = (whereRenderClass, props = {}) => {
     this.container = document.querySelector(whereRenderClass);
 
     /* if wrapper is undefined */
@@ -31,7 +31,7 @@ export default class ReactRemoteControl {
 
     const Component = this.components[this.componentName];
     const localeService = new i18n.Factory(this.locale);
-    localeService.whenLocaleIsLoaded(function (provider) {
+    localeService.whenLocaleIsLoaded(provider => {
       ReactDOM.render(
         <i18n.Provider i18n={provider}>
           <Component  {...props} />
