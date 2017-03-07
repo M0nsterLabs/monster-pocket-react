@@ -1,4 +1,8 @@
 
+nothing:
+
+
+include etc/Makefile/Makefile.*
 
 build: always
 	npm run build
