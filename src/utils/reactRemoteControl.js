@@ -8,9 +8,10 @@ export default class ReactRemoteControl {
   wrapper = false;
   components = {};
 
-  constructor (componentName, locale = 'en') {
+  constructor (componentName, locale = 'en', path = '.') {
     this.componentName = componentName;
     this.locale = locale;
+    this.path = path;
     this.renderWrap();
   }
 
@@ -30,7 +31,7 @@ export default class ReactRemoteControl {
     };
 
     const Component = this.components[this.componentName];
-    const localeService = new i18n.Factory(this.locale);
+    const localeService = new i18n.Factory(this.locale, this.path);
     localeService.whenLocaleIsLoaded(provider => {
       ReactDOM.render(
         <i18n.Provider i18n={provider}>
