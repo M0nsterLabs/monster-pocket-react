@@ -19,12 +19,12 @@ $(LANG.DST.DIR)/%.json: $(LANG.SRC.DIR)/%.po
 
 gettext:
 	rm -rf $(TMP.TRANSLATE.DIR)
-	$(BIN)/babel src/app -d $(TMP.TRANSLATE.DIR)/src
+	$(BIN)/babel src -d $(TMP.TRANSLATE.DIR)/src
 	find $(TMP.TRANSLATE.DIR)/src -type f \
 		| xargs -t xgettext --keyword="l:1" \
-		 --keyword="l:1,2c" \
-		 --keyword="nl:1,2" \
-		 --keyword="nl:1,2,4c" \
+		 --keyword="this.context.i18n.l:1,2c" \
+		 --keyword="this.context.i18n.nl:1,2" \
+		 --keyword="this.context.i18n.nl:1,2,4c" \
 		 --language=JavaScript \
 		 --no-location \
 		 --from-code=UTF-8 \

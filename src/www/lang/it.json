@@ -5,16 +5,16 @@
          "": {
             "domain": "messages",
             "plural_forms": "nplurals=2; plural=(n != 1)",
-            "lang": "ru"
+            "lang": "it"
          },
          "Home": [
-            "Дом"
+            ""
          ],
          "Mascot test": [
-            "Маскоты тест"
+            ""
          ],
          "Social test": [
-            "Социальный тест"
+            ""
          ]
       }
    }

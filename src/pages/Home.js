@@ -8,10 +8,10 @@ export default class Home extends Component {
   render () {
     return (
       <div className='container'>
-        <h1>Home</h1>
+        <h1>{this.context.i18n.l('Home')}</h1>
         <ul>
-          <li><Link to='/mascot_test'>Mascot test</Link></li>
-          <li><Link to='/socials_test'>Social test</Link></li>
+          <li><Link to='/mascot_test'>{this.context.i18n.l('Mascot test')}</Link></li>
+          <li><Link to='/socials_test'>{this.context.i18n.l('Social test')}</Link></li>
         </ul>
         {/* добавили вывод потомков */}
         {this.props.children}

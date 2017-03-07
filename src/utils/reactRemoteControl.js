@@ -10,10 +10,11 @@ export default class ReactRemoteControl {
 
   constructor (componentName, locale = 'en') {
     this.componentName = componentName;
+    this.locale = locale;
     this.renderWrap();
   }
 
-  show = (whereRenderClass, props = {}, wrapper = false) => {
+  show = (whereRenderClass, props = {}) => {
     this.container = document.querySelector(whereRenderClass);
 
     /* if wrapper is undefined */
@@ -29,7 +30,7 @@ export default class ReactRemoteControl {
     };
 
     const Component = this.components[this.componentName];
-    const localeService = new i18n.Factory('en');
+    const localeService = new i18n.Factory(this.locale);
     localeService.whenLocaleIsLoaded(function (provider) {
       ReactDOM.render(
         <i18n.Provider i18n={provider}>

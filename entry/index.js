@@ -13,7 +13,7 @@ import {
   IndexRoute,
   browserHistory
 } from 'react-router';
-const localeService = new i18n.Factory('en');
+const localeService = new i18n.Factory('ru');
 localeService.whenLocaleIsLoaded(function (provider) {
   console.log('provider', provider);
   render(

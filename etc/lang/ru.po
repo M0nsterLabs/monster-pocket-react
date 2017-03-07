@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-03 10:59+0200\n"
+"POT-Creation-Date: 2017-03-07 10:45+0200\n"
 "PO-Revision-Date: 2017-02-03 03:39:42-0500\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -14,52 +14,33 @@ msgstr ""
 "Resource-Id-Version: monster-react\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-msgid "Collections"
-msgstr "Коллекции"
+msgid "Home"
+msgstr "Дом"
 
-#, javascript-format
-msgid "%d Awesome Curated Collections"
-msgstr ""
+msgid "Mascot test"
+msgstr "Маскоты тест"
 
-msgid ""
-"Don’t waste your time for searching a right template. Check these carefully "
-"selected best products."
-msgstr ""
+msgid "Social test"
+msgstr "Социальный тест"
+
+#~ msgid "Collections"
+#~ msgstr "Коллекции"
 
 #, fuzzy
-msgid "Create collection"
-msgstr "Коллекции"
+#~ msgid "Create collection"
+#~ msgstr "Коллекции"
 
-#, fuzzy, javascript-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] "%d час"
-msgstr[1] "%d час"
+#, fuzzy
+#~ msgid "%d hour"
+#~ msgid_plural "%d hours"
+#~ msgstr[0] "%d час"
+#~ msgstr[1] "%d час"
 
-#, fuzzy, javascript-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d минута"
-msgstr[1] "%d минута"
-
-#, javascript-format
-msgid "© %d Jetimpex, Inc. All Rights Reserved"
-msgstr ""
-
-msgid "4801 South University Drive, Suite 237, Ft. Lauderdale, FL 33328s"
-msgstr ""
-
-msgid "Privacy Policy"
-msgstr ""
-
-msgid "Refund Policy"
-msgstr ""
-
-msgid "Secure Payment"
-msgstr ""
-
-msgid "Home"
-msgstr ""
+#, fuzzy
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "%d минута"
+#~ msgstr[1] "%d минута"
 
 #~ msgid "%d hours"
 #~ msgstr "%d час"
