@@ -11,9 +11,7 @@ describe('js api', function () {
 
 		this.assertUseCase = function (useCase) {
 			const match = this.advice.match()[0];
-			expect(match).to.have.any.keys({
-				useCase: useCase
-			});
+			expect(match).to.have.property('useCase', useCase);
 		};
 
 		this.assertNoMatch = function () {
@@ -80,12 +78,12 @@ describe('js api', function () {
 		beforeEach(function () {
 			this.assertMatches = function (n) {
 				this.advice.timeOnPage(n);
-				expect(this.advice.match()).to.deep.equal ([{useCase: 'A2'}]);
-			}
+				expect(this.advice.match()).to.deep.equal([{useCase: 'A2'}]);
+			};
 
 			this.assertDoesNotMatches = function (n) {
 				this.advice.timeOnPage(n);
-				expect(this.advice.match()).to.deep.equal ([]);
+				expect(this.advice.match()).to.deep.equal([]);
 			}
 		});
 
@@ -93,6 +91,27 @@ describe('js api', function () {
 			this.assertMatches(40);
 			this.assertDoesNotMatches(39);
 			this.assertDoesNotMatches(41);
+		});
+	});
+
+
+	describe('A4', function () {
+		it('can be found when the time is right', function () {
+			this.advice.timeOnPage(35);
+			this.advice.userPurchaseCount(0);
+			this.assertUseCase('A4');
+		});
+		
+		it('does not appear when the time is not favorable', function () {
+			this.advice.timeOnPage(15);
+			this.advice.userPurchaseCount(0);
+			this.assertNoMatch ();
+		});
+
+		it('does not appear when the user has bought at least once from us', function () {
+			this.advice.timeOnPage(35);
+			this.advice.userPurchaseCount(1);
+			this.assertNoMatch ();
 		});
 	});
 

@@ -1,7 +1,6 @@
 import Flow from 'model/advice/Flow';
 import UseCase from 'model/advice/UseCase';
-import TimeOnPage from 'model/advice/Context/TimeOnPage';
-import Product from 'model/advice/Context/Product';
+import * as Context from 'model/advice/Context';
 
 export default class Advice {
   constructor () {
@@ -9,27 +8,34 @@ export default class Advice {
     this.flow = new Flow(name);
     this.flow.addUseCase(UseCase.A1);
     this.flow.addUseCase(UseCase.A2);
+    this.flow.addUseCase(UseCase.A4);
     this.flow.addUseCase(UseCase.A8);
   }
 
   timeOnPage (n) {
-    this.flow.replace(TimeOnPage.seconds(n));
+    this.flow.replace(Context.TimeOnPage.seconds(n));
+  }
+
+  userPurchaseCount (n) {
+    this.flow.swap(Context.User, function (user) {
+      user.purchases = n;
+    })
   }
 
   numberOfSales (n) {
-    this.flow.swap(Product, function (p) {
+    this.flow.swap(Context.Product, function (p) {
       p.sales = n;
     });
   }
 
   buyout (price) {
-    this.flow.swap(Product, function (p) {
+    this.flow.swap(Context.Product, function (p) {
       p.buyout = price;
     });
   }
 
   singleSiteLicense (price) {
-    this.flow.swap(Product, function (p) {
+    this.flow.swap(Context.Product, function (p) {
       p.singleSite = price;
     });
   }

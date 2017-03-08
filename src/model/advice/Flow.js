@@ -65,6 +65,7 @@ export default class Flow {
       _.forEach(this.useCases, (UseCase) => {
         const ucase = _.isFunction(UseCase) ? new UseCase() : UseCase;
         const flowRule = flow.rule;
+
         flowRule.call(flow, ucase.name(), ucase.conditions(), function (ucase) {
           return function (facts, b) {
             var result = ucase.action(facts);
