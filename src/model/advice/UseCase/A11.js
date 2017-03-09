@@ -2,8 +2,8 @@ import AbstractUseCase from 'model/advice/UseCase/AbstractUseCase';
 import TimeSpentOnPage from 'model/advice/Condition/TimeSpentOnPage';
 import NoPurchases from 'model/advice/Condition/NoPurchases';
 
-export default class A4 extends AbstractUseCase {
-  id = 'A4';
+export default class A11 extends AbstractUseCase {
+  id = 'A11';
 
   conditions () {
     return [
