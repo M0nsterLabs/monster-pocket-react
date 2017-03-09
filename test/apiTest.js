@@ -9,20 +9,30 @@ describe('js api', function () {
 	beforeEach(function () {
 		this.advice = new Advice();
 
-		this.assertUseCase = function (useCase) {
-			const match = this.advice.match()[0];
-			expect(match).to.have.property('useCase', useCase);
+		this._foundAmong = function (useCases, matches) {
+			useCases = _.isArray(useCases) ? useCases : [useCases];
+
+			const found = _.map(matches, function (obj) {
+				return obj.useCase;
+			});
+
+			return [useCases, _.intersection(useCases, found)]
 		};
 
-		this.assertNoMatch = function () {
-			const match = this.advice.match();
-			expect(match).to.deep.equal([]);
-		}
-	});
+		this.assertUseCase = (useCase, done = _.noop) => {
+			this.advice.match().then((matches) => {
+				const [ucase, intersection] = this._foundAmong(useCase, matches);
+				expect(intersection).to.deep.equal(ucase);
+			}).then(done);
+		};
 
-	it('return an empty array when there is no match', function () {
-		this.advice.assert(new TimeOnPage(115));
-		this.assertNoMatch();
+		this.assertNoMatch = (useCase, done) => {
+			this.advice.match().then((match) => {
+				const [, intersection] = this._foundAmong(useCase, match);
+				expect(intersection).to.deep.equal([]);
+				done();
+			})
+		}
 	});
 
 
@@ -49,49 +59,43 @@ describe('js api', function () {
 				this.advice.assert(new Product(n));
 			};
 
-			this.assertHasBeenWatchedTimes = function (a, b) {
-				const match = this.advice.match()[0];
+			this.assertHasBeenWatchedTimes = function (a, b, done) {
+				this.advice.match().then(function (match) {
+					const hasBeenWatched = match[0].views;
+					expect(hasBeenWatched).to.not.be.undefined;
 
-				const hasBeenWatched = match.views;
-				expect(hasBeenWatched).to.not.be.undefined;
-
-				expect(hasBeenWatched).to.be.at.least(a);
-				expect(hasBeenWatched).to.be.at.most(b);
+					expect(hasBeenWatched).to.be.at.least(a);
+					expect(hasBeenWatched).to.be.at.most(b);
+					done();
+				});
 			}
 		});
 
-		it('matches nothing if number of sales is too low', function () {
+		it('matches nothing if number of sales is too low', function (done) {
 			this.willCreateTimeAndSalesCount(5, 5);
-			expect(this.advice.match()).to.deep.equal([]);
+			this.assertUseCase([], done)
 		});
 
-		it('returns A1 when it matches the conditions', function () {
+		it('returns A1 when it matches the conditions', function (done) {
 			this.willCreateTimeAndSalesCount(5, 15);
 
 			this.assertUseCase('A1');
-			this.assertHasBeenWatchedTimes(2, 4);
+			this.assertHasBeenWatchedTimes(2, 4, done);
 		});
 	});
 
 
 	describe('A2', function () {
-		beforeEach(function () {
-			this.assertMatches = function (n) {
-				this.advice.timeOnPage(n);
-				expect(this.advice.match()).to.deep.equal([{useCase: 'A2'}]);
-			};
-
-			this.assertDoesNotMatches = function (n) {
-				this.advice.timeOnPage(n);
-				expect(this.advice.match()).to.deep.equal([]);
-			}
+		it('shows up when exactly 40 seconds are up', function (done) {
+			this.advice.timeOnPage(40);
+			this.assertUseCase('A2', done);
 		});
 
-		it('shows up when exactly 40 seconds are up', function () {
-			this.assertMatches(40);
-			this.assertDoesNotMatches(39);
-			this.assertDoesNotMatches(41);
+		it('does not match when the time is wrong', function (done) {
+			this.advice.timeOnPage(41);
+			this.assertNoMatch('A2', done)
 		});
+
 	});
 
 
@@ -101,60 +105,103 @@ describe('js api', function () {
 			this.advice.userPurchaseCount(0);
 			this.assertUseCase('A4');
 		});
-		
-		it('does not appear when the time is not favorable', function () {
+
+		it('does not appear when the time is not favorable', function (done) {
 			this.advice.timeOnPage(15);
 			this.advice.userPurchaseCount(0);
-			this.assertNoMatch ();
+			this.assertNoMatch('A4', done);
 		});
 
-		it('does not appear when the user has bought at least once from us', function () {
+		it('does not appear when the user has bought at least once from us', function (done) {
 			this.advice.timeOnPage(35);
 			this.advice.userPurchaseCount(1);
-			this.assertNoMatch ();
+			this.assertNoMatch('A4', done);
 		});
 	});
 
 
+	describe('A5', function () {
+		it('can be found when the time is right', function (done) {
+			this.advice.timeOnPage(10);
+			this.advice.userCountry('US');
+			this.advice.numberOfSales(50);
+
+			this.assertUseCase('A5', done);
+		});
+
+		it('does not show up when the country differs', function (done) {
+			this.advice.timeOnPage(10);
+			this.advice.numberOfSales(50);
+			this.advice.userCountry('CA');
+			this.assertNoMatch('A5', done);
+		});
+
+		it('does not show up when the number of sales is less than 50', function (done) {
+			this.advice.timeOnPage(10);
+			this.advice.numberOfSales(49);
+			this.advice.userCountry('US');
+
+			this.assertNoMatch('A5', done);
+		});
+
+	});
+
 	describe('A8', function () {
 		beforeEach(function () {
-			this.assertBuyout = function (buyout, productionPrice) {
-				this.advice = new Advice();
+			this.willHaveSingleSitePrice = function (price) {
 				this.advice.timeOnPage(10);
-				this.advice.buyout(buyout);
-				const match = this.advice.match();
-				this.assertUseCase('A8');
-				expect(match[0]).to.have.any.keys({
-					spent: productionPrice
-				});
+				this.advice.singleSiteLicense(price);
 			};
 
-			this.assertPrice = function (singleSitePrice) {
-				this.advice = new Advice();
+			this.willHaveBuyoutPrice = function (price) {
 				this.advice.timeOnPage(10);
-				this.advice.singleSiteLicense(singleSitePrice);
-				const match = this.advice.match();
-				this.assertUseCase('A8');
-				expect(match[0]).to.have.any.keys({
-					price: singleSitePrice,
-				});
+				this.advice.buyout(price);
+			};
+
+
+			this.assertBuyout = function (productionPrice, done = _.noop) {
+				this.advice.match()
+					.then((match) => {
+						expect(_.get(match, [0, "spent"])).to.equal(productionPrice);
+						done();
+					});
+			};
+
+			this.assertPrice = function (singleSitePrice, done = _.noop) {
+				this.advice.match().then((match)=> {
+					expect(match[0]).to.have.any.keys({
+						price: singleSitePrice,
+					});
+					done();
+				})
 			}
 		});
 
-		it('does not match when it was less than 10 seconds on the page', function () {
-			this.advice = new Advice();
+		it('does not match when it was less than 10 seconds on the page', function (done) {
 			this.advice.timeOnPage(9);
-			this.assertNoMatch();
+			this.assertNoMatch('A8', done);
 		});
 
-		it('calculates production price given buyout price', function () {
-			this.assertBuyout(1000, 880);
-			this.assertBuyout(2000, 1760);
+
+		it('calculates production price given buyout price', function (done) {
+			this.willHaveBuyoutPrice(1000);
+			this.assertBuyout(880, done);
 		});
 
-		it('shows correct price according to single site license price', function () {
-			this.assertPrice(67);
-			this.assertPrice(128);
+		it('returns correct price for a 2000 buyout', function (done) {
+			this.willHaveBuyoutPrice(2000);
+			this.assertBuyout(1760, done);
+		});
+
+
+		it('shows correct price according to single site license price', function (done) {
+			this.willHaveSingleSitePrice(67);
+			this.assertUseCase('A8', done);
+		});
+
+		it('test', function (done) {
+			this.willHaveSingleSitePrice(128);
+			this.assertUseCase('A8', done);
 		});
 	});
 });

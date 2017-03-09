@@ -9,8 +9,9 @@ describe('Context', function () {
 	});
 
 	it('can create User context', function () {
-		const u = new User (1);
+		const u = new User (1, 'US');
 		expect (u.purchases).to.equal (1);
+		expect (u.country).to.equal ('US');
 	});
 
 });

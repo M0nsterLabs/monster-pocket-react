@@ -1,5 +1,6 @@
 export default class User {
-	constructor(purchases) {
+	constructor(purchases, country) {
 		this.purchases = purchases;
+		this.country = country;
 	}
 }

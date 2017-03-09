@@ -10,7 +10,8 @@
     "prepublish": "npm run build:production",
     "watch": "webpack -w",
     "rebuild": "npm install",
-    "test": "jest",
+    "test:jest": "jest",
+    "test": "mocha --compilers js:babel-register",
     "test-coverage": "jest --coverage"
   },
   "jest": {
