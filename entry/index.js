@@ -13,9 +13,8 @@ import {
   IndexRoute,
   browserHistory
 } from 'react-router';
-const localeService = new i18n.Factory('ru');
+const localeService = new i18n.Factory();
 localeService.whenLocaleIsLoaded(function (provider) {
-  console.log('provider', provider);
   render(
     <i18n.Provider i18n={provider}>
       <Router history={browserHistory}>

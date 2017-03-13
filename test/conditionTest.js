@@ -3,8 +3,8 @@ import {expect} from 'chai';
 
 
 describe('Conditions', function () {
-	describe('Country of origin', function () {
-		const country = CountryOfOrigin.equals ('US');
-		expect (country[2]).to.equal('u.country == "US"');
-	});
+  describe('Country of origin', function () {
+    const country = CountryOfOrigin.equals('US');
+    expect(country[2]).to.equal('u.country == "US"');
+  });
 });

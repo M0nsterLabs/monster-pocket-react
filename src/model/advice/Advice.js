@@ -4,58 +4,58 @@ import _ from 'lodash';
 import * as Context from 'model/advice/Context';
 
 export default class Advice {
-	constructor() {
-		const name = '' + new Date();
-		this.flow = new Flow(name);
+  constructor () {
+    const name = '' + new Date();
+    this.flow = new Flow(name);
 
-		_.each(UseCase, (e) => {
-			this.flow.addUseCase(e);
-		});
-	}
+    _.each(UseCase, (e) => {
+      this.flow.addUseCase(e);
+    });
+  }
 
-	timeOnPage(n) {
-		this.flow.replace(Context.TimeOnPage.seconds(n));
-	}
+  timeOnPage (n) {
+    this.flow.replace(Context.TimeOnPage.seconds(n));
+  }
 
-	userCountry (s) {
-		this.flow.swap(Context.User, function (user) {
-			user.country = s;
-		});
-	}
+  userCountry (s) {
+    this.flow.swap(Context.User, function (user) {
+      user.country = s;
+    });
+  }
 
-	userPurchaseCount(n) {
-		this.flow.swap(Context.User, function (user) {
-			user.purchases = n;
-		})
-	}
+  userPurchaseCount (n) {
+    this.flow.swap(Context.User, function (user) {
+      user.purchases = n;
+    });
+  }
 
-	numberOfSales(n) {
-		this.flow.swap(Context.Product, function (p) {
-			p.sales = n;
-		});
-	}
+  numberOfSales (n) {
+    this.flow.swap(Context.Product, function (p) {
+      p.sales = n;
+    });
+  }
 
-	buyout(price) {
-		this.flow.swap(Context.Product, function (p) {
-			p.buyout = price;
-		});
-	}
+  buyout (price) {
+    this.flow.swap(Context.Product, function (p) {
+      p.buyout = price;
+    });
+  }
 
-	singleSiteLicense(price) {
-		this.flow.swap(Context.Product, function (p) {
-			p.singleSite = price;
-		});
-	}
+  singleSiteLicense (price) {
+    this.flow.swap(Context.Product, function (p) {
+      p.singleSite = price;
+    });
+  }
 
-	assert(fact) {
-		this.flow.assert(fact);
-	}
+  assert (fact) {
+    this.flow.assert(fact);
+  }
 
-	getFacts() {
-		return this.flow.getFacts();
-	}
+  getFacts () {
+    return this.flow.getFacts();
+  }
 
-	match() {
-		return this.flow.match();
-	}
+  match () {
+    return this.flow.match();
+  }
 }
