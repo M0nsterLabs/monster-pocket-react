@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Shortid from 'shortid';
+const Shortid = require('shortid');
 import './SocialProof.less';
 export default class SocialProof extends React.Component {
   static propTypes = {
@@ -151,7 +151,6 @@ export default class SocialProof extends React.Component {
     let notice = [];
     [...state.notice].forEach((element, i) => {
       element.id = Shortid.generate();
-      console.log('element.id', element.id);
       if (element.className) {
         element.className += ' notice_show';
       } else {

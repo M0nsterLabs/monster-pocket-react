@@ -1,10 +1,7 @@
 /* global describe: false, it: false, expect: false, beforeEach: false, afterEach: false, test: false, jest: false */
-
 import React from 'react';
 import {mount} from 'enzyme';
 import SocialProof from '../../../src/components/social_proof/SocialProof.jsx';
-const shortid = require('shortid');
-
 let animationend;
 
 describe('SocialProofs:', () => {
@@ -12,9 +9,8 @@ describe('SocialProofs:', () => {
     jest.mock('shortid');
     jest.useFakeTimers();
     animationend = new Event('animationend');
-    console.log('shortid', shortid.generate());
   });
-  test.only('Only text params', () => {
+  test('Only text params', () => {
     let component = mount(<SocialProof notice={[{text: 'Only text params'}]}/>);
     expect(component.html()).toMatchSnapshot();
   });
