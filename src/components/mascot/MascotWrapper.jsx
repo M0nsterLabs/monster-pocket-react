@@ -50,6 +50,7 @@ export default class MascotWrapper extends React.Component {
         this.props.afterRemoveDomNode();
         this.status.umounted = true;
       });
+      console.log('this222', this);
     }
   }
 
