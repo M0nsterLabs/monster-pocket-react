@@ -44,18 +44,15 @@ export default class MascotWrapper extends React.Component {
   };
 
   componentDidUpdate () {
-    if (this.state.hide && !this.status.umounted) {
-      console.log('this', this);
+    if (this.state.hide) {
       ReactDOM.findDOMNode(this).addEventListener('animationend', () => {
         this.props.afterRemoveDomNode();
         this.status.umounted = true;
       });
-      console.log('this222', this);
     }
   }
 
   componentDidMount () {
-    console.log('nount');
     setTimeout(() => {
       this.showTooltip();
     }, 150);
