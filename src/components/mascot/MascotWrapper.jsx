@@ -49,6 +49,7 @@ export default class MascotWrapper extends React.Component {
       ReactDOM.findDOMNode(this).addEventListener('animationend', () => {
         this.props.afterRemoveDomNode();
         this.status.umounted = true;
+        ReactDOM.findDOMNode(this).componentWillUnmount();
       });
       console.log('this222', this);
     }
