@@ -27,6 +27,7 @@ export default class ReactRemoteControl {
 
     // add callback for remove component
     props.afterRemoveDomNode = () => {
+      props.afterRemoveDomNode();
       document.getElementById(this.wrapper.id).remove();
     };
 
