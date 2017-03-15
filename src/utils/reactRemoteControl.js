@@ -52,7 +52,7 @@ export default class ReactRemoteControl {
     let Component = this.components[this.componentName];
     if (this.container) {
       const localeService = new i18n.Factory(this.locale);
-      localeService.whenLocaleIsLoaded(function (provider) {
+      localeService.whenLocaleIsLoaded(provider => {
         ReactDOM.render(
           <i18n.Provider i18n={provider}>
             <Component  {...props}/>

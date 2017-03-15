@@ -65,16 +65,16 @@ describe('js api', function () {
 
   describe('A1', function () {
     beforeEach(function () {
-      this.willCreateTimeAndSalesCount = function (t, n) {
+      this.advice.numberOfSales(10);
+      this.assertHasBeenWatchedTimes = function (t, n) {
         this.advice.assert(TimeOnPage.seconds(t));
         this.advice.assert(new Product(n));
       };
 
-      this.assertHasBeenWatchedTimes = function (a, b, done) {
+      this.willCreateTimeAndSalesCount = function (a, b, done) {
         this.advice.match().then(function (match) {
           const hasBeenWatched = match[0].views;
           expect(hasBeenWatched).to.not.be.undefined;
-
           expect(hasBeenWatched).to.be.at.least(a);
           expect(hasBeenWatched).to.be.at.most(b);
           done();
@@ -83,15 +83,14 @@ describe('js api', function () {
     });
 
     it('matches nothing if number of sales is too low', function (done) {
-      this.willCreateTimeAndSalesCount(5, 5);
+      this.willCreateTimeAndSalesCount(10, 10);
       this.assertUseCase([], done);
     });
 
     it('returns A1 when it matches the conditions', function (done) {
-      this.willCreateTimeAndSalesCount(5, 15);
-
+      this.assertHasBeenWatchedTimes(10, 15);
       this.assertUseCase('A1');
-      this.assertHasBeenWatchedTimes(2, 4, done);
+      this.willCreateTimeAndSalesCount(2, 4, done);
     });
   });
 
@@ -356,6 +355,7 @@ describe('js api', function () {
   describe('A12', function () {
     beforeEach(function () {
       this.advice.timeOnPage(40);
+      this.advice.numberOfSales(50);
     });
 
     it('can be found when the time is right', function (done) {
@@ -370,6 +370,13 @@ describe('js api', function () {
     it('does not match when it was less after 40 seconds on the page', function (done) {
       this.advice.timeOnPage(41);
       this.assertNoMatch('A12', done);
+    });
+
+    it('show correct data', function (done) {
+      this.getUseCase('A12').then(match => {
+        expect(match.sales).to.be.equal(50);
+        done();
+      });
     });
   });
 

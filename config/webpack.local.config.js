@@ -16,7 +16,7 @@ module.exports = {
     historyApiFallback : true,
     inline             : true,
     hot                : false,
-    https              : false
+    https              : true
   },
   devtool : ['source-map', 'css-loader?sourceMap'],
   plugins : [
