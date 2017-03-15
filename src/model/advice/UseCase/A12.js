@@ -2,7 +2,6 @@ import AbstractUseCase from 'model/advice/UseCase/AbstractUseCase';
 import TimeSpentOnPage from 'model/advice/Condition/TimeSpentOnPage';
 import Product from 'model/advice/Context/Product';
 
-
 export default class A12 extends AbstractUseCase {
   id = 'A12';
 
