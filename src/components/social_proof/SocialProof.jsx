@@ -18,7 +18,9 @@ export default class SocialProof extends React.Component {
     }
   };
   state = {
-    notice: []
+    notice      : [],
+    fixed       : false,
+    topPosition : 0
   };
   isUpdate = false;
   refsArray = [];
@@ -144,6 +146,25 @@ export default class SocialProof extends React.Component {
 
   componentDidMount = () => {
     this.calcMarginTop();
+    this.setState({
+      ...this.state,
+      topPosition: ReactDOM.findDOMNode(this).offsetTop
+    });
+    document.addEventListener('scroll', e => {
+      const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrolled > this.state.topPosition && !this.state.fixed) {
+        this.setState({
+          ...this.state,
+          fixed: true
+        });
+      }
+      if (scrolled < this.state.topPosition && this.state.fixed) {
+        this.setState({
+          ...this.state,
+          fixed: false
+        });
+      }
+    });
   };
 
   componentWillMount = () => {
@@ -165,7 +186,7 @@ export default class SocialProof extends React.Component {
   render () {
     this.refsArray = [];
     return (
-      <div className="notice-wrapper" style={{width: this.props.width}}>
+      <div className={`notice-wrapper ${this.state.fixed ? 'notice-wrapper_fixed' : ''}`} style={{width: this.props.width}}>
         {this.state.notice.map((item) => {
           const iconClass = (item.icon) ? `notice_has-icon notice_icon-${item.icon}` : '';
           return (
