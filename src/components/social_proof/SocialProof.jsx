@@ -150,7 +150,7 @@ export default class SocialProof extends React.Component {
       ...this.state,
       topPosition: ReactDOM.findDOMNode(this).offsetTop
     });
-    document.addEventListener('scroll', e => {
+    document.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset || document.documentElement.scrollTop;
       if (scrolled > this.state.topPosition && !this.state.fixed) {
         this.setState({
@@ -205,6 +205,7 @@ export default class SocialProof extends React.Component {
                   className='notice__closeBlock__closeArea'
                   onClick={this.onHideNotice.bind(null, item.id)}
                   onTouchEnd={this.onHideNotice.bind(null, item.id)}
+                  id={`close_social_proof`}
                 />
               </div>
             </div>
