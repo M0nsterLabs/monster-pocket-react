@@ -146,24 +146,30 @@ export default class SocialProof extends React.Component {
 
   componentDidMount = () => {
     this.calcMarginTop();
+    const banner =  document.querySelector('.js-revive-banner-container');
+    // const banner =  document.querySelector('.navigation');
+    const scrolledOnLoad = window.pageYOffset || document.documentElement.scrollTop;
     this.setState({
       ...this.state,
-      topPosition: ReactDOM.findDOMNode(this).offsetTop
-    });
-    document.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrolled > this.state.topPosition && !this.state.fixed) {
-        this.setState({
-          ...this.state,
-          fixed: true
-        });
-      }
-      if (scrolled < this.state.topPosition && this.state.fixed) {
-        this.setState({
-          ...this.state,
-          fixed: false
-        });
-      }
+      topPosition : banner ? ReactDOM.findDOMNode(this).offsetTop - parseInt(banner.clientHeight) : ReactDOM.findDOMNode(this).offsetTop,
+      topSpace    : banner ? parseInt(banner.clientHeight) : 0,
+      fixed       : scrolledOnLoad > this.state.topPosition && !this.state.fixed ? true : false
+    }, () => {
+      document.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrolled > this.state.topPosition && !this.state.fixed) {
+          this.setState({
+            ...this.state,
+            fixed: true
+          });
+        }
+        if (scrolled < this.state.topPosition && this.state.fixed) {
+          this.setState({
+            ...this.state,
+            fixed: false
+          });
+        }
+      });
     });
   };
 
@@ -186,7 +192,14 @@ export default class SocialProof extends React.Component {
   render () {
     this.refsArray = [];
     return (
-      <div className={`notice-wrapper ${this.state.fixed ? 'notice-wrapper_fixed' : ''}`} style={{width: this.props.width}}>
+      <div
+        className={`notice-wrapper ${this.state.fixed ? 'notice-wrapper_fixed' : ''}`}
+        style={{
+          width : this.props.width,
+          top   : this.state.fixed ? this.state.topSpace : 'auto'
+        }}
+
+      >
         {this.state.notice.map((item) => {
           const iconClass = (item.icon) ? `notice_has-icon notice_icon-${item.icon}` : '';
           return (
@@ -199,7 +212,7 @@ export default class SocialProof extends React.Component {
                 if (e) this.refsArray.push(e);
               }}
             >
-              <span className="notice-text t3">{item.text}</span>
+              <span className="notice-text t4">{item.text}</span>
               <div className='notice__closeBlock'>
                 <div
                   className='notice__closeBlock__closeArea'
