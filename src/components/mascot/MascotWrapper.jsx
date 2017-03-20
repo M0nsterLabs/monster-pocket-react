@@ -65,7 +65,7 @@ export default class MascotWrapper extends React.Component {
   }
 
   render () {
-    if (this.props.button) {
+    if (this.props.button.text) {
       this.props.button.id = `button_mascot`;
     }
     const MascotWrapperTrigger = connectNotificationTrigger(Mascot);
