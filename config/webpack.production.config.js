@@ -19,7 +19,7 @@ module.exports = {
     https              : false
   },
   devtool : ['source-map'],
-  plugins: [
+  plugins : [
     new Webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
@@ -41,7 +41,8 @@ module.exports = {
       },
       output: {
         comments: false
-      }
+      },
+      exclude: ['css', 'less']
     })
   ]
 };
