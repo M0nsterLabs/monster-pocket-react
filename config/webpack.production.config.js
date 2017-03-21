@@ -42,7 +42,7 @@ module.exports = {
       output: {
         comments: false
       },
-      exclude: ['css', 'less']
+      exclude: ['*.css', '*.less']
     })
   ]
 };
