@@ -7,9 +7,31 @@ export default class SocialTest extends Component {
     return (
       <div className='container'>
         <SocialProof
-          notice={{
-            text: 'Hello world!!'
-          }}
+          notice={[
+            {
+              text : 'Hello world!!',
+              icon : 'cart'
+            },
+            {
+              text : 'Hello world!!',
+              icon : 'cash'
+            },
+            {
+              text : 'Hello world!!',
+              icon : 'docs'
+            },
+            {
+              text : 'Hello world!!',
+              icon : 'like-fill'
+            },
+            {
+              text : 'Hello world!!',
+              icon : 'search'
+            },
+            {
+              text: 'Hello world!!'
+            }
+          ]}
         />
         <h1>Socials test</h1>
         <ul>
@@ -22,3 +44,4 @@ export default class SocialTest extends Component {
     );
   }
 }
+

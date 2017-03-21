@@ -1,5 +1,6 @@
 const path = require('path');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const baseDir = process.cwd();
 const nodeModulesPath = path.resolve(baseDir, 'node_modules');
 
@@ -26,11 +27,15 @@ module.exports = {
     loaders: [
       {
         test   : /\.css$/,
-        loader : 'style-loader!css-loader'
+        loader : ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
       },
       {
         test   : /\.less$/,
-        loader : 'style-loader!css-loader!less-loader'
+        loader : ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader!postcss-loader?parser=postcss-safe-parser')
+      },
+      {
+        test   : /\.svg/,
+        loader : 'url-loader'
       },
       {
         test    : /\.jsx?$/,
@@ -45,7 +50,7 @@ module.exports = {
         query   : {presets: ['es2015', 'react', 'stage-0']}
       },
       {
-        test    : /\.(png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        test    : /\.(png|ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,
         loaders : ['file']
       }
     ]
@@ -65,7 +70,8 @@ module.exports = {
         {from: 'www'}
       ],
       path.resolve(baseDir, 'src')
-    )
+    ),
+    new ExtractTextPlugin('main.css')
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']

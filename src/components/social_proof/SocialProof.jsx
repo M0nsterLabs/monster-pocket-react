@@ -201,7 +201,7 @@ export default class SocialProof extends React.Component {
 
       >
         {this.state.notice.map((item) => {
-          const iconClass = (item.icon) ? `notice_has-icon notice_icon-${item.icon}` : '';
+          const iconClass = (item.icon) ? `notice_has-icon notice_icon notice_icon_${item.icon}` : '';
           return (
             <div
               className={`notice notice_type-${item.type} ${iconClass} ${(item.hide) ? 'notice_hide' : ''} ${item.className.length ? item.className : ''}`}
