@@ -2,6 +2,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 var baseDir = process.cwd();
 var buildPath = path.resolve(baseDir, 'build');
+var Webpack = require('webpack');
+
 module.exports = {
 
   output: {
