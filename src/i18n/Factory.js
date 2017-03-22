@@ -1,4 +1,5 @@
 import Tools from './Tools';
+import Promise from 'bluebird';
 
 function loadInternationalizationFile (localeToLoad, path) {
   if (localeToLoad === 'en') {
