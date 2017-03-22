@@ -9,6 +9,7 @@ export default class MascotWrapper extends React.Component {
   static propTypes = {
     timeout            : React.PropTypes.number,
     type               : React.PropTypes.string,
+    closeIconId        : React.PropTypes.string,
     afterRemoveDomNode : React.PropTypes.func,
     button             : React.PropTypes.object
   };
@@ -65,16 +66,15 @@ export default class MascotWrapper extends React.Component {
   }
 
   render () {
-    if (this.props.button.text) {
-      this.props.button.id = `button_mascot`;
-    }
+    console.log('this.props.closeIconId', this.props.closeIconId);
     const MascotWrapperTrigger = connectNotificationTrigger(Mascot);
     return (!this.status.umounted) ? (<MascotWrapperTrigger
       notification={{
-        code     : 'N1G',
-        text     : (<HtmlToJsx html={this.props.text} />),
-        minWidth : '250px',
-        button   : this.props.button
+        code        : 'N1G',
+        text        : (<HtmlToJsx html={this.props.text}/>),
+        minWidth    : '250px',
+        button      : this.props.button,
+        closeIconId : this.props.closeIconId
       }}
       afterClose={this.closeMascot}
       notificationAlt={{status: false}}

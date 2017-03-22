@@ -17,8 +17,11 @@ export default class MascotTest extends Component {
           timeout={0}
           button={{
             text    : 'it`s ok',
-            onClick : 'close'
+            onClick : 'close',
+            code    : 'B2I',
+            id      : 'heloo'
           }}
+          closeIconId="helloClose"
         />
         {this.props.children}
       </div>
