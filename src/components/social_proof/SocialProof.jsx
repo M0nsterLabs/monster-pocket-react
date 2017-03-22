@@ -8,7 +8,8 @@ export default class SocialProof extends React.Component {
       React.PropTypes.array,
       React.PropTypes.object
     ]),
-    width: React.PropTypes.number
+    width       : React.PropTypes.number,
+    iconCloseId : React.PropTypes.string
   };
 
   static defaultProps = {
@@ -218,7 +219,7 @@ export default class SocialProof extends React.Component {
                   className='notice__closeBlock__closeArea'
                   onClick={this.onHideNotice.bind(null, item.id)}
                   onTouchEnd={this.onHideNotice.bind(null, item.id)}
-                  id={`close_social_proof`}
+                  id={this.props.iconCloseId}
                 />
               </div>
             </div>
