@@ -4,12 +4,6 @@ const baseDir = process.cwd();
 const buildPath = path.resolve(baseDir, 'build');
 
 module.exports = {
-
-  output: {
-    path     : buildPath,
-    filename : '../build/[name].js',
-    library  : ['[name]']
-  },
   devServer: {
     contentBase        : '../src/www',
     host               : '0.0.0.0',

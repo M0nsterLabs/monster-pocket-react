@@ -1,5 +1,6 @@
 import nools from 'nools';
 import _ from 'lodash';
+import Promise from 'bluebird';
 
 export default class Flow {
   constructor (name) {

@@ -1,15 +1,6 @@
 const Webpack = require('webpack');
 
 module.exports = {
-  devServer: {
-    contentBase        : '../src/www',
-    host               : '0.0.0.0',
-    port               : 8001,
-    historyApiFallback : true,
-    inline             : true,
-    hot                : false,
-    https              : false
-  },
   devtool : ['source-map'],
   plugins : [
     new Webpack.DefinePlugin({
