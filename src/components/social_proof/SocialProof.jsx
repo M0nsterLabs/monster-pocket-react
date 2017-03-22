@@ -135,7 +135,6 @@ export default class SocialProof extends React.Component {
       item.icon = item.icon || false;
       return item;
     });
-    console.log('item', state);
     this.setState(state);
   };
 
