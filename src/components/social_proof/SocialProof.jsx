@@ -219,7 +219,7 @@ export default class SocialProof extends React.Component {
                   className='notice__closeBlock__closeArea'
                   onClick={this.onHideNotice.bind(null, item.id)}
                   onTouchEnd={this.onHideNotice.bind(null, item.id)}
-                  id={this.props.iconCloseId}
+                  id={item.iconCloseId}
                 />
               </div>
             </div>

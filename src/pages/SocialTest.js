@@ -9,8 +9,9 @@ export default class SocialTest extends Component {
         <SocialProof
           notice={[
             {
-              text : 'Hello world!!',
-              icon : 'cart'
+              text        : 'Hello world!!',
+              icon        : 'cart',
+              iconCloseId : 'fdsjkfs'
             },
             {
               text : 'Hello world!!',
