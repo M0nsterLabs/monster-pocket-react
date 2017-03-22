@@ -135,6 +135,7 @@ export default class SocialProof extends React.Component {
       item.icon = item.icon || false;
       return item;
     });
+    console.log('item', state);
     this.setState(state);
   };
 
@@ -219,7 +220,7 @@ export default class SocialProof extends React.Component {
                   className='notice__closeBlock__closeArea'
                   onClick={this.onHideNotice.bind(null, item.id)}
                   onTouchEnd={this.onHideNotice.bind(null, item.id)}
-                  id={item.iconCloseId}
+                  id={item.closeIconId}
                 />
               </div>
             </div>
