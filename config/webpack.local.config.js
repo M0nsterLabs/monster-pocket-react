@@ -1,8 +1,7 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var path = require('path');
-var baseDir = process.cwd();
-var buildPath = path.resolve(baseDir, 'build');
-var Webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const baseDir = process.cwd();
+const buildPath = path.resolve(baseDir, 'build');
 
 module.exports = {
 

@@ -2,6 +2,7 @@ const path = require('path');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const baseDir = process.cwd();
 const nodeModulesPath = path.resolve(baseDir, 'node_modules');
+const buildPath = path.resolve(baseDir, 'build');
 
 module.exports = {
   node  : {fs: 'empty'},
@@ -9,6 +10,11 @@ module.exports = {
     advice               : './src/model/advice/Advice.js',
     mascotAndSocialProof : './entry/MascotAndSocialProof.js',
     index                : './entry/index.js'
+  },
+  output: {
+    path     : buildPath,
+    filename : '../build/[name].js',
+    library  : ['[name]']
   },
   externals: {
     'react'     : 'React',
