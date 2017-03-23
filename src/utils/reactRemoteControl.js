@@ -30,7 +30,7 @@ export default class ReactRemoteControl {
       if (typeof props.afterClose === 'function') {
         props.afterClose();
       }
-      const node = document.getElementById(this.wrapper.id)
+      const node = document.getElementById(this.wrapper.id);
       node.parentNode.removeChild(node);
     };
 
