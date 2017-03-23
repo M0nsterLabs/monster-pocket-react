@@ -6,7 +6,7 @@ const Shortid = require('shortid');
 import './SocialProof.less';
 export default class SocialProof extends React.Component {
   static propTypes = {
-    notice: React.PropTypes.oneOfType([
+    notice      : React.PropTypes.oneOfType([
       React.PropTypes.array,
       React.PropTypes.object
     ]),
@@ -93,7 +93,7 @@ export default class SocialProof extends React.Component {
     let totalHeight = 0;
     if (this.isUpdate) {
       this.refsArray.forEach((element) => {
-        const obj =   ClassList(element);
+        const obj = ClassList(element);
         if (obj.contains('new-element')) {
           totalHeight += (element.offsetHeight || 0) + 20;
           obj.remove('new-element');
@@ -112,7 +112,7 @@ export default class SocialProof extends React.Component {
       }
       element.addEventListener('animationend', () => {
         element.style.marginTop = '20px';
-        const obj =   ClassList(element);
+        const obj = ClassList(element);
         obj.remove('notice_show');
       });
     });
@@ -152,7 +152,7 @@ export default class SocialProof extends React.Component {
 
   componentDidMount = () => {
     this.calcMarginTop();
-    const banner =  document.querySelector('.js-revive-banner-container');
+    const banner = document.querySelector('.js-revive-banner-container');
     // const banner =  document.querySelector('.navigation');
     const scrolledOnLoad = window.pageYOffset || document.documentElement.scrollTop;
     this.setState({
@@ -160,21 +160,22 @@ export default class SocialProof extends React.Component {
       topPosition : banner ? ReactDOM.findDOMNode(this).offsetTop - parseInt(banner.clientHeight) : ReactDOM.findDOMNode(this).offsetTop,
       topSpace    : banner ? parseInt(banner.clientHeight) : 0,
       fixed       : scrolledOnLoad > this.state.topPosition && !this.state.fixed ? true : false
-    });
-    document.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrolled > this.state.topPosition && !this.state.fixed) {
-        this.setState({
-          ...this.state,
-          fixed: true
-        });
-      }
-      if (scrolled < this.state.topPosition && this.state.fixed) {
-        this.setState({
-          ...this.state,
-          fixed: false
-        });
-      }
+    }, () => {
+      document.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrolled > this.state.topPosition && !this.state.fixed) {
+          this.setState({
+            ...this.state,
+            fixed : true
+          });
+        }
+        if (scrolled < this.state.topPosition && this.state.fixed) {
+          this.setState({
+            ...this.state,
+            fixed : false
+          });
+        }
+      });
     });
   };
 
@@ -218,7 +219,7 @@ export default class SocialProof extends React.Component {
             <div
               className={`notice notice_type-${item.type} ${iconClass} ${(item.hide) ? 'notice_hide' : ''} ${item.className.length ? item.className : ''}`}
               key={item.id}
-              style={{marginTop: '-20px'}}
+              style={{marginTop : '-20px'}}
               data-id={item.id}
               ref={(e) => {
                 if (e) this.refsArray.push(e);
