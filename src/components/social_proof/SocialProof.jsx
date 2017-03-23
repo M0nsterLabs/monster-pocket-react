@@ -195,14 +195,7 @@ export default class SocialProof extends React.Component {
     this.setState(state);
   };
 
-  shouldComponentUpdate (nextProps, nextState) {
-    console.log('nextProps === nextState', nextProps === nextState);
-    return true;
-  }
-
-
   render () {
-    console.log('111', 111);
     this.refsArray = [];
     return (
       <div
