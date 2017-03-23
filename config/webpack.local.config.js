@@ -1,7 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
 const baseDir = process.cwd();
-const buildPath = path.resolve(baseDir, 'build');
 
 module.exports = {
   devServer: {

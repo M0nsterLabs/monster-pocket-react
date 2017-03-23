@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import _ from 'lodash';
 const Shortid = require('shortid');
 import './SocialProof.less';
 export default class SocialProof extends React.Component {
@@ -45,7 +46,7 @@ export default class SocialProof extends React.Component {
   };
 
   onHideNotice = (id) => {
-    const noticeHTML = this.refsArray.find((element) => {
+    const noticeHTML = _.find(this.refsArray, (element) => {
       let result = null;
       if (element.getAttribute('data-id') === id) {
         result = element;
