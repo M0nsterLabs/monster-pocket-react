@@ -21,10 +21,11 @@ export default class SocialProof extends React.Component {
     }
   };
   state = {
-    notice      : [],
-    fixed       : false,
-    topPosition : 0,
-    show        : false
+    notice         : [],
+    fixed          : false,
+    topPosition    : 0,
+    show           : false,
+    classTrnsition : ''
   };
   isUpdate = false;
   refsArray = [];
@@ -48,35 +49,41 @@ export default class SocialProof extends React.Component {
   };
 
   onHideNotice = (id) => {
-    const noticeHTML = _.find(this.refsArray, (element) => {
-      let result = null;
-      if (element.getAttribute('data-id') === id) {
-        result = element;
-      }
-      return result;
-    });
-    let state = this.state;
-    setTimeout(() => {
-      noticeHTML.style.marginTop = (noticeHTML.offsetHeight * -1) + 'px';
-    }, 1);
-    state.notice = this.state.notice.map((element) => {
-      let item = element;
-      if (item.id === id) {
-        item.hide = true;
-      }
-      return item;
-    });
-    state = this.clearNoticeObject(state);
-    this.setState(state);
-    noticeHTML.addEventListener('animationend', () => {
-      state.notice = this.state.notice.filter((element) => {
-        return element.id !== id;
+    this.setState({
+      ...this.state,
+      fixed          : false,
+      classTrnsition : 'notice_transition'
+    }, () => {
+      const noticeHTML = _.find(this.refsArray, (element) => {
+        let result = null;
+        if (element.getAttribute('data-id') === id) {
+          result = element;
+        }
+        return result;
       });
+      let state = this.state;
+      setTimeout(() => {
+        noticeHTML.style.marginTop = (noticeHTML.offsetHeight * -1) + 'px';
+      }, 1);
+      state.notice = this.state.notice.map((element) => {
+        let item = element;
+        if (item.id === id) {
+          item.hide = true;
+        }
+        return item;
+      });
+      state = this.clearNoticeObject(state);
       this.setState(state);
-      if (!this.state.notice.length) {
-        this.props.afterRemoveDomNode();
-        ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(this).parentNode);
-      }
+      noticeHTML.addEventListener('animationend', () => {
+        state.notice = this.state.notice.filter((element) => {
+          return element.id !== id;
+        });
+        this.setState(state);
+        if (!this.state.notice.length) {
+          this.props.afterRemoveDomNode();
+          ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(this).parentNode);
+        }
+      });
     });
   };
 
@@ -153,7 +160,6 @@ export default class SocialProof extends React.Component {
   componentDidMount = () => {
     this.calcMarginTop();
     const banner = document.querySelector('.js-revive-banner-container');
-    // const banner =  document.querySelector('.navigation');
     const scrolledOnLoad = window.pageYOffset || document.documentElement.scrollTop;
     this.setState({
       ...this.state,
@@ -210,7 +216,7 @@ export default class SocialProof extends React.Component {
           const iconClass = (item.icon) ? `notice_has-icon notice_icon notice_icon_${item.icon}` : '';
           return (
             <div
-              className={`notice notice_type-${item.type} ${iconClass} ${(item.hide) ? 'notice_hide' : ''} ${item.className.length ? item.className : ''}`}
+              className={`notice notice_type-${item.type} ${iconClass} ${(item.hide) ? 'notice_hide' : ''} ${item.className.length ? item.className : ''} ${this.state.classTrnsition}`}
               key={item.id}
               style={{marginTop : '-20px'}}
               data-id={item.id}
