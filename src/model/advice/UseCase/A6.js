@@ -14,7 +14,7 @@ export default class A6 extends AbstractUseCase {
 
   action (facts) {
     return {
-      hours: this._rand(1, 5)
+      hours: this._rand(2, 4)
     };
   }
 }

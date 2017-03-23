@@ -73,11 +73,14 @@ describe('js api', function () {
 
       this.willCreateTimeAndSalesCount = function (a, b, done) {
         this.advice.match().then(function (match) {
-          const hasBeenWatched = match[0].views;
-          expect(hasBeenWatched).to.not.be.undefined;
-          expect(hasBeenWatched).to.be.at.least(a);
-          expect(hasBeenWatched).to.be.at.most(b);
-          done();
+          let hasBeenWatched;
+          if (typeof match[0] !== 'undefined') {
+            hasBeenWatched = match[0].views;
+            expect(hasBeenWatched).to.not.be.undefined;
+            expect(hasBeenWatched).to.be.at.least(a);
+            expect(hasBeenWatched).to.be.at.most(b);
+            done();
+          }
         });
       };
     });
@@ -187,7 +190,7 @@ describe('js api', function () {
 
     it('show correct data', function (done) {
       this.getUseCase('A6').then(match => {
-        expect(match.hours).to.be.within(1, 5);
+        expect(match.hours).to.be.within(2, 4);
         done();
       });
     });
