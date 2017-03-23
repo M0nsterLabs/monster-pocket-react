@@ -23,7 +23,8 @@ export default class SocialProof extends React.Component {
   state = {
     notice      : [],
     fixed       : false,
-    topPosition : 0
+    topPosition : 0,
+    show        : false
   };
   isUpdate = false;
   refsArray = [];
@@ -159,22 +160,21 @@ export default class SocialProof extends React.Component {
       topPosition : banner ? ReactDOM.findDOMNode(this).offsetTop - parseInt(banner.clientHeight) : ReactDOM.findDOMNode(this).offsetTop,
       topSpace    : banner ? parseInt(banner.clientHeight) : 0,
       fixed       : scrolledOnLoad > this.state.topPosition && !this.state.fixed ? true : false
-    }, () => {
-      document.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrolled > this.state.topPosition && !this.state.fixed) {
-          this.setState({
-            ...this.state,
-            fixed: true
-          });
-        }
-        if (scrolled < this.state.topPosition && this.state.fixed) {
-          this.setState({
-            ...this.state,
-            fixed: false
-          });
-        }
-      });
+    });
+    document.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrolled > this.state.topPosition && !this.state.fixed) {
+        this.setState({
+          ...this.state,
+          fixed: true
+        });
+      }
+      if (scrolled < this.state.topPosition && this.state.fixed) {
+        this.setState({
+          ...this.state,
+          fixed: false
+        });
+      }
     });
   };
 
@@ -194,11 +194,18 @@ export default class SocialProof extends React.Component {
     this.setState(state);
   };
 
+  shouldComponentUpdate (nextProps, nextState) {
+    console.log('nextProps === nextState', nextProps === nextState);
+    return true;
+  }
+
+
   render () {
+    console.log('111', 111);
     this.refsArray = [];
     return (
       <div
-        className={`notice-wrapper ${this.state.fixed ? 'notice-wrapper_fixed' : ''}`}
+        className={`notice-wrapper-social ${this.state.fixed ? 'notice-wrapper_fixed' : ''}`}
         style={{
           width : this.props.width,
           top   : this.state.fixed ? this.state.topSpace : 'auto'
