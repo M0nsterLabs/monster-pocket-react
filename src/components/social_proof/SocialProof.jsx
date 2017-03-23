@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ClassList from 'classlist';
 import _ from 'lodash';
 const Shortid = require('shortid');
 import './SocialProof.less';
@@ -91,9 +92,10 @@ export default class SocialProof extends React.Component {
     let totalHeight = 0;
     if (this.isUpdate) {
       this.refsArray.forEach((element) => {
-        if (element.classList.contains('new-element')) {
+        const obj =   ClassList(element);
+        if (obj.contains('new-element')) {
           totalHeight += (element.offsetHeight || 0) + 20;
-          element.classList.remove('new-element');
+          obj.remove('new-element');
         }
       });
     }
@@ -109,7 +111,8 @@ export default class SocialProof extends React.Component {
       }
       element.addEventListener('animationend', () => {
         element.style.marginTop = '20px';
-        element.classList.remove('notice_show');
+        const obj =   ClassList(element);
+        obj.remove('notice_show');
       });
     });
   };

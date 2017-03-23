@@ -40,6 +40,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "bluebird": "^3.4.6",
     "chai": "^3.5.0",
+    "classlist": "^1.0.1",
     "css-loader": "^0.26.1",
     "ejs": "^2.5.5",
     "ejs-html-loader": "^2.0.2",
