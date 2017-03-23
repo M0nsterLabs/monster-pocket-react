@@ -206,7 +206,7 @@ export default class SocialProof extends React.Component {
     this.refsArray = [];
     return (
       <div
-        className={`notice-wrapper-social ${this.state.fixed ? 'notice-wrapper_fixed' : ''}`}
+        className={`notice-wrapper ${this.state.fixed ? 'notice-wrapper_fixed' : ''}`}
         style={{
           width : this.props.width,
           top   : this.state.fixed ? this.state.topSpace : 'auto'
