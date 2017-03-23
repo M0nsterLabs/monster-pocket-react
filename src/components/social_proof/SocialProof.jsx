@@ -217,7 +217,7 @@ export default class SocialProof extends React.Component {
                 if (e) this.refsArray.push(e);
               }}
             >
-              <span className="notice-text t4">{item.text}</span>
+              <span className="notice-text t3">{item.text}</span>
               <div className='notice__closeBlock'>
                 <div
                   className='notice__closeBlock__closeArea'
