@@ -51,8 +51,7 @@ export default class SocialProof extends React.Component {
   onHideNotice = (id) => {
     this.setState({
       ...this.state,
-      fixed          : false,
-      classTrnsition : 'notice_transition'
+      classTrnsition: 'notice_transition'
     }, () => {
       const noticeHTML = _.find(this.refsArray, (element) => {
         let result = null;
@@ -172,13 +171,13 @@ export default class SocialProof extends React.Component {
         if (scrolled > this.state.topPosition && !this.state.fixed) {
           this.setState({
             ...this.state,
-            fixed : true
+            fixed: true
           });
         }
         if (scrolled < this.state.topPosition && this.state.fixed) {
           this.setState({
             ...this.state,
-            fixed : false
+            fixed: false
           });
         }
       });

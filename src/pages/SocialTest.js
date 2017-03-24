@@ -5,7 +5,7 @@ import SocialProof from '../components/social_proof/SocialProof';
 export default class SocialTest extends Component {
   render () {
     return (
-      <div className='container'>
+      <div className='container' style={{'minHeight': '10000px'}}>
         <SocialProof
           notice={[
             {
