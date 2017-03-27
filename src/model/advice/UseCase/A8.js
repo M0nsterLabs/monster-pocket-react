@@ -24,9 +24,10 @@ export default class A8 extends AbstractUseCase {
   }
 
   currencyFormater (value, locale = 'en') {
-    return currencyFormatter.format(value, {
-      locale: locale,
-      ...Formats[locale] || {}
-    });
+    const format = Formats[locale] || Formats['en'];
+    const a = currencyFormatter.format(value, format);
+    console.info('qqq', a);
+    console.info('qqq', format);
+    return currencyFormatter.format(value, format);
   }
 }

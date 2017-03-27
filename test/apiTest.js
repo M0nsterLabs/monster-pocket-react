@@ -277,17 +277,17 @@ describe('js api', function () {
 
     it('returns correct price for a 2000 buyout with locale en', function (done) {
       this.willHaveBuyoutPrice(2000);
-      this.assertBuyout('$1.760', done);
+      this.assertBuyout('$1,760', done);
     });
 
     it('returns correct price for a 2000 buyout with locale ru', function (done) {
       this.willHaveBuyoutPrice(2000, 'ru');
-      this.assertBuyout('1,760 $', done);
+      this.assertBuyout('1.760 $', done);
     });
 
     it('returns correct price for a 2000 buyout with locale de', function (done) {
       this.willHaveBuyoutPrice(2000, 'de');
-      this.assertBuyout('1,760 €', done);
+      this.assertBuyout('1.760 €', done);
     });
 
     it('shows correct price according to single site license price', function (done) {
