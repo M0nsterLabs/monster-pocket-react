@@ -23,6 +23,12 @@ export default class Advice {
     });
   }
 
+  userLocale (s) {
+    this.flow.swap(Context.User, function (user) {
+      user.locale = s;
+    });
+  }
+
   userPurchaseCount (n) {
     this.flow.swap(Context.User, function (user) {
       user.purchases = n;

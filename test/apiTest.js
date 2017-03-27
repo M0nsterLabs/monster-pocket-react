@@ -236,14 +236,16 @@ describe('js api', function () {
 
   describe('A8', function () {
     beforeEach(function () {
-      this.willHaveSingleSitePrice = function (price) {
+      this.willHaveSingleSitePrice = function (price, locale = 'en') {
         this.advice.timeOnPage(10);
         this.advice.singleSiteLicense(price);
+        this.advice.userLocale(locale);
       };
 
-      this.willHaveBuyoutPrice = function (price) {
+      this.willHaveBuyoutPrice = function (price, locale = 'en') {
         this.advice.timeOnPage(10);
         this.advice.buyout(price);
+        this.advice.userLocale(locale);
       };
 
       this.assertBuyout = function (productionPrice, done = _.noop) {
@@ -270,12 +272,22 @@ describe('js api', function () {
 
     it('calculates production price given buyout price', function (done) {
       this.willHaveBuyoutPrice(1000);
-      this.assertBuyout(880, done);
+      this.assertBuyout('$880', done);
     });
 
-    it('returns correct price for a 2000 buyout', function (done) {
+    it('returns correct price for a 2000 buyout with locale en', function (done) {
       this.willHaveBuyoutPrice(2000);
-      this.assertBuyout(1760, done);
+      this.assertBuyout('$1.760', done);
+    });
+
+    it('returns correct price for a 2000 buyout with locale ru', function (done) {
+      this.willHaveBuyoutPrice(2000, 'ru');
+      this.assertBuyout('1,760 $', done);
+    });
+
+    it('returns correct price for a 2000 buyout with locale de', function (done) {
+      this.willHaveBuyoutPrice(2000, 'de');
+      this.assertBuyout('1,760 €', done);
     });
 
     it('shows correct price according to single site license price', function (done) {

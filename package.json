@@ -42,6 +42,7 @@
     "chai": "^3.5.0",
     "classlist": "^1.0.1",
     "css-loader": "^0.26.1",
+    "currency-formatter": "^1.1.1",
     "ejs": "^2.5.5",
     "ejs-html-loader": "^2.0.2",
     "ejs-loader": "^0.3.0",
