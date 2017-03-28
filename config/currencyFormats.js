@@ -27,14 +27,14 @@ export default {
     precision : 0,
     format    : '%s%v'
   },
-  cz: {
+  cs: {
     symbol    : '€',
     decimal   : ',',
     thousand  : '.',
     precision : 0,
     format    : '%v %s'
   },
-  ua: {
+  uk: {
     symbol    : '$',
     decimal   : ',',
     thousand  : '.',
