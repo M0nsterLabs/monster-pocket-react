@@ -24,7 +24,6 @@ export default class Advice {
   }
 
   userLocale (s) {
-    console.info('s', s);
     this.flow.swap(Context.User, function (user) {
       user.locale = s;
     });
