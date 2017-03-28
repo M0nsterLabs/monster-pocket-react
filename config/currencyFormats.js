@@ -6,7 +6,7 @@ export default {
     precision : 0,
     format    : '%v %s'
   },
-  pt_br: {
+  br: {
     symbol    : 'R$',
     decimal   : ',',
     thousand  : '.',
