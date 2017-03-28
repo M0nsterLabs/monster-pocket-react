@@ -6,7 +6,7 @@ export default {
     precision : 0,
     format    : '%v %s'
   },
-  br: {
+  pt: {
     symbol    : 'R$',
     decimal   : ',',
     thousand  : '.',
@@ -20,7 +20,7 @@ export default {
     precision : 0,
     format    : '%v %s'
   },
-  cn: {
+  zh: {
     symbol    : '￥',
     decimal   : '.',
     thousand  : ',',
