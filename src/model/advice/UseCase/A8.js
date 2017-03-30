@@ -18,8 +18,10 @@ export default class A8 extends AbstractUseCase {
 
   action (facts) {
     return {
-      price : this.currencyFormater(facts.p.singleSite, facts.u.locale),
-      spent : this.currencyFormater(Math.floor(facts.p.buyout * 0.88), facts.u.locale)
+      priceInt : facts.p.singleSite,
+      spentInt : Math.floor(facts.p.buyout * 0.88),
+      price    : this.currencyFormater(facts.p.singleSite, facts.u.locale),
+      spent    : this.currencyFormater(Math.floor(facts.p.buyout * 0.88), facts.u.locale)
     };
   }
 
