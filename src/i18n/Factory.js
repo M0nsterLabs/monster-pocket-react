@@ -1,5 +1,6 @@
 import Tools from './Tools';
 import Promise from 'bluebird';
+import fetch from 'isomorphic-fetch';
 
 function loadInternationalizationFile (localeToLoad, path) {
   if (localeToLoad === 'en') {
