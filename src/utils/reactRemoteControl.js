@@ -16,7 +16,7 @@ export default class ReactRemoteControl {
   }
 
   show = (whereRenderClass, props = {}) => {
-    console.log('111111', 111111);
+    console.log('0');
     this.container = document.querySelector(whereRenderClass);
 
     /* if wrapper is undefined */
@@ -25,7 +25,7 @@ export default class ReactRemoteControl {
     } else {
       return false;
     }
-
+    console.log('1');
     // add callback for remove component
     props.afterRemoveDomNode = () => {
       if (typeof props.afterClose === 'function') {
@@ -34,10 +34,13 @@ export default class ReactRemoteControl {
       const node = document.getElementById(this.wrapper.id);
       node.parentNode.removeChild(node);
     };
-
+    console.log('2');
     const Component = this.components[this.componentName];
+    console.log('3');
     const localeService = new i18n.Factory(this.locale, this.path);
+    console.log('4');
     localeService.whenLocaleIsLoaded(provider => {
+      console.log('5');
       ReactDOM.render(
         <i18n.Provider i18n={provider}>
           <Component  {...props} />
