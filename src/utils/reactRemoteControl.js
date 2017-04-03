@@ -12,7 +12,9 @@ export default class ReactRemoteControl {
     this.componentName = componentName;
     this.locale = locale;
     this.path = path;
+    console.log('123132123', 123132123);
     this.renderWrap();
+    console.log('123132123', dfhsgfhdgfhdghdfghdfghdfg);
   }
 
   show = (whereRenderClass, props = {}) => {
