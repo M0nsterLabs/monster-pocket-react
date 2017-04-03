@@ -18,7 +18,6 @@ export default class MascotTest extends Component {
           button={{
             text    : 'it`s ok',
             onClick : 'close',
-            code    : 'B2I',
             id      : 'heloo'
           }}
           closeIconId="helloClose"
