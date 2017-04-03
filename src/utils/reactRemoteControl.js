@@ -14,7 +14,7 @@ export default class ReactRemoteControl {
     this.path = path;
     console.log('123132123', 123132123);
     this.renderWrap();
-    console.log('123132123', dfhsgfhdgfhdghdfghdfghdfg);
+    console.log('12313212dfhsgfhdgfhdghdfghdfghdfg');
   }
 
   show = (whereRenderClass, props = {}) => {
