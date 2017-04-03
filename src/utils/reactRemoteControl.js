@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Shortid from 'shortid';
 import i18n from '../i18n/';
+window.Promise = require('bluebird');
 
 export default class ReactRemoteControl {
   container = false;
