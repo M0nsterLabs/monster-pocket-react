@@ -5,11 +5,34 @@ import SocialProof from '../components/social_proof/SocialProof';
 export default class SocialTest extends Component {
   render () {
     return (
-      <div className='container'>
+      <div className='container' style={{'minHeight': '10000px'}}>
         <SocialProof
-          notice={{
-            text: 'Hello world!!'
-          }}
+          notice={[
+            {
+              text        : 'Hello world!!',
+              icon        : 'cart',
+              iconCloseId : 'fdsjkfs'
+            },
+            {
+              text : 'Hello world!!',
+              icon : 'cash'
+            },
+            {
+              text : 'Hello world!!',
+              icon : 'docs'
+            },
+            {
+              text : 'Hello world!!',
+              icon : 'like-fill'
+            },
+            {
+              text : 'Hello world!!',
+              icon : 'search'
+            },
+            {
+              text: 'Hello world!!'
+            }
+          ]}
         />
         <h1>Socials test</h1>
         <ul>
@@ -22,3 +45,4 @@ export default class SocialTest extends Component {
     );
   }
 }
+

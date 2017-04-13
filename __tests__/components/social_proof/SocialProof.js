@@ -1,26 +1,17 @@
-/* global describe: false, it: false, expect: false, toMatchSnapshot: false, beforeEach: false, afterEach: false, jest: false */
+/* global describe: false, it: false, expect: false, beforeEach: false, afterEach: false, test: false, jest: false */
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {
-  mount,
-  shallow,
-  render
-} from 'enzyme';
-import SocialProof from '../../../src/components/social_proof/SocialProof.jsx'
-
-
-let container;
+import {mount} from 'enzyme';
+import SocialProof from '../../../src/components/social_proof/SocialProof.jsx';
 let animationend;
-beforeEach(() => {
-  jest.useFakeTimers();
-  jest.mock('shortid');
-  container = document.createElement('div');
-  animationend = new Event('animationend');
-});
 
 describe('SocialProofs:', () => {
+  beforeEach(() => {
+    jest.mock('shortid');
+    jest.useFakeTimers();
+    animationend = new Event('animationend');
+  });
   test('Only text params', () => {
-    let component = mount(<SocialProof notice={[{text : 'Only text params'}]}/>);
+    let component = mount(<SocialProof notice={[{text: 'Only text params'}]}/>);
     expect(component.html()).toMatchSnapshot();
   });
 
@@ -46,7 +37,7 @@ describe('SocialProofs:', () => {
       className : 'test'
     }]}/>);
     component.setProps({
-      notice : {
+      notice: {
         text      : 're-render component with object',
         className : 'test'
       }
@@ -60,7 +51,7 @@ describe('SocialProofs:', () => {
       className : 'test'
     }]}/>);
     component.setProps({
-      notice : [{
+      notice: [{
         text      : 're-render component with array',
         className : 'test'
       }]
@@ -69,12 +60,10 @@ describe('SocialProofs:', () => {
   });
 
   test('Open notice & click the close', () => {
-    let component = mount(<SocialProof notice={
-      {
-        text      : 'Only text params',
-        className : 'test'
-      }
-    }/>);
+    let component = mount(<SocialProof notice={{
+      text      : 'Only text params',
+      className : 'test'
+    }}/>);
     component.find('.notice__closeBlock__closeArea').simulate('click');
     jest.runAllTimers();
     component.find('.notice_hide').node.dispatchEvent(animationend);
@@ -97,5 +86,4 @@ describe('SocialProofs:', () => {
     component.find('.notice_hide').node.dispatchEvent(animationend);
     expect(component.html()).toMatchSnapshot();
   });
-
 });

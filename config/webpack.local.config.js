@@ -1,14 +1,7 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var path = require('path');
-var baseDir = process.cwd();
-var buildPath = path.resolve(baseDir, 'build');
-module.exports = {
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const baseDir = process.cwd();
 
-  output: {
-    path     : buildPath,
-    filename : '../build/[name].js',
-    library  : ['[name]']
-  },
+module.exports = {
   devServer: {
     contentBase        : '../src/www',
     host               : '0.0.0.0',
@@ -16,7 +9,7 @@ module.exports = {
     historyApiFallback : true,
     inline             : true,
     hot                : false,
-    https              : false
+    https              : true
   },
   devtool : ['source-map', 'css-loader?sourceMap'],
   plugins : [

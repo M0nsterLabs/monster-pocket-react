@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Shortid from 'shortid';
 import i18n from '../i18n/';
+window.Promise = require('bluebird');
 
 export default class ReactRemoteControl {
   container = false;
@@ -24,12 +25,14 @@ export default class ReactRemoteControl {
     } else {
       return false;
     }
-
     // add callback for remove component
     props.afterRemoveDomNode = () => {
-      document.getElementById(this.wrapper.id).remove();
+      if (typeof props.afterClose === 'function') {
+        props.afterClose();
+      }
+      const node = document.getElementById(this.wrapper.id);
+      node.parentNode.removeChild(node);
     };
-
     const Component = this.components[this.componentName];
     const localeService = new i18n.Factory(this.locale, this.path);
     localeService.whenLocaleIsLoaded(provider => {
@@ -49,7 +52,7 @@ export default class ReactRemoteControl {
     let Component = this.components[this.componentName];
     if (this.container) {
       const localeService = new i18n.Factory(this.locale);
-      localeService.whenLocaleIsLoaded(function (provider) {
+      localeService.whenLocaleIsLoaded(provider => {
         ReactDOM.render(
           <i18n.Provider i18n={provider}>
             <Component  {...props}/>
