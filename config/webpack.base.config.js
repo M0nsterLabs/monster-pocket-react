@@ -9,6 +9,7 @@ module.exports = {
   entry : {
     advice               : './src/model/advice/Advice.js',
     mascotAndSocialProof : './entry/MascotAndSocialProof.js',
+    MembershipsClient    : './entry/Memberships.js',
     index                : './entry/index.js'
   },
   output: {
