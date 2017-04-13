@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Shortid from 'shortid';
+import ClassList from 'classlist';
+import _ from 'lodash';
+const Shortid = require('shortid');
 import './SocialProof.less';
 export default class SocialProof extends React.Component {
   static propTypes = {
-    notice: React.PropTypes.oneOfType([
+    notice      : React.PropTypes.oneOfType([
       React.PropTypes.array,
       React.PropTypes.object
     ]),
-    width: React.PropTypes.number
+    width       : React.PropTypes.number,
+    iconCloseId : React.PropTypes.string
   };
 
   static defaultProps = {
@@ -18,7 +21,11 @@ export default class SocialProof extends React.Component {
     }
   };
   state = {
-    notice: []
+    notice         : [],
+    fixed          : false,
+    topPosition    : 0,
+    show           : false,
+    classTrnsition : ''
   };
   isUpdate = false;
   refsArray = [];
@@ -42,35 +49,40 @@ export default class SocialProof extends React.Component {
   };
 
   onHideNotice = (id) => {
-    const noticeHTML = this.refsArray.find((element) => {
-      let result = null;
-      if (element.getAttribute('data-id') === id) {
-        result = element;
-      }
-      return result;
-    });
-    let state = this.state;
-    setTimeout(() => {
-      noticeHTML.style.marginTop = (noticeHTML.offsetHeight * -1) + 'px';
-    }, 1);
-    state.notice = this.state.notice.map((element) => {
-      let item = element;
-      if (item.id === id) {
-        item.hide = true;
-      }
-      return item;
-    });
-    state = this.clearNoticeObject(state);
-    this.setState(state);
-    noticeHTML.addEventListener('animationend', () => {
-      state.notice = this.state.notice.filter((element) => {
-        return element.id !== id;
+    this.setState({
+      ...this.state,
+      classTrnsition: 'notice_transition'
+    }, () => {
+      const noticeHTML = _.find(this.refsArray, (element) => {
+        let result = null;
+        if (element.getAttribute('data-id') === id) {
+          result = element;
+        }
+        return result;
       });
+      let state = this.state;
+      setTimeout(() => {
+        noticeHTML.style.marginTop = (noticeHTML.offsetHeight * -1) + 'px';
+      }, 1);
+      state.notice = this.state.notice.map((element) => {
+        let item = element;
+        if (item.id === id) {
+          item.hide = true;
+        }
+        return item;
+      });
+      state = this.clearNoticeObject(state);
       this.setState(state);
-      if (!this.state.notice.length) {
-        this.props.afterRemoveDomNode();
-        ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(this).parentNode);
-      }
+      noticeHTML.addEventListener('animationend', () => {
+        state.notice = this.state.notice.filter((element) => {
+          return element.id !== id;
+        });
+        this.setState(state);
+        if (!this.state.notice.length) {
+          this.props.afterRemoveDomNode();
+          ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(this).parentNode);
+        }
+      });
     });
   };
 
@@ -87,9 +99,10 @@ export default class SocialProof extends React.Component {
     let totalHeight = 0;
     if (this.isUpdate) {
       this.refsArray.forEach((element) => {
-        if (element.classList.contains('new-element')) {
+        const obj = ClassList(element);
+        if (obj.contains('new-element')) {
           totalHeight += (element.offsetHeight || 0) + 20;
-          element.classList.remove('new-element');
+          obj.remove('new-element');
         }
       });
     }
@@ -105,7 +118,8 @@ export default class SocialProof extends React.Component {
       }
       element.addEventListener('animationend', () => {
         element.style.marginTop = '20px';
-        element.classList.remove('notice_show');
+        const obj = ClassList(element);
+        obj.remove('notice_show');
       });
     });
   };
@@ -144,6 +158,30 @@ export default class SocialProof extends React.Component {
 
   componentDidMount = () => {
     this.calcMarginTop();
+    const banner = document.querySelector('.js-revive-banner-container');
+    const scrolledOnLoad = window.pageYOffset || document.documentElement.scrollTop;
+    this.setState({
+      ...this.state,
+      topPosition : banner ? ReactDOM.findDOMNode(this).offsetTop - parseInt(banner.clientHeight) : ReactDOM.findDOMNode(this).offsetTop,
+      topSpace    : banner ? parseInt(banner.clientHeight) : 0,
+      fixed       : scrolledOnLoad > this.state.topPosition && !this.state.fixed ? true : false
+    }, () => {
+      document.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrolled > this.state.topPosition && !this.state.fixed) {
+          this.setState({
+            ...this.state,
+            fixed: true
+          });
+        }
+        if (scrolled < this.state.topPosition && this.state.fixed) {
+          this.setState({
+            ...this.state,
+            fixed: false
+          });
+        }
+      });
+    });
   };
 
   componentWillMount = () => {
@@ -165,14 +203,21 @@ export default class SocialProof extends React.Component {
   render () {
     this.refsArray = [];
     return (
-      <div className="notice-wrapper" style={{width: this.props.width}}>
+      <div
+        className={`notice-wrapper ${this.state.fixed ? 'notice-wrapper_fixed' : ''}`}
+        style={{
+          width : this.props.width,
+          top   : this.state.fixed ? this.state.topSpace : 'auto'
+        }}
+
+      >
         {this.state.notice.map((item) => {
-          const iconClass = (item.icon) ? `notice_has-icon notice_icon-${item.icon}` : '';
+          const iconClass = (item.icon) ? `notice_has-icon notice_icon notice_icon_${item.icon}` : '';
           return (
             <div
-              className={`notice notice_type-${item.type} ${iconClass} ${(item.hide) ? 'notice_hide' : ''} ${item.className.length ? item.className : ''}`}
+              className={`notice notice_type-${item.type} ${iconClass} ${(item.hide) ? 'notice_hide' : ''} ${item.className.length ? item.className : ''} ${this.state.classTrnsition}`}
               key={item.id}
-              style={{marginTop: '-20px'}}
+              style={{marginTop : '-20px'}}
               data-id={item.id}
               ref={(e) => {
                 if (e) this.refsArray.push(e);
@@ -184,6 +229,7 @@ export default class SocialProof extends React.Component {
                   className='notice__closeBlock__closeArea'
                   onClick={this.onHideNotice.bind(null, item.id)}
                   onTouchEnd={this.onHideNotice.bind(null, item.id)}
+                  id={item.closeIconId}
                 />
               </div>
             </div>

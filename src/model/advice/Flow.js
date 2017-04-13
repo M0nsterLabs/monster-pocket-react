@@ -1,5 +1,6 @@
 import nools from 'nools';
 import _ from 'lodash';
+import Promise from 'bluebird';
 
 export default class Flow {
   constructor (name) {
@@ -46,12 +47,12 @@ export default class Flow {
   match (facts) {
     let session = this._createSession();
 
-    (async () => {
-      await session.match();
-    })();
-    session.dispose();
-
-    return this.result;
+    return Promise.resolve(session.match()).then(function (...args) {
+      return this.result;
+    }.bind(this)).then(function (a) {
+      session.dispose();
+      return a;
+    });
   }
 
   _createSession () {
@@ -65,8 +66,9 @@ export default class Flow {
       _.forEach(this.useCases, (UseCase) => {
         const ucase = _.isFunction(UseCase) ? new UseCase() : UseCase;
         const flowRule = flow.rule;
+
         flowRule.call(flow, ucase.name(), ucase.conditions(), function (ucase) {
-          return function (facts, b) {
+          return function (facts) {
             var result = ucase.action(facts);
             if (_.isUndefined(result)) {
               result = {};
@@ -76,10 +78,9 @@ export default class Flow {
         }.bind(this)(ucase));
       });
     }.bind(this));
-
-    let session = nools.getFlow(this.name).getSession();
+    const container = nools.getFlow(this.name);
+    const session = container.getSession();
     this._assertFacts(session);
-
     return session;
   }
 

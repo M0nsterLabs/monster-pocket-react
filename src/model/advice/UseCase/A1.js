@@ -7,7 +7,7 @@ export default class A1 extends AbstractUseCase {
 
   conditions () {
     return [
-      TimeSpentOnPage.seconds(5),
+      TimeSpentOnPage.seconds(10),
       Sales.atLeast(10)
     ];
   }

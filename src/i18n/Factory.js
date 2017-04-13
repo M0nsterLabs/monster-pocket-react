@@ -1,4 +1,6 @@
 import Tools from './Tools';
+import Promise from 'bluebird';
+import fetch from 'isomorphic-fetch';
 
 function loadInternationalizationFile (localeToLoad, path) {
   if (localeToLoad === 'en') {
@@ -25,7 +27,7 @@ export default class Factory {
     Factory.instance = this;
   }
 
-  get loclae () {
+  get locale () {
     return this._locale;
   }
 
@@ -33,16 +35,8 @@ export default class Factory {
     return this._path;
   }
 
-  isLoaded () {
-    return typeof this.i18nProvider !== 'undefined';
-  }
-
-  getProvider () {
-    return this.i18nProvider;
-  }
-
   whenLocaleIsLoaded (callback) {
-    const locale = this._locale;
+    const locale = this.locale;
     const path = this.path;
 
     this::loadInternationalizationFile(locale, path).then(localeData => {

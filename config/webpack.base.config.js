@@ -2,6 +2,7 @@ const path = require('path');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const baseDir = process.cwd();
 const nodeModulesPath = path.resolve(baseDir, 'node_modules');
+const buildPath = path.resolve(baseDir, 'build');
 
 module.exports = {
   node  : {fs: 'empty'},
@@ -9,6 +10,11 @@ module.exports = {
     advice               : './src/model/advice/Advice.js',
     mascotAndSocialProof : './entry/MascotAndSocialProof.js',
     index                : './entry/index.js'
+  },
+  output: {
+    path     : buildPath,
+    filename : '../build/[name].js',
+    library  : ['[name]']
   },
   externals: {
     'react'     : 'React',
@@ -26,11 +32,11 @@ module.exports = {
     loaders: [
       {
         test   : /\.css$/,
-        loader : 'style-loader!css-loader'
+        loader : 'style-loader!css-loader!postcss-loader'
       },
       {
         test   : /\.less$/,
-        loader : 'style-loader!css-loader!less-loader'
+        loader : 'style-loader!css-loader!less-loader!postcss-loader?parser=postcss-safe-parser'
       },
       {
         test    : /\.jsx?$/,
@@ -45,7 +51,7 @@ module.exports = {
         query   : {presets: ['es2015', 'react', 'stage-0']}
       },
       {
-        test    : /\.(png|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        test    : /\.(png|ttf|eot|svg|woff|json(2)?)(\?[a-z0-9=&.]+)?$/,
         loaders : ['file']
       }
     ]
