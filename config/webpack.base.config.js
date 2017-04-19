@@ -2,6 +2,7 @@ const path = require('path');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const baseDir = process.cwd();
 const nodeModulesPath = path.resolve(baseDir, 'node_modules');
+var env = process.env.NODE_ENV || 'development';
 
 module.exports = {
   node  : {fs: 'empty'},
@@ -68,6 +69,9 @@ module.exports = {
     )
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      'config.js': path.join(baseDir, 'config', 'application.' + env + '.js')
+    }
   }
 };
