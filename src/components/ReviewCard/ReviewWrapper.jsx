@@ -368,7 +368,7 @@ export default class Reviews extends React.Component {
         imageUrl     : url || '',
         templateUrl  : this.state.templateUrl, //Config.monsterURL + product.templateUrl.slice(1),
         userName     : this.state.reviewsUserOwn.items[0].user_name,
-        userMail     : 'mail',
+        userMail     : this.state.userMail,
         authorId     : product[0].aid
       });
     });
@@ -408,17 +408,19 @@ export default class Reviews extends React.Component {
     });
   };
 
+  //Get auth-user email
   getUserProfile = () => {
-    fetch(`${Config.accountServiceURL}profile`, {
+   fetch(`${Config.accountServiceURL}users/profile`, {
       method : 'get',
       headers: {
-        'Access-Control-Allow-Origin':'*',
         'Authorization': this.props.accessToken
       }
     })
     .then((response) => response.json())
     .then((data) => {
-      // console.log('data', data);
+      this.setState({
+        userMail: data.login
+      });
     });
   };
 
@@ -518,7 +520,7 @@ export default class Reviews extends React.Component {
           <p className="notification-review__info-name t1">{`${this.context.i18n.l('Thank you for your review!')}`}</p>
           <p className="notification-review__info-text t3">
             {`${this.context.i18n.l("We've generated your one-time promo-code and within 10 minutes it will reach your email:")}`}</p>
-          <p className="notification-review__info-mail t3">{this.props.userMail}</p>
+          <p className="notification-review__info-mail t3">{this.state.userMail}</p>
           <p className="notification-review__info-quantity h0">-{this.state.promocode}%</p>
           <p className="notification-review__info-text t3">{`${this.context.i18n.l('on all our themes')}`}</p>
         </div>

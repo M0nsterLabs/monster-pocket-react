@@ -8,7 +8,7 @@ export default class Review extends Component {
         <h1>Reviews & Ratings</h1>
 
         <Reviews
-          templateId={53035}
+          templateId={53001}
           accessToken={'SRd4yhJY1NnssLu2GjqjrVdeOS35FNzuFVNM9W8t'}
         />
       </div>
