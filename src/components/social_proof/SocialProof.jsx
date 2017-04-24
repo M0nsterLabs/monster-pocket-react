@@ -6,7 +6,7 @@ const Shortid = require('shortid');
 import './SocialProof.less';
 export default class SocialProof extends React.Component {
   static propTypes = {
-    notice      : React.PropTypes.oneOfType([
+    notice: React.PropTypes.oneOfType([
       React.PropTypes.array,
       React.PropTypes.object
     ]),
@@ -77,7 +77,12 @@ export default class SocialProof extends React.Component {
         state.notice = this.state.notice.filter((element) => {
           return element.id !== id;
         });
-        this.setState(state);
+        const currentNotice = this.state.notice.find((element) => element.id === id);
+        this.setState(state, () => {
+          if (currentNotice && typeof currentNotice.afterClose === 'function') {
+            currentNotice.afterClose();
+          }
+        });
         if (!this.state.notice.length) {
           this.props.afterRemoveDomNode();
           ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(this).parentNode);
@@ -164,7 +169,7 @@ export default class SocialProof extends React.Component {
       ...this.state,
       topPosition : banner ? ReactDOM.findDOMNode(this).offsetTop - parseInt(banner.clientHeight) : ReactDOM.findDOMNode(this).offsetTop,
       topSpace    : banner ? parseInt(banner.clientHeight) : 0,
-      fixed       : scrolledOnLoad > this.state.topPosition && !this.state.fixed ? true : false
+      fixed       : scrolledOnLoad > this.state.topPosition && !this.state.fixed
     }, () => {
       document.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset || document.documentElement.scrollTop;
@@ -217,7 +222,7 @@ export default class SocialProof extends React.Component {
             <div
               className={`notice notice_type-${item.type} ${iconClass} ${(item.hide) ? 'notice_hide' : ''} ${item.className.length ? item.className : ''} ${this.state.classTrnsition}`}
               key={item.id}
-              style={{marginTop : '-20px'}}
+              style={{marginTop: '-20px'}}
               data-id={item.id}
               ref={(e) => {
                 if (e) this.refsArray.push(e);
