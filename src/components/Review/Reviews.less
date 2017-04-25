@@ -1,3 +1,48 @@
+.reviews {
+  width: 100%;
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .reviews__item {
+      padding: 0;
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid #eceff1;
+    padding: 40px 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .template {
+    display: block;
+  }
+
+  .template-small {
+    padding: 0;
+
+    &__info {
+      flex: 2 0px;
+      overflow: hidden;
+    }
+  }
+
+  &__message {
+    margin-bottom: 40px;
+  }
+}
+
 .review {
   padding: 40px !important;
 
@@ -306,13 +351,94 @@
   }
 }
 
-.reviews {
-  width: 100%;
+.discount-message {
+  background-color: #eefaf1;
+  border-radius: 3px;
+  padding: 40px 20px 40px 100px;
+  position: relative;
 
-  &__list {
-    .reviews__item {
-      padding: 0;
+  &__icon {
+    height: 40px;
+    left: 40px;
+    position: absolute;
+    top: 50px;
+    width: 40px;
+  }
+
+  &__title {
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__bg-1 {
+    background-image: url('../../images/reviews-message-1.svg');
+    height: 133px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 276px;
+    z-index: 0;
+  }
+
+  &__bg-2 {
+    background-image: url('../../images/reviews-message-2.svg');
+    height: 133px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 289px;
+    z-index: 0;
+  }
+}
+
+.review-message {
+  border-radius: 3px;
+  color: #fff;
+  padding: 20px 20px 20px 50px;
+  position: relative;
+  margin-bottom: 20px;
+
+  &__icon {
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: 20px;
+    width: 20px;
+  }
+
+  &__triangle {
+    border-radius: 3px;
+    display: inline-block;
+    height: 20px;
+    left: 50%;
+    position: absolute;
+    top: -7px;
+    transform: rotate(45deg);
+    width: 20px;
+
+    &_progress {
+      background-color: #546e7a;
     }
+
+    &_declined {
+      background-color: #d84315;
+    }
+  }
+
+  &_progress {
+    background-color: #546e7a;
+  }
+
+  &_declined {
+    background-color:  #d84315;
   }
 }
 

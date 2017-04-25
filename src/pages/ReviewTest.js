@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Reviews from '../components/ReviewCard/ReviewWrapper';
+import ReviewTab from '../components/Review/ReviewTab';
 
 export default class Review extends Component {
   render () {
@@ -7,10 +7,7 @@ export default class Review extends Component {
       <div className='container' style={{maxWidth: '600px'}}>
         <h1>Reviews & Ratings</h1>
 
-        <Reviews
-          templateId={53001}
-          accessToken={'SRd4yhJY1NnssLu2GjqjrVdeOS35FNzuFVNM9W8t'}
-        />
+        <ReviewTab/>
       </div>
     );
   }

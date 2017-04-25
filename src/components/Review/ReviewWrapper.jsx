@@ -1,6 +1,7 @@
 import React                        from 'react';
 import Config                       from 'config.js';
 import _                            from 'lodash';
+import PropTypes                    from 'prop-types';
 import ContentLoader                from 'components/ContentLoader/';
 import ContentEmptyMessage          from 'components/ContentEmptyMessage/';
 import L1                           from 'quark/lib/loaders/L1';
@@ -13,7 +14,8 @@ import {connectNotificationTrigger} from 'quark/lib/utils';
 import ReviewsData                  from 'plasma-reviews-api-client-js';
 import ProductsData                 from 'tm-products-api-client-js';
 
-import ReviewCard                   from './index';
+import ReviewItem                   from './ReviewItem';
+
 import {
   getCdnImageUrl,
   infiniteDataLoader,
@@ -24,104 +26,40 @@ import './Reviews.less';
 
 const reviews = new ReviewsData(Config.reviewsServiceURL, getCurrentLocale());
 const products = new ProductsData(Config.productsServiceURL, getCurrentLocale());
-
-class ReviewItem extends React.Component {
-  static contextTypes = {
-    i18n: React.PropTypes.object
-  };
-
-  static propTypes = {
-    userAvatar    : React.PropTypes.string,
-    userName      : React.PropTypes.string,
-    reviewScore   : React.PropTypes.number,
-    reviewContent : React.PropTypes.string,
-  };
-
-  render() {
-    return (
-      <div className="review__item t3">
-        <div className="review__info">
-          <div className="review__author">
-            {
-              !this.props.userAvatar &&
-              <span className="review__author-icon review__author-icon_default"> </span>
-            }
-            {
-              this.props.userAvatar &&
-              <img
-                className="review__author-icon"
-                alt="avatar"
-                src={`${this.props.userAvatar}`}
-              />
-            }
-            <span className="review__author-name">{this.props.userName}</span>
-          </div>
-          <span className="review__score rating-stars-block">
-            <StarsRating
-              defaultRating={this.props.reviewScore}
-              disabled={true}
-            />
-            <span className="review__flag iti-flag us"> </span>
-          </span>
-          <span  className="review__date">date</span>
-        </div>
-        <div className="review__item-content">
-          {this.props.reviewContent}
-        </div>
-        <div className="review__item-controls">
-          <span className="review__item-reply tm-icon icon-message">{this.context.i18n.l('Reply')}</span>
-        </div>
-      </div>
-    )
-  }
-}
+const STATUS_INITIAL = 'initial';
+const STATUS_PENDING = 'pending';
+const STATUS_DECLINED = 'declined';
+const STATUS_APPROVED = 'approved';
 
 export default class Reviews extends React.Component {
   static contextTypes = {
     i18n: React.PropTypes.object
   };
 
-  static propTypes = {
-    templateId  : React.PropTypes.number,
-    accessToken : React.PropTypes.string
-  };
-
   state = {
-    isEmpty            : false,
-    isFetching         : false,
-    initStatus         : false,
-    reviewsUser        : {},
-    productsUser       : {},
-    reviewsUserOwn     : {},
-    productUserOwn     : {},
-    user               : {},
-    reviewsData        : {},
-    key                : 0,
-    clickStars         : 0,
-    hideOnClickOutside : true,
-    state              : false,
-    showContent        : false,
-    stars              : 0,
-    initial            : 'initial',
-    pending            : 'pending',
-    declined           : 'declined',
-    approved           : 'approved',
-    success            : false,
-    promocode          : 15,
-    countReview        : this.props.textReview,
-    templateName       : '',
-    imageUrl           : '',
-    templateUrl        : '',
-    userName           : '',
-    userMail           : '',
-    authorId           : 0
+    isFetching   : false,
+    initStatus   : false,
+    reviews      : {},
+    products     : {},
+    userReview   : {},
+    userProducts : {},
+    user         : {},
+    showContent  : false,
+    stars        : 0,
+    success      : false,
+    templateUrl  : '',
+    userName     : '',
+    userMail     : '',
+    authorId     : 0
   };
 
   constructor (props) {
     super(props);
 
     this.locale = getCurrentLocale();
-
+    this.promocode = 15;
+    this.templateName = '';
+    this.imageUrl = '';
     this.closePopupOnEsc = this.closePopupOnEsc.bind(this);
     this.handleDocumentClick = this.handleDocumentClick.bind(this);
   }
@@ -147,14 +85,14 @@ export default class Reviews extends React.Component {
   };
 
   renderNotification = (status) => {
-    if (status === this.state.pending) {
+    if (status === STATUS_PENDING) {
       return (<div className="template-review__message review-message review-message_progress">
         <i className="review-message__icon icon icon-in-progress icon-in-progress_white"/>
         <p className="review-message__text t3">{this.context.i18n.l('The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)')}
         </p>
         <div className="review-message__triangle review-message__triangle_progress"></div>
       </div>);
-    } else if (status === this.state.declined) {
+    } else if (status === STATUS_DECLINED) {
       return (<div className="template-review__message review-message review-message_declined">
         <i className="review-message__icon icon icon-pen"/>
         <p className="review-message__text t3">{this.context.i18n.l('Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.')}
@@ -167,83 +105,78 @@ export default class Reviews extends React.Component {
   };
 
   renderReviews = () => {
-    if (this.state.reviewsUser.items && this.state.productsUser.products) {
+    if (this.state.reviews.items && this.state.products.products) {
       return (
-        this.state.reviewsUser.items.map((review, i) => {
-          const product = this.state.productsUser.products.find((product) => {
-            return (review.template_id === product.templateId);
-          });
-          if (product) {
-            return (
-              <li className="reviews__item reviews__item_my-reviews review__content" key={review.id}>
-                <ReviewItem
-                  userAvatar = {this.state.user.avatar}
-                  userName = {review.user_name}
-                  reviewScore = {review.score}
-                  reviewContent = {review.content}
-                />
-              </li>
-            );
-          }
-          review.status === 'initial' ? this.state.initStatus = true : '';
+        this.state.reviews.items.map((review, i) => {
+          review.status === STATUS_INITIAL ? this.state.initStatus = true : '';
+          return (
+            <li className="reviews__item reviews__item_my-reviews review__content" key={review.id}>
+              <ReviewItem
+                userAvatar = {this.state.user.avatar}
+                userName = {review.user_name}
+                reviewScore = {review.score}
+                reviewContent = {review.content}
+              />
+            </li>
+          );
         })
       );
     }
   };
 
   renderMyReviews = () => {
-    if (!_.isEmpty(this.state.reviewsUserOwn)) {
-      const reviewData = {...this.state.reviewsUserOwn.items[0]};
-      if (this.state.reviewsUserOwn.items.length) {
-        if (this.state.reviewsUserOwn.items[0].status === this.state.initial) {
-          // Review initial
-          return (
-            <div className="template-reviews__rating template__rating  template-rating t1">
-              <span className="template-reviews__rating-name">
-                {this.context.i18n.l('Please rate the product:')}
-              </span>
-              {this.renderStars(this.state.success)}
-            </div>
-          )
-        } else if (this.state.reviewsUserOwn.items[0].status === this.state.pending) {
-          // Review pending
-          return (
-            <li className="reviews__item reviews__item_my-reviews review__content" key={reviewData.id}>
-              <ReviewItem
-                userAvatar    = {this.state.user.avatar}
-                userName      = {reviewData.user_name}
-                reviewScore   = {reviewData.score}
-                reviewContent = {reviewData.content}
-              />
-              {this.renderNotification(reviewData.status)}
-            </li>
-          );
-        }
-        else if (this.state.reviewsUserOwn.items[0].status === this.state.declined) {
-          // Review declined
-          return (
-            <li className="reviews__item reviews__item_my-reviews review__content" key={reviewData.id}>
-              <div className="template-reviews__rating template__rating  template-rating t1">
-                <span className="template-reviews__rating-name">
-                  {this.context.i18n.l('Please rate the product:')}
-                </span>
-                {this.renderStars(this.state.success)}
-              </div>
-              <ReviewItem
-                userAvatar    = {this.state.user.avatar}
-                userName      = {this.state.user.userName}
-                reviewScore   = {reviewData.score}
-                reviewContent = {reviewData.content}
-              />
-              {this.renderNotification(reviewData.status)}
-            </li>
-          );
-        }
-        else if (this.state.reviewsUserOwn.items[0].status === this.state.approved) {
-          // Review approved
-        }
-      }
+    if (_.isEmpty(this.state.userReview) ) {
+      return;
     }
+    if (this.state.userReview.status === STATUS_INITIAL) {
+      // Review initial
+      return (
+        <div className="template-reviews__rating template__rating  template-rating t1">
+          <span className="template-reviews__rating-name">
+            {this.context.i18n.l('Please rate the product:')}
+          </span>
+          {this.renderStars(this.state.success)}
+        </div>
+      )
+    } else if (this.state.userReview.status === STATUS_PENDING) {
+      // Review pending
+      return (
+        <li className="reviews__item reviews__item_my-reviews review__content" key={this.state.userReview.id}>
+          <ReviewItem
+            userAvatar    = {this.state.user.avatar}
+            userName      = {this.state.user.userName}
+            reviewScore   = {this.state.userReview.score}
+            reviewContent = {this.state.userReview.content}
+          />
+          {this.renderNotification(this.state.userReview.status)}
+        </li>
+      );
+    }
+    else if (this.state.userReview.status === STATUS_DECLINED) {
+      // Review declined
+      return (
+        <li className="reviews__item reviews__item_my-reviews review__content" key={this.state.userReview.id}>
+          <div className="template-reviews__rating template__rating  template-rating t1">
+            <span className="template-reviews__rating-name">
+              {this.context.i18n.l('Please rate the product:')}
+            </span>
+            {this.renderStars(this.state.success)}
+          </div>
+          <ReviewItem
+            userAvatar    = {this.state.user.avatar}
+            userName      = {this.state.user.userName}
+            reviewScore   = {this.state.userReview.score}
+            reviewContent = {this.state.userReview.content}
+          />
+          {this.renderNotification(this.state.userReview.status)}
+        </li>
+      );
+    }
+    else if (this.state.userReview.status === STATUS_APPROVED) {
+      // Review approved
+    }
+
+
   };
 
   //Get reviews on template
@@ -260,39 +193,37 @@ export default class Reviews extends React.Component {
       isFetching: true
     });
     const paginationData   = {};
-    const currentState = this.state.reviewsUser;
+    const currentState = this.state.reviews;
     let itemsReview, productsReview;
     if (this.shouldFetchDataItems(currentState)) {
-        const requestPageIndex = currentState.currentPageIndex + 1 || 1;
-         params = {
-           ...params,
-           'page': requestPageIndex
-         };
+      const requestPageIndex = currentState.currentPageIndex + 1 || 1;
+       params = {
+         ...params,
+         'page': requestPageIndex
+       };
 
       reviews.getReviews(params).then((data) => {
         paginationData.currentPageIndex = data.currentPageIndex;
         paginationData.lastPageIndex = data.lastPageIndex;
         paginationData.totalCount = data.totalCount;
 
-        itemsReview = this.state.reviewsUser.items ? [...this.state.reviewsUser.items, ...data.items] : data.items;
+        itemsReview = this.state.reviews.items ? [...this.state.reviews.items, ...data.items] : data.items;
         const ids = _.uniq(itemsReview.map((item) => {
           return item.template_id;
         }));
         if (ids.length) {
           products.getProducts(ids).then((products) => {
-            productsReview = this.state.productsUser.products.concat(...products);
-          }).then(() => {
             this.setState({
-              productsUser : {
-                ...this.state.productsUser,
-                products: productsReview
+              products : {
+                ...this.state.products,
+                ...products
               },
-              reviewsUser: {
-                ...this.state.reviewsUser,
+              reviews  : {
+                ...this.state.reviews,
                 items : itemsReview,
                 ...paginationData
               },
-              //isFetching: false
+              // isFetching: false
             });
           });
         }
@@ -334,12 +265,13 @@ export default class Reviews extends React.Component {
     });
 
     reviews.getReviewsUser(params).then((data) => {
+      console.log('data', data);
        this.setState({
-         reviewsUserOwn: data
+         userReview : data.items[0]
        });
     }).then(() => {
-      if (!_.isEmpty(this.state.reviewsUserOwn)) {
-        this.getUserData(this.state.reviewsUserOwn.items[0].user_id);
+      if (!_.isEmpty(this.state.userReview)) {
+        this.getUserData(this.state.userReview.user_id);
       }
     });
   };
@@ -357,16 +289,11 @@ export default class Reviews extends React.Component {
         width  : 400,
         height : 400
       };
-      const url = getCdnImageUrl(product[0].templateId, product[0].screenshots, 'original', size);
-
+      this.templateName = product[0].templateFullTitle;
+      this.imageUrl = getCdnImageUrl(product[0].templateId, product[0].screenshots, 'original', size) || '';
       this.setState({
         productUserData : product[0],
-
-        templateName : product[0].templateFullTitle,
-        imageUrl     : url || '',
-        templateUrl  : this.state.templateUrl, //Config.monsterURL + product.templateUrl.slice(1),
-        userName     : this.state.reviewsUserOwn.items[0].user_name,
-        userMail     : this.state.userMail,
+        templateUrl  : this.state.templateUrl,
         authorId     : product[0].aid
       });
     });
@@ -375,20 +302,12 @@ export default class Reviews extends React.Component {
 
   putAddReview = (token, id, params) => {
       reviews.completeReview(token, id, params).then((data) => {
-        this.state.reviewsUserOwn.items.map((element) => {
-          if (element.id === data.items.id) {
-            element.content = data.items.content;
-            element.score = parseInt(data.items.score);
-            element.status = data.items.status;
-          }
-          return element;
-        });
-      }).then(() => {
+        let {items} = data;
+        items.score = parseInt(items.score);
+
         this.setState({
-          reviewsUser: {
-            ...this.state.reviewsUser,
-            items: [...this.state.reviewsUserOwn.items[0], ...this.state.reviewsUser.items]
-          }
+          userReview: items,
+          initStatus: false,
         });
       });
   };
@@ -429,7 +348,7 @@ export default class Reviews extends React.Component {
   };
 
   componentDidMount () {
-    this.state.productsUser.products = [];
+    this.state.products.products = [];
     this.getReviewsUser();
     this.getReviews();
     this.getProductUser();
@@ -449,7 +368,7 @@ export default class Reviews extends React.Component {
   loadDownloads = () => {
     infiniteDataLoader(() => {
       return this.getReviews();
-    }, this.state.reviewsUser.totalCount > 0 && this.state.isFetching !== true);
+    }, this.state.reviews.totalCount > 0 && this.state.isFetching !== true);
   };
 
   renderStars = (success) => {
@@ -458,7 +377,6 @@ export default class Reviews extends React.Component {
       <StartNotification
         defaultRating={this.state.stars}
         onChange={this.showTooltip}
-        key={this.state.key}
         notification={{
           text: (
             this.renderPopover(success)
@@ -507,12 +425,6 @@ export default class Reviews extends React.Component {
             >
               Post
             </B2J>
-            <input id="reviewTitle" name="title" type="hidden" value={this.state.templateName}/>
-            <input id="countStars" name="score" type="hidden" value={this.state.clickStars}/>
-            <input id="tmplTitle" name="template_title" type="hidden" value={this.state.templateName}/>
-            <input id="tmplImg" name="template_image" type="hidden" value={this.state.imageUrl}/>
-            <input id="tmplUrl" name="template_url" type="hidden" value={this.state.templateUrl}/>
-            <input id="authorId" name="author_id" type="hidden" value={this.state.authorId}/>
           </form>
         </div>
         <div className="notification-review__promocode">
@@ -520,17 +432,17 @@ export default class Reviews extends React.Component {
           <p className="notification-review__info-text t3">
             {`${this.context.i18n.l("We've generated your one-time promo-code and within 10 minutes it will reach your email:")}`}</p>
           <p className="notification-review__info-mail t3">{this.state.userMail}</p>
-          <p className="notification-review__info-quantity h0">-{this.state.promocode}%</p>
+          <p className="notification-review__info-quantity h0">-{this.promocode}%</p>
           <p className="notification-review__info-text t3">{`${this.context.i18n.l('on all our themes')}`}</p>
         </div>
       </div>
     );
   }
 
-  showTooltip = (val) => {
-    this.state.clickStars = val;
+  showTooltip = (val, showcontent) => {
+    console.log(val);
     this.setState({
-      showContent : false,
+      showContent : showcontent,
       stars       : val
     }, () => {
       let promise = new Promise((resolve) => {
@@ -538,7 +450,7 @@ export default class Reviews extends React.Component {
       });
       promise.then(() => {
         document.querySelector('.stars-rating-wrapper > div > .notification--large').classList.add('notification__review-center');
-        document.querySelector('.notification__review-center').classList.add(`notification__review-center_${val}`);
+        document.querySelector('.notification__review-center').classList.add(`notification__review-center_${this.state.stars}`);
         this.trigger.targetNode.addEventListener('animationend', () => {
           this.state.showContent = true;
         });
@@ -559,7 +471,7 @@ export default class Reviews extends React.Component {
         };
       } else {
         if (valueCount > 400) {
-          this.state.promocode = 25;
+          this.promocode = 25;
         }
         return {
           isValid : true,
@@ -583,23 +495,22 @@ export default class Reviews extends React.Component {
     if (this.textValidationRule(reviewText).isValid) {
       this.state.success = true;
       const reviewsData = {
-        title          : this.state.templateName,
-        score          : this.state.clickStars,
+        title          : this.templateName,
+        score          : this.state.stars,
         content        : reviewText,
-        template_title : this.state.templateName,
-        template_image : this.state.imageUrl,
+        template_title : this.templateName,
+        template_image : this.imageUrl,
         template_url   : this.state.templateUrl,
-        user_name      : this.state.userName,
         author_id      : this.state.authorId
       };
 
       notification.classList.add('notification_result');
       let promise = new Promise((resolve) => {
-        resolve(this.putAddReview(this.props.accessToken, this.state.reviewsUserOwn.items[0].id, reviewsData));
+        resolve(this.putAddReview(this.props.accessToken, this.state.userReview.id, reviewsData));
       });
       promise.then(() => {
         setTimeout(() => {
-          this.showTooltip(reviewsData.score);
+          this.showTooltip(reviewsData.score, false);
         }, 2000);
       });
     } else {
@@ -620,7 +531,6 @@ export default class Reviews extends React.Component {
     this.trigger.hideNotification(this, true);
     this.trigger.targetNode.addEventListener('animationend', () => {
       this.setState({
-        key         : this.state.key++,
         stars       : 0,
         showContent : false
       });
@@ -649,7 +559,7 @@ export default class Reviews extends React.Component {
               {this.renderMyReviews()}
               {this.renderReviews()}
             </ul>
-            {this.state.reviewsUser.totalCount > 0 && this.state.isFetching && (
+            {this.state.reviews.totalCount > 0 && this.state.isFetching && (
               <L1 className="downloads__loader"/>
             )}
           </div>
@@ -657,3 +567,8 @@ export default class Reviews extends React.Component {
     );
   }
 }
+
+Reviews.propTypes = {
+  templateId  : PropTypes.number,
+  accessToken : PropTypes.string
+};
