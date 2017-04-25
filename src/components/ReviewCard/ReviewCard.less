@@ -375,6 +375,21 @@
       margin-right: 10px;
       font-weight: bold;
     }
+
+    .stars-rating-wrapper {
+      position: relative;
+
+      &:before {
+        position: absolute;
+        content: "";
+        background: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%22106%22%20height%3D%2217%22%20viewBox%3D%220%200%20106%2017%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3EArrow%3C%2Ftitle%3E%3Cpath%20d%3D%22M96.61%208.187c-2.41%201.637-3.574%203.146-12.33%205.005-3.423.726-9.374%202.292-29.69%201.58-20.318-.713-30.814-3.64-35.444-4.88C13.283%208.322%207.94%205.905%204.44%202.984c-6.936-5.79-4.49-1.844-1.11.896%207.59%206.15%2025.002%2010.408%2045.148%2011.757%2026.405%201.77%2040.724-1.085%2047.957-4.662%201.11-.55%202.29-1.558%202.237-.02-.067.697-1.423%205.327-.228%205.272%201.262-.06%202.633-4.395%204.19-7.31%201.43-2.676%203.062-4.464%202.756-5.037-.316-.59-3.208.944-6.215%201.132-3.077.192-6.217-.414-6.693%200-1.805%201.573%203.953%201.508%204.127%203.175z%22%20fill%3D%22%2390CAF9%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+        background-repeat: no-repeat;
+        width: 105px;
+        height: 20px;
+        top: 47px;
+        left: -70px;
+      }
+    }
   }
 
   &__title {
@@ -558,6 +573,12 @@
       }
     }
 
+    &--error {
+      .notification__container {
+        padding: 0 20px 0;
+      }
+    }
+
     &__text {
       width: 290px;
       position: relative;
@@ -574,7 +595,7 @@
     &__review {
       &-center {
         width: 330px;
-        right: -39px !important;
+        right: -47px !important;
         left: auto !important;
         top: 50px !important;
 
@@ -585,23 +606,23 @@
           height: 20px;
           border-radius: 3px;
           top: -9px;
-          right: 148px;
+          right: 156px;
           transform: rotate(45deg);
           background-color: #546e7a;
           transition: right 0.3s;
         }
 
         &_2 {
-          right: -64px !important;
+          right: -72px !important;
         }
         &_3 {
-          right: -89px !important;
+          right: -97px !important;
         }
         &_4 {
-          right: -114px !important;
+          right: -122px !important;
         }
         &_5 {
-          right: -138px !important;
+          right: -146px !important;
         }
 
         &_pos-center {

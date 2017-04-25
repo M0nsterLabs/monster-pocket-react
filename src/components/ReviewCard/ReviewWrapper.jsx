@@ -109,8 +109,6 @@ export default class Reviews extends React.Component {
     success            : false,
     promocode          : 15,
     countReview        : this.props.textReview,
-    // reviewId           : 0,
-    // userId             : 0,
     templateName       : '',
     imageUrl           : '',
     templateUrl        : '',
@@ -294,7 +292,7 @@ export default class Reviews extends React.Component {
                 items : itemsReview,
                 ...paginationData
               },
-              isFetching: false
+              //isFetching: false
             });
           });
         }
@@ -495,7 +493,7 @@ export default class Reviews extends React.Component {
               increaseValue={true}
               ref={c => this.textarea = c}
               name="content"
-              notificationType="N2A"
+              notificationType="N2B"
             />
             <B3J
               className="notification-review__button notification-review__button_first"
@@ -514,6 +512,7 @@ export default class Reviews extends React.Component {
             <input id="tmplTitle" name="template_title" type="hidden" value={this.state.templateName}/>
             <input id="tmplImg" name="template_image" type="hidden" value={this.state.imageUrl}/>
             <input id="tmplUrl" name="template_url" type="hidden" value={this.state.templateUrl}/>
+            <input id="authorId" name="author_id" type="hidden" value={this.state.authorId}/>
           </form>
         </div>
         <div className="notification-review__promocode">
@@ -540,7 +539,6 @@ export default class Reviews extends React.Component {
       promise.then(() => {
         document.querySelector('.stars-rating-wrapper > div > .notification--large').classList.add('notification__review-center');
         document.querySelector('.notification__review-center').classList.add(`notification__review-center_${val}`);
-        // document.querySelector('.notification__review-center').classList.add(`notification__review-center_pos-center`);
         this.trigger.targetNode.addEventListener('animationend', () => {
           this.state.showContent = true;
         });
