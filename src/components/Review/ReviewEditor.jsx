@@ -14,6 +14,7 @@ import {
 
 const reviews = new ReviewsData(Config.reviewsServiceURL, getCurrentLocale());
 const STATUS_PENDING = 'pending';
+const STATUS_APPROVED = 'approved';
 
 export default class ReviewEditor extends React.Component {
   static contextTypes = {
@@ -188,6 +189,28 @@ export default class ReviewEditor extends React.Component {
 
   renderStars = () => {
     const StartNotification = connectNotificationTrigger(StarsRating);
+    if (this.props.statusReview === STATUS_PENDING) {
+      this.state.success = true;
+      return (
+        <StartNotification
+          defaultRating={this.props.scoreReview}
+          onChange={this.showTooltip}
+          disabled={true}
+          noHovered={true}
+          notification={{
+            text: (
+              this.renderPopover()
+            ),
+            code: 'N1F'
+          }}
+          trigger={this.trigger}
+          ref={c => {
+            this.trigger = c;
+          }}
+          notificationAlt={{status: false}}
+        />
+      )
+    }
     return (
       <StartNotification
         defaultRating={this.state.stars}
@@ -232,6 +255,9 @@ export default class ReviewEditor extends React.Component {
       promise.then(() => {
         document.querySelector('.stars-rating-wrapper > div > .notification--large').classList.add('notification__review-center');
         document.querySelector('.notification__review-center').classList.add(`notification__review-center_${this.state.stars}`);
+        if (this.props.statusReview === STATUS_PENDING || this.props.statusReview === STATUS_APPROVED) {
+          document.querySelector('.notification__review-center').classList.add(`notification__review-center_pos-center`);
+        }
         this.trigger.targetNode.addEventListener('animationend', () => {
           this.state.showContent = true;
           // this.setState({
@@ -265,5 +291,6 @@ export default class ReviewEditor extends React.Component {
 
 ReviewEditor.propTypes = {
   userMail     : PropTypes.string,
-  statusReview : PropTypes.string
+  statusReview : PropTypes.string,
+  scoreReview  : PropTypes.number
 };

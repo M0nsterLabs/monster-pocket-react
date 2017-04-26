@@ -137,6 +137,7 @@ export default class Reviews extends React.Component {
           accessToken={this.props.accessToken}
           updateUserReview={this.updateUserReview}
           statusReview={this.state.userReview.status}
+          scoreReview={this.state.userReview.score}
         />
       )
     }
