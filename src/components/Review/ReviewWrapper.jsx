@@ -246,9 +246,7 @@ export default class Reviews extends React.Component {
 
   getReviewsUserData = (params = {}) => {
     reviews.getReviewsUser(params).then((data) => {
-      console.log('11111111 data', data);
       if (data.items.length > 0) {
-        console.log('22222', 22222);
         this.setState({
           userReview : data.items[0]
         });

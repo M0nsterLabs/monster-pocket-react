@@ -21,8 +21,8 @@ export default class ReviewEditor extends React.Component {
     i18n: React.PropTypes.object
   };
   state = {
-    success      : false,
     stars        : 0,
+    showContent  : false
   };
 
   constructor (props) {
@@ -50,11 +50,6 @@ export default class ReviewEditor extends React.Component {
 
   handleDocumentClick = (event) => {
     const area = ReactDOM.findDOMNode(this.trigger);
-    // console.log('area', area);
-    // console.log('this.trigger', this.trigger);
-    // console.log('this.state.showContent', this.state.showContent);
-    // console.log('event.target !== this.trigger', event.target !== this.trigger);
-    // console.log('!area.contains(event.target)', !area.contains(event.target));
     if (this.trigger && this.state.showContent && event.target !== this.trigger && !area.contains(event.target)) {
       this.hideTooltip();
     }
@@ -102,9 +97,6 @@ export default class ReviewEditor extends React.Component {
     let notification = document.querySelector('.stars-rating-wrapper .notification');
     notification.classList.remove('notification_invalid');
     if (this.textValidationRule(reviewText).isValid) {
-      this.setState({
-        success : true,
-      });
       const reviewsData = {
         title          : this.props.templateName,
         score          : this.state.stars,
@@ -120,14 +112,9 @@ export default class ReviewEditor extends React.Component {
         resolve(this.putAddReview(this.props.accessToken, this.props.userReview.id, reviewsData));
       });
       promise.then(() => {
-        setTimeout(() => {
-          this.showTooltip(reviewsData.score, false);
-        }, 2000);
+        this.showTooltip(reviewsData.score);
       });
     } else {
-      this.setState({
-        success : false,
-      });
       setTimeout(function () {
         notification.classList.add('notification_invalid');
       }, 1);
@@ -139,9 +126,9 @@ export default class ReviewEditor extends React.Component {
   }
 
 
-  renderPopover () {
+  renderPopover (success) {
     return (
-      <div className={`notification-review ${this.state.success ? 'notification_result' : ''}`}>
+      <div className={`notification-review ${success ? 'notification_result' : ''}`}>
         <div className="notification-review__info">
           <p className="notification-review__text t2">{`${this.context.i18n.l('Please, write at least 60 symbols for review')}`}</p>
           <form
@@ -189,35 +176,16 @@ export default class ReviewEditor extends React.Component {
 
   renderStars = () => {
     const StartNotification = connectNotificationTrigger(StarsRating);
-    if (this.props.statusReview === STATUS_PENDING) {
-      this.state.success = true;
-      return (
-        <StartNotification
-          defaultRating={this.props.scoreReview}
-          onChange={this.showTooltip}
-          disabled={true}
-          noHovered={true}
-          notification={{
-            text: (
-              this.renderPopover()
-            ),
-            code: 'N1F'
-          }}
-          trigger={this.trigger}
-          ref={c => {
-            this.trigger = c;
-          }}
-          notificationAlt={{status: false}}
-        />
-      )
-    }
+
     return (
       <StartNotification
-        defaultRating={this.state.stars}
+        defaultRating={this.props.statusReview === STATUS_PENDING ? this.props.scoreReview : this.state.stars}
+        disabled={this.props.statusReview === STATUS_PENDING}
+        noHovered={this.props.statusReview === STATUS_PENDING}
         onChange={this.showTooltip}
         notification={{
           text: (
-            this.renderPopover()
+            this.renderPopover(this.props.statusReview === STATUS_PENDING)
           ),
           code: 'N1F'
         }}
@@ -235,7 +203,6 @@ export default class ReviewEditor extends React.Component {
     notification.classList.remove('notification_invalid');
     this.trigger.hideNotification(this, true);
     this.trigger.targetNode.addEventListener('animationend', () => {
-      console.log('hideTooltip');
       this.setState({
         stars       : 0,
         showContent : false
@@ -244,9 +211,9 @@ export default class ReviewEditor extends React.Component {
   };
 
 
-  showTooltip = (val, showcontent) => {
+  showTooltip = (val) => {
     this.setState({
-      showContent : showcontent,
+      showContent : false,
       stars       : val
     }, () => {
       let promise = new Promise((resolve) => {
@@ -259,21 +226,22 @@ export default class ReviewEditor extends React.Component {
           document.querySelector('.notification__review-center').classList.add(`notification__review-center_pos-center`);
         }
         this.trigger.targetNode.addEventListener('animationend', () => {
-          this.state.showContent = true;
-          // this.setState({
-          //   showContent: true
-          // })
+          this.setState({
+            showContent: true
+          })
         });
       });
     });
   };
 
   putAddReview = (token, id, params) => {
-    console.log(params);
     reviews.completeReview(token, id, params).then((data) => {
       let {items} = data;
       items.score = parseInt(items.score);
       this.props.updateUserReview(items);
+      this.setState({
+        showContent: true
+      })
     });
   };
 

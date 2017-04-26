@@ -67,7 +67,7 @@
     "postcss-loader": "^1.2.0",
     "postcss-safe-parser": "^2.0.0",
     "prop-types": "^15.5.8",
-    "quark": "git+ssh://git@github.com/templatemonster/QUARK-React.git#9cf37356046cf57ab58c2be969a304a0f49d06fc",
+    "quark": "https://git@github.com:Plasma-Platform/Plasma-QUARK.git#feature/PTR-473",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
