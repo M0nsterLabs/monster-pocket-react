@@ -21,8 +21,9 @@ import {
 
 import './Reviews.less';
 
-const reviews = new ReviewsData(Config.reviewsServiceURL, getCurrentLocale());
-const products = new ProductsData(Config.productsServiceURL, getCurrentLocale());
+const LOCALE = getCurrentLocale();
+const reviews = new ReviewsData(Config.reviewsServiceURL, LOCALE);
+const products = new ProductsData(Config.productsServiceURL, LOCALE);
 const STATUS_INITIAL = 'initial';
 const STATUS_PENDING = 'pending';
 const STATUS_DECLINED = 'declined';
@@ -49,7 +50,6 @@ export default class Reviews extends React.Component {
   constructor (props) {
     super(props);
 
-    this.locale = getCurrentLocale();
     this.templateName = '';
     this.imageUrl = '';
     this.updateUserReview = this.updateUserReview.bind(this);
@@ -304,7 +304,7 @@ export default class Reviews extends React.Component {
     }
     this.getReviews();
     this.getProductUser();
-    this.getTemplateUrl(this.locale);
+    this.getTemplateUrl(LOCALE);
     this.getUserProfile();
     window.addEventListener('scroll', this.loadDownloads);
   };

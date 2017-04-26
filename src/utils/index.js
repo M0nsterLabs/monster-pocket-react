@@ -8,17 +8,6 @@ export function getResponseJSON (response) {
   return response.json();
 }
 
-function getQueryVariable (variable) {
-  const query = window.location.search.substring(1);
-  const vars = query.split('&');
-  for (let i = 0; i < vars.length; i++) {
-    const pair = vars[i].split('=');
-    if (decodeURIComponent(pair[0]) === variable) {
-      return decodeURIComponent(pair[1]);
-    }
-  }
-}
-
 export function infiniteDataLoader (action, codition) {
   if (isEndOfPage() && codition) {
     action();
@@ -58,6 +47,14 @@ export function isEndOfPage () {
 
 export function getCurrentLocale () {
   const appLocales  = getAppLocales();
-  const localeInURL = getQueryVariable('lang');
-  return localeInURL && appLocales.indexOf(localeInURL) >= 0 ? localeInURL : 'en';
+  let vars = window.location.pathname.split('/');
+  // let vars = ['', 'de', 'wordpress-themen-tipo-51241.html'];
+  let locale = 'en';
+  vars.forEach(elem => {
+    if (appLocales.includes(elem)) {
+      locale = elem;
+    }
+  });
+  console.log('locale', locale);
+  return locale;
 }
