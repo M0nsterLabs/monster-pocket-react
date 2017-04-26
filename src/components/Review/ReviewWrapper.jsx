@@ -15,7 +15,8 @@ import ReviewEditor                 from './ReviewEditor';
 import {
   getCdnImageUrl,
   infiniteDataLoader,
-  getCurrentLocale
+  getCurrentLocale,
+  getResponseJSON
 } from 'utils/';
 
 import './Reviews.less';
@@ -52,33 +53,12 @@ export default class Reviews extends React.Component {
     this.templateName = '';
     this.imageUrl = '';
     this.updateUserReview = this.updateUserReview.bind(this);
-
   }
 
   updateUserReview(item){
     this.setState({
       userReview : item
     });
-  };
-
-  renderDiscountMessage = () => {
-    let Interpolate = React.createFactory(require('react-interpolate-component'));
-    return (
-      <div className="reviews__message discount-message">
-        <i className="discount-message__icon icon icon-star-fill" />
-        <h1 className="discount-message__title h3">
-          {this.context.i18n.l('Rate purchased template and get a discount up to 25% on all templatemonster themes')}
-        </h1>
-        <p className="discount-message__text t3">
-          <Interpolate
-            with={{firstDiscount: <strong>{this.context.i18n.l('15%')}</strong>, secondDiscount: <strong>{this.context.i18n.l('25%')}</strong>}}
-            format={this.context.i18n.l('For your review you\'ll get an email with promo code discount of %(firstDiscount)s for 60+ characters and %(secondDiscount)s for 400+ characters')}
-          />
-        </p>
-        <div className="discount-message__bg-1" />
-        <div className="discount-message__bg-2" />
-      </div>
-    );
   };
 
   renderNotification = (status) => {
@@ -224,9 +204,8 @@ export default class Reviews extends React.Component {
   getUserData = (user_id) => {
     fetch(`${Config.accountServiceURL}users/${user_id}/profile`, {
       method: 'get'
-    }).then((response) => {
-      return  response.json();
-    }).then((data) => {
+    }).then(getResponseJSON)
+    .then((data) => {
       this.setState({
         user: {
           userName : data.userName,
@@ -288,9 +267,8 @@ export default class Reviews extends React.Component {
   getTemplateUrl = (locale) => {
     fetch(`http://www.templatemonster.com/api/${locale}/template/${this.props.templateId}/`, {
       method : 'get'
-    }).then((response) => {
-      return response.json();
-    }).then((data) => {
+    }).then(getResponseJSON)
+    .then((data) => {
       this.setState({
         templateUrl: data.url
       })
@@ -305,7 +283,7 @@ export default class Reviews extends React.Component {
         'Authorization': this.props.accessToken
       }
     })
-    .then((response) => response.json())
+    .then(getResponseJSON)
     .then((data) => {
       this.setState({
         userMail: data.login
@@ -321,7 +299,9 @@ export default class Reviews extends React.Component {
 
   componentDidMount () {
     this.state.products.products = [];
-    this.getReviewsUser();
+    if (this.props.accessToken) {
+      this.getReviewsUser();
+    }
     this.getReviews();
     this.getProductUser();
     this.getTemplateUrl(this.locale);
@@ -360,6 +340,6 @@ export default class Reviews extends React.Component {
 }
 
 Reviews.propTypes = {
-  templateId  : PropTypes.number,
+  templateId  : PropTypes.number.isRequired,
   accessToken : PropTypes.string
 };
