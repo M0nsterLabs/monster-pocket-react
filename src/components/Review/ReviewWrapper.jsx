@@ -21,7 +21,7 @@ import {
 
 import './Reviews.less';
 
-const LOCALE = getCurrentLocale();
+const LOCALE = 'de';//getCurrentLocale();
 let reviews = new ReviewsData(Config.reviewsServiceURL, LOCALE);
 let products = new ProductsData(Config.productsServiceURL, LOCALE);
 const STATUS_INITIAL = 'initial';
@@ -41,6 +41,7 @@ export default class Reviews extends React.Component {
 
   state = {
     isFetching   : false,
+    isEmpty      : false,
     reviews      : {
       totalCount: 0
     },
@@ -51,7 +52,8 @@ export default class Reviews extends React.Component {
     templateUrl  : '',
     userName     : '',
     userMail     : '',
-    authorId     : 0
+    authorId     : 0,
+    countReviewEnLocale : 0
   };
 
   constructor (props) {
@@ -59,6 +61,7 @@ export default class Reviews extends React.Component {
 
     this.templateName = '';
     this.imageUrl = '';
+    this.reviewEnLocale = false;
     this.updateUserReview = this.updateUserReview.bind(this);
   }
 
@@ -152,15 +155,25 @@ export default class Reviews extends React.Component {
   };
 
   //Get reviews on template
-  getReviews = () => {
-    return this.getReviewsData({
+  getReviews = (reviewEnLocale) => {
+    if (reviewEnLocale) {
+      reviews = new ReviewsData(Config.reviewsServiceURL, 'en');
+      // products = new ProductsData(Config.productsServiceURL, 'en');
+      this.reviewEnLocale = false;
+      this.getCountReviewsEnLocale(reviews, {
+        'template_id' : this.props.templateId,
+        'sort'        : 'id DESC',
+        'per-page'    : 10
+      });
+    }
+    return this.getReviewsData(reviews, products, {
       'template_id' : this.props.templateId,
-      'sort'        : '-id',
+      'sort'        : 'id DESC',
       'per-page'    : 10
     });
   };
 
-  getReviewsData = (params = {}) => {
+  getReviewsData = (reviews, products, params = {}) => {
     this.setState({
       isFetching: true
     });
@@ -184,9 +197,10 @@ export default class Reviews extends React.Component {
           return item.template_id;
         }));
         if (data.totalCount === 0) {
-          this.setState({
-            isFetching: false
-          });
+          this.reviewEnLocale = true;
+          if (this.reviewEnLocale) {
+           this.getReviews(this.reviewEnLocale);
+          }
         }
         else if (ids.length) {
           products.getProducts(ids).then((products) => {
@@ -200,7 +214,8 @@ export default class Reviews extends React.Component {
                 items : itemsReview,
                 ...paginationData
               },
-             isFetching: false
+              isFetching: false,
+              countReviewEnLocale: data.totalCount
             });
           });
         }
@@ -212,6 +227,17 @@ export default class Reviews extends React.Component {
     }
   };
   // /Get reviews on template
+
+  getCountReviewsEnLocale = (reviews, params = {}) => {
+    params = {
+      ...params
+    };
+    reviews.getReviews(params).then((data) => {
+      this.setState({
+        countReviewEnLocale: data.totalCount
+      });
+    });
+  };
 
   getUserData = (user_id) => {
     fetch(`${Config.accountServiceURL}users/${user_id}/profile`, {
@@ -331,9 +357,14 @@ export default class Reviews extends React.Component {
     }, this.state.reviews.totalCount > 0 && this.state.isFetching !== true);
   };
 
+  otherLocale = () => {
+    this.getReviews(this.reviewEnLocale);
+  };
+
   render () {
     return (
       <div className="page-content">
+        {this.reviewEnLocale && <button onClick={this.otherLocale} > Other Locale </button>}
         {
           this.state.reviews.totalCount === 0 && this.state.isFetching
             ? (
@@ -344,11 +375,12 @@ export default class Reviews extends React.Component {
                 <ContentEmptyMessage
                   page        = {'reviews'}
                   show        = {this.state.isEmpty}
-                  title       = {this.context.i18n.l('You haven\'t left any review or rating')}
-                  description = {this.context.i18n.l('Here you will be able to rate your products & preview your reviews and ratings. Right now you have no products to rate')}
-                  linkType    = "anchor"
-                  linkUrl     = {Config.monsterURL}
-                  linkText    = {this.context.i18n.l('Go & Find Your Dream Template')}
+                  title       = {this.context.i18n.l('REVIEWS & RATINGS')}
+                  description = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.
+                    You can look at the reviews from other locales.`)}
+                  isButton    = {this.state.countReviewEnLocale > 0}
+                  buttonText  = {this.context.i18n.l(`View ${this.state.countReviewEnLocale} Reviews From Other Locales`)}
+                  buttonClick = {this.otherLocale}
                 />
                 )
               : (
