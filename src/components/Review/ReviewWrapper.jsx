@@ -30,6 +30,11 @@ const STATUS_DECLINED = 'declined';
 const STATUS_APPROVED = 'approved';
 
 export default class Reviews extends React.Component {
+  static propTypes = {
+    templateId  : React.PropTypes.number.isRequired,
+    accessToken : React.PropTypes.string
+  };
+
   static contextTypes = {
     i18n: React.PropTypes.object
   };
@@ -338,8 +343,3 @@ export default class Reviews extends React.Component {
     );
   }
 }
-
-Reviews.propTypes = {
-  templateId  : PropTypes.number.isRequired,
-  accessToken : PropTypes.string
-};
