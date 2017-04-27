@@ -22,8 +22,8 @@ import {
 import './Reviews.less';
 
 const LOCALE = getCurrentLocale();
-const reviews = new ReviewsData(Config.reviewsServiceURL, LOCALE);
-const products = new ProductsData(Config.productsServiceURL, LOCALE);
+let reviews = new ReviewsData(Config.reviewsServiceURL, LOCALE);
+let products = new ProductsData(Config.productsServiceURL, LOCALE);
 const STATUS_INITIAL = 'initial';
 const STATUS_PENDING = 'pending';
 const STATUS_DECLINED = 'declined';
@@ -41,7 +41,9 @@ export default class Reviews extends React.Component {
 
   state = {
     isFetching   : false,
-    reviews      : {},
+    reviews      : {
+      totalCount: 0
+    },
     products     : {},
     userReview   : {},
     userProducts : {},
@@ -181,7 +183,12 @@ export default class Reviews extends React.Component {
         const ids = _.uniq(itemsReview.map((item) => {
           return item.template_id;
         }));
-        if (ids.length) {
+        if (data.totalCount === 0) {
+          this.setState({
+            isFetching: false
+          });
+        }
+        else if (ids.length) {
           products.getProducts(ids).then((products) => {
             this.setState({
               products : {
@@ -326,19 +333,40 @@ export default class Reviews extends React.Component {
 
   render () {
     return (
-      <div>
-          <div className="reviews">
+      <div className="page-content">
+        {
+          this.state.reviews.totalCount === 0 && this.state.isFetching
+            ? (
+              <ContentLoader />
+            )
+            : (this.state.reviews.totalCount === 0
+              ? (
+                <ContentEmptyMessage
+                  page        = {'reviews'}
+                  show        = {this.state.isEmpty}
+                  title       = {this.context.i18n.l('You haven\'t left any review or rating')}
+                  description = {this.context.i18n.l('Here you will be able to rate your products & preview your reviews and ratings. Right now you have no products to rate')}
+                  linkType    = "anchor"
+                  linkUrl     = {Config.monsterURL}
+                  linkText    = {this.context.i18n.l('Go & Find Your Dream Template')}
+                />
+                )
+              : (
+                <div className="reviews">
 
-            {this.renderReviewEditor()}
+                  {this.renderReviewEditor()}
 
-            <ul className="reviews__list">
-              {this.renderMyReviews()}
-              {this.renderReviews()}
-            </ul>
-            {this.state.reviews.totalCount > 0 && this.state.isFetching && (
-              <L1 className="downloads__loader"/>
-            )}
-          </div>
+                  <ul className="reviews__list">
+                    {this.renderMyReviews()}
+                    {this.renderReviews()}
+                  </ul>
+                  {this.state.reviews.totalCount > 0 && this.state.isFetching && (
+                    <L1 className="downloads__loader"/>
+                  )}
+                </div>
+                )
+            )
+        }
       </div>
     );
   }

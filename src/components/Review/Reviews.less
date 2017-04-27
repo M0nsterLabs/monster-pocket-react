@@ -782,6 +782,17 @@
   margin: auto;
 }
 
+.page-content {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  min-height: calc(100vh - 290px);
+
+  &__loader {
+    margin-top: 40px;
+  }
+}
+
 @media only screen and (max-width: 1599px) {
   .template-reviews {
     &__desc {
