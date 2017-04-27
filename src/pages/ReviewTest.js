@@ -4,7 +4,7 @@ import ReviewTab from '../components/Review/ReviewTab';
 export default class Review extends Component {
   render () {
     return (
-      <div className='container' style={{maxWidth: '600px'}}>
+      <div className='container' style={{maxWidth: '600px', margin: 'auto'}}>
         <h1>Reviews & Ratings</h1>
 
         <ReviewTab/>

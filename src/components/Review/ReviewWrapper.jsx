@@ -28,6 +28,7 @@ const STATUS_INITIAL = 'initial';
 const STATUS_PENDING = 'pending';
 const STATUS_DECLINED = 'declined';
 const STATUS_APPROVED = 'approved';
+const LOCALES = [LOCALE, 'en', 'es', 'ru', 'de', 'pl', 'it', 'tr', 'fr', 'pt-br', 'nl', 'cn', 'cz', 'ua', 'hu', 'sv'];
 
 export default class Reviews extends React.Component {
   static propTypes = {
@@ -40,20 +41,21 @@ export default class Reviews extends React.Component {
   };
 
   state = {
-    isFetching   : false,
-    isEmpty      : false,
-    reviews      : {
+    isFetching             : false,
+    isEmpty                : false,
+    reviews                : {
       totalCount: 0
     },
-    products     : {},
-    userReview   : {},
-    userProducts : {},
-    user         : {},
-    templateUrl  : '',
-    userName     : '',
-    userMail     : '',
-    authorId     : 0,
-    countReviewEnLocale : 0
+    products               : {},
+    userReview             : {},
+    userProducts           : {},
+    user                   : {},
+    templateUrl            : '',
+    userName               : '',
+    userMail               : '',
+    authorId               : 0,
+    countReviewOtherLocale : 0,
+    otherLocale            : false
   };
 
   constructor (props) {
@@ -61,7 +63,8 @@ export default class Reviews extends React.Component {
 
     this.templateName = '';
     this.imageUrl = '';
-    this.reviewEnLocale = false;
+    this.iteratorLocale = 0;
+    this.countReview = 0;
     this.updateUserReview = this.updateUserReview.bind(this);
   }
 
@@ -155,17 +158,10 @@ export default class Reviews extends React.Component {
   };
 
   //Get reviews on template
-  getReviews = (reviewEnLocale) => {
-    if (reviewEnLocale) {
-      reviews = new ReviewsData(Config.reviewsServiceURL, 'en');
-      // products = new ProductsData(Config.productsServiceURL, 'en');
-      this.reviewEnLocale = false;
-      this.getCountReviewsEnLocale(reviews, {
-        'template_id' : this.props.templateId,
-        'sort'        : 'id DESC',
-        'per-page'    : 10
-      });
-    }
+  getReviews = () => {
+    let reviews = new ReviewsData(Config.reviewsServiceURL, LOCALES[this.iteratorLocale]);
+    let products = new ProductsData(Config.productsServiceURL, LOCALES[this.iteratorLocale]);
+
     return this.getReviewsData(reviews, products, {
       'template_id' : this.props.templateId,
       'sort'        : 'id DESC',
@@ -192,30 +188,47 @@ export default class Reviews extends React.Component {
         paginationData.lastPageIndex = data.lastPageIndex;
         paginationData.totalCount = data.totalCount;
 
+        this.countReview += data.totalCount;
+        
         itemsReview = this.state.reviews.items ? [...this.state.reviews.items, ...data.items] : data.items;
         const ids = _.uniq(itemsReview.map((item) => {
           return item.template_id;
         }));
-        if (data.totalCount === 0) {
-          this.reviewEnLocale = true;
-          if (this.reviewEnLocale) {
-           this.getReviews(this.reviewEnLocale);
+        if (this.countReview === 0 && !this.state.otherLocale) {
+          this.iteratorLocale++;
+          if (this.iteratorLocale < 2) {
+            this.getReviews();
+            this.setState({
+              isFetching : false
+            });
+          }
+          else {
+            this.iteratorLocale = 0;
+            LOCALES.forEach(locale => {
+              reviews = new ReviewsData(Config.reviewsServiceURL, LOCALES[this.iteratorLocale]);
+              products = new ProductsData(Config.productsServiceURL, LOCALES[this.iteratorLocale]);
+              this.getCountReviewsOtherLocale(reviews, {
+                'template_id' : this.props.templateId,
+                'sort'        : 'id DESC',
+                'per-page'    : 10
+              });
+              this.iteratorLocale++
+            });
           }
         }
         else if (ids.length) {
           products.getProducts(ids).then((products) => {
             this.setState({
-              products : {
+              products: {
                 ...this.state.products,
                 ...products
               },
-              reviews  : {
+              reviews: {
                 ...this.state.reviews,
                 items : itemsReview,
                 ...paginationData
               },
-              isFetching: false,
-              countReviewEnLocale: data.totalCount
+              isFetching: false
             });
           });
         }
@@ -228,13 +241,14 @@ export default class Reviews extends React.Component {
   };
   // /Get reviews on template
 
-  getCountReviewsEnLocale = (reviews, params = {}) => {
+  // Get count of reviews from other locale
+  getCountReviewsOtherLocale = (reviews, params = {}) => {
     params = {
       ...params
     };
     reviews.getReviews(params).then((data) => {
       this.setState({
-        countReviewEnLocale: data.totalCount
+        countReviewOtherLocale : this.state.countReviewOtherLocale + data.totalCount
       });
     });
   };
@@ -358,13 +372,19 @@ export default class Reviews extends React.Component {
   };
 
   otherLocale = () => {
-    this.getReviews(this.reviewEnLocale);
+    this.setState({
+      otherLocale: true
+    });
+    this.iteratorLocale = 0;
+    LOCALES.forEach(locale => {
+      this.getReviews();
+      this.iteratorLocale++
+    });
   };
 
   render () {
     return (
       <div className="page-content">
-        {this.reviewEnLocale && <button onClick={this.otherLocale} > Other Locale </button>}
         {
           this.state.reviews.totalCount === 0 && this.state.isFetching
             ? (
@@ -378,8 +398,8 @@ export default class Reviews extends React.Component {
                   title       = {this.context.i18n.l('REVIEWS & RATINGS')}
                   description = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.
                     You can look at the reviews from other locales.`)}
-                  isButton    = {this.state.countReviewEnLocale > 0}
-                  buttonText  = {this.context.i18n.l(`View ${this.state.countReviewEnLocale} Reviews From Other Locales`)}
+                  isButton    = {this.state.countReviewOtherLocale > 0}
+                  buttonText  = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
                   buttonClick = {this.otherLocale}
                 />
                 )
