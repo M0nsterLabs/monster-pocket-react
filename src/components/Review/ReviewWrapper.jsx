@@ -21,7 +21,7 @@ import {
 
 import './Reviews.less';
 
-const LOCALE = 'de';//getCurrentLocale();
+const LOCALE = 'ru';//getCurrentLocale();
 let reviews = new ReviewsData(Config.reviewsServiceURL, LOCALE);
 let products = new ProductsData(Config.productsServiceURL, LOCALE);
 const STATUS_INITIAL = 'initial';
@@ -158,9 +158,9 @@ export default class Reviews extends React.Component {
   };
 
   //Get reviews on template
-  getReviews = () => {
-    let reviews = new ReviewsData(Config.reviewsServiceURL, LOCALES[this.iteratorLocale]);
-    let products = new ProductsData(Config.productsServiceURL, LOCALES[this.iteratorLocale]);
+  getReviews = (locale) => {
+    let reviews = new ReviewsData(Config.reviewsServiceURL, locale);
+    let products = new ProductsData(Config.productsServiceURL, LOCALE);
 
     return this.getReviewsData(reviews, products, {
       'template_id' : this.props.templateId,
@@ -195,24 +195,19 @@ export default class Reviews extends React.Component {
           return item.template_id;
         }));
         if (this.countReview === 0 && !this.state.otherLocale) {
-          this.iteratorLocale++;
           if (this.iteratorLocale < 2) {
-            this.getReviews();
+            this.getReviews(LOCALES[this.iteratorLocale]);
             this.setState({
               isFetching : false
             });
+            this.iteratorLocale++;
           }
           else {
-            this.iteratorLocale = 0;
-            LOCALES.forEach(locale => {
-              reviews = new ReviewsData(Config.reviewsServiceURL, LOCALES[this.iteratorLocale]);
-              products = new ProductsData(Config.productsServiceURL, LOCALES[this.iteratorLocale]);
-              this.getCountReviewsOtherLocale(reviews, {
-                'template_id' : this.props.templateId,
-                'sort'        : 'id DESC',
-                'per-page'    : 10
-              });
-              this.iteratorLocale++
+            reviews = new ReviewsData(Config.reviewsServiceURL, `IN_${LOCALES}`);
+            this.getCountReviewsOtherLocale(reviews, {
+              'template_id' : this.props.templateId,
+              'sort'        : 'id DESC',
+              'per-page'    : 10
             });
           }
         }
@@ -354,7 +349,7 @@ export default class Reviews extends React.Component {
     if (this.props.accessToken) {
       this.getReviewsUser();
     }
-    this.getReviews();
+    this.getReviews(LOCALES[this.iteratorLocale]);
     this.getProductUser();
     this.getTemplateUrl(LOCALE);
     this.getUserProfile();
@@ -376,10 +371,7 @@ export default class Reviews extends React.Component {
       otherLocale: true
     });
     this.iteratorLocale = 0;
-    LOCALES.forEach(locale => {
-      this.getReviews();
-      this.iteratorLocale++
-    });
+    this.getReviews(`IN_${LOCALES}`);
   };
 
   render () {
