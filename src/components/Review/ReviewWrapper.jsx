@@ -196,8 +196,8 @@ export default class Reviews extends React.Component {
           return item.template_id;
         }));
         if (this.countReview === 0 && !this.state.otherLocale) {
+          this.iteratorLocale++;
           if (this.iteratorLocale < 2) {
-            this.iteratorLocale++;
             this.getReviews(LOCALES[this.iteratorLocale]);
             this.setState({
                isFetching : false
@@ -374,7 +374,6 @@ export default class Reviews extends React.Component {
     this.setState({
       otherLocale: true
     });
-    this.iteratorLocale = 0;
     this.getReviews(`IN_${LOCALES}`);
   };
 
