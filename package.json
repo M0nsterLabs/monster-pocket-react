@@ -6,7 +6,6 @@
   "scripts": {
     "start": "npm run build && webpack-dev-server",
     "build": "rm -rf ./build && webpack",
-    "build:monster": "mkdir -p ../../public/js/plasma-pocket-react/ && cp -Rv build/* public/js/plasma-pocket-react/",
     "watch": "webpack -w",
     "rebuild": "npm install",
     "test:jest": "jest",
