@@ -28,7 +28,8 @@ const STATUS_INITIAL = 'initial';
 const STATUS_PENDING = 'pending';
 const STATUS_DECLINED = 'declined';
 const STATUS_APPROVED = 'approved';
-const LOCALES = [LOCALE, 'en', 'es', 'ru', 'de', 'pl', 'it', 'tr', 'fr', 'pt-br', 'nl', 'cn', 'cz', 'ua', 'hu', 'sv'];
+const LOCALES_NO_UNIQUE = [LOCALE, 'en', 'es', 'ru', 'de', 'pl', 'it', 'tr', 'fr', 'pt-br', 'nl', 'cn', 'cz', 'ua', 'hu', 'sv'];
+const LOCALES = [...new Set(LOCALES_NO_UNIQUE)];
 
 export default class Reviews extends React.Component {
   static propTypes = {
@@ -205,9 +206,7 @@ export default class Reviews extends React.Component {
           else {
             reviews = new ReviewsData(Config.reviewsServiceURL, `IN_${LOCALES}`);
             this.getCountReviewsOtherLocale(reviews, {
-              'template_id' : this.props.templateId,
-              'sort'        : 'id DESC',
-              'per-page'    : 10
+              'template_id' : this.props.templateId
             });
           }
         }
@@ -221,7 +220,8 @@ export default class Reviews extends React.Component {
               reviews: {
                 ...this.state.reviews,
                 items : itemsReview,
-                ...paginationData
+                ...paginationData,
+                totalCount: paginationData.totalCount
               },
               isFetching: false
             });
@@ -362,7 +362,11 @@ export default class Reviews extends React.Component {
 
   loadDownloads = () => {
     infiniteDataLoader(() => {
-      return this.getReviews();
+      if (this.state.countReviewOtherLocale > 0) {
+        return this.getReviews(`IN_${LOCALES}`);
+      } else {
+        return this.getReviews(LOCALES[this.iteratorLocale]);
+      }
     }, this.state.reviews.totalCount > 0 && this.state.isFetching !== true);
   };
 
