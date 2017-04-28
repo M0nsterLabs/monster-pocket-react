@@ -42,7 +42,7 @@ export default class Reviews extends React.Component {
   };
 
   state = {
-    isFetching             : false,
+    isFetching             : true,
     isEmpty                : false,
     reviews                : {
       totalCount: 0
@@ -197,11 +197,11 @@ export default class Reviews extends React.Component {
         }));
         if (this.countReview === 0 && !this.state.otherLocale) {
           if (this.iteratorLocale < 2) {
+            this.iteratorLocale++;
             this.getReviews(LOCALES[this.iteratorLocale]);
             this.setState({
-              isFetching : false
+               isFetching : false
             });
-            this.iteratorLocale++;
           }
           else {
             reviews = new ReviewsData(Config.reviewsServiceURL, `IN_${LOCALES}`);
