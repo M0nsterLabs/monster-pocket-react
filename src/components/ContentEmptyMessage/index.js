@@ -8,7 +8,7 @@ import './ContentEmptyMessage.less';
 export default function ContentEmptyMessage (props) {
   return (
     <article className="content-empty-message">
-        <h2 className="content-empty-message__title h3">{props.title}</h2>
+        {props.title && (<h2 className="content-empty-message__title h3">{props.title}</h2>)}
 
         <img
           className = "content-empty-message__illustration"

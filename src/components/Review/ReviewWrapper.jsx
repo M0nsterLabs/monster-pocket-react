@@ -21,7 +21,7 @@ import {
 
 import './Reviews.less';
 
-const LOCALE = 'ru';//getCurrentLocale();
+const LOCALE = 'de';//getCurrentLocale();
 let reviews = new ReviewsData(Config.reviewsServiceURL, LOCALE);
 let products = new ProductsData(Config.productsServiceURL, LOCALE);
 const STATUS_INITIAL = 'initial';
@@ -42,7 +42,7 @@ export default class Reviews extends React.Component {
   };
 
   state = {
-    isFetching             : true,
+    isFetching             : false,
     isEmpty                : false,
     reviews                : {
       totalCount: 0
@@ -379,6 +379,7 @@ export default class Reviews extends React.Component {
   };
 
   render () {
+    console.log('this.state.isFetching', this.state.isFetching);
     return (
       <div className="page-content">
         {
@@ -388,20 +389,27 @@ export default class Reviews extends React.Component {
             )
             : (this.state.reviews.totalCount === 0
               ? (
-                <ContentEmptyMessage
-                  page        = {'reviews'}
-                  show        = {this.state.isEmpty}
-                  title       = {this.context.i18n.l('REVIEWS & RATINGS')}
-                  description = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.
-                    You can look at the reviews from other locales.`)}
-                  isButton    = {this.state.countReviewOtherLocale > 0}
-                  buttonText  = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
-                  buttonClick = {this.otherLocale}
-                />
+                <div className="page-content__empty">
+                  <h2 className="h3">{this.context.i18n.l('REVIEWS & RATINGS')}</h2>
+                  {
+                    (this.state.userReview.status === STATUS_INITIAL)
+                    ? this.renderReviewEditor()
+                    : ''
+                  }
+                  <ContentEmptyMessage
+                    page        = {'reviews'}
+                    show        = {this.state.isEmpty}
+                    description = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.
+                      You can look at the reviews from other locales.`)}
+                    isButton    = {this.state.countReviewOtherLocale > 0}
+                    buttonText  = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
+                    buttonClick = {this.otherLocale}
+                  />
+                </div>
                 )
               : (
                 <div className="reviews">
-
+                  <h2 className="h3">{this.context.i18n.l(`${this.state.reviews.totalCount} REVIEWS & RATINGS`)}</h2>
                   {this.renderReviewEditor()}
 
                   <ul className="reviews__list">
