@@ -9,7 +9,8 @@ module.exports = {
   entry : {
     advice               : './src/model/advice/Advice.js',
     mascotAndSocialProof : './entry/MascotAndSocialProof.js',
-    index                : './entry/index.js'
+    index                : './entry/index.js',
+    review               : './entry/Review.js'
   },
   externals: {
     'react'     : 'React',
