@@ -1,5 +1,5 @@
-import Review from 'components/Review/ReviewWrapper.jsx'; // ваша композиция
-import RRC from 'utils/reactRemoteControl.js'; // Интерфейс проброса компонента наружу
+import Review from 'components/Review/ReviewWrapper.jsx';
+import RRC from 'utils/reactRemoteControl.js';
 
 export default class IndexPage extends RRC {
   constructor(...params) {
