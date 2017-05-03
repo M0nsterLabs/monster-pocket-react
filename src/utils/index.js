@@ -48,7 +48,6 @@ export function isEndOfPage () {
 export function getCurrentLocale () {
   const appLocales  = getAppLocales();
   let vars = window.location.pathname.split('/');
-  // let vars = ['', 'de', 'wordpress-themen-tipo-51241.html'];
   let locale = 'en';
   vars.forEach(elem => {
     if (appLocales.includes(elem)) {

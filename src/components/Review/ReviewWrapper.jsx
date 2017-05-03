@@ -21,7 +21,7 @@ import {
 
 import './Reviews.less';
 
-const LOCALE = 'de';//getCurrentLocale();
+const LOCALE = getCurrentLocale();
 let reviews = new ReviewsData(Config.reviewsServiceURL, LOCALE);
 let products = new ProductsData(Config.productsServiceURL, LOCALE);
 const STATUS_INITIAL = 'initial';
@@ -349,11 +349,11 @@ export default class Reviews extends React.Component {
     this.state.products.products = [];
     if (this.props.accessToken) {
       this.getReviewsUser();
+      this.getUserProfile();
     }
     this.getReviews(LOCALES[this.iteratorLocale]);
     this.getProductUser();
     this.getTemplateUrl(LOCALE);
-    this.getUserProfile();
     window.addEventListener('scroll', this.loadDownloads);
   };
 
@@ -379,7 +379,6 @@ export default class Reviews extends React.Component {
   };
 
   render () {
-    console.log('this.state.isFetching', this.state.isFetching);
     return (
       <div className="page-content">
         {
