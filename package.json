@@ -16,6 +16,7 @@
   },
   "jest": {
     "moduleNameMapper": {
+      "config.js": "<rootDir>/config/application.local.js",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
     }
@@ -69,10 +70,12 @@
     "postcss-inline-svg": "^2.3.0",
     "postcss-loader": "^1.2.0",
     "postcss-safe-parser": "^2.0.0",
-    "quark": "git+https://git@github.com/templatemonster/QUARK-React.git#feature/PTR-2225",
+    "prop-types": "^15.5.8",
+    "quark": "https://git@github.com:Plasma-Platform/Plasma-QUARK.git#feature/PTR-473",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-interpolate-component": "^0.10.0",
     "react-router": "^3.0.0",
     "shortid": "^2.2.6",
     "style-loader": "^0.13.1",
@@ -83,7 +86,10 @@
     "webpack-merge": "^2.3.1",
     "webpack-uglify-js-plugin": "^1.1.9"
   },
-  "dependencies": {},
+  "dependencies": {
+    "plasma-reviews-api-client-js": "^1.0.8",
+    "tm-products-api-client-js": "^1.0.14"
+  },
   "babel": {
     "presets": [
       "react",
