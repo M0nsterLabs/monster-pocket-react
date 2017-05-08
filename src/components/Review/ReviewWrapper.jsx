@@ -43,9 +43,9 @@ export default class Reviews extends React.Component {
   };
 
   state = {
-    isFetching             : false,
-    isEmpty                : false,
-    reviews                : {
+    isFetching : false,
+    isEmpty    : false,
+    reviews    : {
       totalCount: 0
     },
     products               : {},
@@ -70,9 +70,9 @@ export default class Reviews extends React.Component {
     this.updateUserReview = this.updateUserReview.bind(this);
   }
 
-  updateUserReview(item){
+  updateUserReview (item) {
     this.setState({
-      userReview : item
+      userReview: item
     });
   };
 
@@ -100,7 +100,7 @@ export default class Reviews extends React.Component {
     if (this.state.reviews.items && this.state.products.products) {
       return (
         this.state.reviews.items.map((review, i) => {
-          let date = review.created_at;//formattedDate(review.created_at);
+          let date = review.created_at; // formattedDate(review.created_at);
           return (
             <li className="reviews__item reviews__item_my-reviews review__content" key={review.id}>
               <ReviewItem
@@ -118,9 +118,7 @@ export default class Reviews extends React.Component {
   };
 
   renderReviewEditor = () => {
-    if (this.state.userReview.status === STATUS_INITIAL
-        || this.state.userReview.status === STATUS_DECLINED
-        || this.state.userReview.status === STATUS_PENDING) {
+    if (this.state.userReview.status === STATUS_INITIAL || this.state.userReview.status === STATUS_DECLINED || this.state.userReview.status === STATUS_PENDING) {
       return (
         <ReviewEditor
           success={this.state.success}
@@ -136,14 +134,13 @@ export default class Reviews extends React.Component {
           statusReview={this.state.userReview.status}
           scoreReview={this.state.userReview.score}
         />
-      )
+      );
     }
     return null;
   };
 
-
   renderMyReviews = () => {
-    if (_.isEmpty(this.state.userReview) ) {
+    if (_.isEmpty(this.state.userReview)) {
       return;
     }
     if (this.state.userReview.status !== STATUS_INITIAL) {
@@ -161,7 +158,7 @@ export default class Reviews extends React.Component {
     }
   };
 
-  //Get reviews on template
+  // Get reviews on template
   getReviews = (locale) => {
     let reviews = new ReviewsData(Config.reviewsServiceURL, locale);
     let products = new ProductsData(Config.productsServiceURL, LOCALE);
@@ -182,10 +179,10 @@ export default class Reviews extends React.Component {
     let itemsReview;
     if (this.shouldFetchDataItems(currentState)) {
       const requestPageIndex = currentState.currentPageIndex + 1 || 1;
-       params = {
-         ...params,
-         'page': requestPageIndex
-       };
+      params = {
+        ...params,
+        'page': requestPageIndex
+      };
 
       reviews.getReviews(params).then((data) => {
         paginationData.currentPageIndex = data.currentPageIndex;
@@ -193,7 +190,7 @@ export default class Reviews extends React.Component {
         paginationData.totalCount = data.totalCount;
 
         this.countReview += data.totalCount;
-        
+
         itemsReview = this.state.reviews.items ? [...this.state.reviews.items, ...data.items] : data.items;
         const ids = _.uniq(itemsReview.map((item) => {
           return item.template_id;
@@ -203,17 +200,15 @@ export default class Reviews extends React.Component {
           if (this.iteratorLocale < 2) {
             this.getReviews(LOCALES[this.iteratorLocale]);
             this.setState({
-               isFetching : false
+              isFetching: false
             });
-          }
-          else {
+          } else {
             reviews = new ReviewsData(Config.reviewsServiceURL, `IN_${LOCALES}`);
             this.getCountReviewsOtherLocale(reviews, {
-              'template_id' : this.props.templateId
+              'template_id': this.props.templateId
             });
           }
-        }
-        else if (ids.length) {
+        } else if (ids.length) {
           products.getProducts(ids).then((products) => {
             this.setState({
               products: {
@@ -222,9 +217,9 @@ export default class Reviews extends React.Component {
               },
               reviews: {
                 ...this.state.reviews,
-                items : itemsReview,
+                items      : itemsReview,
                 ...paginationData,
-                totalCount: paginationData.totalCount
+                totalCount : paginationData.totalCount
               },
               isFetching: false
             });
@@ -246,13 +241,13 @@ export default class Reviews extends React.Component {
     };
     reviews.getReviews(params).then((data) => {
       this.setState({
-        countReviewOtherLocale : this.state.countReviewOtherLocale + data.totalCount
+        countReviewOtherLocale: this.state.countReviewOtherLocale + data.totalCount
       });
     });
   };
 
-  getUserData = (user_id) => {
-    fetch(`${Config.accountServiceURL}users/${user_id}/profile`, {
+  getUserData = (userId) => {
+    fetch(`${Config.accountServiceURL}users/${userId}/profile`, {
       method: 'get'
     }).then(getResponseJSON)
     .then((data) => {
@@ -278,7 +273,7 @@ export default class Reviews extends React.Component {
     reviews.getReviewsUser(params).then((data) => {
       if (data.items.length > 0) {
         this.setState({
-          userReview : data.items[0]
+          userReview: data.items[0]
         });
       }
     }).then(() => {
@@ -287,9 +282,9 @@ export default class Reviews extends React.Component {
       }
     });
   };
-  // /Get reviews of user on template
+  // Get reviews of user on template
 
-  //Product data of template
+  // Product data of template
   getProductUser = () => {
     const ids = [this.props.templateId];
     return this.getProductUserData(ids);
@@ -305,32 +300,30 @@ export default class Reviews extends React.Component {
       this.imageUrl = getCdnImageUrl(product[0].templateId, product[0].screenshots, 'original', size) || '';
       this.setState({
         productUserData : product[0],
-        templateUrl  : this.state.templateUrl,
-        authorId     : product[0].aid
+        templateUrl     : this.state.templateUrl,
+        authorId        : product[0].aid
       });
     });
   };
-  //Product data of template
+  // Product data of template
 
-
-
-  //Template Url
+  // Template Url
   getTemplateUrl = (locale) => {
     fetch(`http://www.templatemonster.com/api/${locale}/template/${this.props.templateId}/`, {
-      method : 'get'
+      method: 'get'
     }).then(getResponseJSON)
     .then((data) => {
       this.setState({
         templateUrl: data.url
-      })
+      });
     });
   };
 
-  //Get auth-user email
+  // Get auth-user email
   getUserProfile = () => {
-   fetch(`${Config.accountServiceURL}users/profile`, {
-      method : 'get',
-      headers: {
+    fetch(`${Config.accountServiceURL}users/profile`, {
+      method  : 'get',
+      headers : {
         'Authorization': this.props.accessToken
       }
     })
