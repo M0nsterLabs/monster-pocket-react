@@ -59,5 +59,49 @@ export function getCurrentLocale () {
 }
 
 export function formattedDate (timestamp) {
+  const time = new Date(timestamp);
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const year = time.getFullYear();
+  const month = months[time.getMonth()];
+  const day  = time.getDate();
+  const hour = time.getHours();
+  const min = time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
+  const timeNow = new Date();
+  const average =  timeNow - timestamp;
 
+  const units = {
+    MINUTE : 60 * 1000,
+    HOUR   : 60 * 1000 * 60,
+    DAY    : 60 * 1000 * 60 * 24
+  };
+
+  if (average < units.HOUR * 10) {
+    time.setHours(0);
+    time.setMinutes(average / units.MINUTE);
+  }
+
+  let date = '';
+
+  if (average < units.MINUTE * 2) {
+    date = 'Now';
+  } else if (average < units.HOUR) {
+    date = `${time.getMinutes()} minutes ago `;
+  } else if (average < units.HOUR * 2) {
+    date = `${time.getHours()} hour ago `;
+  } else if (average < units.HOUR * 10) {
+    date = `${time.getHours()} hours ago `;
+  }  else if (average < units.DAY * 1) {
+    date = `Today at ${time.getHours()}:${time.getMinutes()}`;
+  }  else if (average < units.DAY * 2) {
+    date = `Yesterday at ${time.getHours()}:${time.getMinutes()}`;
+  } else {
+    date = `${month} ${day}, ${year} at ${hour} : ${min}`;
+  }
+
+  console.log('--------------------------');
+  console.log('date', date);
+  console.log('timeNow', timeNow);
+  console.log('time', time);
+
+  return date;
 }
