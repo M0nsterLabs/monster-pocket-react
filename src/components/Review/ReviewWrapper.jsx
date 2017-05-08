@@ -16,7 +16,8 @@ import {
   getCdnImageUrl,
   infiniteDataLoader,
   getCurrentLocale,
-  getResponseJSON
+  getResponseJSON,
+  formattedDate
 } from 'utils/';
 
 import './Reviews.less';
@@ -99,6 +100,7 @@ export default class Reviews extends React.Component {
     if (this.state.reviews.items && this.state.products.products) {
       return (
         this.state.reviews.items.map((review, i) => {
+          let date = review.created_at;//formattedDate(review.created_at);
           return (
             <li className="reviews__item reviews__item_my-reviews review__content" key={review.id}>
               <ReviewItem
@@ -106,6 +108,7 @@ export default class Reviews extends React.Component {
                 userName = {review.user_name}
                 reviewScore = {review.score}
                 reviewContent = {review.content}
+                reviewDate = {date}
               />
             </li>
           );

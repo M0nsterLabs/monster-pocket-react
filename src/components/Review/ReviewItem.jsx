@@ -33,7 +33,7 @@ export default class ReviewItem extends React.Component {
             />
             <span className="review__flag iti-flag us"> </span>
           </span>
-          <span  className="review__date">date</span>
+          <span  className="review__date">{this.props.reviewDate}</span>
         </div>
         <div className="review__item-content">
           {this.props.reviewContent}
@@ -51,4 +51,5 @@ ReviewItem.propTypes = {
   userName      : PropTypes.string,
   reviewScore   : PropTypes.number,
   reviewContent : PropTypes.string,
+  reviewDate    : PropTypes.number
 };

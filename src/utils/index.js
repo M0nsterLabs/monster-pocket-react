@@ -57,3 +57,7 @@ export function getCurrentLocale () {
   console.log('locale', locale);
   return locale;
 }
+
+export function formattedDate (timestamp) {
+
+}
