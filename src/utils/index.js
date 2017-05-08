@@ -54,6 +54,5 @@ export function getCurrentLocale () {
       locale = elem;
     }
   });
-  console.log('locale', locale);
   return locale;
 }
