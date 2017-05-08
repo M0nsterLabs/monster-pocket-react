@@ -9,7 +9,8 @@
     "watch": "webpack -w",
     "rebuild": "npm install",
     "test:jest": "jest",
-    "test": "mocha --compilers js:babel-register",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill --require bluebird --require isomorphic-fetch",
+    "test:coverage": "./node_modules/.bin/istanbul cover --report clover ./node_modules/.bin/_mocha -- -u exports -R spec test/**/*  --compilers js:babel-register --require babel-polyfill --require bluebird --require isomorphic-fetch",
     "test-coverage": "jest --coverage"
   },
   "jest": {
@@ -55,6 +56,7 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.26.0",
     "isomorphic-fetch": "^2.2.1",
+    "istanbul": "^1.0.0-alpha",
     "jed": "^1.1.1",
     "jest": "^18.0.0",
     "less": "^2.7.1",
