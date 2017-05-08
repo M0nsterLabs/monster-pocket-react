@@ -51,5 +51,5 @@ ReviewItem.propTypes = {
   userName      : PropTypes.string,
   reviewScore   : PropTypes.number,
   reviewContent : PropTypes.string,
-  reviewDate    : PropTypes.number
+  reviewDate    : PropTypes.string
 };

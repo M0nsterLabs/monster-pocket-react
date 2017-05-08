@@ -16,8 +16,7 @@ import {
   getCdnImageUrl,
   infiniteDataLoader,
   getCurrentLocale,
-  getResponseJSON,
-  formattedDate
+  getResponseJSON
 } from 'utils/';
 
 import './Reviews.less';
@@ -100,7 +99,7 @@ export default class Reviews extends React.Component {
     if (this.state.reviews.items && this.state.products.products) {
       return (
         this.state.reviews.items.map((review, i) => {
-          let date = formattedDate(review.created_at);
+          let date = this.formattedDate(review.created_at);
           return (
             <li className="reviews__item reviews__item_my-reviews review__content" key={review.id}>
               <ReviewItem
@@ -372,6 +371,62 @@ export default class Reviews extends React.Component {
       otherLocale: true
     });
     this.getReviews(`IN_${LOCALES}`);
+  };
+
+  formattedDate = (timestamp) => {
+    const time = new Date(timestamp * 1000);
+    const months = [
+      this.context.i18n.l('Jan'),
+      this.context.i18n.l('Feb'),
+      this.context.i18n.l('Mar'),
+      this.context.i18n.l('Apr'),
+      this.context.i18n.l('May'),
+      this.context.i18n.l('Jun'),
+      this.context.i18n.l('Jul'),
+      this.context.i18n.l('Aug'),
+      this.context.i18n.l('Sep'),
+      this.context.i18n.l('Oct'),
+      this.context.i18n.l('Nov'),
+      this.context.i18n.l('Dec')
+    ];
+    const year = time.getFullYear();
+    const month = months[time.getMonth()];
+    const day  = time.getDate();
+    const hour = time.getHours();
+    const min = time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
+    const timeNow = new Date().getTime() / 1000;
+    const average =  timeNow - timestamp;
+
+    const units = {
+      MINUTE : 60,
+      HOUR   : 60 * 60,
+      DAY    : 60 * 60 * 24
+    };
+
+    if (average < units.HOUR * 10) {
+      time.setHours(0);
+      time.setMinutes(average / units.MINUTE);
+    }
+
+    let date = '';
+
+    if (average < units.MINUTE * 2) {
+      date = this.context.i18n.l('Now');
+    } else if (average < units.HOUR) {
+      date = `${time.getMinutes()} ${this.context.i18n.l('minutes ago')}`;
+    } else if (average < units.HOUR * 2) {
+      date = `${time.getHours()} ${this.context.i18n.l('hour ago')}`;
+    } else if (average < units.HOUR * 10) {
+      date = `${time.getHours()} ${this.context.i18n.l('hours ago')}`;
+    }  else if (average < units.DAY * 1) {
+      date = `${this.context.i18n.l('Today at')} ${time.getHours()}:${time.getMinutes()}`;
+    }  else if (average < units.DAY * 2) {
+      date = `${this.context.i18n.l('Yesterday at')} ${time.getHours()}:${time.getMinutes()}`;
+    } else {
+      date = `${month} ${day}, ${year} ${this.context.i18n.l('at')} ${hour}:${min}`;
+    }
+
+    return date;
   };
 
   render () {
