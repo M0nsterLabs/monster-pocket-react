@@ -431,7 +431,7 @@ export default class Reviews extends React.Component {
 
   render () {
     return (
-      <div className="page-content">
+      <div className="page-content"><span className="reviews__count">{this.state.reviews.totalCount}</span>
         {
           this.state.reviews.totalCount === 0 && this.state.isFetching
             ? (
