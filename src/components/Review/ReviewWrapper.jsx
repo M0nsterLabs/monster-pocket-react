@@ -108,6 +108,7 @@ export default class Reviews extends React.Component {
                 reviewScore = {review.score}
                 reviewContent = {review.content}
                 reviewDate = {date}
+                reviewFlag = {review.locale}
               />
             </li>
           );

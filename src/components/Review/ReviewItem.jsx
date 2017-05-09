@@ -31,7 +31,7 @@ export default class ReviewItem extends React.Component {
               defaultRating={this.props.reviewScore}
               disabled={true}
             />
-            <span className="review__flag iti-flag us"> </span>
+            <span className={`review__flag iti-flag ${this.props.reviewFlag}`}> </span>
           </span>
           <span  className="review__date">{this.props.reviewDate}</span>
         </div>
@@ -51,5 +51,6 @@ ReviewItem.propTypes = {
   userName      : PropTypes.string,
   reviewScore   : PropTypes.number,
   reviewContent : PropTypes.string,
-  reviewDate    : PropTypes.string
+  reviewDate    : PropTypes.string,
+  reviewFlag    : PropTypes.string
 };
