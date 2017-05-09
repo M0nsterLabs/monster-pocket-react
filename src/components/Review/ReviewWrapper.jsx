@@ -103,7 +103,7 @@ export default class Reviews extends React.Component {
           return (
             <li className="reviews__item reviews__item_my-reviews review__content" key={review.id}>
               <ReviewItem
-                userAvatar = {this.state.user.avatar}
+                userAvatar = {this.state.user.avatar} //avatar
                 userName = {review.user_name}
                 reviewScore = {review.score}
                 reviewContent = {review.content}
@@ -393,8 +393,8 @@ export default class Reviews extends React.Component {
     const year = time.getFullYear();
     const month = months[time.getMonth()];
     const day  = time.getDate();
-    const hour = time.getHours();
-    const min = time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
+    let hour = time.getHours();
+    let min = time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
     const timeNowUTC = new Date();
     const timeNow = new Date().getTime() / 1000;
     const average =  timeNow - timestamp;
@@ -408,6 +408,8 @@ export default class Reviews extends React.Component {
     if (average < units.HOUR * 10) {
       time.setHours(0);
       time.setMinutes(average / units.MINUTE);
+      hour = time.getHours();
+      min = time.getMinutes();
     }
 
     let date = '';
