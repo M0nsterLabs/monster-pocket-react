@@ -10,6 +10,7 @@ module.exports = {
     advice               : './src/model/advice/Advice.js',
     mascotAndSocialProof : './entry/MascotAndSocialProof.js',
     MembershipsClient    : './entry/Memberships.js',
+    OrdersClient         : './entry/Orders.js',
     index                : './entry/index.js'
   },
   output: {
