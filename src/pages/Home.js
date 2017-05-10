@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 
 export default class Home extends Component {
   static contextTypes = {
-    i18n: React.PropTypes.object
+    i18n: PropTypes.object
   };
   render () {
     return (

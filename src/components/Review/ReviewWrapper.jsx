@@ -33,12 +33,12 @@ const LOCALES = [...new Set(LOCALES_NO_UNIQUE)];
 
 export default class Reviews extends React.Component {
   static propTypes = {
-    templateId  : React.PropTypes.number.isRequired,
-    accessToken : React.PropTypes.string
+    templateId  : PropTypes.number.isRequired,
+    accessToken : PropTypes.string
   };
 
   static contextTypes = {
-    i18n: React.PropTypes.object
+    i18n: PropTypes.object
   };
 
   state = {
@@ -99,16 +99,17 @@ export default class Reviews extends React.Component {
     if (this.state.reviews.items && this.state.products.products) {
       return (
         this.state.reviews.items.map((review, i) => {
+          let userAvatar = this.getAvatar(review.user_id);
           let date = this.formattedDate(review.created_at);
           return (
             <li className="reviews__item reviews__item_my-reviews review__content" key={review.id}>
               <ReviewItem
-                userAvatar = {this.state.user.avatar} //avatar
-                userName = {review.user_name}
-                reviewScore = {review.score}
+                userAvatar    = {userAvatar}
+                userName      = {review.user_name}
+                reviewScore   = {review.score}
                 reviewContent = {review.content}
-                reviewDate = {date}
-                reviewFlag = {review.locale}
+                reviewDate    = {date}
+                reviewFlag    = {review.locale}
               />
             </li>
           );
@@ -144,6 +145,8 @@ export default class Reviews extends React.Component {
       return;
     }
     if (this.state.userReview.status !== STATUS_INITIAL) {
+      let userAvatar = this.getAvatar(this.state.userReview.user_id);
+      let date = this.formattedDate(this.state.userReview.created_at);
       return (
         <li className="reviews__item reviews__item_my-reviews review__content" key={this.state.userReview.id}>
           <ReviewItem
@@ -151,6 +154,9 @@ export default class Reviews extends React.Component {
             userName      = {this.state.user.userName}
             reviewScore   = {this.state.userReview.score}
             reviewContent = {this.state.userReview.content}
+            userMail      = {this.state.userMail}
+            reviewDate    = {date}
+            reviewFlag    = {this.state.userReview.locale}
           />
           {this.renderNotification(this.state.userReview.status)}
         </li>
@@ -257,6 +263,16 @@ export default class Reviews extends React.Component {
           avatar   : data.avatar
         }
       });
+    });
+  };
+
+  //Get avatar user
+  getAvatar = (userId) => {
+    fetch(`${Config.accountServiceURL}users/${userId}/profile`, {
+      method: 'get'
+    }).then(getResponseJSON)
+    .then((data) => {
+      return data.avatar;
     });
   };
 

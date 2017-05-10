@@ -1,5 +1,6 @@
-import React  from 'react';
-import {Link} from 'react-router';
+import React     from 'react';
+import {Link}    from 'react-router';
+import PropTypes from 'prop-types';
 
 import B2E    from 'quark/lib/buttons/B2E';
 
@@ -52,13 +53,13 @@ export default function ContentEmptyMessage (props) {
 }
 
 ContentEmptyMessage.propTypes = {
-  page        : React.PropTypes.string.isRequired,
-  title       : React.PropTypes.string,
-  description : React.PropTypes.string.isRequired,
-  linkType    : React.PropTypes.oneOf(['anchor', 'link']),
-  linkUrl     : React.PropTypes.string,
-  linkText    : React.PropTypes.string,
-  buttonText  : React.PropTypes.string,
-  buttonClick : React.PropTypes.func,
-  isButton    : React.PropTypes.bool
+  page        : PropTypes.string.isRequired,
+  title       : PropTypes.string,
+  description : PropTypes.string.isRequired,
+  linkType    : PropTypes.oneOf(['anchor', 'link']),
+  linkUrl     : PropTypes.string,
+  linkText    : PropTypes.string,
+  buttonText  : PropTypes.string,
+  buttonClick : PropTypes.func,
+  isButton    : PropTypes.bool
 };

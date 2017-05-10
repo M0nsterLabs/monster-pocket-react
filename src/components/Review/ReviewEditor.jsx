@@ -18,7 +18,7 @@ const STATUS_APPROVED = 'approved';
 
 export default class ReviewEditor extends React.Component {
   static contextTypes = {
-    i18n: React.PropTypes.object
+    i18n: PropTypes.object
   };
   state = {
     stars        : 0,

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import HtmlToJsx from '../html-to-js';
 import {connectNotificationTrigger} from 'quark/lib/utils';
 import Mascot from './Mascot.jsx';
@@ -7,11 +8,11 @@ import 'quark/css/main.css';
 
 export default class MascotWrapper extends React.Component {
   static propTypes = {
-    timeout            : React.PropTypes.number,
-    type               : React.PropTypes.string,
-    closeIconId        : React.PropTypes.string,
-    afterRemoveDomNode : React.PropTypes.func,
-    button             : React.PropTypes.object
+    timeout            : PropTypes.number,
+    type               : PropTypes.string,
+    closeIconId        : PropTypes.string,
+    afterRemoveDomNode : PropTypes.func,
+    button             : PropTypes.object
   };
 
   static defaultProps = {
