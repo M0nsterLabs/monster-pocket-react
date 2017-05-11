@@ -10,7 +10,7 @@ export default class ReviewItem extends React.Component {
 
   render() {
     return (
-      <div className="review__item t3">
+      <div className="review__item t3" itemProp="review" itemScope itemType="http://schema.org/Review">
         <div className="review__info">
           <div className="review__author">
             <Avatar
@@ -21,18 +21,21 @@ export default class ReviewItem extends React.Component {
               isRounded = {true}
               className = "review__author-icon"
             />
-            <span className="review__author-name">{this.props.userName}</span>
+            <span className="review__author-name" itemProp="author">{this.props.userName}</span>
           </div>
-          <span className="review__score rating-stars-block">
+          <span className="review__score rating-stars-block" itemProp="reviewRating" itemScope itemType="http://schema.org/Rating">
+            <meta itemProp="worstRating" content = "1" />
+            <meta itemProp="bestRating" content = "5" />
+            <meta itemProp="ratingValue" content = {this.props.reviewScore} />
             <StarsRating
               defaultRating={this.props.reviewScore}
               disabled={true}
             />
             <span className={`review__flag iti-flag ${this.props.reviewFlag}`}> </span>
           </span>
-          <span  className="review__date">{this.props.reviewDate}</span>
+          <span  className="review__date" itemProp="datePublished" content={this.props.reviewDate}>{this.props.reviewDate}</span>
         </div>
-        <div className="review__item-content">
+        <div className="review__item-content" itemProp="description">
           {this.props.reviewContent}
         </div>
         <div className="review__item-controls">
