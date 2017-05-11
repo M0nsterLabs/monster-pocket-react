@@ -11,11 +11,7 @@ export default function ContentEmptyMessage (props) {
     <article className="content-empty-message">
         {props.title && (<h2 className="content-empty-message__title h3">{props.title}</h2>)}
 
-        <img
-          className = "content-empty-message__illustration"
-          src       = {require(`../../images/empty-content/empty-${props.page.toLowerCase()}.svg`)}
-          alt       = {props.title}
-        />
+        <div className={`content-empty-message__illustration content-empty-message__${props.page.toLowerCase()}`}> </div>
 
         <p className="content-empty-message__description t3">{props.description}</p>
 
