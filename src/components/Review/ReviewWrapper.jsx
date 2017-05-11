@@ -98,13 +98,12 @@ export default class Reviews extends React.Component {
   renderReviews = () => {
     if (this.state.reviews.items && this.state.products.products) {
       return (
-        this.state.reviews.items.map((review, i) => {
-          let userAvatar = this.getAvatar(review.user_id);
+        this.state.reviews.items.map((review) => {
           let date = this.formattedDate(review.created_at);
           return (
             <li className="reviews__item reviews__item_my-reviews review__content" key={review.id}>
               <ReviewItem
-                userAvatar    = {userAvatar}
+                userAvatar    = {review.avatar}
                 userName      = {review.user_name}
                 reviewScore   = {review.score}
                 reviewContent = {review.content}
@@ -145,7 +144,6 @@ export default class Reviews extends React.Component {
       return;
     }
     if (this.state.userReview.status !== STATUS_INITIAL) {
-      let userAvatar = this.getAvatar(this.state.userReview.user_id);
       let date = this.formattedDate(this.state.userReview.created_at);
       return (
         <li className="reviews__item reviews__item_my-reviews review__content" key={this.state.userReview.id}>
@@ -198,7 +196,15 @@ export default class Reviews extends React.Component {
         this.countReview += data.totalCount;
 
         itemsReview = this.state.reviews.items ? [...this.state.reviews.items, ...data.items] : data.items;
-        const ids = _.uniq(itemsReview.map((item) => {
+        const ids = _.uniq(itemsReview.map((item, i) => {
+          //Get user avatar
+          fetch(`${Config.accountServiceURL}users/${item.user_id}/profile`, {
+            method: 'get'
+          }).then(getResponseJSON)
+          .then((data) => {
+            itemsReview[i]['avatar'] = data.avatar;
+          });
+
           return item.template_id;
         }));
         if (this.countReview === 0 && !this.state.otherLocale) {
@@ -263,16 +269,6 @@ export default class Reviews extends React.Component {
           avatar   : data.avatar
         }
       });
-    });
-  };
-
-  //Get avatar user
-  getAvatar = (userId) => {
-    fetch(`${Config.accountServiceURL}users/${userId}/profile`, {
-      method: 'get'
-    }).then(getResponseJSON)
-    .then((data) => {
-      return data.avatar;
     });
   };
 
