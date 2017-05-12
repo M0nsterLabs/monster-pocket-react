@@ -135,6 +135,17 @@ export default class Reviews extends React.Component {
           scoreReview={this.state.userReview.score}
         />
       );
+    } else if (this.state.userReview.status !== STATUS_INITIAL
+      && this.state.userReview.status !== STATUS_DECLINED
+      && this.state.userReview.status !== STATUS_PENDING
+      && this.state.userReview.status !== STATUS_APPROVED
+    ) {
+      return (
+        <p className="reviews-info-msg t1">
+          <span className="tm-icon icon-star-filled"> </span>
+          Only buyers of that product can rate it
+        </p>
+      )
     }
     return null;
   };
