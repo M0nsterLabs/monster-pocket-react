@@ -8,6 +8,16 @@ export default class ReviewItem extends React.Component {
     i18n: PropTypes.object
   };
 
+  static propTypes = {
+    userName      : PropTypes.string,
+    userMail      : PropTypes.string,
+    reviewScore   : PropTypes.number,
+    reviewContent : PropTypes.string,
+    reviewDate    : PropTypes.string,
+    reviewFlag    : PropTypes.string,
+    userAvatar    : PropTypes.string
+  };
+
   render() {
     return (
       <div className="review__item t3" itemProp="review" itemScope itemType="http://schema.org/Review">
@@ -45,13 +55,3 @@ export default class ReviewItem extends React.Component {
     )
   }
 }
-
-ReviewItem.propTypes = {
-  userName      : PropTypes.string,
-  userMail      : PropTypes.string,
-  reviewScore   : PropTypes.number,
-  reviewContent : PropTypes.string,
-  reviewDate    : PropTypes.string,
-  reviewFlag    : PropTypes.string,
-  userAvatar    : PropTypes.string
-};

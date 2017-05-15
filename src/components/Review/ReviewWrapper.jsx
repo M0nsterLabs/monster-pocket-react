@@ -2,7 +2,6 @@ import React                        from 'react';
 import Config                       from 'config.js';
 import _                            from 'lodash';
 import PropTypes                    from 'prop-types';
-import ContentLoader                from 'components/ContentLoader/';
 import ContentEmptyMessage          from 'components/ContentEmptyMessage/';
 import L1                           from 'quark/lib/loaders/L1';
 
@@ -462,7 +461,7 @@ export default class Reviews extends React.Component {
         {
           this.state.reviews.totalCount === 0 && this.state.isFetching
             ? (
-              <ContentLoader />
+              <L1 className="content-loader" />
             )
             : (this.state.reviews.totalCount === 0
               ? (
