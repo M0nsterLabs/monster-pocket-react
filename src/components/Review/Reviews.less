@@ -661,6 +661,7 @@
     &__text {
       text-align: center;
       margin-bottom: 20px;
+      color: #fff;
     }
 
     &__textarea {
@@ -670,18 +671,18 @@
       -moz-box-sizing: border-box;
       box-sizing: border-box;
 
-      .notification__text {
-        width: auto !important;
-        white-space: nowrap;
+      .text-area__label {
+        color: #90a4ae !important;
+        font-weight: normal;
       }
     }
 
     &__button {
-      width: 135px;
-      padding-bottom: 1px;
+      width: 135px !important;
+      padding-bottom: 1px !important;
 
       &_first {
-        margin-right: 20px;
+        margin-right: 20px !important;
       }
 
       &:focus, &:active {
@@ -775,8 +776,15 @@
     }
 
     &__text {
-      width: 290px;
+      width: 290px !important;
       position: relative;
+    }
+
+    .notification__container {
+      .notification__text {
+        width: auto !important;
+        white-space: nowrap;
+      }
     }
 
     &__closeBlock {
