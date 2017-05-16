@@ -60,7 +60,12 @@ export default class ReviewItem extends React.Component {
     return (
       <div className="review__item_moderator t5">
         {this.showAvatar(this.props.moderatorMail, this.props.moderatorName, this.props.moderatorAva)}
-        <div className="review__info-form">
+        <form
+          className="review__info-form"
+          onSubmit={(event) => {
+            this.sendReplyReview(event);
+          }}
+        >
           <TA3
             className           = "review__info-textarea"
             id                  = "reviewReplyModerator"
@@ -73,27 +78,27 @@ export default class ReviewItem extends React.Component {
           <B1A
             icon      = "message tm-icon"
             className = "review__info-button"
-            type      = "link"
-            onClick   = {() => { this.sendReplyReview(); }}
-            target    = "_blank"
-            rel       = "nofollow noopener"
+            type      = "submit"
           >
             {this.context.i18n.l('Send Message')}
           </B1A>
           <span className="review__info-text t6">
             {this.context.i18n.l('Press Ctrl + Enter to send your message')}
           </span>
-        </div>
+        </form>
       </div>
     )
   };
 
-  sendReplyReview = () => {
+  sendReplyReview = (event) => {
+    event.preventDefault();
     const textReview = document.getElementById('reviewReplyModerator').value;
-    let reviewText = {
+    const reviewText = {
       content: textReview
     };
-
+    console.log('this.props.accessToken', this.props.accessToken);
+    console.log('this.props.reviewId', this.props.reviewId);
+    console.log('reviewText', reviewText);
     reviews.replayTheReview(this.props.accessToken, this.props.reviewId, reviewText).then(
       (data) => {
         console.log('success');
@@ -106,7 +111,6 @@ export default class ReviewItem extends React.Component {
     if (_.isEmpty(this.props.comments)) {
       return;
     }
-    console.log('this.props.comments', this.props.comments);
     return (
       this.props.comments.map((comment) => {
         return (
