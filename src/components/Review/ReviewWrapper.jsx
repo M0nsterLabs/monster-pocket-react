@@ -98,7 +98,6 @@ export default class Reviews extends React.Component {
     if (this.state.reviews.items && this.state.products.products) {
       return (
         this.state.reviews.items.map((review) => {
-          let date = this.formattedDate(review.created_at);
           return (
             <li className="reviews__item reviews__item_my-reviews review__content" key={review.id}>
               <ReviewItem
@@ -106,8 +105,14 @@ export default class Reviews extends React.Component {
                 userName      = {review.user_name}
                 reviewScore   = {review.score}
                 reviewContent = {review.content}
-                reviewDate    = {date}
+                reviewDate    = {review.created_at}
                 reviewFlag    = {review.locale}
+                reviewId      = {review.id}
+                accessToken   = {this.props.accessToken}
+                moderatorName = {this.state.user.userName}
+                moderatorAva  = {this.state.user.avatar}
+                moderatorMail  = {this.state.userMail}
+                comments      = {review.comments}
               />
             </li>
           );
@@ -154,7 +159,6 @@ export default class Reviews extends React.Component {
       return;
     }
     if (this.state.userReview.status !== STATUS_INITIAL) {
-      let date = this.formattedDate(this.state.userReview.created_at);
       return (
         <li className="reviews__item reviews__item_my-reviews review__content" key={this.state.userReview.id}>
           <ReviewItem
@@ -163,8 +167,14 @@ export default class Reviews extends React.Component {
             reviewScore   = {this.state.userReview.score}
             reviewContent = {this.state.userReview.content}
             userMail      = {this.state.userMail}
-            reviewDate    = {date}
+            reviewDate    = {this.state.userReview.created_at}
             reviewFlag    = {this.state.userReview.locale}
+            reviewId      = {this.state.userReview.id}
+            accessToken   = {this.props.accessToken}
+            moderatorName = {this.state.user.userName}
+            moderatorAva  = {this.state.user.avatar}
+            moderatorMail = {this.state.userMail}
+            comments      = {this.state.userReview.comments}
           />
           {this.renderNotification(this.state.userReview.status)}
         </li>
@@ -180,7 +190,8 @@ export default class Reviews extends React.Component {
     return this.getReviewsData(reviews, products, {
       'template_id' : this.props.templateId,
       'sort'        : 'id DESC',
-      'per-page'    : 10
+      'per-page'    : 10,
+      'expand'      : 'comments'
     });
   };
 
@@ -394,65 +405,6 @@ export default class Reviews extends React.Component {
       otherLocale: true
     });
     this.getReviews(`IN_${LOCALES}`);
-  };
-
-  formattedDate = (timestamp) => {
-    const time = new Date(timestamp * 1000);
-    const months = [
-      this.context.i18n.l('Jan'),
-      this.context.i18n.l('Feb'),
-      this.context.i18n.l('Mar'),
-      this.context.i18n.l('Apr'),
-      this.context.i18n.l('May'),
-      this.context.i18n.l('Jun'),
-      this.context.i18n.l('Jul'),
-      this.context.i18n.l('Aug'),
-      this.context.i18n.l('Sep'),
-      this.context.i18n.l('Oct'),
-      this.context.i18n.l('Nov'),
-      this.context.i18n.l('Dec')
-    ];
-    const year = time.getFullYear();
-    const month = months[time.getMonth()];
-    const day  = time.getDate();
-    let hour = time.getHours();
-    let min = time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
-    const timeNowUTC = new Date();
-    const timeNow = new Date().getTime() / 1000;
-    const average =  timeNow - timestamp;
-
-    const units = {
-      MINUTE : 60,
-      HOUR   : 60 * 60,
-      DAY    : 60 * 60 * 24
-    };
-
-    if (average < units.HOUR * 10) {
-      time.setHours(0);
-      time.setMinutes(average / units.MINUTE);
-      hour = time.getHours();
-      min = time.getMinutes();
-    }
-
-    let date = '';
-
-    if (average < units.MINUTE * 2) {
-      date = this.context.i18n.l('Now');
-    } else if (average < units.HOUR) {
-      date = `${min} ${this.context.i18n.l('minutes ago')}`;
-    } else if (average < units.HOUR * 2) {
-      date = `${hour} ${this.context.i18n.l('hour ago')}`;
-    } else if (average < units.HOUR * 10) {
-      date = `${hour} ${this.context.i18n.l('hours ago')}`;
-    }  else if ((average < units.DAY * 1) && (timeNowUTC.toDateString() === time.toDateString())) {
-      date = `${this.context.i18n.l('Today at')} ${hour}:${min}`;
-    }  else if ((average < units.DAY * 2) && (timeNowUTC.toDateString() !== time.toDateString())) {
-      date = `${this.context.i18n.l('Yesterday at')} ${hour}:${min}`;
-    } else {
-      date = `${month} ${day}, ${year} ${this.context.i18n.l('at')} ${hour}:${min}`;
-    }
-
-    return date;
   };
 
   render () {
