@@ -105,6 +105,17 @@ export default class ReviewItem extends React.Component {
         console.log('data', data);
       }
     );
+
+    // fetch(`${Config.reviewsServiceURL}reviews/${this.props.reviewId}/comments`, {
+    //   method: 'post',
+    //   headers : new Headers({
+    //     'content-type'  : 'application/x-www-form-urlencoded',
+    //     'Authorization' : this.props.accessToken
+    //   }),
+    //   body: JSON.stringify(reviewText)
+    // }).then((data) => {
+    //   console.log('data', data);
+    // });
   };
 
   showComments = () => {
