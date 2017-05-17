@@ -59,7 +59,7 @@ export default class ReviewItem extends React.Component {
 
   formModerator = () => {
     return (
-      <div className="review__item_moderator t5">
+      <div className="review__item-moderator t5">
         {this.showAvatar(this.props.moderatorMail, this.props.moderatorName, this.props.moderatorAva)}
         <form
           className="review__info-form"
