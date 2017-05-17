@@ -30,7 +30,8 @@ export default class ReviewItem extends React.Component {
     comments      : PropTypes.array,
     moderatorName : PropTypes.string,
     moderatorAva  : PropTypes.string,
-    moderatorMail : PropTypes.string
+    moderatorMail : PropTypes.string,
+    status        : PropTypes.string
   };
 
   state = {
@@ -223,7 +224,7 @@ export default class ReviewItem extends React.Component {
             {this.formattedDate(this.props.reviewDate)}
           </span>
         </div>
-        <div className="review__item-content" itemProp="description">
+         <div className={`review__item-content t3 review__item-content_${this.props.status}`} itemProp="description">
           {this.props.reviewContent}
         </div>
         <div className="review__item-controls">

@@ -111,7 +111,7 @@ export default class Reviews extends React.Component {
                 accessToken   = {this.props.accessToken}
                 moderatorName = {this.state.user.userName}
                 moderatorAva  = {this.state.user.avatar}
-                moderatorMail  = {this.state.userMail}
+                moderatorMail = {this.state.userMail}
                 comments      = {review.comments}
               />
             </li>
@@ -174,6 +174,7 @@ export default class Reviews extends React.Component {
             moderatorAva  = {this.state.user.avatar}
             moderatorMail = {this.state.userMail}
             comments      = {this.state.userReview.comments}
+            status        = {this.state.userReview.status}
           />
           {this.renderNotification(this.state.userReview.status)}
         </li>
@@ -406,6 +407,32 @@ export default class Reviews extends React.Component {
     this.getReviews(`IN_${LOCALES}`);
   };
 
+  renderContentEmptyPage = () => {
+    return (
+      <ContentEmptyMessage
+        page        = {'reviews'}
+        show        = {this.state.isEmpty}
+        description = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.
+                                You can look at the reviews from other locales.`)}
+        isButton    = {this.state.countReviewOtherLocale > 0}
+        buttonText  = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
+        buttonClick = {this.otherLocale}
+      />
+    )
+  };
+
+  renderEmptyPage = () => {
+    return (
+      this.state.userReview.status === STATUS_PENDING
+        ? <div>
+            {this.renderReviewEditor()}
+            {this.renderContentEmptyPage()}
+          </div>
+        :
+          this.renderContentEmptyPage()
+    )
+  };
+
   render () {
     return (
       <div className="page-content"><span className="reviews__count">{this.state.reviews.totalCount}</span>
@@ -419,19 +446,18 @@ export default class Reviews extends React.Component {
                 <div className="page-content__empty">
                   <h2 className="h3">{this.context.i18n.l('REVIEWS & RATINGS')}</h2>
                   {
-                    (this.state.userReview.status === STATUS_INITIAL)
-                    ? this.renderReviewEditor()
-                    : ''
+                    (
+                    this.state.userReview.status === STATUS_DECLINED ||
+                    this.state.userReview.status === STATUS_INITIAL)
+                      ? (
+                        <div className="reviews">
+                          <ul className="reviews__list">
+                            {this.renderMyReviews()}
+                          </ul>
+                        </div>
+                      )
+                      : this.renderEmptyPage()
                   }
-                  <ContentEmptyMessage
-                    page        = {'reviews'}
-                    show        = {this.state.isEmpty}
-                    description = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.
-                      You can look at the reviews from other locales.`)}
-                    isButton    = {this.state.countReviewOtherLocale > 0}
-                    buttonText  = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
-                    buttonClick = {this.otherLocale}
-                  />
                 </div>
                 )
               : (
