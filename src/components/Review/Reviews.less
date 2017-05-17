@@ -188,7 +188,11 @@
           display: flex;
           margin-left: 55px;
           border-top: none;
-          padding: 20px 0;
+          padding: 0 0 20px;
+
+          &:last-child {
+            padding-bottom: 0;
+          }
 
           .review {
             &__author {
@@ -244,13 +248,16 @@
 
               &-form {
                 flex: 1;
+
+                .review__info-textarea {
+                  margin-bottom: 20px;
+                }
               }
 
               &-textarea {
                 border: 1px solid #cfd8dc;
                 background: #fff;
                 box-shadow: none;
-                margin-bottom: 20px;
 
                 &:before {
                   content: "";
@@ -469,6 +476,10 @@
   padding: 20px 20px 20px 50px;
   position: relative;
   margin-bottom: 20px;
+
+  &__text {
+    color: #fff;
+  }
 
   &__icon {
     height: 20px;

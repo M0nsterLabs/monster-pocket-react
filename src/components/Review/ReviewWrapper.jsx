@@ -125,7 +125,6 @@ export default class Reviews extends React.Component {
     if (this.state.userReview.status === STATUS_INITIAL || this.state.userReview.status === STATUS_DECLINED || this.state.userReview.status === STATUS_PENDING) {
       return (
         <ReviewEditor
-          success={this.state.success}
           userMail={this.state.userMail}
           promocode={this.promocode}
           templateName={this.templateName}
