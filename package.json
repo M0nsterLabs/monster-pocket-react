@@ -6,6 +6,11 @@
   "scripts": {
     "start": "npm run build && webpack-dev-server",
     "build:production": "rm -rf ./build && NODE_ENV=production webpack",
+    "build:beta": "NODE_ENV=beta node_modules/.bin/webpack --config webpack.config.js --progress --colors",
+    "build:dev": "node_modules/.bin/webpack -v --config webpack.config.js --display-chunks",
+    "build:demo2": "NODE_ENV=demo2 node_modules/.bin/webpack -v --config webpack.config.js --display-chunks",
+    "build:demo3": "NODE_ENV=demo3 node_modules/.bin/webpack -v --config webpack.config.js --display-chunks",
+    "build:stage": "NODE_ENV=stage node_modules/.bin/webpack -v --config webpack.config.js --display-chunks",
     "build": "rm -rf ./build && webpack",
     "prepublish": "npm run build:production",
     "watch": "webpack -w",

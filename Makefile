@@ -10,6 +10,24 @@ nothing:
 
 include etc/Makefile/Makefile.*
 
+build: always translate
+	$(NPM) run build:production
+
+dev: translate
+	$(NPM) run build:dev
+
+demo2: translate
+	$(NPM) run build:demo2
+
+demo3: translate
+	$(NPM) run build:demo3
+
+stage: translate
+	$(NPM) run build:stage
+
+beta: translate
+	$(NPM) run build:beta
+
 build: always
 	npm run build
 
