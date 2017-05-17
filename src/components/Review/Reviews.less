@@ -172,12 +172,16 @@
 
     .review {
       &__item {
+        padding: 20px 0 20px;
+        border-top: 1px solid #eceef1;
+
         &:first-child {
           border-top: none;
         }
 
-        padding: 20px 0 20px;
-        border-top: 1px solid #eceef1;
+        &-content {
+          word-wrap: break-word;
+        }
 
         &:nth-child(2) {
           border-top: none;
@@ -852,7 +856,7 @@
         }
 
         &_pos-center {
-          right: -90px !important;
+          right: -100px !important;
 
           &:before {
             right: 149px !important;

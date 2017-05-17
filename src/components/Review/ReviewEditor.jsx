@@ -22,13 +22,13 @@ export default class ReviewEditor extends React.Component {
   };
   state = {
     stars        : 0,
-    showContent  : false
+    showContent  : false,
+    promocode    : 15
   };
 
   constructor (props) {
     super(props);
 
-    this.promocode = 15;
     this.closePopupOnEsc = this.closePopupOnEsc.bind(this);
     this.handleDocumentClick = this.handleDocumentClick.bind(this);
   }
@@ -74,7 +74,10 @@ export default class ReviewEditor extends React.Component {
         };
       } else {
         if (valueCount > 400) {
-          this.promocode = 25;
+          this.setState({
+            promocode: 25
+          });
+          document.querySelector('.notification-review__info-quantity').textContent = '-25%';
         }
         return {
           isValid : true,
@@ -166,7 +169,7 @@ export default class ReviewEditor extends React.Component {
           <p className="notification-review__info-text t3">
             {`${this.context.i18n.l("We've generated your one-time promo-code and within 10 minutes it will reach your email:")}`}</p>
           <p className="notification-review__info-mail t3">{this.props.userMail}</p>
-          <p className="notification-review__info-quantity h0">-{this.promocode}%</p>
+          <p className="notification-review__info-quantity h0">-{this.state.promocode}%</p>
           <p className="notification-review__info-text t3">{`${this.context.i18n.l('on all our themes')}`}</p>
         </div>
       </div>
