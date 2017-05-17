@@ -126,7 +126,7 @@ export default class ReviewItem extends React.Component {
     return (
       this.props.comments.map((comment) => {
         return (
-          <div className="review__item review__item_moderator t5" key={comment.id}>
+          <div className="review__item review__item-moderator t5" key={comment.id}>
             {this.showAvatar('', comment.author, '')}
             <div className="review__info review__info-textarea">
               <div className="review__author">
@@ -230,8 +230,10 @@ export default class ReviewItem extends React.Component {
         <div className="review__item-controls">
           <span className="review__item-reply tm-icon icon-message" onClick={() => this.showForm()}>{this.context.i18n.l('Reply')}</span>
         </div>
-        {this.showComments()}
-        {this.state.showContentModerator && this.formModerator()}
+        <div className="review__item-comments">
+          {this.showComments()}
+          {this.state.showContentModerator && this.formModerator()}
+        </div>
       </div>
     )
   }
