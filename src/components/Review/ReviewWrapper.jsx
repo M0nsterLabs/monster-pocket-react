@@ -77,14 +77,14 @@ export default class Reviews extends React.Component {
   renderNotification = (status) => {
     if (status === STATUS_PENDING) {
       return (<div className="template-review__message review-message review-message_progress">
-        <i className="review-message__icon icon icon-in-progress icon-in-progress_white"/>
+        <i className="review-message__icon tm-icon icon-sand-clock"/>
         <p className="review-message__text t3">{this.context.i18n.l('The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)')}
         </p>
         <div className="review-message__triangle review-message__triangle_progress"></div>
       </div>);
     } else if (status === STATUS_DECLINED) {
       return (<div className="template-review__message review-message review-message_declined">
-        <i className="review-message__icon icon icon-pen"/>
+        <i className="review-message__icon tm-icon icon-sand-clock"/>
         <p className="review-message__text t3">{this.context.i18n.l('Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.')}
         </p>
         <div className="review-message__triangle review-message__triangle_declined"></div>
