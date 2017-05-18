@@ -3,7 +3,6 @@ WEBPACK = node_modules/.bin/webpack
 WEBPACK.SERVER = node_modules/.bin/webpack-dev-server
 TMP.DIR = tmp
 BIN = node_modules/.bin
-NODE_ENV = $(BUILDENV) || dev
 
 nothing:
 
@@ -23,9 +22,3 @@ publish:
 
 
 always:
-
-install:
- $(NPM) install
-
-start:
- export NODE_ENV=dev && $(NPM) run start

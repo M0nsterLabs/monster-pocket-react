@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 12:01+0200\n"
+"POT-Creation-Date: 2017-05-18 14:04+0300\n"
 "PO-Revision-Date: 2017-02-03 03:39:40-0500\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -13,6 +13,124 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Resource-Id-Version: monster-react\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Review must contain at least 60 symbols"
+msgstr ""
+
+msgid "Please remove special symbols"
+msgstr ""
+
+msgid "Please, write at least 60 symbols for review"
+msgstr ""
+
+msgid "Thank you for your review!"
+msgstr ""
+
+msgid ""
+"We've generated your one-time promo-code and within 10 minutes it will reach "
+"your email:"
+msgstr ""
+
+msgid "on all our themes"
+msgstr ""
+
+msgid "Please rate the product:"
+msgstr ""
+
+msgid "Type your answer here"
+msgstr ""
+
+msgid "Send Message"
+msgstr ""
+
+msgid "Press Ctrl + Enter to send your message"
+msgstr ""
+
+msgid "Jan"
+msgstr ""
+
+msgid "Feb"
+msgstr ""
+
+msgid "Mar"
+msgstr ""
+
+msgid "Apr"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "Jun"
+msgstr ""
+
+msgid "Jul"
+msgstr ""
+
+msgid "Aug"
+msgstr ""
+
+msgid "Sep"
+msgstr ""
+
+msgid "Oct"
+msgstr ""
+
+msgid "Nov"
+msgstr ""
+
+msgid "Dec"
+msgstr ""
+
+msgid "Now"
+msgstr ""
+
+msgid "minutes ago"
+msgstr ""
+
+msgid "hour ago"
+msgstr ""
+
+msgid "hours ago"
+msgstr ""
+
+msgid "Today at"
+msgstr ""
+
+msgid "Yesterday at"
+msgstr ""
+
+msgid "at"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid ""
+"The review is visible only for you. Sorry, but we need to check your review "
+"before publication. In case your review corresponds to our rules, it will be "
+"published soon :)"
+msgstr ""
+
+msgid ""
+"Unfortunately, we can’t post your review because it doesn’t meet our "
+"guidelines, please try again with another review."
+msgstr ""
+
+msgid ""
+"It seems there are no reviews to this product from your locale.\n"
+"                                You can look at the reviews from other "
+"locales."
+msgstr ""
+
+msgid "View "
+msgstr ""
+
+msgid "REVIEWS & RATINGS"
+msgstr ""
+
+msgid " REVIEWS & RATINGS"
+msgstr ""
 
 msgid "Home"
 msgstr ""
@@ -23,5 +141,5 @@ msgstr ""
 msgid "Social test"
 msgstr ""
 
-msgid "test"
+msgid "Reviews & Ratings"
 msgstr ""
