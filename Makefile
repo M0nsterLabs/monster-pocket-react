@@ -3,15 +3,15 @@ WEBPACK = node_modules/.bin/webpack
 WEBPACK.SERVER = node_modules/.bin/webpack-dev-server
 TMP.DIR = tmp
 BIN = node_modules/.bin
-
+NODE_ENV = $(BUILDENV) || dev
 
 nothing:
 
 
 include etc/Makefile/Makefile.*
 
-$(BUILDENV): translate
-   $(NPM) run build:$(BUILDENV)
+$(NODE_ENV): translate
+   $(NPM) run build:$(NODE_ENV)
 
 clean:
 	rm -rf build
@@ -23,3 +23,9 @@ publish:
 
 
 always:
+
+install:
+ $(NPM) install
+
+start:
+ export NODE_ENV=dev && $(NPM) run start
