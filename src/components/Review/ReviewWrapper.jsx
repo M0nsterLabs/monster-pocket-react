@@ -325,6 +325,7 @@ export default class Reviews extends React.Component {
 
   getProductUserData = (ids) => {
     products.getProducts(ids).then((product) => {
+      console.log('product', product);
       const size = {
         width  : 400,
         height : 400
@@ -423,7 +424,7 @@ export default class Reviews extends React.Component {
 
   renderEmptyPage = () => {
     return (
-      this.state.userReview.status === STATUS_PENDING
+      this.state.userReview.status === STATUS_INITIAL
         ? <div>
             {this.renderReviewEditor()}
             {this.renderContentEmptyPage()}
@@ -448,7 +449,7 @@ export default class Reviews extends React.Component {
                   {
                     (
                     this.state.userReview.status === STATUS_DECLINED ||
-                    this.state.userReview.status === STATUS_INITIAL)
+                    this.state.userReview.status === STATUS_PENDING)
                       ? (
                         <div className="reviews">
                           <ul className="reviews__list">
