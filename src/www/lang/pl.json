@@ -7,6 +7,114 @@
             "plural_forms": "nplurals=2; plural=(n != 1)",
             "lang": "pl"
          },
+         "Review must contain at least 60 symbols": [
+            ""
+         ],
+         "Please remove special symbols": [
+            ""
+         ],
+         "Please, write at least 60 symbols for review": [
+            ""
+         ],
+         "Thank you for your review!": [
+            ""
+         ],
+         "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
+            ""
+         ],
+         "on all our themes": [
+            ""
+         ],
+         "Please rate the product:": [
+            ""
+         ],
+         "Type your answer here": [
+            ""
+         ],
+         "Send Message": [
+            ""
+         ],
+         "Press Ctrl + Enter to send your message": [
+            ""
+         ],
+         "Jan": [
+            ""
+         ],
+         "Feb": [
+            ""
+         ],
+         "Mar": [
+            ""
+         ],
+         "Apr": [
+            ""
+         ],
+         "May": [
+            ""
+         ],
+         "Jun": [
+            ""
+         ],
+         "Jul": [
+            ""
+         ],
+         "Aug": [
+            ""
+         ],
+         "Sep": [
+            ""
+         ],
+         "Oct": [
+            ""
+         ],
+         "Nov": [
+            ""
+         ],
+         "Dec": [
+            ""
+         ],
+         "Now": [
+            ""
+         ],
+         "minutes ago": [
+            ""
+         ],
+         "hour ago": [
+            ""
+         ],
+         "hours ago": [
+            ""
+         ],
+         "Today at": [
+            ""
+         ],
+         "Yesterday at": [
+            ""
+         ],
+         "at": [
+            ""
+         ],
+         "Reply": [
+            ""
+         ],
+         "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
+            ""
+         ],
+         "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            ""
+         ],
+         "It seems there are no reviews to this product from your locale.\n                                You can look at the reviews from other locales.": [
+            ""
+         ],
+         "View ": [
+            ""
+         ],
+         "REVIEWS & RATINGS": [
+            ""
+         ],
+         " REVIEWS & RATINGS": [
+            ""
+         ],
          "Home": [
             ""
          ],
@@ -16,7 +124,7 @@
          "Social test": [
             ""
          ],
-         "test": [
+         "Reviews & Ratings": [
             ""
          ]
       }
