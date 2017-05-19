@@ -1,5 +1,6 @@
 import React       from 'react';
 import PropTypes   from 'prop-types';
+import {stringify} from 'qs';
 import StarsRating from 'quark/lib/StarsRating';
 import Avatar      from 'quark/lib/Avatar';
 import TA3         from 'quark/lib/textareas/TA3';
@@ -109,11 +110,11 @@ export default class ReviewItem extends React.Component {
 
     // fetch(`${Config.reviewsServiceURL}reviews/${this.props.reviewId}/comments`, {
     //   method: 'post',
-    //   headers : new Headers({
-    //     'content-type'  : 'application/x-www-form-urlencoded',
+    //   headers : {
+    //     'Content-Type'  : 'application/x-www-form-urlencoded',
     //     'Authorization' : this.props.accessToken
-    //   }),
-    //   body: JSON.stringify(reviewText)
+    //   },
+    //   body: stringify(reviewText)
     // }).then((data) => {
     //   console.log('data', data);
     // });

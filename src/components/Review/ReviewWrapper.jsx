@@ -4,6 +4,7 @@ import _                            from 'lodash';
 import PropTypes                    from 'prop-types';
 import ContentEmptyMessage          from 'components/ContentEmptyMessage/';
 import L1                           from 'quark/lib/loaders/L1';
+import B2E                          from 'quark/lib/buttons/B2E';
 
 import ReviewsData                  from 'plasma-reviews-api-client-js';
 import ProductsData                 from 'tm-products-api-client-js';
@@ -55,7 +56,8 @@ export default class Reviews extends React.Component {
     userMail               : '',
     authorId               : 0,
     countReviewOtherLocale : 0,
-    otherLocale            : false
+    otherLocale            : false,
+    showMoreVisible        : false
   };
 
   constructor (props) {
@@ -208,11 +210,17 @@ export default class Reviews extends React.Component {
         'page': requestPageIndex
       };
 
-      reviews.getReviews(params).then((data) => {
+      reviews.getReviews(params)
+        .then((data) => {
         paginationData.currentPageIndex = data.currentPageIndex;
         paginationData.lastPageIndex = data.lastPageIndex;
         paginationData.totalCount = data.totalCount;
 
+        if (paginationData.totalCount > 10) {
+          this.setState({
+            showMoreVisible: true
+          })
+        }
         this.countReview += data.totalCount;
 
         itemsReview = this.state.reviews.items ? [...this.state.reviews.items, ...data.items] : data.items;
@@ -257,7 +265,14 @@ export default class Reviews extends React.Component {
             });
           });
         }
-      });
+      })
+        .then(() => {
+          if (paginationData.currentPageIndex === paginationData.lastPageIndex) {
+            this.setState({
+              showMoreVisible: false
+            })
+          }
+        });
     } else {
       this.setState({
         isFetching: false
@@ -324,7 +339,6 @@ export default class Reviews extends React.Component {
 
   getProductUserData = (ids) => {
     products.getProducts(ids).then((product) => {
-      console.log('product', product);
       const size = {
         width  : 400,
         height : 400
@@ -383,21 +397,16 @@ export default class Reviews extends React.Component {
     this.getReviews(LOCALES[this.iteratorLocale]);
     this.getProductUser();
     this.getTemplateUrl(LOCALE);
-    window.addEventListener('scroll', this.loadDownloads);
   };
 
-  componentWillUnmount () {
-    window.removeEventListener('scroll', this.loadDownloads);
-  }
-
   loadDownloads = () => {
-    infiniteDataLoader(() => {
-      if (this.state.countReviewOtherLocale > 0) {
-        return this.getReviews(`IN_${LOCALES}`);
-      } else {
-        return this.getReviews(LOCALES[this.iteratorLocale]);
-      }
-    }, this.state.reviews.totalCount > 0 && this.state.isFetching !== true);
+   if (this.state.reviews.totalCount > 0 && this.state.isFetching !== true) {
+     if (this.state.countReviewOtherLocale > 0) {
+       return this.getReviews(`IN_${LOCALES}`);
+     } else {
+       return this.getReviews(LOCALES[this.iteratorLocale]);
+     }
+   }
   };
 
   otherLocale = () => {
@@ -469,8 +478,21 @@ export default class Reviews extends React.Component {
                     {this.renderMyReviews()}
                     {this.renderReviews()}
                   </ul>
-                  {this.state.reviews.totalCount > 0 && this.state.isFetching && (
-                    <L1 className="downloads__loader"/>
+
+                  {this.state.showMoreVisible && (
+                    <B2E
+                      className = "reviews__btn"
+                      id        = "show-more-reviews"
+                      onClick   = {this.loadDownloads}
+                      disabled  = {this.state.isFetching}
+                      isLoading = {this.state.isFetching}
+                    >
+                      {this.state.isFetching ? (
+                        <L1 />
+                      ) : (
+                        this.context.i18n.l('Show more')
+                      )}
+                    </B2E>
                   )}
                 </div>
                 )

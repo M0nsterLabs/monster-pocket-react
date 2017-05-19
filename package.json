@@ -91,6 +91,7 @@
     "webpack-uglify-js-plugin": "^1.1.9"
   },
   "dependencies": {
+    "qs": "^6.2.1",
     "plasma-reviews-api-client-js": "^1.0.8",
     "tm-products-api-client-js": "^1.0.14"
   },
