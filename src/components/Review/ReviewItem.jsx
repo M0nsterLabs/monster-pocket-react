@@ -101,23 +101,24 @@ export default class ReviewItem extends React.Component {
     console.log('this.props.accessToken', this.props.accessToken);
     console.log('this.props.reviewId', this.props.reviewId);
     console.log('reviewText', reviewText);
-    reviews.replayTheReview(this.props.accessToken, this.props.reviewId, reviewText).then(
-      (data) => {
-        console.log('success');
-        console.log('data', data);
-      }
-    );
+    //reviews.replayTheReview(this.props.accessToken, this.props.reviewId, reviewText).then(
+    //  (data) => {
+    //    console.log('success');
+    //    console.log('data', data);
+    //  }
+    //);
 
-    // fetch(`${Config.reviewsServiceURL}reviews/${this.props.reviewId}/comments`, {
-    //   method: 'post',
-    //   headers : {
-    //     'Content-Type'  : 'application/x-www-form-urlencoded',
-    //     'Authorization' : this.props.accessToken
-    //   },
-    //   body: stringify(reviewText)
-    // }).then((data) => {
-    //   console.log('data', data);
-    // });
+     fetch(`${Config.reviewsServiceURL}reviews/${this.props.reviewId}/comments`, {
+       method: 'post',
+       headers : {
+         'Content-Type'  : 'application/x-www-form-urlencoded',
+         'Authorization' : this.props.accessToken,
+         'Access-Control-Allow-Origin' : Config.monsterURL
+       },
+       body: stringify(reviewText)
+     }).then((data) => {
+       console.log('data', data);
+     });
   };
 
   showComments = () => {

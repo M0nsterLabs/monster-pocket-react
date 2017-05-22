@@ -6,7 +6,7 @@ export default {
   authServiceURL              : '//api.templatemonsterdev.com/oauth/',
   accountServiceURL           : '//api.templatemonsterdev.com/users/v1/',
   uploaderServiceURL          : '//api.templatemonsterdev.com/uploads/v1/',
-  productsServiceURL          : '//api.templatemonsterdev.com/products/v1/',
+  productsServiceURL          : '//api.templatemonster.com/products/v1/',
   authorServiceURL            : '//api.templatemonsterdev.com/authors/v1/',
   ordersServiceURL            : '//service-orders-demo2.templatemonsterdev.com/api/v1/',
   reviewsServiceURL           : '//api.templatemonsterdev.com/reviews/v1/',
