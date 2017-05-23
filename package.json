@@ -7,7 +7,7 @@
     "start": "npm run build && webpack-dev-server",
     "build:production": "rm -rf ./build && NODE_ENV=production webpack",
     "build:beta": "NODE_ENV=beta webpack",
-    "build:dev": "NODE_ENV=dev webpack",
+    "build:dev": "webpack",
     "build:demo2": "NODE_ENV=demo2 webpack",
     "build:demo3": "NODE_ENV=demo3 webpack",
     "build": "rm -rf ./build && webpack",

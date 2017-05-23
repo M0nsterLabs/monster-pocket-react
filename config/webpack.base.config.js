@@ -2,7 +2,7 @@ const path = require('path');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const baseDir = process.cwd();
 const nodeModulesPath = path.resolve(baseDir, 'node_modules');
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'dev';
 const buildPath = path.resolve(baseDir, 'build');
 
 module.exports = {
