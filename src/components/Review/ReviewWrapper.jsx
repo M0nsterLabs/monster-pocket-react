@@ -316,7 +316,7 @@ export default class Reviews extends React.Component {
   };
 
   getReviewsUserData = (params = {}) => {
-    let reviews = new ReviewsData(Config.reviewsServiceURL, `IN_${LOCALES}`);
+    let reviews = new ReviewsData(Config.reviewsServiceURL);
     reviews.getReviewsUser(params).then((data) => {
       if (data.items.length > 0) {
         this.setState({
