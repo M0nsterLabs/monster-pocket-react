@@ -103,6 +103,7 @@ export default class Reviews extends React.Component {
           return (
             <li className="reviews__item reviews__item_my-reviews review__content" key={review.id}>
               <ReviewItem
+                moderable     = {this.state.reviews.canModerate}
                 userAvatar    = {review.avatar}
                 userName      = {review.user_name}
                 reviewScore   = {review.score}
@@ -192,7 +193,8 @@ export default class Reviews extends React.Component {
       'template_id' : this.props.templateId,
       'sort'        : 'id DESC',
       'per-page'    : 10,
-      'expand'      : 'comments'
+      'expand'      : 'comments',
+      'access_token' : this.props.accessToken
     });
   };
 
@@ -215,6 +217,7 @@ export default class Reviews extends React.Component {
         paginationData.currentPageIndex = data.currentPageIndex;
         paginationData.lastPageIndex = data.lastPageIndex;
         paginationData.totalCount = data.totalCount;
+        paginationData.canModerate = !data.canModerate;
 
         if (paginationData.totalCount > 10) {
           this.setState({
@@ -259,7 +262,8 @@ export default class Reviews extends React.Component {
                 ...this.state.reviews,
                 items      : itemsReview,
                 ...paginationData,
-                totalCount : paginationData.totalCount
+                totalCount : paginationData.totalCount,
+                canModerate: paginationData.canModerate
               },
               isFetching: false
             });

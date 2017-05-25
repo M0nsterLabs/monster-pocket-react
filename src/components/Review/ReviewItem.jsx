@@ -32,12 +32,20 @@ export default class ReviewItem extends React.Component {
     moderatorName : PropTypes.string,
     moderatorAva  : PropTypes.string,
     moderatorMail : PropTypes.string,
-    status        : PropTypes.string
+    status        : PropTypes.string,
+    moderable     : PropTypes.bool
   };
 
   state = {
-    showContentModerator: false
+    showContentModerator: false,
+    comments: []
   };
+
+  componentWillMount() {
+    this.setState({
+      comments: this.props.comments,
+    });
+  }
 
   showAvatar = (email, name, avatar) => {
     return (
@@ -101,32 +109,22 @@ export default class ReviewItem extends React.Component {
     console.log('this.props.accessToken', this.props.accessToken);
     console.log('this.props.reviewId', this.props.reviewId);
     console.log('reviewText', reviewText);
-    //reviews.replayTheReview(this.props.accessToken, this.props.reviewId, reviewText).then(
-    //  (data) => {
-    //    console.log('success');
-    //    console.log('data', data);
-    //  }
-    //);
-
-     fetch(`${Config.reviewsServiceURL}reviews/${this.props.reviewId}/comments`, {
-       method: 'post',
-       headers : {
-         'Content-Type'  : 'application/x-www-form-urlencoded',
-         'Authorization' : this.props.accessToken,
-         'Access-Control-Allow-Origin' : Config.monsterURL
-       },
-       body: stringify(reviewText)
-     }).then((data) => {
-       console.log('data', data);
-     });
+    reviews.replayTheReview(this.props.accessToken, this.props.reviewId, reviewText).then(
+      (data) => {
+          this.setState({
+            comments: [ ...this.state.comments, data.items],
+            showContentModerator: false,
+          });
+      }
+    );
   };
 
   showComments = () => {
-    if (_.isEmpty(this.props.comments)) {
+    if (_.isEmpty(this.state.comments)) {
       return;
     }
     return (
-      this.props.comments.map((comment) => {
+      this.state.comments.map((comment) => {
         return (
           <div className="review__item review__item-moderator t5" key={comment.id}>
             {this.showAvatar('', comment.author, '')}
@@ -144,6 +142,14 @@ export default class ReviewItem extends React.Component {
       })
     )
   };
+
+  replyButton = () => {
+    return (
+      <div className="review__item-controls">
+        <span className="review__item-reply tm-icon icon-message" onClick={() => this.showForm()}>{this.context.i18n.l('Reply')}</span>
+      </div>
+    )
+  }
 
   formattedDate = (timestamp) => {
     const time = new Date(timestamp * 1000);
@@ -229,9 +235,7 @@ export default class ReviewItem extends React.Component {
          <div className={`review__item-content t3 review__item-content_${this.props.status}`} itemProp="description">
           {this.props.reviewContent}
         </div>
-        <div className="review__item-controls">
-          <span className="review__item-reply tm-icon icon-message" onClick={() => this.showForm()}>{this.context.i18n.l('Reply')}</span>
-        </div>
+        {this.props.moderable && this.replyButton()}
         <div className="review__item-comments">
           {this.showComments()}
           {this.state.showContentModerator && this.formModerator()}
