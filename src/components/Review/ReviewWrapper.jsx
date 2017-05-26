@@ -158,30 +158,29 @@ export default class Reviews extends React.Component {
 
   renderMyReviews = () => {
     if (_.isEmpty(this.state.userReview)) {return;}
-    if (this.state.userReview.status !== STATUS_APPROVED) {return;}
-    if (this.state.userReview.status !== STATUS_INITIAL) {return;}
-
-    return (
-      <li className="reviews__item reviews__item_my-reviews review__content" key={this.state.userReview.id}>
-        <ReviewItem
-          userAvatar    = {this.state.user.avatar}
-          userName      = {this.state.user.userName}
-          reviewScore   = {this.state.userReview.score}
-          reviewContent = {this.state.userReview.content}
-          userMail      = {this.state.userMail}
-          reviewDate    = {this.state.userReview.created_at}
-          reviewFlag    = {this.state.userReview.locale}
-          reviewId      = {this.state.userReview.id}
-          accessToken   = {this.props.accessToken}
-          moderatorName = {this.state.user.userName}
-          moderatorAva  = {this.state.user.avatar}
-          moderatorMail = {this.state.userMail}
-          comments      = {this.state.userReview.comments}
-          status        = {this.state.userReview.status}
-        />
-        {this.renderNotification(this.state.userReview.status)}
-      </li>
-    );
+    if (this.state.userReview.status === STATUS_PENDING || this.state.userReview.status === STATUS_DECLINED) {
+      return (
+        <li className="reviews__item reviews__item_my-reviews review__content" key={this.state.userReview.id}>
+          <ReviewItem
+            userAvatar={this.state.user.avatar}
+            userName={this.state.user.userName}
+            reviewScore={this.state.userReview.score}
+            reviewContent={this.state.userReview.content}
+            userMail={this.state.userMail}
+            reviewDate={this.state.userReview.created_at}
+            reviewFlag={this.state.userReview.locale}
+            reviewId={this.state.userReview.id}
+            accessToken={this.props.accessToken}
+            moderatorName={this.state.user.userName}
+            moderatorAva={this.state.user.avatar}
+            moderatorMail={this.state.userMail}
+            comments={this.state.userReview.comments}
+            status={this.state.userReview.status}
+          />
+          {this.renderNotification(this.state.userReview.status)}
+        </li>
+      );
+    }
   };
 
   // Get reviews on template
