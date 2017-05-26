@@ -463,6 +463,7 @@ export default class Reviews extends React.Component {
                     this.state.userReview.status === STATUS_PENDING)
                       ? (
                         <div className="reviews">
+                          {this.renderReviewEditor()}
                           <ul className="reviews__list">
                             {this.renderMyReviews()}
                           </ul>
