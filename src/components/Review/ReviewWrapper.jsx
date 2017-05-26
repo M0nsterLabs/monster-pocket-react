@@ -429,6 +429,7 @@ export default class Reviews extends React.Component {
         isButton    = {this.state.countReviewOtherLocale > 0}
         buttonText  = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
         buttonClick = {this.otherLocale}
+        title       = {this.context.i18n.l('REVIEWS & RATINGS')}
       />
     )
   };
@@ -436,7 +437,8 @@ export default class Reviews extends React.Component {
   renderEmptyPage = () => {
     return (
       this.state.userReview.status === STATUS_INITIAL
-        ? <div>
+        ? <div className="page-content__empty-inner">
+            <h2 className="h3">{this.context.i18n.l('REVIEWS & RATINGS')}</h2>
             {this.renderReviewEditor()}
             {this.renderContentEmptyPage()}
           </div>
@@ -456,13 +458,13 @@ export default class Reviews extends React.Component {
             : (this.state.reviews.totalCount === 0
               ? (
                 <div className="page-content__empty">
-                  <h2 className="h3">{this.context.i18n.l('REVIEWS & RATINGS')}</h2>
                   {
                     (
                     this.state.userReview.status === STATUS_DECLINED ||
                     this.state.userReview.status === STATUS_PENDING)
                       ? (
                         <div className="reviews">
+                          <h2 className="h3">{this.context.i18n.l('REVIEWS & RATINGS')}</h2>
                           {this.renderReviewEditor()}
                           <ul className="reviews__list">
                             {this.renderMyReviews()}
