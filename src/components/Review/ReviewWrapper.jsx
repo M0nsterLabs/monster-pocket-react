@@ -22,7 +22,7 @@ import {
 import './Reviews.less';
 
 const LOCALE = getCurrentLocale();
-let reviews = new ReviewsData(Config.reviewsServiceURL, LOCALE);
+let reviews = new ReviewsData(Config.reviewsServiceURL);
 let products = new ProductsData(Config.productsServiceURL, LOCALE);
 const STATUS_INITIAL = 'initial';
 const STATUS_PENDING = 'pending';
@@ -185,7 +185,6 @@ export default class Reviews extends React.Component {
 
   // Get reviews on template
   getReviews = (locale) => {
-    let reviews = new ReviewsData(Config.reviewsServiceURL, locale);
     let products = new ProductsData(Config.productsServiceURL, LOCALE);
 
     return this.getReviewsData(reviews, products, {
@@ -193,7 +192,8 @@ export default class Reviews extends React.Component {
       'sort'        : 'id DESC',
       'per-page'    : 10,
       'expand'      : 'comments',
-      'access_token' : this.props.accessToken
+      'access_token' : this.props.accessToken,
+      'locale'       : locale
     });
   };
 
@@ -245,7 +245,6 @@ export default class Reviews extends React.Component {
               isFetching: false
             });
           } else {
-            reviews = new ReviewsData(Config.reviewsServiceURL, `IN_${LOCALES}`);
             this.getCountReviewsOtherLocale(reviews, {
               'template_id': this.props.templateId
             });
@@ -319,7 +318,6 @@ export default class Reviews extends React.Component {
   };
 
   getReviewsUserData = (params = {}) => {
-    let reviews = new ReviewsData(Config.reviewsServiceURL);
     reviews.getReviewsUser(params).then((data) => {
       if (data.items.length > 0) {
         this.setState({
