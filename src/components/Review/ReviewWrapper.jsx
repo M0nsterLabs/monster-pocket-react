@@ -419,13 +419,14 @@ export default class Reviews extends React.Component {
   renderContentEmptyPage = () => {
     return (
       <ContentEmptyMessage
-        page        = {'reviews'}
-        show        = {this.state.isEmpty}
-        description = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.`)}
-        isButton    = {this.state.countReviewOtherLocale > 0}
-        buttonText  = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
-        buttonClick = {this.otherLocale}
-        title       = {this.context.i18n.l('REVIEWS & RATINGS')}
+        page         = {'reviews'}
+        show         = {this.state.isEmpty}
+        description  = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.`)}
+        textNoLocale = {this.context.i18n.l(`It seems there are no reviews to this product.`)}
+        isButton     = {this.state.countReviewOtherLocale > 0}
+        buttonText   = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
+        buttonClick  = {this.otherLocale}
+        title        = {this.context.i18n.l('REVIEWS & RATINGS')}
       />
     )
   };

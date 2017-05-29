@@ -13,7 +13,7 @@ export default function ContentEmptyMessage (props) {
 
         <div className={`content-empty-message__illustration content-empty-message__${props.page.toLowerCase()}`}> </div>
 
-        <p className="content-empty-message__description t3">{props.description}</p>
+        <p className="content-empty-message__description t3">{props.isButton ? props.description : props.textNoLocale}</p>
 
         {props.linkUrl && (
           props.linkType === 'anchor' ? (
@@ -49,13 +49,14 @@ export default function ContentEmptyMessage (props) {
 }
 
 ContentEmptyMessage.propTypes = {
-  page        : PropTypes.string.isRequired,
-  title       : PropTypes.string,
-  description : PropTypes.string.isRequired,
-  linkType    : PropTypes.oneOf(['anchor', 'link']),
-  linkUrl     : PropTypes.string,
-  linkText    : PropTypes.string,
-  buttonText  : PropTypes.string,
-  buttonClick : PropTypes.func,
-  isButton    : PropTypes.bool
+  page         : PropTypes.string.isRequired,
+  title        : PropTypes.string,
+  description  : PropTypes.string.isRequired,
+  linkType     : PropTypes.oneOf(['anchor', 'link']),
+  linkUrl      : PropTypes.string,
+  linkText     : PropTypes.string,
+  buttonText   : PropTypes.string,
+  buttonClick  : PropTypes.func,
+  isButton     : PropTypes.bool,
+  textNoLocale : PropTypes.string
 };
