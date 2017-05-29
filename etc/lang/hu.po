@@ -1,109 +1,116 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
-# Translators
-#
+# Translators:
+#   <>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-18 14:04+0300\n"
-"PO-Revision-Date: 2017-02-03 03:39:41-0500\n"
+"POT-Creation-Date: 2017-05-29 12:39+0300\n"
+"PO-Revision-Date: 2017-05-19 08:41+0000\n"
+"Last-Translator: tmhu <>\n"
+"Language-Team: Hungarian (http://example.com/transifex/projects/p/tm/team/"
+"hu/)\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Resource-Id-Version: monster-react\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Review must contain at least 60 symbols"
-msgstr ""
+msgstr "Az értékelésnek legalább 60 karaktert kell tartalmaznia"
 
 msgid "Please remove special symbols"
-msgstr ""
+msgstr "Kérjük, távolítsa el a speciális szimbólumokat"
 
 msgid "Please, write at least 60 symbols for review"
-msgstr ""
+msgstr "Kérjük, írjon legalább 60 karaktert az értékeléshez"
 
 msgid "Thank you for your review!"
-msgstr ""
+msgstr "Köszönjük az értékelését!"
 
 msgid ""
 "We've generated your one-time promo-code and within 10 minutes it will reach "
 "your email:"
 msgstr ""
+"Az Ön egyszeri prómóciós kódját létre hoztuk, és 10 percen belül elküldjük "
+"az e-mail címére:"
 
 msgid "on all our themes"
-msgstr ""
+msgstr "minden témánkra"
 
 msgid "Please rate the product:"
-msgstr ""
+msgstr "Kérjük, értékelje a terméket"
 
 msgid "Type your answer here"
-msgstr ""
+msgstr "A válaszát ide gépelje be"
 
 msgid "Send Message"
-msgstr ""
+msgstr "Üzenet küldése"
 
 msgid "Press Ctrl + Enter to send your message"
-msgstr ""
-
-msgid "Jan"
-msgstr ""
-
-msgid "Feb"
-msgstr ""
-
-msgid "Mar"
-msgstr ""
-
-msgid "Apr"
-msgstr ""
-
-msgid "May"
-msgstr ""
-
-msgid "Jun"
-msgstr ""
-
-msgid "Jul"
-msgstr ""
-
-msgid "Aug"
-msgstr ""
-
-msgid "Sep"
-msgstr ""
-
-msgid "Oct"
-msgstr ""
-
-msgid "Nov"
-msgstr ""
-
-msgid "Dec"
-msgstr ""
-
-msgid "Now"
-msgstr ""
-
-msgid "minutes ago"
-msgstr ""
-
-msgid "hour ago"
-msgstr ""
-
-msgid "hours ago"
-msgstr ""
-
-msgid "Today at"
-msgstr ""
-
-msgid "Yesterday at"
-msgstr ""
-
-msgid "at"
-msgstr ""
+msgstr "Nyomja meg a Ctrl+Enter gombokat az üzenet elküldéséhez"
 
 msgid "Reply"
+msgstr "Válasz"
+
+msgid "Jan"
+msgstr "Jan."
+
+msgid "Feb"
+msgstr "Febr."
+
+msgid "Mar"
+msgstr "Márc."
+
+msgid "Apr"
+msgstr "Ápr."
+
+msgid "May"
+msgstr "Máj."
+
+msgid "Jun"
+msgstr "Jún."
+
+msgid "Jul"
+msgstr "Júl."
+
+msgid "Aug"
+msgstr "Aug."
+
+msgid "Sep"
+msgstr "Szept."
+
+msgid "Oct"
+msgstr "Okt."
+
+msgid "Nov"
+msgstr "Nov."
+
+msgid "Dec"
+msgstr "Dec."
+
+msgid "Now"
+msgstr "Most"
+
+msgid "minutes ago"
+msgstr "perccel ezelőtt"
+
+msgid "hour ago"
+msgstr "órával ezelőtt"
+
+msgid "hours ago"
+msgstr "órával ezelőtt"
+
+msgid "Today at"
+msgstr "Ma"
+
+msgid "Yesterday at"
+msgstr "Tegnap"
+
+msgid "at"
 msgstr ""
 
 msgid ""
@@ -111,29 +118,45 @@ msgid ""
 "before publication. In case your review corresponds to our rules, it will be "
 "published soon :)"
 msgstr ""
+"Az értékelést csak Ön láthatja. Sajnáljuk, de a közzététele előtt "
+"ellenőrizünk kell az értékelést. Ha az Ön értékelése megfelel a "
+"szabályainknak, hamarosan közzétesszük :)"
 
 msgid ""
 "Unfortunately, we can’t post your review because it doesn’t meet our "
 "guidelines, please try again with another review."
 msgstr ""
+"Sajnos nem tudjuk közzétenni az értékelését, mert nem felel meg az "
+"irányelveinknek. Kérjük, próbálkozzon újra egy másik értékeléssel."
+
+msgid "Only buyers of that product can rate it"
+msgstr ""
 
 msgid ""
 "It seems there are no reviews to this product from your locale.\n"
-"                                You can look at the reviews from other "
-"locales."
+"You can look at the reviews from other locales."
+msgstr ""
+"Úgy tünik, nincs értékelés az Ön nyelvén.\n"
+"                      Ön megtekintheti a más országokból származó "
+"értékeléseket."
+
+msgid "It seems there are no reviews to this product."
 msgstr ""
 
 msgid "View "
-msgstr ""
+msgstr "Nézet "
 
 msgid "REVIEWS & RATINGS"
-msgstr ""
+msgstr "VÉLEMÉNYEK ÉS ÉRTÉKELÉSEK"
 
 msgid " REVIEWS & RATINGS"
+msgstr " VÉLEMÉNYEK ÉS ÉRTÉKELÉSEK"
+
+msgid "Show more"
 msgstr ""
 
 msgid "Home"
-msgstr ""
+msgstr "Főoldal"
 
 msgid "Mascot test"
 msgstr ""
@@ -142,4 +165,4 @@ msgid "Social test"
 msgstr ""
 
 msgid "Reviews & Ratings"
-msgstr ""
+msgstr "Vélemények és értékelések"

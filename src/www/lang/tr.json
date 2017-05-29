@@ -4,128 +4,137 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n != 1)",
+            "plural_forms": "nplurals=1; plural=0",
             "lang": "tr"
          },
          "Review must contain at least 60 symbols": [
-            ""
+            "Yorum en az 60 sembol içermelidir"
          ],
          "Please remove special symbols": [
-            ""
+            "Lütfen özel sembolleri kaldırın"
          ],
          "Please, write at least 60 symbols for review": [
-            ""
+            "Lütfen, yorum için en az 60 sembol yazınız"
          ],
          "Thank you for your review!": [
-            ""
+            "Yorumunuz için teşekkür ederiz"
          ],
          "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
-            ""
+            "Bir defaya mahsus promosyon kodunuzu oluşturduk ve 10 dakika içinde e-postanıza ulaşacak:"
          ],
          "on all our themes": [
-            ""
+            "tüm temalarımızda"
          ],
          "Please rate the product:": [
-            ""
+            "Lütfen ürünü puanlayınız"
          ],
          "Type your answer here": [
-            ""
+            "Cevabınızı buraya yazınız"
          ],
          "Send Message": [
-            ""
+            "Mesaj gönder"
          ],
          "Press Ctrl + Enter to send your message": [
-            ""
+            "Mesajınızı göndermek için Ctrl + Enter 'a basınız"
+         ],
+         "Reply": [
+            "Cevap"
          ],
          "Jan": [
-            ""
+            "Ock"
          ],
          "Feb": [
-            ""
+            "Şub"
          ],
          "Mar": [
-            ""
+            "Mar"
          ],
          "Apr": [
-            ""
+            "Nis"
          ],
          "May": [
-            ""
+            "May"
          ],
          "Jun": [
-            ""
+            "Haz"
          ],
          "Jul": [
-            ""
+            "Tem"
          ],
          "Aug": [
-            ""
+            "Agu"
          ],
          "Sep": [
-            ""
+            "Eyl"
          ],
          "Oct": [
-            ""
+            "Eki"
          ],
          "Nov": [
-            ""
+            "Kas"
          ],
          "Dec": [
-            ""
+            "Arl"
          ],
          "Now": [
-            ""
+            "Şimdi"
          ],
          "minutes ago": [
-            ""
+            "dakika önce"
          ],
          "hour ago": [
-            ""
+            "saat önce"
          ],
          "hours ago": [
-            ""
+            "saat önce"
          ],
          "Today at": [
-            ""
+            "Bugün"
          ],
          "Yesterday at": [
-            ""
+            "Dün"
          ],
          "at": [
             ""
          ],
-         "Reply": [
-            ""
-         ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
-            ""
+            "Yaptığınız yorum yalnızca sizin için görünür durumdadır. Maalesef, yorumunuzu yayınlamadan önce kontrol etmemiz gerekiyor. İncelemeniz kurallarımıza uygunsa, kısa süre içinde yayınlanacaktır :)"
          ],
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "Maalesef, yorumunuzu kurallarımıza uygun olmadığı için yayınlayamıyoruz. Lütfen başka bir yorum ile tekrar deneyin."
+         ],
+         "Only buyers of that product can rate it": [
             ""
          ],
-         "It seems there are no reviews to this product from your locale.\n                                You can look at the reviews from other locales.": [
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            "Görünen o ki, bu ürüne ile ilgil dilinizde yapılan herhangi bir yorum bulunmamaktadır.⏎\n                           Diğer dillerdeki yorumlara bakabilirsiniz.     "
+         ],
+         "It seems there are no reviews to this product.": [
             ""
          ],
          "View ": [
-            ""
+            "Görütüle"
          ],
          "REVIEWS & RATINGS": [
-            ""
+            "YORUMLAR & PUANLAR"
          ],
          " REVIEWS & RATINGS": [
+            "YORUMLAR & PUANLAR"
+         ],
+         "Show more": [
             ""
          ],
          "Home": [
-            ""
+            "Anasayfa"
          ],
          "Mascot test": [
-            ""
+            "Mascot testi"
          ],
          "Social test": [
-            ""
+            "Sosyal test"
          ],
          "Reviews & Ratings": [
-            ""
+            "Yorumlar & Puanlar"
          ]
       }
    }

@@ -4,128 +4,137 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n != 1)",
+            "plural_forms": "nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)",
             "lang": "pl"
          },
          "Review must contain at least 60 symbols": [
-            ""
+            "Recenzja musi zawierać co najmniej 60 symboli"
          ],
          "Please remove special symbols": [
-            ""
+            "Usuń specjalne symbole"
          ],
          "Please, write at least 60 symbols for review": [
-            ""
+            "Napisz recenzję o długości conajmniej 60 symbolów"
          ],
          "Thank you for your review!": [
-            ""
+            "Dziękujemy za recenzję!"
          ],
          "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
-            ""
+            "Wygenerowaliśmy dla Ciebie jednorazowy kod promocyjny i w ciągu 10 minut dostanieesz go na e-mail:"
          ],
          "on all our themes": [
-            ""
+            "na wszystkie nasze produkty"
          ],
          "Please rate the product:": [
-            ""
+            "Oceń ten produkt"
          ],
          "Type your answer here": [
-            ""
+            "Wpisz swoją odpowiedź"
          ],
          "Send Message": [
-            ""
+            "Napisz wiadomość"
          ],
          "Press Ctrl + Enter to send your message": [
-            ""
-         ],
-         "Jan": [
-            ""
-         ],
-         "Feb": [
-            ""
-         ],
-         "Mar": [
-            ""
-         ],
-         "Apr": [
-            ""
-         ],
-         "May": [
-            ""
-         ],
-         "Jun": [
-            ""
-         ],
-         "Jul": [
-            ""
-         ],
-         "Aug": [
-            ""
-         ],
-         "Sep": [
-            ""
-         ],
-         "Oct": [
-            ""
-         ],
-         "Nov": [
-            ""
-         ],
-         "Dec": [
-            ""
-         ],
-         "Now": [
-            ""
-         ],
-         "minutes ago": [
-            ""
-         ],
-         "hour ago": [
-            ""
-         ],
-         "hours ago": [
-            ""
-         ],
-         "Today at": [
-            ""
-         ],
-         "Yesterday at": [
-            ""
-         ],
-         "at": [
-            ""
+            "Naciśnij Ctrl + Enter, aby wysłać wiadomość"
          ],
          "Reply": [
-            ""
+            "Odpowiedź"
+         ],
+         "Jan": [
+            "stń"
+         ],
+         "Feb": [
+            "ly"
+         ],
+         "Mar": [
+            "mrz"
+         ],
+         "Apr": [
+            "kń"
+         ],
+         "May": [
+            "mj"
+         ],
+         "Jun": [
+            "czc"
+         ],
+         "Jul": [
+            "lc"
+         ],
+         "Aug": [
+            "sń"
+         ],
+         "Sep": [
+            "wń"
+         ],
+         "Oct": [
+            "pk"
+         ],
+         "Nov": [
+            "ld"
+         ],
+         "Dec": [
+            "gń"
+         ],
+         "Now": [
+            "Teraz"
+         ],
+         "minutes ago": [
+            "minut temu"
+         ],
+         "hour ago": [
+            "godzinę temu"
+         ],
+         "hours ago": [
+            "godzin temu"
+         ],
+         "Today at": [
+            "Dzisiaj o"
+         ],
+         "Yesterday at": [
+            "Wczoraj o"
+         ],
+         "at": [
+            "o"
          ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
-            ""
+            "Recenzja jest widoczna tylko dla Ciebie, ponieważ przed opublikowaniem musimy ją sprawdzić. Jeśli Twoja recenzja spełnia nasze wymagania, wkrótce opublikujemy ją! :)"
          ],
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "Niestety, nie możemy opublikować Twoją recenzję, ponieważ ona nie spełnia wszystkich naszych wymagań, spróbuj ponownie z inną recenzją."
+         ],
+         "Only buyers of that product can rate it": [
             ""
          ],
-         "It seems there are no reviews to this product from your locale.\n                                You can look at the reviews from other locales.": [
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            "Wygląda na to, że nie ma recnzji na ten produkt.\n                                Możesz zapoznać się z recenzjami na innych wersjach językowych naszej strony."
+         ],
+         "It seems there are no reviews to this product.": [
             ""
          ],
          "View ": [
-            ""
+            "Zobacz "
          ],
          "REVIEWS & RATINGS": [
-            ""
+            "RECENZJE I OCENY"
          ],
          " REVIEWS & RATINGS": [
+            " RECENZJE I OCENY"
+         ],
+         "Show more": [
             ""
          ],
          "Home": [
-            ""
+            "Strona domowa"
          ],
          "Mascot test": [
-            ""
+            "Mascot test"
          ],
          "Social test": [
-            ""
+            "Social test"
          ],
          "Reviews & Ratings": [
-            ""
+            "Recenzje i oceny"
          ]
       }
    }

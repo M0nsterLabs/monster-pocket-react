@@ -1,89 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
-# Translators
-#
+# Translators:
+#   <>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-18 14:04+0300\n"
-"PO-Revision-Date: 2017-02-03 03:39:43-0500\n"
+"POT-Creation-Date: 2017-05-29 12:39+0300\n"
+"PO-Revision-Date: 2017-05-18 12:38+0000\n"
+"Last-Translator: tmes <>\n"
+"Language-Team: Spanish (Castilian) (http://example.com/transifex/projects/p/"
+"tm/team/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Resource-Id-Version: monster-react\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Review must contain at least 60 symbols"
-msgstr ""
+msgstr "La reseña debe contener al menos 60 símbolos"
 
 msgid "Please remove special symbols"
-msgstr ""
+msgstr "Por favor, elimine los símbolos especiales"
 
 msgid "Please, write at least 60 symbols for review"
-msgstr ""
+msgstr "Por favor, escriba al menos 60 símbolos"
 
 msgid "Thank you for your review!"
-msgstr ""
+msgstr "¡Gracias por su comentario!"
 
 msgid ""
 "We've generated your one-time promo-code and within 10 minutes it will reach "
 "your email:"
 msgstr ""
+"Hemos generado un código promocional de un solo uso y dentro de 10 minutos "
+"este código será enviado a su dirección de correo electrónico:"
 
 msgid "on all our themes"
-msgstr ""
+msgstr "en todos nuestros productos"
 
 msgid "Please rate the product:"
-msgstr ""
+msgstr "Por favor, califique el producto"
 
 msgid "Type your answer here"
-msgstr ""
+msgstr "Escriba su respuesta aquí"
 
 msgid "Send Message"
-msgstr ""
+msgstr "Enviar"
 
 msgid "Press Ctrl + Enter to send your message"
-msgstr ""
+msgstr "Ctrl + Intro para enviar su mensaje"
+
+msgid "Reply"
+msgstr "Responder"
 
 msgid "Jan"
-msgstr ""
+msgstr "Enero"
 
 msgid "Feb"
-msgstr ""
+msgstr "Febrero"
 
 msgid "Mar"
-msgstr ""
+msgstr "Marzo"
 
 msgid "Apr"
-msgstr ""
+msgstr "Abril"
 
 msgid "May"
-msgstr ""
+msgstr "Mayo"
 
 msgid "Jun"
-msgstr ""
+msgstr "Junio"
 
 msgid "Jul"
-msgstr ""
+msgstr "Julio"
 
 msgid "Aug"
-msgstr ""
+msgstr "Agosto"
 
 msgid "Sep"
-msgstr ""
+msgstr "Septiembre"
 
 msgid "Oct"
-msgstr ""
+msgstr "Octubre"
 
 msgid "Nov"
-msgstr ""
+msgstr "Noviembre"
 
 msgid "Dec"
-msgstr ""
+msgstr "Deciembre"
 
 msgid "Now"
-msgstr ""
+msgstr "Ahora"
 
 msgid "minutes ago"
 msgstr ""
@@ -95,45 +105,58 @@ msgid "hours ago"
 msgstr ""
 
 msgid "Today at"
-msgstr ""
+msgstr "Hoy a las"
 
 msgid "Yesterday at"
-msgstr ""
+msgstr "Ayer a las"
 
 msgid "at"
-msgstr ""
-
-msgid "Reply"
-msgstr ""
+msgstr "a las"
 
 msgid ""
 "The review is visible only for you. Sorry, but we need to check your review "
 "before publication. In case your review corresponds to our rules, it will be "
 "published soon :)"
 msgstr ""
+"Por el momento, sólo Usted puede ver este comentario. Lo sentimos, pero "
+"necesitamos revisarlo antes de publicar en el sitio. En caso de que cumple "
+"nuestras reglas, se publicará muy pronto :)"
 
 msgid ""
 "Unfortunately, we can’t post your review because it doesn’t meet our "
 "guidelines, please try again with another review."
 msgstr ""
+"Desafortunadamente, no podemos publicar su comentario porque no cumple "
+"nuestras reglas. Por favor, inténtelo de nuevo y envíe otra reseña."
+
+msgid "Only buyers of that product can rate it"
+msgstr ""
 
 msgid ""
 "It seems there are no reviews to this product from your locale.\n"
-"                                You can look at the reviews from other "
-"locales."
+"You can look at the reviews from other locales."
+msgstr ""
+"Parece que no hay comentarios en su idioma para este producto.\n"
+"                                Usted todavía puede revisar los comentarios "
+"de otras versiones locales."
+
+msgid "It seems there are no reviews to this product."
 msgstr ""
 
 msgid "View "
-msgstr ""
+msgstr "Ver"
 
 msgid "REVIEWS & RATINGS"
-msgstr ""
+msgstr "OPINIONES Y COMENTARIOS"
 
 msgid " REVIEWS & RATINGS"
+msgstr "OPINIONES Y COMENTARIOS"
+
+msgid "Show more"
 msgstr ""
 
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 msgid "Mascot test"
 msgstr ""
@@ -142,4 +165,4 @@ msgid "Social test"
 msgstr ""
 
 msgid "Reviews & Ratings"
-msgstr ""
+msgstr "Opiniones y comentarios"

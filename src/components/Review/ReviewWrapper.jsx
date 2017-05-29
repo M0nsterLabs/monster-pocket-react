@@ -149,7 +149,7 @@ export default class Reviews extends React.Component {
       return (
         <p className="reviews-info-msg t1">
           <span className="tm-icon icon-star-filled"> </span>
-          Only buyers of that product can rate it
+          {this.context.i18n.l('Only buyers of that product can rate it')}
         </p>
       )
     }
@@ -424,8 +424,7 @@ export default class Reviews extends React.Component {
       <ContentEmptyMessage
         page        = {'reviews'}
         show        = {this.state.isEmpty}
-        description = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.
-                                You can look at the reviews from other locales.`)}
+        description = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.`)}
         isButton    = {this.state.countReviewOtherLocale > 0}
         buttonText  = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
         buttonClick = {this.otherLocale}
@@ -477,7 +476,7 @@ export default class Reviews extends React.Component {
                 )
               : (
                 <div className="reviews">
-                  <h2 className="h3">{this.context.i18n.l(`${this.state.reviews.totalCount} REVIEWS & RATINGS`)}</h2>
+                  <h2 className="h3">{this.state.reviews.totalCount}{this.context.i18n.l(` REVIEWS & RATINGS`)}</h2>
                   {this.renderReviewEditor()}
 
                   <ul className="reviews__list">

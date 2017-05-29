@@ -1,18 +1,22 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
-# Translators
-#
+# Translators:
+#   <>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-18 14:04+0300\n"
+"POT-Creation-Date: 2017-05-29 12:39+0300\n"
 "PO-Revision-Date: 2017-05-18 19:14+0000\n"
 "Last-Translator: tmit <>\n"
-"Language-Team: Italian (http://example.com/transifex/projects/p/tm/team/it/)\n"
+"Language-Team: Italian (http://example.com/transifex/projects/p/tm/team/"
+"it/)\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Review must contain at least 60 symbols"
@@ -28,8 +32,8 @@ msgid "Thank you for your review!"
 msgstr "Grazie per la tua opinione!"
 
 msgid ""
-"We've generated your one-time promo-code and within 10 minutes it will reach"
-" your email:"
+"We've generated your one-time promo-code and within 10 minutes it will reach "
+"your email:"
 msgstr ""
 "Abbiamo generato il tuo codice sconto ed entro 10 minuti lo riceverai "
 "tramite email:"
@@ -48,6 +52,9 @@ msgstr "Invia messaggio"
 
 msgid "Press Ctrl + Enter to send your message"
 msgstr "Premi Ctrl + Invio per inviare il messaggio"
+
+msgid "Reply"
+msgstr "Rispondere"
 
 msgid "Jan"
 msgstr "Gen."
@@ -106,13 +113,10 @@ msgstr "Ieri alle"
 msgid "at"
 msgstr "alle"
 
-msgid "Reply"
-msgstr "Rispondere"
-
 msgid ""
 "The review is visible only for you. Sorry, but we need to check your review "
-"before publication. In case your review corresponds to our rules, it will be"
-" published soon :)"
+"before publication. In case your review corresponds to our rules, it will be "
+"published soon :)"
 msgstr ""
 "La recensione per ora è visibile solo a te. Spiacenti, ma dobbiamo "
 "controllarla prima di pubblicare. Se la tua recensione conforme alle nostre "
@@ -125,12 +129,19 @@ msgstr ""
 "Purtroppo non possiamo pubblicare la tua recensione in quanto non conforme "
 "con il nostro regolamento. Per favore riprova con un'altra recensione."
 
+msgid "Only buyers of that product can rate it"
+msgstr ""
+
 msgid ""
 "It seems there are no reviews to this product from your locale.\n"
-"                                You can look at the reviews from other locales."
+"You can look at the reviews from other locales."
 msgstr ""
-"Non ci sono recensioni per questo prodotto nella versione italiana del sito.\n"
+"Non ci sono recensioni per questo prodotto nella versione italiana del "
+"sito.\n"
 "                                 Prova a cercarle nelle altre versioni."
+
+msgid "It seems there are no reviews to this product."
+msgstr ""
 
 msgid "View "
 msgstr "Visualizza"
@@ -140,6 +151,9 @@ msgstr "RECENSIONI E VALUTAZIONI"
 
 msgid " REVIEWS & RATINGS"
 msgstr " RECENSIONI E VALUTAZIONI"
+
+msgid "Show more"
+msgstr ""
 
 msgid "Home"
 msgstr "Pagina principale"
@@ -152,4 +166,3 @@ msgstr "Prova sociale"
 
 msgid "Reviews & Ratings"
 msgstr "Recensioni e valutazioni"
-

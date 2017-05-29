@@ -4,77 +4,80 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n != 1)",
+            "plural_forms": "nplurals=2; plural=(n > 1)",
             "lang": "fr"
          },
          "Review must contain at least 60 symbols": [
-            ""
+            "Le commentaire doit contenir au moins 60 symboles"
          ],
          "Please remove special symbols": [
-            ""
+            "Supprimez les symboles spéciaux"
          ],
          "Please, write at least 60 symbols for review": [
-            ""
+            "Veuillez écrire au moins 60 symboles pour commentaire"
          ],
          "Thank you for your review!": [
-            ""
+            "Merci pour votre commentaire !"
          ],
          "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
-            ""
+            "Nous avons généré votre code promotionnel unique et dans 10 minutes il atteindra votre courrier électronique :"
          ],
          "on all our themes": [
-            ""
+            "sur tous nos thèmes"
          ],
          "Please rate the product:": [
-            ""
+            "Veuillez évaluer le produit:"
          ],
          "Type your answer here": [
-            ""
+            "Tapez votre réponse ici"
          ],
          "Send Message": [
-            ""
+            "Envoyer le message"
          ],
          "Press Ctrl + Enter to send your message": [
-            ""
+            "Appuyez sur Ctrl + Enter pour envoyer votre message"
+         ],
+         "Reply": [
+            "Répondre"
          ],
          "Jan": [
-            ""
+            "Jan"
          ],
          "Feb": [
-            ""
+            "Fév"
          ],
          "Mar": [
-            ""
+            "Mar"
          ],
          "Apr": [
-            ""
+            "Avr"
          ],
          "May": [
-            ""
+            "Mai"
          ],
          "Jun": [
-            ""
+            "Jun"
          ],
          "Jul": [
-            ""
+            "Jul"
          ],
          "Aug": [
-            ""
+            "Aoû"
          ],
          "Sep": [
-            ""
+            "Sep"
          ],
          "Oct": [
-            ""
+            "Oct"
          ],
          "Nov": [
-            ""
+            "Nov"
          ],
          "Dec": [
-            ""
+            "Déc"
          ],
          "Now": [
-            ""
+            "Maintenant"
          ],
          "minutes ago": [
             ""
@@ -86,37 +89,43 @@
             ""
          ],
          "Today at": [
-            ""
+            "Aujourd'hui à"
          ],
          "Yesterday at": [
-            ""
+            "Hier à"
          ],
          "at": [
-            ""
-         ],
-         "Reply": [
-            ""
+            "à"
          ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
-            ""
+            "L'avis est visible uniquement par vous. Désolé, mais nous devons vérifier votre avis avant publication. Si votre évaluation correspond à nos règles, elle sera publiée prochainement :)"
          ],
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "Malheureusement, nous ne pouvons pas publier votre avis car il ne respecte pas nos directives, veuillez réessayez avec un autre avis."
+         ],
+         "Only buyers of that product can rate it": [
             ""
          ],
-         "It seems there are no reviews to this product from your locale.\n                                You can look at the reviews from other locales.": [
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            "Il semble qu'il n'y a pas de commentaires sur ce produit de votre région.\n                                Vous pouvez voir les commentaires d'autres régions."
+         ],
+         "It seems there are no reviews to this product.": [
             ""
          ],
          "View ": [
-            ""
+            "Voir "
          ],
          "REVIEWS & RATINGS": [
-            ""
+            "ÉVALUATIONS ET NOTES"
          ],
          " REVIEWS & RATINGS": [
+            " ÉVALUATIONS ET NOTES"
+         ],
+         "Show more": [
             ""
          ],
          "Home": [
-            ""
+            "Accueil"
          ],
          "Mascot test": [
             ""
@@ -125,7 +134,7 @@
             ""
          ],
          "Reviews & Ratings": [
-            ""
+            "Évaluations et notes"
          ]
       }
    }

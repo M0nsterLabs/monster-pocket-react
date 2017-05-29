@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-18 14:04+0300\n"
+"POT-Creation-Date: 2017-05-29 12:39+0300\n"
 "PO-Revision-Date: 2017-02-03 03:39:42-0500\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -44,6 +44,9 @@ msgid "Send Message"
 msgstr ""
 
 msgid "Press Ctrl + Enter to send your message"
+msgstr ""
+
+msgid "Reply"
 msgstr ""
 
 msgid "Jan"
@@ -103,9 +106,6 @@ msgstr ""
 msgid "at"
 msgstr ""
 
-msgid "Reply"
-msgstr ""
-
 msgid ""
 "The review is visible only for you. Sorry, but we need to check your review "
 "before publication. In case your review corresponds to our rules, it will be "
@@ -117,10 +117,15 @@ msgid ""
 "guidelines, please try again with another review."
 msgstr ""
 
+msgid "Only buyers of that product can rate it"
+msgstr ""
+
 msgid ""
 "It seems there are no reviews to this product from your locale.\n"
-"                                You can look at the reviews from other "
-"locales."
+"You can look at the reviews from other locales."
+msgstr ""
+
+msgid "It seems there are no reviews to this product."
 msgstr ""
 
 msgid "View "
@@ -130,6 +135,9 @@ msgid "REVIEWS & RATINGS"
 msgstr ""
 
 msgid " REVIEWS & RATINGS"
+msgstr ""
+
+msgid "Show more"
 msgstr ""
 
 msgid "Home"
