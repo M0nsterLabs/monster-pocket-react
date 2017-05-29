@@ -4,6 +4,7 @@ import _                            from 'lodash';
 import PropTypes                    from 'prop-types';
 import ContentEmptyMessage          from 'components/ContentEmptyMessage/';
 import L1                           from 'quark/lib/loaders/L1';
+import L3                           from 'quark/lib/loaders/L3';
 import B2E                          from 'quark/lib/buttons/B2E';
 
 import ReviewsData                  from 'plasma-reviews-api-client-js';
@@ -491,7 +492,7 @@ export default class Reviews extends React.Component {
                       isLoading = {this.state.isFetching}
                     >
                       {this.state.isFetching ? (
-                        <L1 />
+                        <L3 />
                       ) : (
                         this.context.i18n.l('Show more')
                       )}
