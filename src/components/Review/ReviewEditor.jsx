@@ -85,10 +85,17 @@ export default class ReviewEditor extends React.Component {
         };
       }
     } else {
-      return {
-        isValid : false,
-        message : this.context.i18n.l('Please remove special symbols')
-      };
+      if (valueCount < 60) {
+        return {
+          isValid : false,
+          message : this.context.i18n.l('Review must contain at least 60 symbols')
+        };
+      } else {
+        return {
+          isValid : false,
+          message : this.context.i18n.l('Please remove special symbols')
+        };
+      }
     }
   }
 
