@@ -28,8 +28,7 @@ const STATUS_INITIAL = 'initial';
 const STATUS_PENDING = 'pending';
 const STATUS_DECLINED = 'declined';
 const STATUS_APPROVED = 'approved';
-const LOCALES_NO_UNIQUE = [LOCALE, 'en', 'es', 'ru', 'de', 'pl', 'it', 'tr', 'fr', 'pt-br', 'nl', 'cn', 'cz', 'ua', 'hu', 'sv'];
-const LOCALES = [...new Set(LOCALES_NO_UNIQUE)];
+const LOCALES = [LOCALE, 'en', 'es', 'ru', 'de', 'pl', 'it', 'tr', 'fr', 'pt-br', 'nl', 'cn', 'cz', 'ua', 'hu', 'sv'];
 
 export default class Reviews extends React.Component {
   static propTypes = {
@@ -239,16 +238,16 @@ export default class Reviews extends React.Component {
         }));
         if (this.countReview === 0 && !this.state.otherLocale) {
           this.iteratorLocale++;
-          if (this.iteratorLocale < 2) {
+          if (this.iteratorLocale < 2 && LOCALE !== 'en') {
             this.getReviews(LOCALES[this.iteratorLocale]);
-            this.setState({
-              isFetching: false
-            });
           } else {
             this.getCountReviewsOtherLocale(reviews, {
               'template_id': this.props.templateId
             });
           }
+          this.setState({
+            isFetching: false
+          });
         } else if (ids.length) {
           products.getProducts(ids).then((products) => {
             this.setState({
