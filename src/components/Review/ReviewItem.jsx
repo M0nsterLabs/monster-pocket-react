@@ -47,6 +47,20 @@ export default class ReviewItem extends React.Component {
     });
   }
 
+  componentDidMount () {
+    window.addEventListener('keydown', this.sendComment);
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('keydown', this.sendComment);
+  }
+
+  sendComment = (event) => {
+    if (event.keyCode === 13 && event.ctrlKey && this.state.showContentModerator) {
+      this.sendReplyReview(event);
+    }
+  };
+
   showAvatar = (email, name, avatar) => {
     return (
       <Avatar
@@ -106,9 +120,6 @@ export default class ReviewItem extends React.Component {
     const reviewText = {
       content: textReview
     };
-    console.log('this.props.accessToken', this.props.accessToken);
-    console.log('this.props.reviewId', this.props.reviewId);
-    console.log('reviewText', reviewText);
     reviews.replayTheReview(this.props.accessToken, this.props.reviewId, reviewText).then(
       (data) => {
           this.setState({
@@ -149,7 +160,7 @@ export default class ReviewItem extends React.Component {
         <span className="review__item-reply tm-icon icon-message" onClick={() => this.showForm()}>{this.context.i18n.l('Reply')}</span>
       </div>
     )
-  }
+  };
 
   formattedDate = (timestamp) => {
     const time = new Date(timestamp * 1000);
