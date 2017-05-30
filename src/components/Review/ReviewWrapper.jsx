@@ -218,7 +218,7 @@ export default class Reviews extends React.Component {
         paginationData.currentPageIndex = data.currentPageIndex;
         paginationData.lastPageIndex = data.lastPageIndex;
         paginationData.totalCount = data.totalCount;
-        paginationData.canModerate = !data.canModerate;  //@todo !!
+        paginationData.canModerate = !!data.canModerate;
 
         if (paginationData.totalCount > 10) {
           this.setState({
