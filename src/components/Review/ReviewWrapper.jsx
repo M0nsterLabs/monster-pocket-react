@@ -218,7 +218,7 @@ export default class Reviews extends React.Component {
         paginationData.currentPageIndex = data.currentPageIndex;
         paginationData.lastPageIndex = data.lastPageIndex;
         paginationData.totalCount = data.totalCount;
-        paginationData.canModerate = !data.canModerate;
+        paginationData.canModerate = !data.canModerate;  //@todo !!
 
         if (paginationData.totalCount > 10) {
           this.setState({
@@ -247,10 +247,10 @@ export default class Reviews extends React.Component {
             this.getCountReviewsOtherLocale(reviews, {
               'template_id': this.props.templateId
             });
+            this.setState({
+              isFetching: false
+            });
           }
-          this.setState({
-            isFetching: false
-          });
         } else if (ids.length) {
           products.getProducts(ids).then((products) => {
             this.setState({
