@@ -218,7 +218,7 @@
 
               &-label {
                 padding: 0 5px 0;
-                height: 20px;
+                height: 18px;
                 color: #1AB744;
                 border: 1px solid #1AB744;
                 border-radius: 3px;
@@ -331,6 +331,7 @@
               &__author-label {
                 color: #FF8F00;
                 border: 1px solid #FF8F00;
+                margin-top: 0;
               }
 
               &__info {
@@ -339,6 +340,12 @@
                 &:before {
                   border-bottom: 2px solid #FF8F00;
                   border-left: 2px solid #FF8F00;
+                }
+
+                &-textarea {
+                  &:before {
+                    left: -8px;
+                  }
                 }
               }
             }

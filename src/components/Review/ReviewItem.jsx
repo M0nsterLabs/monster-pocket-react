@@ -137,11 +137,14 @@ export default class ReviewItem extends React.Component {
     return (
       this.state.comments.map((comment) => {
         return (
-          <div className="review__item review__item-moderator t5" key={comment.id}>
+          <div
+            className={`review__item review__item-moderator t5 ${comment.author === 'moderator' ? 'review__item-moderator-orange' : ''}`}
+            key={comment.id}>
             {this.showAvatar('', comment.author, '')}
             <div className="review__info review__info-textarea">
               <div className="review__author">
                 <span className="review__author-name">{comment.author}</span>
+                {comment.author === 'moderator' ? (<span className="review__author-label t5" >TemplateMonster</span>) : ''}
                 <span className="review__date t5">{this.formattedDate(comment.created_at)}</span>
               </div>
               <div className="review__content t3">
