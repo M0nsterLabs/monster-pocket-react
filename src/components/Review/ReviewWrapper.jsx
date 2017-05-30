@@ -186,7 +186,9 @@ export default class Reviews extends React.Component {
   // Get reviews on template
   getReviews = (locale) => {
     let products = new ProductsData(Config.productsServiceURL, LOCALE);
-
+    if (!locale) {
+      locale = '';
+    }
     return this.getReviewsData(reviews, products, {
       'template_id' : this.props.templateId,
       'sort'        : 'id DESC',
@@ -403,7 +405,7 @@ export default class Reviews extends React.Component {
   loadDownloads = () => {
    if (this.state.reviews.totalCount > 0 && this.state.isFetching !== true) {
      if (this.state.countReviewOtherLocale > 0) {
-       return this.getReviews(`IN_${LOCALES}`);
+       return this.getReviews();
      } else {
        return this.getReviews(LOCALES[this.iteratorLocale]);
      }
@@ -414,7 +416,7 @@ export default class Reviews extends React.Component {
     this.setState({
       otherLocale: true
     });
-    this.getReviews(`IN_${LOCALES}`);
+    this.getReviews();
   };
 
   renderContentEmptyPage = () => {
