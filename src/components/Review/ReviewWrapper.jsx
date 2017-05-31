@@ -29,7 +29,7 @@ const STATUS_INITIAL = 'initial';
 const STATUS_PENDING = 'pending';
 const STATUS_DECLINED = 'declined';
 const STATUS_APPROVED = 'approved';
-const LOCALES = [LOCALE, 'en', 'es', 'ru', 'de', 'pl', 'it', 'tr', 'fr', 'pt-br', 'nl', 'cn', 'cz', 'ua', 'hu', 'sv'];
+const LOCALES = [LOCALE, 'en', 'es', 'ru', 'de', 'pl', 'it', 'tr', 'fr', 'pt', 'nl', 'zh', 'cs', 'uk', 'hu', 'sv'];
 
 export default class Reviews extends React.Component {
   static propTypes = {
