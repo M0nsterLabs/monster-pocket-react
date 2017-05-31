@@ -84,32 +84,36 @@ export default class ReviewItem extends React.Component {
     return (
       <div className={`review__item-moderator review__item-moderator_form review__item-moderator${this.state.showContentModerator ? '_show' : ''} t5`}>
         {this.showAvatar(this.props.moderatorMail, this.props.moderatorName, this.props.moderatorAva)}
-        <form
-          className="review__info-form"
-          onSubmit={(event) => {
-            this.sendReplyReview(event);
-          }}
-        >
-          <TA3
-            className           = "review__info-textarea"
-            id                  = "reviewReplyModerator"
-            label               = {this.context.i18n.l('Type your answer here')}
-            notificationType    = "N2A"
-            closeOnCLickOutside
-            ref                 = {(ref) => { this.replyModerator = ref; }}
-            autofocus
-          />
-          <B1A
-            icon      = "message tm-icon"
-            className = "review__info-button"
-            type      = "submit"
-          >
-            {this.context.i18n.l('Send Message')}
-          </B1A>
-          <span className="review__info-text t6">
-            {this.context.i18n.l('Press Ctrl + Enter to send your message')}
-          </span>
-        </form>
+        {this.state.showContentModerator ?
+          (
+            <form
+              className="review__info-form"
+              onSubmit={(event) => {
+                this.sendReplyReview(event);
+              }}
+            >
+              <TA3
+                className           = "review__info-textarea"
+                id                  = "reviewReplyModerator"
+                label               = {this.context.i18n.l('Type your answer here')}
+                notificationType    = "N2A"
+                closeOnCLickOutside
+                ref                 = {(ref) => { this.replyModerator = ref; }}
+                autofocus
+              />
+              <B1A
+                icon      = "message tm-icon"
+                className = "review__info-button"
+                type      = "submit"
+              >
+                {this.context.i18n.l('Send Message')}
+              </B1A>
+              <span className="review__info-text t6">
+                {this.context.i18n.l('Press Ctrl + Enter to send your message')}
+              </span>
+            </form>
+          )
+          : ''}
       </div>
     )
   };
