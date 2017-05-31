@@ -118,7 +118,8 @@ export default class ReviewItem extends React.Component {
     event.preventDefault();
     const textReview = document.getElementById('reviewReplyModerator').value;
     const reviewText = {
-      content: textReview
+      content   : textReview,
+      user_name : this.props.userName
     };
     reviews.replayTheReview(this.props.accessToken, this.props.reviewId, reviewText).then(
       (data) => {
