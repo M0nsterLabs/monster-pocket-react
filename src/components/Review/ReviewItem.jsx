@@ -65,7 +65,7 @@ export default class ReviewItem extends React.Component {
     return (
       <Avatar
         email     = {email ? email : ''}
-        name      = {name}
+        name      = {name ? name : ''}
         size      = {40}
         src       = {avatar}
         isRounded = {true}
@@ -145,10 +145,10 @@ export default class ReviewItem extends React.Component {
           <div
             className={`review__item review__item-moderator t5 ${comment.author === 'moderator' ? 'review__item-moderator-orange' : ''}`}
             key={comment.id}>
-            {this.showAvatar('', comment.author, '')}
+            {this.showAvatar('', comment.user_name || comment.author, '')}
             <div className="review__info review__info-textarea">
               <div className="review__author">
-                <span className="review__author-name">{comment.author}</span>
+                <span className="review__author-name">{comment.user_name || comment.author}</span>
                 {comment.author === 'moderator' ? (<span className="review__author-label t5" >TemplateMonster</span>) : ''}
                 <span className="review__date t5">{this.formattedDate(comment.created_at)}</span>
               </div>
