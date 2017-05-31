@@ -708,6 +708,8 @@
 }
 
 .notification {
+  font-family: 'PT Sans', sans-serif;
+
   &-review {
     max-width: 290px;
 
@@ -727,9 +729,15 @@
       -moz-box-sizing: border-box;
       box-sizing: border-box;
 
-      .text-area__label {
-        color: #90a4ae !important;
-        font-weight: normal;
+      .text-area {
+        &__label {
+          color: #90a4ae !important;
+          font-weight: normal;
+        }
+
+        &__input {
+          font-family: 'PT Sans', sans-serif;
+        }
       }
     }
 
