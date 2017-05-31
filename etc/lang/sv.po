@@ -149,7 +149,7 @@ msgid "REVIEWS & RATINGS"
 msgstr "Recensioner & betyg"
 
 msgid " REVIEWS & RATINGS"
-msgstr "Recensioner & betyg"
+msgstr " Recensioner & betyg"
 
 msgid "Show more"
 msgstr ""

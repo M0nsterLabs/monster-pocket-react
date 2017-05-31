@@ -149,7 +149,7 @@ msgid "REVIEWS & RATINGS"
 msgstr "RECENZE A HODNOCENÍ"
 
 msgid " REVIEWS & RATINGS"
-msgstr "RECENZE A HODNOCENÍ"
+msgstr " RECENZE A HODNOCENÍ"
 
 msgid "Show more"
 msgstr ""

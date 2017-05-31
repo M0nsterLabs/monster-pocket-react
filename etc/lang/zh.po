@@ -147,7 +147,7 @@ msgid "REVIEWS & RATINGS"
 msgstr "评论与评分"
 
 msgid " REVIEWS & RATINGS"
-msgstr "评论与评分"
+msgstr " 评论与评分"
 
 msgid "Show more"
 msgstr ""

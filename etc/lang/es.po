@@ -150,7 +150,7 @@ msgid "REVIEWS & RATINGS"
 msgstr "OPINIONES Y COMENTARIOS"
 
 msgid " REVIEWS & RATINGS"
-msgstr "OPINIONES Y COMENTARIOS"
+msgstr " OPINIONES Y COMENTARIOS"
 
 msgid "Show more"
 msgstr ""

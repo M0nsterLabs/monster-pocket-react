@@ -54,5 +54,14 @@ export function getCurrentLocale () {
       locale = elem;
     }
   });
+  if (locale === 'pt-br') {
+    locale = 'pt';
+  } else if (locale === 'cz') {
+    locale = 'cs';
+  } else if (locale === 'ua') {
+    locale = 'uk';
+  } else if (locale === 'cn') {
+    locale = 'zh';
+  }
   return locale;
 }
