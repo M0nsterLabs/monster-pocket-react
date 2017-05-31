@@ -82,7 +82,7 @@ export default class ReviewItem extends React.Component {
 
   formModerator = () => {
     return (
-      <div className="review__item-moderator t5">
+      <div className={`review__item-moderator review__item-moderator_form review__item-moderator${this.state.showContentModerator ? '_show' : ''} t5`}>
         {this.showAvatar(this.props.moderatorMail, this.props.moderatorName, this.props.moderatorAva)}
         <form
           className="review__info-form"
@@ -252,7 +252,7 @@ export default class ReviewItem extends React.Component {
         {this.props.moderable && this.replyButton()}
         <div className="review__item-comments">
           {this.showComments()}
-          {this.state.showContentModerator && this.formModerator()}
+          {this.formModerator()}
         </div>
       </div>
     )
