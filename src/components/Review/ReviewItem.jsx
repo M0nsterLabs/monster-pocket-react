@@ -119,7 +119,7 @@ export default class ReviewItem extends React.Component {
     const textReview = document.getElementById('reviewReplyModerator').value;
     const reviewText = {
       content   : textReview,
-      user_name : this.props.userName
+      user_name : this.props.moderatorName
     };
     reviews.replayTheReview(this.props.accessToken, this.props.reviewId, reviewText).then(
       (data) => {
