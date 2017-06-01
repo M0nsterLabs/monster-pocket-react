@@ -297,8 +297,8 @@ export default class Reviews extends React.Component {
     });
   };
 
-  getUserData = (userId) => {
-    fetch(`${Config.accountServiceURL}users/${userId}/profile`, {
+  getUserData = () => {
+    fetch(`${Config.accountServiceURL}users/profile?access_token=${this.props.accessToken}`, {
       method: 'get'
     }).then(getResponseJSON)
     .then((data) => {
@@ -327,9 +327,7 @@ export default class Reviews extends React.Component {
         });
       }
     }).then(() => {
-      if (!_.isEmpty(this.state.userReview)) {
-        this.getUserData(this.state.userReview.user_id);
-      }
+      this.getUserData();
     });
   };
   // Get reviews of user on template
