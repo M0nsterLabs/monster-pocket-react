@@ -151,7 +151,7 @@ export default class ReviewEditor extends React.Component {
             <TA5
               className="notification-review__textarea spacing-outer-bottom-20"
               id="review-text"
-              label="Your opinion about this product"
+              label={this.context.i18n.l("Your opinion about this product")}
               increaseValue={true}
               ref={c => this.textarea = c}
               name="content"
@@ -161,13 +161,13 @@ export default class ReviewEditor extends React.Component {
               className="notification-review__button notification-review__button_first"
               onClick={() => this.hideTooltip()}
             >
-              Cancel
+              {this.context.i18n.l("Cancel")}
             </B3J>
             <B2J
               className="notification-review__button"
               type="submit"
             >
-              Post
+              {this.context.i18n.l("Post")}
             </B2J>
           </form>
         </div>

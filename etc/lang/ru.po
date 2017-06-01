@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 12:39+0300\n"
+"POT-Creation-Date: 2017-06-01 10:00+0300\n"
 "PO-Revision-Date: 2017-05-18 12:56+0000\n"
 "Last-Translator: bananova <>\n"
 "Language-Team: Russian (http://example.com/transifex/projects/p/tm/team/"
@@ -28,6 +28,15 @@ msgstr "Удалите специальные символы"
 
 msgid "Please, write at least 60 symbols for review"
 msgstr "Пожалуйста, напишите не менее 60 символов для отзыва"
+
+msgid "Your opinion about this product"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Post"
+msgstr ""
 
 msgid "Thank you for your review!"
 msgstr "Благодарим за отзыв!"
@@ -132,7 +141,6 @@ msgstr ""
 
 msgid "Only buyers of that product can rate it"
 msgstr ""
-
 
 msgid ""
 "It seems there are no reviews to this product from your locale.\n"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 12:39+0300\n"
+"POT-Creation-Date: 2017-06-01 10:00+0300\n"
 "PO-Revision-Date: 2017-05-19 08:41+0000\n"
 "Last-Translator: tmhu <>\n"
 "Language-Team: Hungarian (http://example.com/transifex/projects/p/tm/team/"
@@ -27,6 +27,15 @@ msgstr "Kérjük, távolítsa el a speciális szimbólumokat"
 
 msgid "Please, write at least 60 symbols for review"
 msgstr "Kérjük, írjon legalább 60 karaktert az értékeléshez"
+
+msgid "Your opinion about this product"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Post"
+msgstr ""
 
 msgid "Thank you for your review!"
 msgstr "Köszönjük az értékelését!"

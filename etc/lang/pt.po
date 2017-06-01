@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 12:39+0300\n"
+"POT-Creation-Date: 2017-06-01 10:00+0300\n"
 "PO-Revision-Date: 2017-02-03 03:39:42-0500\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,15 @@ msgid "Please remove special symbols"
 msgstr ""
 
 msgid "Please, write at least 60 symbols for review"
+msgstr ""
+
+msgid "Your opinion about this product"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Post"
 msgstr ""
 
 msgid "Thank you for your review!"
