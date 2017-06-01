@@ -104,13 +104,13 @@
             "Sajnos nem tudjuk közzétenni az értékelését, mert nem felel meg az irányelveinknek. Kérjük, próbálkozzon újra egy másik értékeléssel."
          ],
          "Only buyers of that product can rate it": [
-            ""
+            "Ezt csak a terméket megvásárló felhasználók értékelhetik"
          ],
          "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Úgy tünik, nincs értékelés az Ön nyelvén.\n                      Ön megtekintheti a más országokból származó értékeléseket."
+            "Úgy tűnik, nincs magyar nyelvű vélemény.⏎\nJavasoljuk a más nyelvű vélemények megtekintését."
          ],
          "It seems there are no reviews to this product.": [
-            ""
+            "Úgy tűnik, nincs vélemény erre a termékre."
          ],
          "View ": [
             "Nézet "
@@ -122,7 +122,7 @@
             " VÉLEMÉNYEK ÉS ÉRTÉKELÉSEK"
          ],
          "Show more": [
-            ""
+            "Több megjelenítése"
          ],
          "Home": [
             "Főoldal"

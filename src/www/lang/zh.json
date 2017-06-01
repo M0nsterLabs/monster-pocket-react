@@ -104,13 +104,13 @@
             "对不起，您的评论未能通过审查，我们不能对其进行发表，请您修改后再次申请相关审查，谢谢您的合作！"
          ],
          "Only buyers of that product can rate it": [
-            ""
+            "仅限此产品购买者对其进行评价"
          ],
          "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "在您的区域未发现对此产品的评论。\n                                \n您可查看其它区域对此产品的评论。"
+            "您所在的服务区未发现相关此产品的任何评价。⏎\n您可查看其他服务区的相关评价。"
          ],
          "It seems there are no reviews to this product.": [
-            ""
+            "未发现相关此产品的任何评价。"
          ],
          "View ": [
             "查看"
@@ -119,10 +119,10 @@
             "评论与评分"
          ],
          " REVIEWS & RATINGS": [
-            " 评论与评分"
+            "评论与评分"
          ],
          "Show more": [
-            ""
+            "查看更多"
          ],
          "Home": [
             "主页"

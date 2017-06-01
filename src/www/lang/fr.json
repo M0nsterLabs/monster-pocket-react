@@ -104,13 +104,13 @@
             "Malheureusement, nous ne pouvons pas publier votre avis car il ne respecte pas nos directives, veuillez réessayez avec un autre avis."
          ],
          "Only buyers of that product can rate it": [
-            ""
+            "Seuls les acheteurs de ce produit peuvent l'évaluer"
          ],
          "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Il semble qu'il n'y a pas de commentaires sur ce produit de votre région.\n                                Vous pouvez voir les commentaires d'autres régions."
+            "Il semble qu'il n'y ait pas d'avis sur ce produit de votre local.\nVous pouvez consulter les commentaires d'autres sites régionaux."
          ],
          "It seems there are no reviews to this product.": [
-            ""
+            "Il semble qu'il n'y ait pas d'avis sur ce produit."
          ],
          "View ": [
             "Voir "
@@ -122,7 +122,7 @@
             " ÉVALUATIONS ET NOTES"
          ],
          "Show more": [
-            ""
+            "Afficher plus"
          ],
          "Home": [
             "Accueil"

@@ -104,13 +104,13 @@
             "Desafortunadamente, no podemos publicar su comentario porque no cumple nuestras reglas. Por favor, inténtelo de nuevo y envíe otra reseña."
          ],
          "Only buyers of that product can rate it": [
-            ""
+            "Sólo los compradores de ese producto pueden calificarlo"
          ],
          "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Parece que no hay comentarios en su idioma para este producto.\n                                Usted todavía puede revisar los comentarios de otras versiones locales."
+            "Parece que este producto no tiene comentarios en su idioma.\nUsted puede echar un vistazo a los comentarios en otros idiomas."
          ],
          "It seems there are no reviews to this product.": [
-            ""
+            "Este producto todavía no tiene comentarios."
          ],
          "View ": [
             "Ver"
@@ -119,10 +119,10 @@
             "OPINIONES Y COMENTARIOS"
          ],
          " REVIEWS & RATINGS": [
-            " OPINIONES Y COMENTARIOS"
+            "OPINIONES Y COMENTARIOS"
          ],
          "Show more": [
-            ""
+            "Más info"
          ],
          "Home": [
             "Inicio"

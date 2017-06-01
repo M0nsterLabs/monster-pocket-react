@@ -104,13 +104,13 @@
             "Bohužel, nemůžeme zveřejnit recenzi, protože není v souladu s našimi pravidly. Zkuste to znovu."
          ],
          "Only buyers of that product can rate it": [
-            ""
+            "Tento produkt mohou hodnotit pouze uživatelé, kteří si jej koupili"
          ],
          "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Na této jazykové verzi nejdou najít žádné recenze na tento produkt.\n                                Můžete se podívat na recenze na jiných jazykových verzích."
+            "Zdá se, že na této jazykové verzi není žádná recenze na tento produkt.\nMůžete si prohlédnout recenze na jiných verzích."
          ],
          "It seems there are no reviews to this product.": [
-            ""
+            "Zdá se, že není žádná recenze na tento produkt."
          ],
          "View ": [
             "Zobrazit"
@@ -119,10 +119,10 @@
             "RECENZE A HODNOCENÍ"
          ],
          " REVIEWS & RATINGS": [
-            " RECENZE A HODNOCENÍ"
+            "RECENZE A HODNOCENÍ"
          ],
          "Show more": [
-            ""
+            "Zobrazit více"
          ],
          "Home": [
             "Domovská stránka"

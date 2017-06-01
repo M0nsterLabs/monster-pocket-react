@@ -104,13 +104,13 @@
             "Niestety, nie możemy opublikować Twoją recenzję, ponieważ ona nie spełnia wszystkich naszych wymagań, spróbuj ponownie z inną recenzją."
          ],
          "Only buyers of that product can rate it": [
-            ""
+            "Tylko kupujący mogą oceniać produkt"
          ],
          "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Wygląda na to, że nie ma recnzji na ten produkt.\n                                Możesz zapoznać się z recenzjami na innych wersjach językowych naszej strony."
+            "Wygląda na to, że nie ma żadnych recenzji na ten produkt w tej wersji językowej.\nMożesz sprawdzić recenzji na innych wersjach językowych naszej strony."
          ],
          "It seems there are no reviews to this product.": [
-            ""
+            "Wygląda na to, że nie ma żadnych recenzji na ten produkt."
          ],
          "View ": [
             "Zobacz "
@@ -122,7 +122,7 @@
             " RECENZJE I OCENY"
          ],
          "Show more": [
-            ""
+            "Pokaż więcej"
          ],
          "Home": [
             "Strona domowa"

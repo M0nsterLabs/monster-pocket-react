@@ -104,13 +104,13 @@
             "Purtroppo non possiamo pubblicare la tua recensione in quanto non conforme con il nostro regolamento. Per favore riprova con un'altra recensione."
          ],
          "Only buyers of that product can rate it": [
-            ""
+            "Solo gli acquirenti di quel prodotto possono valutarlo"
          ],
          "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Non ci sono recensioni per questo prodotto nella versione italiana del sito.\n                                 Prova a cercarle nelle altre versioni."
+            "Non ci sono recensioni per questo prodotto nella versione italiana del sito.\nPuoi vedere i commenti nelle altre versioni."
          ],
          "It seems there are no reviews to this product.": [
-            ""
+            "Non ci sono recensioni per questo prodotto."
          ],
          "View ": [
             "Visualizza"
@@ -122,7 +122,7 @@
             " RECENSIONI E VALUTAZIONI"
          ],
          "Show more": [
-            ""
+            "Mostra di più"
          ],
          "Home": [
             "Pagina principale"
