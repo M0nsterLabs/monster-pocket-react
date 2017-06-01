@@ -1,6 +1,5 @@
 import React       from 'react';
 import PropTypes   from 'prop-types';
-import {stringify} from 'qs';
 import StarsRating from 'quark/lib/StarsRating';
 import Avatar      from 'quark/lib/Avatar';
 import TA3         from 'quark/lib/textareas/TA3';
@@ -38,7 +37,8 @@ export default class ReviewItem extends React.Component {
 
   state = {
     showContentModerator: false,
-    comments: []
+    comments: [],
+    showModeratorClass: false
   };
 
   componentWillMount() {
@@ -77,12 +77,19 @@ export default class ReviewItem extends React.Component {
   showForm = () => {
     this.setState({
       showContentModerator: true
-    })
+    });
+    //Added class to comments form for auto height field
+    setTimeout(() => {
+      this.setState({
+        showModeratorClass: true
+      })
+    }, 600);
   };
 
   formModerator = () => {
     return (
-      <div className={`review__item-moderator review__item-moderator_form review__item-moderator${this.state.showContentModerator ? '_show' : ''} t5`}>
+      <div className={`review__item-moderator review__item-moderator_form review__item-moderator${this.state.showContentModerator ? '_show' : ''}
+       review__item-moderator${this.state.showModeratorClass ? '_show-auto' : ''} t5`}>
         {this.showAvatar(this.props.moderatorMail, this.props.moderatorName, this.props.moderatorAva)}
         {this.state.showContentModerator ?
           (

@@ -211,19 +211,22 @@
 
           &_form {
             height: 0;
+            min-height: 0;
             opacity: 0;
             padding: 0 !important;
-            overflow: hidden;
-            transition-property: height, opacity;
-            transition-duration: 0.5s;
+            transition-property: min-height, opacity;
+            transition-duration: .5s;
             transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
           }
 
           &_show {
-            min-height: 237px;
-            height: auto;
+            min-height: 197px;
             opacity: 1;
-            padding-top: 40px !important;
+            margin-top: 40px;
+
+            &-auto {
+              height: auto;
+            }
           }
 
           .review {
