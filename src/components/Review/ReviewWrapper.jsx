@@ -351,7 +351,7 @@ export default class Reviews extends React.Component {
       this.setState({
         productUserData : product[0],
         templateUrl     : this.state.templateUrl,
-        authorId        : product[0].aid
+        authorId        : product[0].authorUserId
       });
     });
   };
