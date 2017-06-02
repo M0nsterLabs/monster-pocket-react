@@ -114,7 +114,7 @@ export default class ReviewEditor extends React.Component {
         template_title : this.props.templateName,
         template_image : this.props.imageUrl,
         template_url   : this.props.templateUrl,
-        author_id      : this.props.authorId
+        author_id      : this.props.authorId || 0
       };
 
       notification.classList.add('notification_result');
