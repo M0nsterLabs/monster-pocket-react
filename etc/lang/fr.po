@@ -1,21 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
-# Translators
-#
+# Translators:
+#   <>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 12:01+0200\n"
-"PO-Revision-Date: 2017-02-03 03:39:40-0500\n"
-"Language: fr\n"
+"POT-Creation-Date: 2017-05-29 12:39+0300\n"
+"PO-Revision-Date: 2017-05-30 12:39+0000\n"
+"Last-Translator: tmfr <>\n"
+"Language-Team: French (http://example.com/transifex/projects/p/tm/team/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Resource-Id-Version: monster-react\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+msgid "Review must contain at least 60 symbols"
+msgstr "Le commentaire doit contenir au moins 60 symboles"
+
+msgid "Please remove special symbols"
+msgstr "Supprimez les symboles spéciaux"
+
+msgid "Please, write at least 60 symbols for review"
+msgstr "Veuillez écrire au moins 60 symboles pour commentaire"
+
+msgid "Thank you for your review!"
+msgstr "Merci pour votre commentaire !"
+
+msgid ""
+"We've generated your one-time promo-code and within 10 minutes it will reach"
+" your email:"
+msgstr ""
+"Nous avons généré votre code promotionnel unique et dans 10 minutes il "
+"atteindra votre courrier électronique :"
+
+msgid "on all our themes"
+msgstr "sur tous nos thèmes"
+
+msgid "Please rate the product:"
+msgstr "Veuillez évaluer le produit:"
+
+msgid "Type your answer here"
+msgstr "Tapez votre réponse ici"
+
+msgid "Send Message"
+msgstr "Envoyer le message"
+
+msgid "Press Ctrl + Enter to send your message"
+msgstr "Appuyez sur Ctrl + Enter pour envoyer votre message"
+
+msgid "Reply"
+msgstr "Répondre"
+
+msgid "Jan"
+msgstr "Jan"
+
+msgid "Feb"
+msgstr "Fév"
+
+msgid "Mar"
+msgstr "Mar"
+
+msgid "Apr"
+msgstr "Avr"
+
+msgid "May"
+msgstr "Mai"
+
+msgid "Jun"
+msgstr "Jun"
+
+msgid "Jul"
+msgstr "Jul"
+
+msgid "Aug"
+msgstr "Aoû"
+
+msgid "Sep"
+msgstr "Sep"
+
+msgid "Oct"
+msgstr "Oct"
+
+msgid "Nov"
+msgstr "Nov"
+
+msgid "Dec"
+msgstr "Déc"
+
+msgid "Now"
+msgstr "Maintenant"
+
+msgid "minutes ago"
+msgstr ""
+
+msgid "hour ago"
+msgstr ""
+
+msgid "hours ago"
+msgstr ""
+
+msgid "Today at"
+msgstr "Aujourd'hui à"
+
+msgid "Yesterday at"
+msgstr "Hier à"
+
+msgid "at"
+msgstr "à"
+
+msgid ""
+"The review is visible only for you. Sorry, but we need to check your review "
+"before publication. In case your review corresponds to our rules, it will be"
+" published soon :)"
+msgstr ""
+"L'avis est visible uniquement par vous. Désolé, mais nous devons vérifier "
+"votre avis avant publication. Si votre évaluation correspond à nos règles, "
+"elle sera publiée prochainement :)"
+
+msgid ""
+"Unfortunately, we can’t post your review because it doesn’t meet our "
+"guidelines, please try again with another review."
+msgstr ""
+"Malheureusement, nous ne pouvons pas publier votre avis car il ne respecte "
+"pas nos directives, veuillez réessayez avec un autre avis."
+
+msgid "Only buyers of that product can rate it"
+msgstr "Seuls les acheteurs de ce produit peuvent l'évaluer"
+
+msgid ""
+"It seems there are no reviews to this product from your locale.\n"
+"You can look at the reviews from other locales."
+msgstr ""
+"Il semble qu'il n'y ait pas d'avis sur ce produit de votre local.\n"
+"Vous pouvez consulter les commentaires d'autres sites régionaux."
+
+msgid "It seems there are no reviews to this product."
+msgstr "Il semble qu'il n'y ait pas d'avis sur ce produit."
+
+msgid "View "
+msgstr "Voir "
+
+msgid "REVIEWS & RATINGS"
+msgstr "ÉVALUATIONS ET NOTES"
+
+msgid " REVIEWS & RATINGS"
+msgstr " ÉVALUATIONS ET NOTES"
+
+msgid "Show more"
+msgstr "Afficher plus"
 
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
 msgid "Mascot test"
 msgstr ""
@@ -23,5 +162,5 @@ msgstr ""
 msgid "Social test"
 msgstr ""
 
-msgid "test"
-msgstr ""
+msgid "Reviews & Ratings"
+msgstr "Évaluations et notes"
