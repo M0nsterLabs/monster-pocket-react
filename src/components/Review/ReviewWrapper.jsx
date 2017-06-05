@@ -362,7 +362,8 @@ export default class Reviews extends React.Component {
   getTemplateUrl = (locale) => {
     fetch(`${Config.monsterURL}api/${locale}/template/${this.props.templateId}/`, {
       method: 'get'
-    }).then(getResponseJSON)
+    })
+    .then(getResponseJSON)
     .then((data) => {
       this.setState({
         templateUrl: data.url
