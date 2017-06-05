@@ -67,7 +67,7 @@ export default class ReviewItem extends React.Component {
         email     = {email ? email : ''}
         name      = {name ? name : ''}
         size      = {40}
-        src       = {avatar}
+        src       = {avatar ? avatar : ''}
         isRounded = {true}
         className = "review__author-icon"
       />
