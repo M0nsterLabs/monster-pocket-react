@@ -333,23 +333,26 @@ export default class Reviews extends React.Component {
   // Get reviews of user on template
 
   // Product data of template
-  getProductUser = () => {
-    const ids = [this.props.templateId];
-    return this.getProductUserData(ids);
+  getProductUser = (locale = 'en') => {
+    return this.getProductUserData(locale);
   };
 
-  getProductUserData = (ids) => {
-    products.getProducts(ids).then((product) => {
+  getProductUserData = (locale = 'en') => {
+    fetch(`${Config.productsServiceURL}products/${locale}/${this.props.templateId}`, {
+      method: 'get'
+    })
+    .then(getResponseJSON)
+    .then((product) => {
       const size = {
         width  : 400,
         height : 400
       };
-      this.templateName = product[0].templateFullTitle;
-      this.imageUrl = getCdnImageUrl(product[0].templateId, product[0].screenshots, 'original', size) || '';
+      this.templateName = product.templateFullTitle;
+      this.imageUrl = getCdnImageUrl(product.templateId, product.screenshots, 'original', size) || '';
       this.setState({
-        productUserData : product[0],
+        productUserData : product,
         templateUrl     : this.state.templateUrl,
-        authorId        : product[0].authorUserId
+        authorId        : product.authorUserId
       });
     });
   };
@@ -396,7 +399,7 @@ export default class Reviews extends React.Component {
       this.getUserProfile();
     }
     this.getReviews(LOCALES[this.iteratorLocale]);
-    this.getProductUser();
+    this.getProductUser(LOCALE);
     this.getTemplateUrl(LOCALE);
   };
 
