@@ -232,6 +232,7 @@ export default class ReviewEditor extends React.Component {
       });
       promise.then(() => {
         document.querySelector('.stars-rating-wrapper > div > .quark-notification--large').classList.add('quark-notification__review-center');
+        document.querySelector('.stars-rating-wrapper > div > .quark-notification--large').classList.add('animated-tooltip_open_bottom');
         document.querySelector('.quark-notification__review-center').classList.add(`quark-notification__review-center_${this.state.stars}`);
         if (this.props.statusReview === STATUS_PENDING || this.props.statusReview === STATUS_APPROVED) {
           document.querySelector('.quark-notification__review-center').classList.add(`quark-notification__review-center_pos-center`);
