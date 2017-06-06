@@ -491,7 +491,7 @@ export default class Reviews extends React.Component {
                 )
               : (
                 <div className="reviews">
-                  <h2 className="h3">{this.state.reviews.totalCount}{this.context.i18n.l(` REVIEWS & RATINGS`)}</h2>
+                  <h2 className="h3"><span className="reviews__total-count">{this.state.reviews.totalCount}</span> {this.context.i18n.l(`REVIEWS & RATINGS`)}</h2>
                   {this.renderReviewEditor()}
 
                   <ul className="reviews__list">
