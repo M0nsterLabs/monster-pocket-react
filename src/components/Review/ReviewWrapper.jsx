@@ -421,18 +421,30 @@ export default class Reviews extends React.Component {
     this.getReviews();
   };
 
-  renderContentEmptyPage = () => {
+  renderContentEmptyPage = (showTitle = true) => {
     return (
-      <ContentEmptyMessage
-        page         = {'reviews'}
-        show         = {this.state.isEmpty}
-        description  = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.`)}
-        textNoLocale = {this.context.i18n.l(`It seems there are no reviews to this product.`)}
-        isButton     = {this.state.countReviewOtherLocale > 0}
-        buttonText   = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
-        buttonClick  = {this.otherLocale}
-        title        = {this.context.i18n.l('REVIEWS & RATINGS')}
-      />
+      showTitle ? (
+        <ContentEmptyMessage
+          page         = {'reviews'}
+          show         = {this.state.isEmpty}
+          description  = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.`)}
+          textNoLocale = {this.context.i18n.l(`It seems there are no reviews to this product.`)}
+          isButton     = {this.state.countReviewOtherLocale > 0}
+          buttonText   = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
+          buttonClick  = {this.otherLocale}
+          title        = {this.context.i18n.l('REVIEWS & RATINGS')}
+        />
+      ) : (
+        <ContentEmptyMessage
+          page         = {'reviews'}
+          show         = {this.state.isEmpty}
+          description  = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.`)}
+          textNoLocale = {this.context.i18n.l(`It seems there are no reviews to this product.`)}
+          isButton     = {this.state.countReviewOtherLocale > 0}
+          buttonText   = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
+          buttonClick  = {this.otherLocale}
+        />
+      )
     )
   };
 
@@ -442,7 +454,7 @@ export default class Reviews extends React.Component {
         ? <div className="page-content__empty-inner">
             <h2 className="h3">{this.context.i18n.l('REVIEWS & RATINGS')}</h2>
             {this.renderReviewEditor()}
-            {this.renderContentEmptyPage()}
+            {this.renderContentEmptyPage(false)}
           </div>
         :
           this.renderContentEmptyPage()
