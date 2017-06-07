@@ -333,23 +333,26 @@ export default class Reviews extends React.Component {
   // Get reviews of user on template
 
   // Product data of template
-  getProductUser = () => {
-    const ids = [this.props.templateId];
-    return this.getProductUserData(ids);
+  getProductUser = (locale = 'en') => {
+    return this.getProductUserData(locale);
   };
 
-  getProductUserData = (ids) => {
-    products.getProducts(ids).then((product) => {
+  getProductUserData = (locale = 'en') => {
+    fetch(`${Config.productsServiceURL}products/${locale}/${this.props.templateId}`, {
+      method: 'get'
+    })
+    .then(getResponseJSON)
+    .then((product) => {
       const size = {
         width  : 400,
         height : 400
       };
-      this.templateName = product[0].templateFullTitle;
-      this.imageUrl = getCdnImageUrl(product[0].templateId, product[0].screenshots, 'original', size) || '';
+      this.templateName = product.templateFullTitle;
+      this.imageUrl = getCdnImageUrl(product.templateId, product.screenshots, 'original', size) || '';
       this.setState({
-        productUserData : product[0],
+        productUserData : product,
         templateUrl     : this.state.templateUrl,
-        authorId        : product[0].authorUserId
+        authorId        : product.authorUserId
       });
     });
   };
@@ -359,7 +362,8 @@ export default class Reviews extends React.Component {
   getTemplateUrl = (locale) => {
     fetch(`${Config.monsterURL}api/${locale}/template/${this.props.templateId}/`, {
       method: 'get'
-    }).then(getResponseJSON)
+    })
+    .then(getResponseJSON)
     .then((data) => {
       this.setState({
         templateUrl: data.url
@@ -396,7 +400,7 @@ export default class Reviews extends React.Component {
       this.getUserProfile();
     }
     this.getReviews(LOCALES[this.iteratorLocale]);
-    this.getProductUser();
+    this.getProductUser(LOCALE);
     this.getTemplateUrl(LOCALE);
   };
 
@@ -417,18 +421,30 @@ export default class Reviews extends React.Component {
     this.getReviews();
   };
 
-  renderContentEmptyPage = () => {
+  renderContentEmptyPage = (showTitle = true) => {
     return (
-      <ContentEmptyMessage
-        page         = {'reviews'}
-        show         = {this.state.isEmpty}
-        description  = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.`)}
-        textNoLocale = {this.context.i18n.l(`It seems there are no reviews to this product.`)}
-        isButton     = {this.state.countReviewOtherLocale > 0}
-        buttonText   = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
-        buttonClick  = {this.otherLocale}
-        title        = {this.context.i18n.l('REVIEWS & RATINGS')}
-      />
+      showTitle ? (
+        <ContentEmptyMessage
+          page         = {'reviews'}
+          show         = {this.state.isEmpty}
+          description  = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.`)}
+          textNoLocale = {this.context.i18n.l(`It seems there are no reviews to this product.`)}
+          isButton     = {this.state.countReviewOtherLocale > 0}
+          buttonText   = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
+          buttonClick  = {this.otherLocale}
+          title        = {this.context.i18n.l('REVIEWS & RATINGS')}
+        />
+      ) : (
+        <ContentEmptyMessage
+          page         = {'reviews'}
+          show         = {this.state.isEmpty}
+          description  = {this.context.i18n.l(`It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.`)}
+          textNoLocale = {this.context.i18n.l(`It seems there are no reviews to this product.`)}
+          isButton     = {this.state.countReviewOtherLocale > 0}
+          buttonText   = {this.context.i18n.l(`View ${this.state.countReviewOtherLocale} Reviews From Other Locales`)}
+          buttonClick  = {this.otherLocale}
+        />
+      )
     )
   };
 
@@ -438,7 +454,7 @@ export default class Reviews extends React.Component {
         ? <div className="page-content__empty-inner">
             <h2 className="h3">{this.context.i18n.l('REVIEWS & RATINGS')}</h2>
             {this.renderReviewEditor()}
-            {this.renderContentEmptyPage()}
+            {this.renderContentEmptyPage(false)}
           </div>
         :
           this.renderContentEmptyPage()
@@ -475,7 +491,7 @@ export default class Reviews extends React.Component {
                 )
               : (
                 <div className="reviews">
-                  <h2 className="h3">{this.state.reviews.totalCount}{this.context.i18n.l(` REVIEWS & RATINGS`)}</h2>
+                  <h2 className="h3"><span className="reviews__total-count">{this.state.reviews.totalCount}</span> {this.context.i18n.l(`REVIEWS & RATINGS`)}</h2>
                   {this.renderReviewEditor()}
 
                   <ul className="reviews__list">

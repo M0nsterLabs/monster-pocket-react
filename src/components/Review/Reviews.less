@@ -698,7 +698,7 @@
 
     .stars-rating-wrapper {
 
-      .notification--large {
+      .quark-notification--large {
         right: -40px !important;
         left: auto !important;
       }
@@ -710,7 +710,7 @@
   }
 }
 
-.notification {
+.quark-notification {
   font-family: 'PT Sans', sans-serif;
 
   &-review {
@@ -726,6 +726,7 @@
     }
 
     &__textarea {
+      display: flex;
       margin-bottom: 20px;
       width: 290px;
       -webkit-box-sizing: border-box;
@@ -767,7 +768,7 @@
   }
 
   &_result {
-    .notification-review {
+    .quark-notification-review {
       &__info {
         display: none;
       }
@@ -778,7 +779,7 @@
         justify-content: center;
         flex-direction: column;
         width: 290px;
-        height: 229px;
+        min-height: 229px;
         text-align: center;
         color: #fff;
       }
@@ -788,11 +789,13 @@
           font-weight: bold;
           margin-bottom: 10px;
           color: #fff;
+          white-space: normal;
         }
 
         &-mail {
           font-weight: bold;
           color: #fff;
+          white-space: normal;
         }
 
         &-quantity {
@@ -826,7 +829,7 @@
     }
   }
 
-  .notification {
+  .quark-notification {
     &_invalid {
       animation: shake .3s linear;
     }
@@ -849,7 +852,7 @@
     }
 
     &--error {
-      .notification__container {
+      .quark-notification__container {
         padding: 0 20px 0;
       }
     }
@@ -859,8 +862,8 @@
       position: relative;
     }
 
-    .notification__container {
-      .notification__text {
+    .quark-notification__container {
+      .quark-notification__text {
         width: auto !important;
         white-space: nowrap;
       }
@@ -922,7 +925,7 @@
       &__form {
         position: relative;
         .text-area {
-          .notification {
+          .quark-notification {
             &__closeBlock {
               display: block;
             }
@@ -955,10 +958,6 @@
     .h3 {
       font-weight: bold;
       margin-bottom: 40px;
-    }
-
-    &-inner {
-      text-align: left;
     }
 
     .reviews {
