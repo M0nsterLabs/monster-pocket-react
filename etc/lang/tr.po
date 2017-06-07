@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 12:39+0300\n"
-"PO-Revision-Date: 2017-05-30 11:31+0000\n"
+"POT-Creation-Date: 2017-06-01 10:00+0300\n"
+"PO-Revision-Date: 2017-06-01 07:16+0000\n"
 "Last-Translator: vadimp <>\n"
 "Language-Team: Turkish (http://example.com/transifex/projects/p/tm/team/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,15 @@ msgstr "Lütfen özel sembolleri kaldırın"
 
 msgid "Please, write at least 60 symbols for review"
 msgstr "Lütfen, yorum için en az 60 sembol yazınız"
+
+msgid "Your opinion about this product"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Post"
+msgstr ""
 
 msgid "Thank you for your review!"
 msgstr "Yorumunuz için teşekkür ederiz"
@@ -162,3 +171,4 @@ msgstr "Sosyal test"
 
 msgid "Reviews & Ratings"
 msgstr "Yorumlar & Puanlar"
+

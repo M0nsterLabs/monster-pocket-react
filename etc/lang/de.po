@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 12:39+0300\n"
-"PO-Revision-Date: 2017-05-30 12:38+0000\n"
+"POT-Creation-Date: 2017-06-01 10:00+0300\n"
+"PO-Revision-Date: 2017-06-01 07:58+0000\n"
 "Last-Translator: tmde <>\n"
 "Language-Team: German (http://example.com/transifex/projects/p/tm/team/de/)\n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,15 @@ msgstr "Bitte entfernen Sie Sonderzeichen"
 
 msgid "Please, write at least 60 symbols for review"
 msgstr "Bitte schreiben Sie mindestens 60 Symbole für Ihre Bewertung"
+
+msgid "Your opinion about this product"
+msgstr "Ihre Meinung zu diesem Produkt"
+
+msgid "Cancel"
+msgstr "Stornieren"
+
+msgid "Post"
+msgstr "Posten"
 
 msgid "Thank you for your review!"
 msgstr "Vielen Dank für Ihre Bewertung!"
@@ -165,3 +174,4 @@ msgstr "Sozialtest "
 
 msgid "Reviews & Ratings"
 msgstr "Rezensionen und Ratings"
+

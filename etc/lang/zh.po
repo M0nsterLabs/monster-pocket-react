@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 12:39+0300\n"
-"PO-Revision-Date: 2017-05-31 06:30+0000\n"
+"POT-Creation-Date: 2017-06-01 10:00+0300\n"
+"PO-Revision-Date: 2017-06-01 07:58+0000\n"
 "Last-Translator: tmcn <>\n"
 "Language-Team: Chinese (China) (http://example.com/transifex/projects/p/tm/team/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,15 @@ msgstr "评论内容不能包含特殊字符"
 
 msgid "Please, write at least 60 symbols for review"
 msgstr "请至少填入60个字符（30个汉字）作为评论"
+
+msgid "Your opinion about this product"
+msgstr "关于此产品，请给出您的评价。"
+
+msgid "Cancel"
+msgstr "拒绝"
+
+msgid "Post"
+msgstr "接受"
 
 msgid "Thank you for your review!"
 msgstr "谢谢您的评论！"
@@ -157,3 +166,4 @@ msgstr "Social test"
 
 msgid "Reviews & Ratings"
 msgstr "评论与评分"
+

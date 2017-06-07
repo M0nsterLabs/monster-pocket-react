@@ -16,6 +16,15 @@
          "Please, write at least 60 symbols for review": [
             "请至少填入60个字符（30个汉字）作为评论"
          ],
+         "Your opinion about this product": [
+            "关于此产品，请给出您的评价。"
+         ],
+         "Cancel": [
+            "拒绝"
+         ],
+         "Post": [
+            "接受"
+         ],
          "Thank you for your review!": [
             "谢谢您的评论！"
          ],
