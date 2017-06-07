@@ -1,0 +1,37 @@
+.content-empty-message {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  height: 100%;
+
+  &__illustration {
+    display: inline-block;
+    height: 160px;
+    width: 100%;
+    margin: 40px auto 20px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+
+  &__description {
+    width: 100%;
+    margin: 0;
+  }
+
+  &__link {
+    margin-top: 20px !important;
+  }
+
+  &__reviews {
+    background: svg-load("../../images/empty-content/empty-reviews.svg") center no-repeat;
+  }
+}

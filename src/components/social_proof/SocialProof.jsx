@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassList from 'classlist';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 const Shortid = require('shortid');
 import './SocialProof.less';
 export default class SocialProof extends React.Component {
   static propTypes = {
-    notice      : React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.object
+    notice      : PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object
     ]),
-    width       : React.PropTypes.number,
-    iconCloseId : React.PropTypes.string
+    width       : PropTypes.number,
+    iconCloseId : PropTypes.string
   };
 
   static defaultProps = {

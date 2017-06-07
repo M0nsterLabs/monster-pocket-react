@@ -4,11 +4,128 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n != 1)",
+            "plural_forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)",
             "lang": "uk"
          },
+         "Review must contain at least 60 symbols": [
+            "Відгук повинен містити не менше 60 символів"
+         ],
+         "Please remove special symbols": [
+            "Видаліть спеціальні символи"
+         ],
+         "Please, write at least 60 symbols for review": [
+            "Будь ласка, напишіть не менше 60 символів для відгуку"
+         ],
+         "Thank you for your review!": [
+            "Дякуємо за відгук!"
+         ],
+         "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
+            "Ми створили одноразовий промо-код, який ви отримаєте на свій email протягом 10 хвилин:"
+         ],
+         "on all our themes": [
+            "на всі наші шаблони"
+         ],
+         "Please rate the product:": [
+            "Будь ласка, оцініть продукт:"
+         ],
+         "Type your answer here": [
+            "Введіть свою відповідь тут"
+         ],
+         "Send Message": [
+            "Надіслати повідомлення"
+         ],
+         "Press Ctrl + Enter to send your message": [
+            "Натисніть Ctrl + Enter для відправки повідомлення"
+         ],
+         "Reply": [
+            "Відповісти"
+         ],
+         "Jan": [
+            "Січ"
+         ],
+         "Feb": [
+            "Лют"
+         ],
+         "Mar": [
+            "Бер"
+         ],
+         "Apr": [
+            "Квіт"
+         ],
+         "May": [
+            "Трв"
+         ],
+         "Jun": [
+            "Чер"
+         ],
+         "Jul": [
+            "Лип"
+         ],
+         "Aug": [
+            "Срп"
+         ],
+         "Sep": [
+            "Вер"
+         ],
+         "Oct": [
+            "Жовт"
+         ],
+         "Nov": [
+            "Лист"
+         ],
+         "Dec": [
+            "Груд"
+         ],
+         "Now": [
+            "Зараз"
+         ],
+         "minutes ago": [
+            "хвилин тому"
+         ],
+         "hour ago": [
+            "годину тому"
+         ],
+         "hours ago": [
+            "годин тому"
+         ],
+         "Today at": [
+            "Сьогодні в"
+         ],
+         "Yesterday at": [
+            "Вчора в"
+         ],
+         "at": [
+            "в"
+         ],
+         "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
+            "Цей відгук видно тільки вам. Вибачте, але ми повинні перевірити його перед публікацією. Якщо відгук відповідає нашим правилам, він незабаром буде опублікований :)"
+         ],
+         "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "На жаль, ми не можемо опублікувати ваш відгук, тому що він не відповідає нашим правилам. Спробуйте написати ще раз."
+         ],
+         "Only buyers of that product can rate it": [
+            "Лише покупці цього продукту можуть ставити йому оцінку"
+         ],
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            "Схоже, про цей продукт відсутні відгуки з вашої місцевості. Ви можете подивитися рецензії користувачів з інших країн."
+         ],
+         "It seems there are no reviews to this product.": [
+            "Здається, про цей продукт відгуки відсутні."
+         ],
+         "View ": [
+            "Подивитися"
+         ],
+         "REVIEWS & RATINGS": [
+            "ВІДГУКИ ТА ОЦІНКИ"
+         ],
+         " REVIEWS & RATINGS": [
+            " ВІДГУКИ ТА ОЦІНКИ"
+         ],
+         "Show more": [
+            "Показати більше"
+         ],
          "Home": [
-            ""
+            "На головну"
          ],
          "Mascot test": [
             ""
@@ -16,8 +133,8 @@
          "Social test": [
             ""
          ],
-         "test": [
-            ""
+         "Reviews & Ratings": [
+            "Відгуки та оцінки"
          ]
       }
    }
