@@ -85,8 +85,8 @@
     "webpack-uglify-js-plugin": "^1.1.9"
   },
   "dependencies": {
-    "plasma-order-api-client-js": "^1.0.2",
     "plasma-membership-api-client-js": "^1.0.9",
+    "plasma-order-api-client-js": "^1.0.2",
     "quark": "git+https://git@github.com/templatemonster/QUARK-React.git#feature/PTR-2225"
   },
   "babel": {
