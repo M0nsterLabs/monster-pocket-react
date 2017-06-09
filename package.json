@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run build && webpack-dev-server",
     "build:beta": "NODE_ENV=beta webpack",
+    "build:production": "NODE_ENV=production webpack",
     "build:dev": "webpack",
     "build:demo2": "NODE_ENV=demo2 webpack",
     "build:demo3": "NODE_ENV=demo3 webpack",
