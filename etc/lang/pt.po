@@ -1,27 +1,31 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
-# Translators
-#
+# Translators:
+#   <>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-01 10:00+0300\n"
-"PO-Revision-Date: 2017-02-03 03:39:42-0500\n"
-"Language: pt_BR\n"
+"PO-Revision-Date: 2017-06-06 09:48+0000\n"
+"Last-Translator: bananova <>\n"
+"Language-Team: Portuguese (Brazilian) (http://example.com/transifex/projects/p/tm/team/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Resource-Id-Version: monster-react\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 msgid "Review must contain at least 60 symbols"
-msgstr ""
+msgstr "Avaliação deve conter pelo menos 60 símbolos"
 
 msgid "Please remove special symbols"
-msgstr ""
+msgstr "Por favor, remova símbolos especiais"
 
 msgid "Please, write at least 60 symbols for review"
-msgstr ""
+msgstr "Por favor, escreva pelo menos 60 símbolos para avaliação"
 
 msgid "Your opinion about this product"
 msgstr ""
@@ -33,98 +37,105 @@ msgid "Post"
 msgstr ""
 
 msgid "Thank you for your review!"
-msgstr ""
+msgstr "Agradecemos sua avaliação!"
 
 msgid ""
-"We've generated your one-time promo-code and within 10 minutes it will reach "
-"your email:"
+"We've generated your one-time promo-code and within 10 minutes it will reach"
+" your email:"
 msgstr ""
+"Geramos seu código único promocional e você o receberá por e-mail dentro de "
+"10 minutos:"
 
 msgid "on all our themes"
-msgstr ""
+msgstr "em todos os nossos temas"
 
 msgid "Please rate the product:"
-msgstr ""
+msgstr "Por favor, classifique o produto:"
 
 msgid "Type your answer here"
-msgstr ""
+msgstr "Escreva sua resposta aqui"
 
 msgid "Send Message"
-msgstr ""
+msgstr "Enviar mensagem"
 
 msgid "Press Ctrl + Enter to send your message"
-msgstr ""
+msgstr "Pressione Ctrl + Enter para enviar sua mensagem"
 
 msgid "Reply"
-msgstr ""
+msgstr "Resposta"
 
 msgid "Jan"
-msgstr ""
+msgstr "Jan"
 
 msgid "Feb"
-msgstr ""
+msgstr "Fev"
 
 msgid "Mar"
-msgstr ""
+msgstr "Mar"
 
 msgid "Apr"
-msgstr ""
+msgstr "Abr"
 
 msgid "May"
-msgstr ""
+msgstr "Mai"
 
 msgid "Jun"
-msgstr ""
+msgstr "Jun"
 
 msgid "Jul"
-msgstr ""
+msgstr "Jul"
 
 msgid "Aug"
-msgstr ""
+msgstr "Ago"
 
 msgid "Sep"
-msgstr ""
+msgstr "Set"
 
 msgid "Oct"
-msgstr ""
+msgstr "Out"
 
 msgid "Nov"
-msgstr ""
+msgstr "Nov"
 
 msgid "Dec"
-msgstr ""
+msgstr "Dez"
 
 msgid "Now"
-msgstr ""
+msgstr "Agora"
 
 msgid "minutes ago"
-msgstr ""
+msgstr "minutos atrás"
 
 msgid "hour ago"
-msgstr ""
+msgstr "hora atrás"
 
 msgid "hours ago"
-msgstr ""
+msgstr "horas atrás"
 
 msgid "Today at"
-msgstr ""
+msgstr "Hoje à"
 
 msgid "Yesterday at"
-msgstr ""
+msgstr "Ontem à"
 
 msgid "at"
-msgstr ""
+msgstr "à"
 
 msgid ""
 "The review is visible only for you. Sorry, but we need to check your review "
-"before publication. In case your review corresponds to our rules, it will be "
-"published soon :)"
+"before publication. In case your review corresponds to our rules, it will be"
+" published soon :)"
 msgstr ""
+"Essa avaliação só pode ser vista por você. Desculpe, mas precisamos revisar "
+"sua avaliação antes de publicá-la. Caso ela esteja de acordo com nossas "
+"regras, será publicada em breve :)"
 
 msgid ""
 "Unfortunately, we can’t post your review because it doesn’t meet our "
 "guidelines, please try again with another review."
 msgstr ""
+"Infelizmente, não podemos publicar sua análise pois ela não está de acordo "
+"com nossas regras, tente novamente com outra análise"
 
 msgid "Only buyers of that product can rate it"
 msgstr ""
@@ -133,24 +144,26 @@ msgid ""
 "It seems there are no reviews to this product from your locale.\n"
 "You can look at the reviews from other locales."
 msgstr ""
+"Não parecem haver análises para esse produto em sua localização. Você pode "
+"ver as análises de outras localidades."
 
 msgid "It seems there are no reviews to this product."
 msgstr ""
 
 msgid "View "
-msgstr ""
+msgstr "Visualizar"
 
 msgid "REVIEWS & RATINGS"
-msgstr ""
+msgstr "ANÁLISES & CLASSIFICAÇÕES"
 
 msgid " REVIEWS & RATINGS"
-msgstr ""
+msgstr "ANÁLISES & CLASSIFICAÇÕES"
 
 msgid "Show more"
 msgstr ""
 
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgid "Mascot test"
 msgstr ""
@@ -159,4 +172,5 @@ msgid "Social test"
 msgstr ""
 
 msgid "Reviews & Ratings"
-msgstr ""
+msgstr "Análises & Classificações"
+

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 12:39+0300\n"
-"PO-Revision-Date: 2017-05-30 12:43+0000\n"
+"POT-Creation-Date: 2017-06-01 10:00+0300\n"
+"PO-Revision-Date: 2017-06-01 08:00+0000\n"
 "Last-Translator: bananova <>\n"
 "Language-Team: Ukrainian (http://example.com/transifex/projects/p/tm/team/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,15 @@ msgstr "Видаліть спеціальні символи"
 
 msgid "Please, write at least 60 symbols for review"
 msgstr "Будь ласка, напишіть не менше 60 символів для відгуку"
+
+msgid "Your opinion about this product"
+msgstr "Ваша думка щодо цього продукту"
+
+msgid "Cancel"
+msgstr "Скасувати"
+
+msgid "Post"
+msgstr "Опублікувати"
 
 msgid "Thank you for your review!"
 msgstr "Дякуємо за відгук!"
@@ -164,3 +173,4 @@ msgstr ""
 
 msgid "Reviews & Ratings"
 msgstr "Відгуки та оцінки"
+

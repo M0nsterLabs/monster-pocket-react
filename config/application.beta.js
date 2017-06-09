@@ -11,7 +11,7 @@ export default {
   ordersServiceURL            : '//betaapi.templatemonster.com/orders/v1/',
   reviewsServiceURL           : '//betaapi.templatemonster.com/reviews/v1/',
   balancesServiceURL          : '//betaapi.templatemonster.com/balances/v1/',
-  monsterURL                  : '//beta0.templatemonster.com/',
+  monsterURL                  : '//beta.templatemonster.com/',
   chatURL                     : '//chat.template-help.com/',
   monsterDomainPlusSubDomains : '.templatemonster.com',
   tmimgcdnURL                 : '//s.tmimgcdn.com/scr/400x400/',
