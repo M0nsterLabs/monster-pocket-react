@@ -194,7 +194,6 @@ export default class Reviews extends React.Component {
       'sort'        : 'id DESC',
       'per-page'    : 10,
       'expand'      : 'comments',
-      'access_token' : this.props.accessToken,
       'locale'       : locale
     });
   };
