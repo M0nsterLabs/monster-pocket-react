@@ -189,13 +189,17 @@ export default class Reviews extends React.Component {
     if (!locale) {
       locale = '';
     }
-    return this.getReviewsData(reviews, products, {
+    let params = {
       'template_id' : this.props.templateId,
       'sort'        : 'id DESC',
       'per-page'    : 10,
       'expand'      : 'comments',
       'locale'       : locale
-    });
+    };
+    if (this.props.accessToken) {
+      params['access_token'] = this.props.accessToken;
+    }
+    return this.getReviewsData(reviews, products, params);
   };
 
   getReviewsData = (reviews, products, params = {}) => {
