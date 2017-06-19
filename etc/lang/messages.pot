@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-01 10:00+0300\n"
+"POT-Creation-Date: 2017-06-19 18:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,7 +146,19 @@ msgstr ""
 msgid "REVIEWS & RATINGS"
 msgstr ""
 
-msgid " REVIEWS & RATINGS"
+msgid "Newest"
+msgstr ""
+
+msgid "Most helpful"
+msgstr ""
+
+msgid "Top ratings"
+msgstr ""
+
+msgid "Low ratings"
+msgstr ""
+
+msgid "Show first:"
 msgstr ""
 
 msgid "Show more"

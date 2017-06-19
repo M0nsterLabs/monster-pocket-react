@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-01 10:00+0300\n"
+"POT-Creation-Date: 2017-06-19 18:21+0300\n"
 "PO-Revision-Date: 2017-02-03 03:39:39-0500\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -143,7 +143,19 @@ msgstr ""
 msgid "REVIEWS & RATINGS"
 msgstr ""
 
-msgid " REVIEWS & RATINGS"
+msgid "Newest"
+msgstr ""
+
+msgid "Most helpful"
+msgstr ""
+
+msgid "Top ratings"
+msgstr ""
+
+msgid "Low ratings"
+msgstr ""
+
+msgid "Show first:"
 msgstr ""
 
 msgid "Show more"
