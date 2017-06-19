@@ -78,8 +78,32 @@
       display: none;
     }
 
-    .tm-quark-dropdown__button {
-      border: none;
+    .tm-quark-dropdown {
+      &__button {
+        border: none;
+
+        &-arrow {
+          position: absolute;
+          right: 0;
+        }
+
+        &-content {
+          width: 100%;
+        }
+
+        &-inner {
+          position: relative;
+          padding-right: 10px;
+        }
+      }
+    }
+
+    &.tm-quark-dropdown {
+      &_open {
+        .tm-quark-dropdown__button-arrow {
+          top: 8px;
+        }
+      }
     }
   }
 }
