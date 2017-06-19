@@ -1,17 +1,18 @@
-import React                        from 'react';
-import Config                       from 'config.js';
-import _                            from 'lodash';
-import PropTypes                    from 'prop-types';
-import ContentEmptyMessage          from 'components/ContentEmptyMessage/';
-import L1                           from 'quark/lib/loaders/L1';
-import L3                           from 'quark/lib/loaders/L3';
-import B2E                          from 'quark/lib/buttons/B2E';
+import React               from 'react';
+import Config              from 'config.js';
+import _                   from 'lodash';
+import PropTypes           from 'prop-types';
+import ContentEmptyMessage from 'components/ContentEmptyMessage/';
+import L1                  from 'quark/lib/loaders/L1';
+import L3                  from 'quark/lib/loaders/L3';
+import B2E                 from 'quark/lib/buttons/B2E';
+import DD1                 from 'quark/lib/dropdowns/DD1';
 
-import ReviewsData                  from 'plasma-reviews-api-client-js';
-import ProductsData                 from 'tm-products-api-client-js';
+import ReviewsData         from 'plasma-reviews-api-client-js';
+import ProductsData        from 'tm-products-api-client-js';
 
-import ReviewItem                   from './ReviewItem';
-import ReviewEditor                 from './ReviewEditor';
+import ReviewItem          from './ReviewItem';
+import ReviewEditor        from './ReviewEditor';
 
 import {
   getCdnImageUrl,
@@ -57,7 +58,8 @@ export default class Reviews extends React.Component {
     authorId               : 0,
     countReviewOtherLocale : 0,
     otherLocale            : false,
-    showMoreVisible        : false
+    showMoreVisible        : false,
+    sort                   : 'id DESC'
   };
 
   constructor (props) {
@@ -191,7 +193,7 @@ export default class Reviews extends React.Component {
     }
     let params = {
       'template_id' : this.props.templateId,
-      'sort'        : 'id DESC',
+      'sort'        : this.state.sort,
       'per-page'    : 10,
       'expand'      : 'comments',
       'locale'       : locale
@@ -464,6 +466,59 @@ export default class Reviews extends React.Component {
     )
   };
 
+  changeSortValue = (sorted) => {
+    let sortedBy = 'id DESC';
+    switch (sorted) {
+      case 'sortNewest':
+        sortedBy = 'id DESC';
+        break;
+      case 'sortMosthelpful':
+        sortedBy = 'id DESC';
+        break;
+      case 'sortTopratings':
+        sortedBy = 'score DESC,id DESC';
+        break;
+      case 'sortLowratings':
+        sortedBy = 'score ASC,id DESC';
+        break;
+      default:
+        break;
+    }
+    this.setState({
+      sort: sortedBy,
+      reviews: {
+        items: []
+      },
+    }, () => {
+      this.getReviews(LOCALES[this.iteratorLocale]);
+    })
+  };
+  
+  sortReviews = () => {
+    const sortValue = [
+      this.context.i18n.l('Newest'),
+      this.context.i18n.l('Most helpful'),
+      this.context.i18n.l('Top ratings'),
+      this.context.i18n.l('Low ratings')
+    ];
+    let form;
+    return (
+      <DD1
+        className="reviews__sort"
+        options={sortValue.map(sortItem => ({
+          label: sortItem,
+          icon: ``,
+          value: `sort${sortItem.replace(/\s/g,'')}`,
+        }))}
+        ref={(ref) => { form = ref; }}
+        label={this.context.i18n.l('Show first:')}
+        pattern=""
+        defaultValue={"Newest" || null}
+        onChange={value => this.changeSortValue(value)}
+      />
+    )
+  };
+
   render () {
     return (
       <div className="page-content"><span className="reviews__count">{this.state.reviews.totalCount}</span>
@@ -494,15 +549,23 @@ export default class Reviews extends React.Component {
                 )
               : (
                 <div className="reviews">
-                  <h2 className="h3"><span className="reviews__total-count">{this.state.reviews.totalCount}</span> {this.context.i18n.l(`REVIEWS & RATINGS`)}</h2>
+                  <div className="reviews__header">
+                    <h2 className="h3"><span className="reviews__total-count">{this.state.reviews.totalCount}</span> {this.context.i18n.l(`REVIEWS & RATINGS`)}</h2>
+                    {this.sortReviews()}
+                  </div>
+
                   {this.renderReviewEditor()}
 
-                  <ul className="reviews__list">
-                    {this.renderMyReviews()}
-                    {this.renderReviews()}
-                  </ul>
+                  {_.isEmpty(this.state.reviews.items)
+                    ? <L1 className="content-loader" />
+                    :
+                      <ul className="reviews__list">
+                        {this.renderMyReviews()}
+                        {this.renderReviews()}
+                      </ul>
+                  }
 
-                  {this.state.showMoreVisible && (
+                  {this.state.showMoreVisible && !_.isEmpty(this.state.reviews.items) && (
                     <B2E
                       className = "reviews__btn"
                       id        = "show-more-reviews"

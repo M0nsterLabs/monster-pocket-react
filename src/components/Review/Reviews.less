@@ -9,7 +9,7 @@
 
   .h3 {
     text-transform: uppercase;
-    margin: 0 0 20px;
+    margin: 0;
     font-weight: bold;
   }
 
@@ -63,6 +63,24 @@
     color: #90a4ae;
     font-weight: bold;
     margin: 10px 0 20px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  &__sort {
+
+    .icon {
+      display: none;
+    }
+
+    .tm-quark-dropdown__button {
+      border: none;
+    }
   }
 }
 
