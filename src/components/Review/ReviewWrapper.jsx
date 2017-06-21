@@ -59,7 +59,7 @@ export default class Reviews extends React.Component {
     countReviewOtherLocale : 0,
     otherLocale            : false,
     showMoreVisible        : false,
-    sort                   : 'id DESC'
+    sort                   : '-id'
   };
 
   constructor (props) {
@@ -118,6 +118,9 @@ export default class Reviews extends React.Component {
                 moderatorAva  = {this.state.user.avatar}
                 moderatorMail = {this.state.userMail}
                 comments      = {review.comments}
+                voteUp        = {review.vote_up}
+                voteDown      = {review.vote_down}
+                vote          = {review.vote ? review.vote.vote : ''}
               />
             </li>
           );
@@ -178,6 +181,8 @@ export default class Reviews extends React.Component {
             moderatorMail={this.state.userMail}
             comments={this.state.userReview.comments}
             status={this.state.userReview.status}
+            voteUp={this.state.userReview.vote_up}
+            voteDown={this.state.userReview.vote_down}
           />
           {this.renderNotification(this.state.userReview.status)}
         </li>
@@ -195,8 +200,8 @@ export default class Reviews extends React.Component {
       'template_id' : this.props.templateId,
       'sort'        : this.state.sort,
       'per-page'    : 10,
-      'expand'      : 'comments',
-      'locale'       : locale
+      'expand'      : 'comments,vote',
+      'locale'      : locale
     };
     if (this.props.accessToken) {
       params['access_token'] = this.props.accessToken;
@@ -467,19 +472,19 @@ export default class Reviews extends React.Component {
   };
 
   changeSortValue = (sorted) => {
-    let sortedBy = 'id DESC';
+    let sortedBy = '-id';
     switch (sorted) {
       case 'sortNewest':
-        sortedBy = 'id DESC';
+        sortedBy = '-id';
         break;
       case 'sortMosthelpful':
-        sortedBy = 'id DESC';
+        sortedBy = '-helpful';
         break;
       case 'sortTopratings':
-        sortedBy = 'score DESC,id DESC';
+        sortedBy = '-score,-id';
         break;
       case 'sortLowratings':
-        sortedBy = 'score ASC,id DESC';
+        sortedBy = 'score,-id';
         break;
       default:
         break;

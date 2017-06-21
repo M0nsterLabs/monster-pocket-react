@@ -415,6 +415,7 @@
 
         &-controls {
           margin-top: 20px;
+          overflow: auto;
         }
 
         &-reply {
@@ -502,6 +503,117 @@
       margin: 40px auto 20px;
       width: 191px;
       height: 150px;
+    }
+  }
+
+  &-votes {
+    float: right;
+    min-height: 20px;
+
+    &__item {
+      cursor: pointer;
+      display: inline-block;
+      background-repeat: no-repeat;
+      position: relative;
+      padding-left: 27px;
+      color: #90a4ae;
+      line-height: 24px;
+
+      &:hover {
+        color: #3A95EF;
+
+        &.review-votes__item {
+          &-up:before {
+            background-image: svg-load("../../images/icon-thumb-up-like-filled.svg", fill: #3A95EF);
+          }
+          &-down:before {
+            background-image: svg-load("../../images/icon-thumb-up-like-filled.svg", fill: #3A95EF);
+          }
+        }
+
+        .review-votes__item {
+          &-counter {
+            border: 1px solid #3A95EF;
+          }
+        }
+      }
+
+      &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        width: 17px;
+        height: 20px;
+      }
+
+      &-up {
+        margin-right: 40px;
+
+        &:before {
+          background-image: svg-load("../../images/icon-like-contour.svg", fill: #ffffff, stroke: #90A4AE);
+        }
+
+        &_active {
+          &:before {
+            background-image: svg-load("../../images/icon-thumb-up-like-filled.svg", fill: #3BB64E);
+          }
+
+          &:hover {
+            &.review-votes__item {
+              &-up {
+                color: #006023;
+
+                &:before {
+                  background-image: svg-load("../../images/icon-like-contour.svg", fill: #ffffff, stroke: #006023);
+                }
+
+                .review-votes__item-counter {
+                  border: 1px solid #006023;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &-down {
+        &:before {
+          background-image: svg-load("../../images/icon-like-contour.svg", fill: #ffffff, stroke: #90A4AE);
+          transform: rotate(180deg);
+        }
+
+        &_active {
+          &:before {
+            background-image: svg-load("../../images/icon-thumb-up-like-filled.svg",
+            fill: #3BB64E);
+          }
+
+          &:hover {
+            &.review-votes__item {
+              &-down {
+                color: #BF360C;
+
+                &:before {
+                  background-image: svg-load("../../images/icon-like-contour.svg", fill: #ffffff, stroke: #BF360C);
+                }
+
+                .review-votes__item-counter {
+                  border: 1px solid #BF360C;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &-counter {
+        height: 20px;
+        padding: 0 5px;
+        border: 1px solid #90a4ae;
+        border-radius: 3px;
+        margin-left: 10px;
+      }
     }
   }
 }

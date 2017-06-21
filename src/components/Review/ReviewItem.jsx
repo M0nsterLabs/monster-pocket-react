@@ -32,13 +32,18 @@ export default class ReviewItem extends React.Component {
     moderatorAva  : PropTypes.string,
     moderatorMail : PropTypes.string,
     status        : PropTypes.string,
-    moderable     : PropTypes.bool
+    moderable     : PropTypes.bool,
+    voteUp        : PropTypes.number,
+    voteDown      : PropTypes.number,
+    vote          : PropTypes.string
   };
 
   state = {
     showContentModerator: false,
     comments: [],
-    showModeratorClass: false
+    showModeratorClass: false,
+    voteUp: this.props.voteUp,
+    voteDown: this.props.voteDown
   };
 
   componentWillMount() {
@@ -171,8 +176,41 @@ export default class ReviewItem extends React.Component {
 
   replyButton = () => {
     return (
-      <div className="review__item-controls">
-        <span className="review__item-reply tm-icon icon-message" onClick={() => this.showForm()}>{this.context.i18n.l('Reply')}</span>
+      <span className="review__item-reply tm-icon icon-message" onClick={() => this.showForm()}>{this.context.i18n.l('Reply')}</span>
+    )
+  };
+
+  addVote = (type) => {
+    reviews.addReviewVote(this.props.accessToken, this.props.reviewId, {vote_type: type}).then(
+      (data) => {
+        console.log('data', data);
+        this.setState({
+          voteUp: data.items.vote_up,
+          voteDown: data.items.vote_down
+        });
+      }
+    );
+  };
+
+  voteControls = () => {
+    const {voteUp, voteDown} = this.state;
+    const {vote} = this.props;
+    return (
+      <div className="review-votes t3">
+        <span
+          className={`review-votes__item review-votes__item-up ${vote === "up" ? "review-votes__item-up_active" : ""}`}
+          onClick={() => this.addVote("up")}
+        >
+          {this.context.i18n.l("Helpful")}
+          {voteUp > 0 && <span className="review-votes__item-counter t5">{voteUp}</span>}
+        </span>
+        <span
+          className={`review-votes__item review-votes__item-down ${vote === "down" ? "review-votes__item-down_active" : ""}`}
+          onClick={() => this.addVote("down")}
+        >
+          {this.context.i18n.l("Useless")}
+          {voteDown > 0 && <span className="review-votes__item-counter t5">{voteDown}</span>}
+        </span>
       </div>
     )
   };
@@ -261,7 +299,10 @@ export default class ReviewItem extends React.Component {
          <div className={`review__item-content t3 review__item-content_${this.props.status}`} itemProp="description">
           {this.props.reviewContent}
         </div>
-        {this.props.moderable && this.replyButton()}
+        <div className="review__item-controls">
+          {this.voteControls()}
+          {this.props.moderable && this.replyButton()}
+        </div>
         <div className="review__item-comments">
           {this.showComments()}
           {this.formModerator()}
