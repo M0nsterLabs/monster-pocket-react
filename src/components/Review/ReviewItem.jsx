@@ -43,7 +43,8 @@ export default class ReviewItem extends React.Component {
     comments: [],
     showModeratorClass: false,
     voteUp: this.props.voteUp,
-    voteDown: this.props.voteDown
+    voteDown: this.props.voteDown,
+    vote: this.props.vote,
   };
 
   componentWillMount() {
@@ -183,7 +184,6 @@ export default class ReviewItem extends React.Component {
   addVote = (type) => {
     reviews.addReviewVote(this.props.accessToken, this.props.reviewId, {vote_type: type}).then(
       (data) => {
-        console.log('data', data);
         this.setState({
           voteUp: data.items.vote_up,
           voteDown: data.items.vote_down
@@ -192,21 +192,62 @@ export default class ReviewItem extends React.Component {
     );
   };
 
+  addVoteUp = () => {
+    this.addVote("up");
+    switch (this.state.vote) {
+      case "down":
+        this.setState({
+          vote: "up"
+        });
+        break;
+      case "up":
+        this.setState({
+          vote: ""
+        });
+        break;
+      default:
+        this.setState({
+          vote: "up"
+        });
+        break;
+    }
+  };
+
+  addVoteDown = () => {
+    this.addVote("down");
+    switch (this.state.vote) {
+      case "up":
+        this.setState({
+          vote: "down"
+        });
+        break;
+      case "down":
+        this.setState({
+          vote: ""
+        });
+        break;
+      default:
+        this.setState({
+          vote: "down"
+        });
+        break;
+    }
+  };
+
   voteControls = () => {
-    const {voteUp, voteDown} = this.state;
-    const {vote} = this.props;
+    const {voteUp, voteDown, vote} = this.state;
     return (
       <div className="review-votes t3">
         <span
           className={`review-votes__item review-votes__item-up ${vote === "up" ? "review-votes__item-up_active" : ""}`}
-          onClick={() => this.addVote("up")}
+          onClick={() => this.addVoteUp()}
         >
           {this.context.i18n.l("Helpful")}
           {voteUp > 0 && <span className="review-votes__item-counter t5">{voteUp}</span>}
         </span>
         <span
           className={`review-votes__item review-votes__item-down ${vote === "down" ? "review-votes__item-down_active" : ""}`}
-          onClick={() => this.addVote("down")}
+          onClick={() => this.addVoteDown()}
         >
           {this.context.i18n.l("Useless")}
           {voteDown > 0 && <span className="review-votes__item-counter t5">{voteDown}</span>}
