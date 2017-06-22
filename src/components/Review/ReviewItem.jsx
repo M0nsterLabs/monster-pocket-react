@@ -4,6 +4,7 @@ import StarsRating from 'quark/lib/StarsRating';
 import Avatar      from 'quark/lib/Avatar';
 import TA3         from 'quark/lib/textareas/TA3';
 import B1A         from 'quark/lib/buttons/B1A';
+import N1C         from 'quark/lib/notifications/N1C';
 import Config      from 'config.js';
 import ReviewsData from 'plasma-reviews-api-client-js';
 
@@ -35,7 +36,8 @@ export default class ReviewItem extends React.Component {
     moderable     : PropTypes.bool,
     voteUp        : PropTypes.number,
     voteDown      : PropTypes.number,
-    vote          : PropTypes.string
+    vote          : PropTypes.string,
+    noVote        : PropTypes.bool
   };
 
   state = {
@@ -195,11 +197,6 @@ export default class ReviewItem extends React.Component {
   addVoteUp = () => {
     this.addVote("up");
     switch (this.state.vote) {
-      case "down":
-        this.setState({
-          vote: "up"
-        });
-        break;
       case "up":
         this.setState({
           vote: ""
@@ -216,11 +213,6 @@ export default class ReviewItem extends React.Component {
   addVoteDown = () => {
     this.addVote("down");
     switch (this.state.vote) {
-      case "up":
-        this.setState({
-          vote: "down"
-        });
-        break;
       case "down":
         this.setState({
           vote: ""
@@ -234,24 +226,42 @@ export default class ReviewItem extends React.Component {
     }
   };
 
+  showControl = (type, clickVote, constrolText, controlNotification, stateVote) => {
+    const {vote} = this.state;
+    const {noVote, accessToken} = this.props;
+    return (
+      <div className={`review-votes__control ${noVote ? "review-votes__control_no-vote" : ""}`}>
+          <span
+            className={`review-votes__item review-votes__item-${type} ${vote === type ? `review-votes__item-${type}_active` : ""}`}
+            onClick={() => {!noVote ? clickVote() : ""}}
+          >
+            {constrolText}
+            {stateVote > 0 && <span className="review-votes__item-counter t5">{stateVote}</span>}
+          </span>
+      {noVote || !accessToken
+        ? <N1C
+            className="review-votes__notification"
+            text={controlNotification}
+          />
+        : ''}
+      </div>
+    )
+  };
+
   voteControls = () => {
-    const {voteUp, voteDown, vote} = this.state;
+    const {voteUp, voteDown} = this.state;
+    const {accessToken} = this.props;
+    const {l} = this.context.i18n;
+    let notificationText ="";
+    if (accessToken) {
+      notificationText = l("You can't estimate your own review");
+    } else {
+      notificationText = l("Please log in at first");
+    }
     return (
       <div className="review-votes t3">
-        <span
-          className={`review-votes__item review-votes__item-up ${vote === "up" ? "review-votes__item-up_active" : ""}`}
-          onClick={() => this.addVoteUp()}
-        >
-          {this.context.i18n.l("Helpful")}
-          {voteUp > 0 && <span className="review-votes__item-counter t5">{voteUp}</span>}
-        </span>
-        <span
-          className={`review-votes__item review-votes__item-down ${vote === "down" ? "review-votes__item-down_active" : ""}`}
-          onClick={() => this.addVoteDown()}
-        >
-          {this.context.i18n.l("Useless")}
-          {voteDown > 0 && <span className="review-votes__item-counter t5">{voteDown}</span>}
-        </span>
+        {this.showControl("up", this.addVoteUp, l("Helpful"), notificationText, voteUp)}
+        {this.showControl("down", this.addVoteDown, l("Useless"), notificationText, voteDown)}
       </div>
     )
   };

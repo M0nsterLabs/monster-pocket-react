@@ -183,6 +183,7 @@ export default class Reviews extends React.Component {
             status={this.state.userReview.status}
             voteUp={this.state.userReview.vote_up}
             voteDown={this.state.userReview.vote_down}
+            noVote
           />
           {this.renderNotification(this.state.userReview.status)}
         </li>
