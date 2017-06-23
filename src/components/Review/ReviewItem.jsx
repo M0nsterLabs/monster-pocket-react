@@ -230,10 +230,10 @@ export default class ReviewItem extends React.Component {
     const {vote} = this.state;
     const {noVote, accessToken} = this.props;
     return (
-      <div className={`review-votes__control ${noVote ? "review-votes__control_no-vote" : ""}`}>
+      <div className={`review-votes__control`}>
           <span
             className={`review-votes__item review-votes__item-${type} ${vote === type ? `review-votes__item-${type}_active` : ""}`}
-            onClick={() => {!noVote ? clickVote() : ""}}
+            onClick={() => {!noVote || accessToken ? clickVote() : ""}}
           >
             {constrolText}
             {stateVote > 0 && <span className="review-votes__item-counter t5">{stateVote}</span>}
@@ -250,7 +250,7 @@ export default class ReviewItem extends React.Component {
 
   voteControls = () => {
     const {voteUp, voteDown} = this.state;
-    const {accessToken} = this.props;
+    const {accessToken, noVote} = this.props;
     const {l} = this.context.i18n;
     let notificationText ="";
     if (accessToken) {
@@ -259,7 +259,7 @@ export default class ReviewItem extends React.Component {
       notificationText = l("Please log in at first");
     }
     return (
-      <div className="review-votes t3">
+      <div className={`review-votes t3 ${noVote || !accessToken ? "review-votes__no-vote" : ""}`}>
         {this.showControl("up", this.addVoteUp, l("Helpful"), notificationText, voteUp)}
         {this.showControl("down", this.addVoteDown, l("Useless"), notificationText, voteDown)}
       </div>

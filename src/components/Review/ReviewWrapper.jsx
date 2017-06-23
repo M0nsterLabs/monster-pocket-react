@@ -120,7 +120,7 @@ export default class Reviews extends React.Component {
                 comments      = {review.comments}
                 voteUp        = {review.vote_up}
                 voteDown      = {review.vote_down}
-                vote          = {review.vote ? review.vote.vote : ''}
+                vote          = {this.props.accessToken && review.vote ? review.vote.vote : ''}
               />
             </li>
           );
