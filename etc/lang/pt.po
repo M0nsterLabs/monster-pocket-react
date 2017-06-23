@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 18:21+0300\n"
+"POT-Creation-Date: 2017-06-23 14:32+0300\n"
 "PO-Revision-Date: 2017-06-06 09:48+0000\n"
 "Last-Translator: bananova <>\n"
 "Language-Team: Portuguese (Brazilian) (http://example.com/transifex/projects/"
@@ -64,6 +64,18 @@ msgstr "Pressione Ctrl + Enter para enviar sua mensagem"
 
 msgid "Reply"
 msgstr "Resposta"
+
+msgid "You can't estimate your own review"
+msgstr ""
+
+msgid "Please log in at first"
+msgstr ""
+
+msgid "Helpful"
+msgstr ""
+
+msgid "Useless"
+msgstr ""
 
 msgid "Jan"
 msgstr "Jan"
