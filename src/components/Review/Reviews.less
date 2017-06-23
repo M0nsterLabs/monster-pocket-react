@@ -414,6 +414,9 @@
         }
 
         &-controls {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
           margin-top: 20px;
         }
 
@@ -506,7 +509,6 @@
   }
 
   &-votes {
-    float: right;
     min-height: 20px;
 
     &__notification {
@@ -519,7 +521,7 @@
     }
 
     &__control {
-      display: inline-block;
+      display: inline-flex;
       cursor: pointer;
       position: relative;
 
@@ -554,6 +556,23 @@
 
       &_no-vote {
         cursor: not-allowed;
+
+        &:hover {
+          .review-votes__item:hover {
+            color: #90a4ae;
+
+            &:before, &:after {
+              background-image: svg-load("../../images/icon-like-contour.svg",
+              fill: #ffffff,
+              stroke: #90A4AE);
+            }
+
+            &-counter {
+              border: 1px solid #90a4ae;
+              color: #90a4ae;
+            }
+          }
+        }
       }
     }
 
@@ -580,6 +599,7 @@
           &__item {
             &-counter {
               border: 1px solid #3A95EF;
+              color: #3A95EF;
             }
           }
         }
@@ -589,7 +609,7 @@
         position: absolute;
         content: "";
         left: 0;
-        top: 0;
+        top: -2px;
         width: 17px;
         height: 20px;
       }
@@ -616,6 +636,7 @@
 
                 .review-votes__item-counter {
                   border: 1px solid #006023;
+                  color: #006023;
                 }
               }
             }
@@ -626,13 +647,13 @@
       &-down {
         &:before {
           background-image: svg-load("../../images/icon-like-contour.svg", fill: #ffffff, stroke: #90A4AE);
-          transform: rotate(180deg);
+          transform: scale(1, -1);
         }
 
         &_active {
           &:before {
             background-image: svg-load("../../images/icon-thumb-up-like-filled.svg",
-            fill: #3BB64E);
+            fill: #ED4F30);
           }
 
           &:hover {
@@ -646,6 +667,7 @@
 
                 .review-votes__item-counter {
                   border: 1px solid #BF360C;
+                  color: #BF360C;
                 }
               }
             }
@@ -654,6 +676,7 @@
       }
 
       &-counter {
+        color: #90a4ae;
         height: 20px;
         padding: 0 5px;
         border: 1px solid #90a4ae;

@@ -351,8 +351,10 @@ export default class ReviewItem extends React.Component {
           {this.props.reviewContent}
         </div>
         <div className="review__item-controls">
+          <div className="review-replies">
+            {this.props.moderable && this.replyButton()}
+          </div>
           {this.voteControls()}
-          {this.props.moderable && this.replyButton()}
         </div>
         <div className="review__item-comments">
           {this.showComments()}
