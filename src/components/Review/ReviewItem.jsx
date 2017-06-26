@@ -233,7 +233,7 @@ export default class ReviewItem extends React.Component {
       <div className={`review-votes__control`}>
           <span
             className={`review-votes__item review-votes__item-${type} ${vote === type ? `review-votes__item-${type}_active` : ""}`}
-            onClick={() => {!noVote || accessToken ? clickVote() : ""}}
+            onClick={() => {!noVote && accessToken ? clickVote() : ""}}
           >
             {constrolText}
             {stateVote > 0 && <span className="review-votes__item-counter t5">{stateVote}</span>}
