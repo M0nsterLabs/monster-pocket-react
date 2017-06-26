@@ -294,7 +294,6 @@ export default class Reviews extends React.Component {
       });
     }
   };
-  // /Get reviews on template
 
   // Get count of reviews from other locale
   getCountReviewsOtherLocale = (reviews, params = {}) => {
@@ -473,7 +472,7 @@ export default class Reviews extends React.Component {
   };
 
   changeSortValue = (sorted) => {
-    let sortedBy = '-id';
+    let sortedBy;
     switch (sorted) {
       case 'sortNewest':
         sortedBy = '-id';
@@ -488,6 +487,7 @@ export default class Reviews extends React.Component {
         sortedBy = 'score,-id';
         break;
       default:
+        sortedBy = '-id';
         break;
     }
     this.setState({
