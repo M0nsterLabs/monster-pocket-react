@@ -512,7 +512,7 @@
     min-height: 20px;
 
     &__notification {
-      display: block;
+      display: none;
       opacity: 0;
       top: 35px !important;
       width: auto !important;
@@ -531,6 +531,7 @@
       &:hover {
         .review-votes {
           &__notification {
+            display: block;
 
             &.quark-animated-tooltip {
               &_open {
