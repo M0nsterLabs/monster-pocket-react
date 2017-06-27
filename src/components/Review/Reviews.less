@@ -557,32 +557,32 @@
           }
         }
 
-        color: #3A95EF;
+        color: @primary;
 
         .review-votes {
           &__item {
-            color: #3A95EF;
+            color: @primary;
 
             &-up {
               &:before {
                 background-image: svg-load("../../images/icon-thumb-up-like-filled.svg",
-                fill: #3A95EF);
+                fill: #2196f3);
               }
 
               &_active {
                 &.review-votes__item {
                   &-up {
-                    color: #006023;
+                    color: @success;
 
                     &:before {
                       background-image: svg-load("../../images/icon-like-contour.svg",
                       fill: #ffffff,
-                      stroke: #006023);
+                      stroke: #1ab744);
                     }
 
                     .review-votes__item-counter {
-                      border: 1px solid #006023;
-                      color: #006023;
+                      border: 1px solid @success;
+                      color: @success;
                     }
                   }
                 }
@@ -591,31 +591,31 @@
             &-down {
               &:before {
                 background-image: svg-load("../../images/icon-thumb-up-like-filled.svg",
-                fill: #3A95EF);
+                fill: #2196F3);
               }
 
               &_active {
                 &.review-votes__item {
                   &-down {
-                    color: @danger_link_hover;
+                    color: @danger;
 
                     &:before {
                       background-image: svg-load("../../images/icon-like-contour.svg",
                       fill: #ffffff,
-                      stroke: #BF360C);
+                      stroke: #F4511E);
                     }
 
                     .review-votes__item-counter {
-                      border: 1px solid #BF360C;
-                      color: #BF360C;
+                      border: 1px solid @danger;
+                      color: @danger;
                     }
                   }
                 }
               }
             }
             &-counter {
-              border: 1px solid #3A95EF;
-              color: #3A95EF;
+              border: 1px solid @primary;
+              color: @primary;
             }
           }
         }
