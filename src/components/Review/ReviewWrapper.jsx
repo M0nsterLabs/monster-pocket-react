@@ -475,19 +475,19 @@ export default class Reviews extends React.Component {
     let sortedBy;
     switch (sorted) {
       case 'sortNewest':
-        sortedBy = '-id';
+        sortedBy = '-created_at';
         break;
       case 'sortMosthelpful':
-        sortedBy = '-helpful';
+        sortedBy = '-helpful,-created_at';
         break;
       case 'sortTopratings':
-        sortedBy = '-score,-id';
+        sortedBy = '-score,-created_at';
         break;
       case 'sortLowratings':
-        sortedBy = 'score,-id';
+        sortedBy = 'score,-created_at';
         break;
       default:
-        sortedBy = '-id';
+        sortedBy = '-created_at';
         break;
     }
     this.setState({
@@ -499,7 +499,7 @@ export default class Reviews extends React.Component {
       this.getReviews(LOCALES[this.iteratorLocale]);
     })
   };
-  
+
   sortReviews = () => {
     const sortValue = [
       this.context.i18n.l('Newest'),
