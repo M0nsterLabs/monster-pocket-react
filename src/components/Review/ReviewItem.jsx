@@ -4,6 +4,7 @@ import StarsRating from 'quark/lib/StarsRating';
 import Avatar      from 'quark/lib/Avatar';
 import TA3         from 'quark/lib/textareas/TA3';
 import B1A         from 'quark/lib/buttons/B1A';
+import N1C         from 'quark/lib/notifications/N1C';
 import Config      from 'config.js';
 import ReviewsData from 'plasma-reviews-api-client-js';
 
@@ -32,13 +33,20 @@ export default class ReviewItem extends React.Component {
     moderatorAva  : PropTypes.string,
     moderatorMail : PropTypes.string,
     status        : PropTypes.string,
-    moderable     : PropTypes.bool
+    moderable     : PropTypes.bool,
+    voteUp        : PropTypes.number,
+    voteDown      : PropTypes.number,
+    vote          : PropTypes.string,
+    noVote        : PropTypes.bool
   };
 
   state = {
     showContentModerator: false,
     comments: [],
-    showModeratorClass: false
+    showModeratorClass: false,
+    voteUp: this.props.voteUp,
+    voteDown: this.props.voteDown,
+    vote: this.props.vote,
   };
 
   componentWillMount() {
@@ -171,8 +179,89 @@ export default class ReviewItem extends React.Component {
 
   replyButton = () => {
     return (
-      <div className="review__item-controls">
-        <span className="review__item-reply tm-icon icon-message" onClick={() => this.showForm()}>{this.context.i18n.l('Reply')}</span>
+      <span className="review__item-reply tm-icon icon-message" onClick={() => this.showForm()}>{this.context.i18n.l('Reply')}</span>
+    )
+  };
+
+  addVote = (type) => {
+    reviews.addReviewVote(this.props.accessToken, this.props.reviewId, {vote_type: type}).then(
+      (data) => {
+        this.setState({
+          voteUp: data.items.vote_up,
+          voteDown: data.items.vote_down
+        });
+      }
+    );
+  };
+
+  addVoteUp = () => {
+    this.addVote("up");
+    switch (this.state.vote) {
+      case "up":
+        this.setState({
+          vote: ""
+        });
+        break;
+      default:
+        this.setState({
+          vote: "up"
+        });
+        break;
+    }
+  };
+
+  addVoteDown = () => {
+    this.addVote("down");
+    switch (this.state.vote) {
+      case "down":
+        this.setState({
+          vote: ""
+        });
+        break;
+      default:
+        this.setState({
+          vote: "down"
+        });
+        break;
+    }
+  };
+
+  showControl = (type, clickVote, constrolText, controlNotification, stateVote) => {
+    const {vote} = this.state;
+    const {noVote, accessToken} = this.props;
+    return (
+      <div className={`review-votes__control`}>
+          <span
+            className={`review-votes__item review-votes__item-${type} ${vote === type ? `review-votes__item-${type}_active` : ""}`}
+            onClick={() => {!noVote && accessToken ? clickVote() : ""}}
+          >
+            {constrolText}
+            {stateVote > 0 && <span className="review-votes__item-counter t5">{stateVote}</span>}
+          </span>
+      {noVote || !accessToken
+        ? <N1C
+            className="review-votes__notification"
+            text={controlNotification}
+          />
+        : ''}
+      </div>
+    )
+  };
+
+  voteControls = () => {
+    const {voteUp, voteDown} = this.state;
+    const {accessToken, noVote} = this.props;
+    const {l} = this.context.i18n;
+    let notificationText ="";
+    if (accessToken) {
+      notificationText = l("You can't estimate your own review");
+    } else {
+      notificationText = l("Please log in at first");
+    }
+    return (
+      <div className={`review-votes t3 ${noVote || !accessToken ? "review-votes__no-vote" : ""}`}>
+        {this.showControl("up", this.addVoteUp, l("Helpful"), notificationText, voteUp)}
+        {this.showControl("down", this.addVoteDown, l("Useless"), notificationText, voteDown)}
       </div>
     )
   };
@@ -261,7 +350,12 @@ export default class ReviewItem extends React.Component {
          <div className={`review__item-content t3 review__item-content_${this.props.status}`} itemProp="description">
           {this.props.reviewContent}
         </div>
-        {this.props.moderable && this.replyButton()}
+        <div className="review__item-controls">
+          <div className="review-replies">
+            {this.props.moderable && this.replyButton()}
+          </div>
+          {this.voteControls()}
+        </div>
         <div className="review__item-comments">
           {this.showComments()}
           {this.formModerator()}

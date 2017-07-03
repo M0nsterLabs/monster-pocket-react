@@ -8,14 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-01 10:00+0300\n"
+"POT-Creation-Date: 2017-06-23 14:32+0300\n"
 "PO-Revision-Date: 2017-06-01 07:58+0000\n"
 "Last-Translator: tmcn <>\n"
-"Language-Team: Chinese (China) (http://example.com/transifex/projects/p/tm/team/zh_CN/)\n"
+"Language-Team: Chinese (China) (http://example.com/transifex/projects/p/tm/"
+"team/zh_CN/)\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid "Review must contain at least 60 symbols"
@@ -40,8 +41,8 @@ msgid "Thank you for your review!"
 msgstr "谢谢您的评论！"
 
 msgid ""
-"We've generated your one-time promo-code and within 10 minutes it will reach"
-" your email:"
+"We've generated your one-time promo-code and within 10 minutes it will reach "
+"your email:"
 msgstr "您的一次性促销代码已经生成，它会在10分钟内被发送至您的邮箱。"
 
 msgid "on all our themes"
@@ -61,6 +62,18 @@ msgstr "请同时按住Ctrl+Enter键以发送信息"
 
 msgid "Reply"
 msgstr "回复"
+
+msgid "You can't estimate your own review"
+msgstr ""
+
+msgid "Please log in at first"
+msgstr ""
+
+msgid "Helpful"
+msgstr ""
+
+msgid "Useless"
+msgstr ""
 
 msgid "Jan"
 msgstr "一月"
@@ -121,14 +134,18 @@ msgstr "在"
 
 msgid ""
 "The review is visible only for you. Sorry, but we need to check your review "
-"before publication. In case your review corresponds to our rules, it will be"
-" published soon :)"
-msgstr "此评论目前仅对您可见。依照公司相关规定，我们会对您的评论内容进行相关审查，给您带来不便，敬请谅解。若您的评论通过审查，则会被很快发表:)"
+"before publication. In case your review corresponds to our rules, it will be "
+"published soon :)"
+msgstr ""
+"此评论目前仅对您可见。依照公司相关规定，我们会对您的评论内容进行相关审查，给"
+"您带来不便，敬请谅解。若您的评论通过审查，则会被很快发表:)"
 
 msgid ""
 "Unfortunately, we can’t post your review because it doesn’t meet our "
 "guidelines, please try again with another review."
-msgstr "对不起，您的评论未能通过审查，我们不能对其进行发表，请您修改后再次申请相关审查，谢谢您的合作！"
+msgstr ""
+"对不起，您的评论未能通过审查，我们不能对其进行发表，请您修改后再次申请相关审"
+"查，谢谢您的合作！"
 
 msgid "Only buyers of that product can rate it"
 msgstr "仅限此产品购买者对其进行评价"
@@ -149,8 +166,21 @@ msgstr "查看"
 msgid "REVIEWS & RATINGS"
 msgstr "评论与评分"
 
-msgid " REVIEWS & RATINGS"
-msgstr "评论与评分"
+msgid "Newest"
+msgstr ""
+
+msgid "Most helpful"
+msgstr ""
+
+msgid "Top ratings"
+msgstr ""
+
+msgid "Low ratings"
+msgstr ""
+
+#, fuzzy
+msgid "Show first:"
+msgstr "查看更多"
 
 msgid "Show more"
 msgstr "查看更多"
@@ -167,3 +197,5 @@ msgstr "Social test"
 msgid "Reviews & Ratings"
 msgstr "评论与评分"
 
+#~ msgid " REVIEWS & RATINGS"
+#~ msgstr "评论与评分"
