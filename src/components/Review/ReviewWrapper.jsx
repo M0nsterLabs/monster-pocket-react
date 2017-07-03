@@ -1,17 +1,18 @@
-import React                        from 'react';
-import Config                       from 'config.js';
-import _                            from 'lodash';
-import PropTypes                    from 'prop-types';
-import ContentEmptyMessage          from 'components/ContentEmptyMessage/';
-import L1                           from 'quark/lib/loaders/L1';
-import L3                           from 'quark/lib/loaders/L3';
-import B2E                          from 'quark/lib/buttons/B2E';
+import React               from 'react';
+import Config              from 'config.js';
+import _                   from 'lodash';
+import PropTypes           from 'prop-types';
+import ContentEmptyMessage from 'components/ContentEmptyMessage/';
+import L1                  from 'quark/lib/loaders/L1';
+import L3                  from 'quark/lib/loaders/L3';
+import B2E                 from 'quark/lib/buttons/B2E';
+import DD1                 from 'quark/lib/dropdowns/DD1';
 
-import ReviewsData                  from 'plasma-reviews-api-client-js';
-import ProductsData                 from 'tm-products-api-client-js';
+import ReviewsData         from 'plasma-reviews-api-client-js';
+import ProductsData        from 'tm-products-api-client-js';
 
-import ReviewItem                   from './ReviewItem';
-import ReviewEditor                 from './ReviewEditor';
+import ReviewItem          from './ReviewItem';
+import ReviewEditor        from './ReviewEditor';
 
 import {
   getCdnImageUrl,
@@ -57,7 +58,8 @@ export default class Reviews extends React.Component {
     authorId               : 0,
     countReviewOtherLocale : 0,
     otherLocale            : false,
-    showMoreVisible        : false
+    showMoreVisible        : false,
+    sort                   : '-id'
   };
 
   constructor (props) {
@@ -116,6 +118,9 @@ export default class Reviews extends React.Component {
                 moderatorAva  = {this.state.user.avatar}
                 moderatorMail = {this.state.userMail}
                 comments      = {review.comments}
+                voteUp        = {review.vote_up}
+                voteDown      = {review.vote_down}
+                vote          = {this.props.accessToken && review.vote ? review.vote.vote : ''}
               />
             </li>
           );
@@ -176,6 +181,9 @@ export default class Reviews extends React.Component {
             moderatorMail={this.state.userMail}
             comments={this.state.userReview.comments}
             status={this.state.userReview.status}
+            voteUp={this.state.userReview.vote_up}
+            voteDown={this.state.userReview.vote_down}
+            noVote
           />
           {this.renderNotification(this.state.userReview.status)}
         </li>
@@ -191,10 +199,10 @@ export default class Reviews extends React.Component {
     }
     let params = {
       'template_id' : this.props.templateId,
-      'sort'        : 'id DESC',
+      'sort'        : this.state.sort,
       'per-page'    : 10,
-      'expand'      : 'comments',
-      'locale'       : locale
+      'expand'      : 'comments,vote',
+      'locale'      : locale
     };
     if (this.props.accessToken) {
       params['access_token'] = this.props.accessToken;
@@ -286,7 +294,6 @@ export default class Reviews extends React.Component {
       });
     }
   };
-  // /Get reviews on template
 
   // Get count of reviews from other locale
   getCountReviewsOtherLocale = (reviews, params = {}) => {
@@ -464,6 +471,60 @@ export default class Reviews extends React.Component {
     )
   };
 
+  changeSortValue = (sorted) => {
+    let sortedBy;
+    switch (sorted) {
+      case 'sortNewest':
+        sortedBy = '-created_at';
+        break;
+      case 'sortMosthelpful':
+        sortedBy = '-helpful,-created_at';
+        break;
+      case 'sortTopratings':
+        sortedBy = '-score,-created_at';
+        break;
+      case 'sortLowratings':
+        sortedBy = 'score,-created_at';
+        break;
+      default:
+        sortedBy = '-created_at';
+        break;
+    }
+    this.setState({
+      sort: sortedBy,
+      reviews: {
+        items: []
+      },
+    }, () => {
+      this.getReviews(LOCALES[this.iteratorLocale]);
+    })
+  };
+
+  sortReviews = () => {
+    const sortValue = [
+      this.context.i18n.l('Newest'),
+      this.context.i18n.l('Most helpful'),
+      this.context.i18n.l('Top ratings'),
+      this.context.i18n.l('Low ratings')
+    ];
+    let form;
+    return (
+      <DD1
+        className="reviews__sort"
+        options={sortValue.map(sortItem => ({
+          label: sortItem,
+          icon: ``,
+          value: `sort${sortItem.replace(/\s/g,'')}`,
+        }))}
+        ref={(ref) => { form = ref; }}
+        label={this.context.i18n.l('Show first:')}
+        pattern=""
+        defaultValue={"Newest" || null}
+        onChange={value => this.changeSortValue(value)}
+      />
+    )
+  };
+
   render () {
     return (
       <div className="page-content"><span className="reviews__count">{this.state.reviews.totalCount}</span>
@@ -494,15 +555,23 @@ export default class Reviews extends React.Component {
                 )
               : (
                 <div className="reviews">
-                  <h2 className="h3"><span className="reviews__total-count">{this.state.reviews.totalCount}</span> {this.context.i18n.l(`REVIEWS & RATINGS`)}</h2>
+                  <div className="reviews__header">
+                    <h2 className="h3"><span className="reviews__total-count">{this.state.reviews.totalCount}</span> {this.context.i18n.l(`REVIEWS & RATINGS`)}</h2>
+                    {this.sortReviews()}
+                  </div>
+
                   {this.renderReviewEditor()}
 
-                  <ul className="reviews__list">
-                    {this.renderMyReviews()}
-                    {this.renderReviews()}
-                  </ul>
+                  {_.isEmpty(this.state.reviews.items)
+                    ? <L1 className="content-loader" />
+                    :
+                      <ul className="reviews__list">
+                        {this.renderMyReviews()}
+                        {this.renderReviews()}
+                      </ul>
+                  }
 
-                  {this.state.showMoreVisible && (
+                  {this.state.showMoreVisible && !_.isEmpty(this.state.reviews.items) && (
                     <B2E
                       className = "reviews__btn"
                       id        = "show-more-reviews"
