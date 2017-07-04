@@ -496,7 +496,8 @@ export default class Reviews extends React.Component {
         items: []
       },
     }, () => {
-      this.getReviews(LOCALES[this.iteratorLocale]);
+      console.log(this.state.otherLocale, this.iteratorLocale);
+      this.getReviews(this.state.otherLocale ? '' : LOCALES[this.iteratorLocale]);
     })
   };
 
