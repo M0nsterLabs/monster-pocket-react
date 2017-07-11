@@ -22,49 +22,53 @@ export default class ReviewStatistics extends React.Component {
     this.countPercents();
   };
 
-  showStatisticsLine = (stars) => {
-    let {countReview} = this.props;
-    if (iterator >= 5) return;
-    iterator++;
-    if (countReview[iterator-1] === 0) return;
-
-    var widthLine,
-      color,
-      getMaxPercent = this.getMaxPercent();
-      widthLine = percentReview[iterator-1]*lineBlockWidth/getMaxPercent;
-
+  setColor = (percent) => {
+    let color;
     switch (true) {
-      case (percentReview[iterator-1] >= 0) && (percentReview[iterator-1] <= 9) :
+      case (percent >= 0) && (percent <= 9) :
         color = "#1976D2";
         break;
-      case (percentReview[iterator-1] >= 10) && (percentReview[iterator-1] <= 19) :
+      case (percent >= 10) && (percent <= 19) :
         color = "#2196F3";
         break;
-      case (percentReview[iterator-1] >= 20) && (percentReview[iterator-1] <= 29) :
+      case (percent >= 20) && (percent <= 29) :
         color = "#42A5F5";
         break;
-      case (percentReview[iterator-1] >= 30) && (percentReview[iterator-1] <= 39) :
+      case (percent >= 30) && (percent <= 39) :
         color = "#64B5F6";
         break;
-      case (percentReview[iterator-1] >= 40) && (percentReview[iterator-1] <= 49) :
+      case (percent >= 40) && (percent <= 49) :
         color = "#90CAF9";
         break;
-      case (percentReview[iterator-1] >= 50) && (percentReview[iterator-1] <= 59) :
+      case (percent >= 50) && (percent <= 59) :
         color = "#FFE082";
         break;
-      case (percentReview[iterator-1] >= 60) && (percentReview[iterator-1] <= 69) :
+      case (percent >= 60) && (percent <= 69) :
         color = "#FFCA28";
         break;
-      case (percentReview[iterator-1] >= 70) && (percentReview[iterator-1] <= 79) :
+      case (percent >= 70) && (percent <= 79) :
         color = "#FFAB00";
         break;
-      case (percentReview[iterator-1] >= 80) && (percentReview[iterator-1] <= 89) :
+      case (percent >= 80) && (percent <= 89) :
         color = "#FF8F00";
         break;
       default :
         color = "#FF6F00";
         break;
     }
+    return color;
+  };
+
+  showStatisticsLine = (stars) => {
+    let {countReview} = this.props;
+    if (iterator >= 5) return;
+    iterator++;
+    if (countReview[iterator-1] === 0) return;
+
+    let getMaxPercent = this.getMaxPercent(),
+      percent = percentReview[iterator-1],
+      widthLine = percent*lineBlockWidth/getMaxPercent,
+      color = this.setColor(percent);
 
     return (
         <div className="statistics__line-block js-statistic">
