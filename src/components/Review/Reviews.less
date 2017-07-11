@@ -108,6 +108,11 @@
       }
     }
   }
+  &__infographics {
+    &-text-new-page {
+      display: none;
+    }
+  }
 }
 
 .review {
@@ -140,62 +145,6 @@
     text-transform: uppercase;
     margin: 0;
     font-weight: bold;
-  }
-
-  .rating {
-    float: right;
-    margin-top: 3px;
-
-    &__text {
-      float: left;
-      margin: 0 10px 0 0;
-
-      &_new-page {
-        display: none;
-      }
-    }
-
-    .rating__stars {
-      margin-top: 3px;
-    }
-
-    &__stars {
-      float: left;
-    }
-  }
-
-  .statistics {
-    margin: @spacing4x 0 @spacing8x;
-
-    &__stars {
-      width: 180px;
-      margin-right: @spacing2x;
-      text-align: right;
-    }
-
-    &__line-block {
-      margin-bottom: @spacing2x;
-      overflow: hidden;
-    }
-
-    &__line-wrap {
-      float: left;
-    }
-
-    &__line {
-      float: left;
-      position: relative;
-      height: @spacing2x;
-      border-radius: 2px;
-      background: @important-2;
-    }
-
-    &__percent {
-      padding-left: @spacing1x;
-      float: left;
-      width: @spacing4x;
-      line-height: @spacing2x;
-    }
   }
 
   .stars {
@@ -487,12 +436,6 @@
 
     .button {
       padding: 0 30px;
-    }
-  }
-
-  &__infographics {
-    &-text-new-page {
-      display: none;
     }
   }
 
@@ -1218,6 +1161,69 @@
 
 .content-loader {
   align-self: center;
+}
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__text {
+    float: left;
+    margin-right: @spacing1x;
+
+    &_new-page {
+      display: none;
+    }
+  }
+
+  &__stars {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.statistics {
+  margin: @spacing4x 0 @spacing8x;
+
+  &__stars {
+    width: 180px;
+    margin-right: @spacing2x;
+    text-align: right;
+
+    .stars-rating__icon {
+      border-top-width: 2px;
+      border-bottom-width: 0;
+    }
+  }
+
+  &__line-block {
+    margin-bottom: @spacing2x;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__line-wrap {
+
+  }
+
+  &__line {
+    float: left;
+    position: relative;
+    height: @spacing2x;
+    border-radius: 2px;
+    background: @important-2;
+  }
+
+  &__percent {
+    padding-left: @spacing1x;
+    float: left;
+    width: @spacing4x;
+    line-height: @spacing2x;
+  }
 }
 
 @media only screen and (max-width: 1599px) {
