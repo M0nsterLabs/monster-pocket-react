@@ -1013,8 +1013,11 @@
   margin-top: -2px;
 
   .stars-rating__icon {
+    padding-right: 0;
+    margin-right: 5px;
+
     &:last-child {
-      padding-right: 0;
+      margin-right: 0;
     }
 
     &:first-child {
@@ -1207,7 +1210,8 @@
   }
 
   &__line-wrap {
-
+    position: relative;
+    margin-right: 40px;
   }
 
   &__line {
@@ -1219,8 +1223,8 @@
   }
 
   &__percent {
-    padding-left: @spacing1x;
-    float: left;
+    position: absolute;
+    right: -50px;
     width: @spacing4x;
     line-height: @spacing2x;
   }

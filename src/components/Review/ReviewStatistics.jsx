@@ -64,12 +64,12 @@ export default class ReviewStatistics extends React.Component {
     if (iterator >= 5) return;
     iterator++;
     if (countReview[iterator-1] === 0) return;
-
+    lineBlockWidth = document.querySelector(".page-content").clientWidth - 240;
     let getMaxPercent = this.getMaxPercent(),
       percent = percentReview[iterator-1],
       widthLine = percent*lineBlockWidth/getMaxPercent,
-      color = this.setColor(percent);
-
+      color = this.setColor(percent),
+      widthLinePercent = widthLine*100/lineBlockWidth +'%';
     return (
         <div className="statistics__line-block js-statistic">
           <div className="statistics__stars js-statistics-stars rating__stars rating-stars-block">
@@ -79,9 +79,10 @@ export default class ReviewStatistics extends React.Component {
             />
             <span className="t5 js-statistic-count">{countReview[iterator-1]}</span>
           </div>
-          <div className="statistics__line-wrap js-line-wrap" style={{"color": color}}>
-            <div className="statistics__line js-statistic-line" style={{"width": widthLine, "backgroundColor": color}}></div>
-            <span className="statistics__percent t5 js-statistic-percent" style={{"color": color}}>{percentReview[iterator-1]}% </span>
+          <div className="statistics__line-wrap js-line-wrap" style={{"color": color, width: `calc(100% - 220px)`}}>
+            <div className="statistics__line js-statistic-line" style={{ width: widthLinePercent, "backgroundColor": color}}>
+              <span className="statistics__percent t5 js-statistic-percent" style={{"color": color}}>{percentReview[iterator-1]}% </span>
+            </div>
           </div>
         </div>
     )
@@ -110,13 +111,6 @@ export default class ReviewStatistics extends React.Component {
         }
       }
     }
-  };
-
-  lineBlockWidth = () => {
-    let reviewsStatisticsWidth = document.getElementsByClassName('js-reviews-statistics')[0].clientWidth - 40;
-    return document.getElementById('preview-page').classList.contains('item-page')
-      ? reviewsStatisticsWidth
-      : reviewsStatisticsWidth - document.getElementsByClassName('js-statistics-stars')[0].clientWidth;
   };
 
   getMaxPercent = () => {
