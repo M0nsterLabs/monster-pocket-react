@@ -86,7 +86,7 @@
   },
   "dependencies": {
     "plasma-membership-api-client-js": "^1.0.17",
-    "plasma-order-api-client-js": "^1.0.6",
+    "plasma-order-api-client-js": "^1.0.7",
     "quark": "git+https://git@github.com/templatemonster/QUARK-React.git#feature/PTR-2225"
   },
   "babel": {

@@ -16,7 +16,7 @@ module.exports = {
   output: {
     path     : buildPath,
     filename : '../build/[name].js',
-    library  : ['[name]']
+    library  : '[name]'
   },
   externals: {
     'react'     : 'React',
