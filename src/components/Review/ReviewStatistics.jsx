@@ -124,21 +124,18 @@ export default class ReviewStatistics extends React.Component {
   };
 
   render() {
+    let {averageRating} = this.props;
     return (
       <div className="reviews__infographics">
         <div className="rating">
           <h3 className="rating__name h3">{this.context.i18n.l('STATISTICS')}</h3>
-          <div
-            className="rating__stars"
-            itemProp="aggregateRating"
-            itemScope itemType="http://schema.org/AggregateRating"
-          >
+          <div className="rating__stars">
             <meta itemProp="ratingValue" content = {this.props.averageRating} />
             <span className="rating__text t1">
               {this.context.i18n.l('Average rating')}:
             </span>
             <StarsRating
-              defaultRating={this.props.averageRating}
+              defaultRating={averageRating}
               disabled={true}
             />
           </div>

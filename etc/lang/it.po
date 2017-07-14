@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 14:32+0300\n"
+"POT-Creation-Date: 2017-07-14 10:38+0300\n"
 "PO-Revision-Date: 2017-06-01 08:25+0000\n"
 "Last-Translator: tmit <>\n"
 "Language-Team: Italian (http://example.com/transifex/projects/p/tm/team/"
@@ -52,6 +52,18 @@ msgstr "su tutti nostri template"
 
 msgid "Please rate the product:"
 msgstr "Valuta questo prodotto:"
+
+msgid "STATISTICS"
+msgstr ""
+
+msgid "Average rating"
+msgstr ""
+
+msgid "Product rating"
+msgstr ""
+
+msgid "INCLUDES"
+msgstr ""
 
 msgid "Type your answer here"
 msgstr "Scrivi qui la tua risposta"
