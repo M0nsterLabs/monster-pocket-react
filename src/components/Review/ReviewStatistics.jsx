@@ -71,17 +71,17 @@ export default class ReviewStatistics extends React.Component {
       color = this.setColor(percent),
       widthLinePercent = widthLine*100/lineBlockWidth +'%';
     return (
-        <div className="statistics__line-block js-statistic">
-          <div className="statistics__stars js-statistics-stars rating__stars rating-stars-block">
+        <div className="statistics__line-block">
+          <div className="statistics__stars rating__stars rating-stars-block">
             <StarsRating
               defaultRating={stars}
               disabled={true}
             />
-            <span className="t5 js-statistic-count">{countReview[iterator-1]}</span>
+            <span className="t5">{countReview[iterator-1]}</span>
           </div>
-          <div className="statistics__line-wrap js-line-wrap" style={{"color": color, width: `calc(100% - 220px)`}}>
-            <div className="statistics__line js-statistic-line" style={{ width: widthLinePercent, "backgroundColor": color}}>
-              <span className="statistics__percent t5 js-statistic-percent" style={{"color": color}}>{percentReview[iterator-1]}% </span>
+          <div className="statistics__line-wrap" style={{"color": color, width: `calc(100% - 220px)`}}>
+            <div className="statistics__line" style={{ width: widthLinePercent, "backgroundColor": color}}>
+              <span className="statistics__percent t5" style={{"color": color}}>{percentReview[iterator-1]}% </span>
             </div>
           </div>
         </div>
@@ -125,10 +125,15 @@ export default class ReviewStatistics extends React.Component {
 
   render() {
     return (
-      <div className="reviews__infographics js-reviews-statistics" id="preview-page">
+      <div className="reviews__infographics">
         <div className="rating">
-          <h3 className="h3">{this.context.i18n.l('STATISTICS')}</h3>
-          <div className="rating__stars">
+          <h3 className="rating__name h3">{this.context.i18n.l('STATISTICS')}</h3>
+          <div
+            className="rating__stars"
+            itemProp="aggregateRating"
+            itemScope itemType="http://schema.org/AggregateRating"
+          >
+            <meta itemProp="ratingValue" content = {this.props.averageRating} />
             <span className="rating__text t1">
               {this.context.i18n.l('Average rating')}:
             </span>
