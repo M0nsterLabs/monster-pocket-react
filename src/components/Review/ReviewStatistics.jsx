@@ -14,6 +14,7 @@ export default class ReviewStatistics extends React.Component {
     this.iterator = 0;
     this.lineBlockWidth = 650;
     this.maxLine = 5;
+    this.maxPercent = 100;
   }
 
   static propTypes = {
@@ -24,6 +25,11 @@ export default class ReviewStatistics extends React.Component {
 
   componentWillMount () {
     this.countPercents();
+    this.maxPercent = this.getMaxPercent();
+  };
+
+  componentDidMount () {
+    this.lineBlockWidth = document.querySelector(".page-content").clientWidth - 240;
   };
 
   setColor = (percent) => {
@@ -36,10 +42,8 @@ export default class ReviewStatistics extends React.Component {
     if (this.iterator >= this.maxLine) return;
     this.iterator++;
     if (countReview[this.iterator-1] === 0) return;
-    this.lineBlockWidth = document.querySelector(".page-content").clientWidth - 240;
-    let getMaxPercent = this.getMaxPercent(),
-      percent = this.percentReview[this.iterator-1],
-      widthLine = percent*this.lineBlockWidth/getMaxPercent,
+    let percent = this.percentReview[this.iterator-1],
+      widthLine = percent*this.lineBlockWidth/this.maxPercent,
       color = this.setColor(percent),
       widthLinePercent = widthLine*100/this.lineBlockWidth +'%';
     return (
@@ -114,7 +118,6 @@ export default class ReviewStatistics extends React.Component {
           <span className="rating__text_new-page h3">{this.context.i18n.l('Product rating')}:</span>
 
         </div>
-
 
         <span className="reviews__infographics-text-new-page t1">{this.context.i18n.l('INCLUDES')}:</span>
 
