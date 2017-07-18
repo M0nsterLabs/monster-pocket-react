@@ -2,15 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StarsRating from 'quark/lib/StarsRating';
 
-let summPercent = 0;
-let percentReview = [];
-let iterator = 0;
-let lineBlockWidth = 650;
-
 export default class ReviewStatistics extends React.Component {
   static contextTypes = {
     i18n: PropTypes.object
   };
+
+  constructor () {
+    super();
+    this.summPercent = 0;
+    this.percentReview = [];
+    this.iterator = 0;
+    this.lineBlockWidth = 650;
+    this.maxLine = 5;
+  }
 
   static propTypes = {
     countReview: PropTypes.array,
@@ -23,65 +27,33 @@ export default class ReviewStatistics extends React.Component {
   };
 
   setColor = (percent) => {
-    let color;
-    switch (true) {
-      case (percent >= 0) && (percent <= 9) :
-        color = "#1976D2";
-        break;
-      case (percent >= 10) && (percent <= 19) :
-        color = "#2196F3";
-        break;
-      case (percent >= 20) && (percent <= 29) :
-        color = "#42A5F5";
-        break;
-      case (percent >= 30) && (percent <= 39) :
-        color = "#64B5F6";
-        break;
-      case (percent >= 40) && (percent <= 49) :
-        color = "#90CAF9";
-        break;
-      case (percent >= 50) && (percent <= 59) :
-        color = "#FFE082";
-        break;
-      case (percent >= 60) && (percent <= 69) :
-        color = "#FFCA28";
-        break;
-      case (percent >= 70) && (percent <= 79) :
-        color = "#FFAB00";
-        break;
-      case (percent >= 80) && (percent <= 89) :
-        color = "#FF8F00";
-        break;
-      default :
-        color = "#FF6F00";
-        break;
-    }
-    return color;
+    const colors = ["#1976D2", "#2196F3", "#42A5F5", "#64B5F6", "#90CAF9", "#FFE082", "#FFCA28", "#FFAB00", "#FF8F00", "#FF6F00"];
+    return colors[Math.min(colors.length-1, Math.floor(percent/10))];
   };
 
   showStatisticsLine = (stars) => {
     let {countReview} = this.props;
-    if (iterator >= 5) return;
-    iterator++;
-    if (countReview[iterator-1] === 0) return;
-    lineBlockWidth = document.querySelector(".page-content").clientWidth - 240;
+    if (this.iterator >= this.maxLine) return;
+    this.iterator++;
+    if (countReview[this.iterator-1] === 0) return;
+    this.lineBlockWidth = document.querySelector(".page-content").clientWidth - 240;
     let getMaxPercent = this.getMaxPercent(),
-      percent = percentReview[iterator-1],
-      widthLine = percent*lineBlockWidth/getMaxPercent,
+      percent = this.percentReview[this.iterator-1],
+      widthLine = percent*this.lineBlockWidth/getMaxPercent,
       color = this.setColor(percent),
-      widthLinePercent = widthLine*100/lineBlockWidth +'%';
+      widthLinePercent = widthLine*100/this.lineBlockWidth +'%';
     return (
         <div className="statistics__line-block">
           <div className="statistics__stars rating__stars rating-stars-block">
             <StarsRating
               defaultRating={stars}
-              disabled={true}
+              disabled
             />
-            <span className="t5">{countReview[iterator-1]}</span>
+            <span className="t5">{countReview[this.iterator-1]}</span>
           </div>
           <div className="statistics__line-wrap" style={{"color": color, width: `calc(100% - 220px)`}}>
             <div className="statistics__line" style={{ width: widthLinePercent, "backgroundColor": color}}>
-              <span className="statistics__percent t5" style={{"color": color}}>{percentReview[iterator-1]}% </span>
+              <span className="statistics__percent t5" style={{"color": color}}>{this.percentReview[this.iterator-1]}% </span>
             </div>
           </div>
         </div>
@@ -90,23 +62,23 @@ export default class ReviewStatistics extends React.Component {
 
   countPercents = () => {
     this.props.countReview.map((countReviewItem, i) => {
-      percentReview[i]=Math.round(countReviewItem*100/this.props.summReview);
-      summPercent+=percentReview[i];
+      this.percentReview[i]=Math.round(countReviewItem*100/this.props.summReview);
+      this.summPercent+=this.percentReview[i];
     });
-    let diffSummPercent = summPercent - 100;
+    let diffSummPercent = this.summPercent - 100;
     if (diffSummPercent === 0) return;
     if (diffSummPercent > 0) {
       for (let i = 4; i >= 0; i--) {
-        if (percentReview[i] != 0) {
-          percentReview[i] -= diffSummPercent;
+        if (this.percentReview[i] != 0) {
+          this.percentReview[i] -= diffSummPercent;
           break;
         }
       }
     }
     else {
-      for (let i = 0; i < 5; i++) {
-        if (percentReview[i] != 0) {
-          percentReview[i] -= diffSummPercent;
+      for (let i = 0; i < this.maxLine; i++) {
+        if (this.percentReview[i] != 0) {
+          this.percentReview[i] -= diffSummPercent;
           break;
         }
       }
@@ -114,10 +86,10 @@ export default class ReviewStatistics extends React.Component {
   };
 
   getMaxPercent = () => {
-    let maxPercent = percentReview[0];
-    for (let i = 0; i < 5; i++) {
-      if (percentReview[i] > maxPercent) {
-        maxPercent = percentReview[i];
+    let maxPercent = this.percentReview[0];
+    for (let i = 0; i < this.maxLine; i++) {
+      if (this.percentReview[i] > maxPercent) {
+        maxPercent = this.percentReview[i];
       }
     }
     return maxPercent;
@@ -136,7 +108,7 @@ export default class ReviewStatistics extends React.Component {
             </span>
             <StarsRating
               defaultRating={averageRating}
-              disabled={true}
+              disabled
             />
           </div>
           <span className="rating__text_new-page h3">{this.context.i18n.l('Product rating')}:</span>

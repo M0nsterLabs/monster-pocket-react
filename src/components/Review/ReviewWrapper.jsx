@@ -77,6 +77,8 @@ export default class Reviews extends React.Component {
     this.iteratorLocale = 0;
     this.countReview = 0;
     this.updateUserReview = this.updateUserReview.bind(this);
+    this.timeCountScoreReviews = 500;
+    this.timeAverageRating = 500;
   }
 
   updateUserReview (item) {
@@ -420,13 +422,14 @@ export default class Reviews extends React.Component {
       obj[key] = parseInt(response.headers.get('X-Pagination-Total-Count'), 10);
       this.setState(obj);
     })
-    .catch((error) => {
-      throw error;
+    .catch(() => {
+      this.timeCountScoreReviews*=2;
+      setTimeout(this.getCountScoreReviews(), this.timeCountScoreReviews);
     });
   };
 
   findProperty = (property) => {
-    return property.propertyName === 'review_average_score'
+    return property.propertyName === 'review_average_score';
   };
 
   getAverageRating = () => {
@@ -439,8 +442,9 @@ export default class Reviews extends React.Component {
         averageRating: parseInt(data[0].properties.find(this.findProperty).value)
       });
     })
-    .catch((error) => {
-      throw error;
+    .catch(() => {
+      this.timeAverageRating*=2;
+      setTimeout(this.getAverageRating(), this.timeAverageRating);
     });
   };
 
