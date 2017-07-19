@@ -9,14 +9,13 @@ msgstr ""
 "Project-Id-Version: Template Monster\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-14 10:38+0300\n"
-"PO-Revision-Date: 2017-06-06 09:48+0000\n"
-"Last-Translator: bananova <>\n"
-"Language-Team: Portuguese (Brazilian) (http://example.com/transifex/projects/"
-"p/tm/team/pt_BR/)\n"
-"Language: pt_BR\n"
+"PO-Revision-Date: 2017-07-18 06:28+0000\n"
+"Last-Translator: ilyamark <>\n"
+"Language-Team: Portuguese (Brazilian) (http://example.com/transifex/projects/p/tm/team/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 msgid "Review must contain at least 60 symbols"
@@ -29,20 +28,20 @@ msgid "Please, write at least 60 symbols for review"
 msgstr "Por favor, escreva pelo menos 60 símbolos para avaliação"
 
 msgid "Your opinion about this product"
-msgstr ""
+msgstr "Sua opinião sobre este produto"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "Post"
-msgstr ""
+msgstr "Postar"
 
 msgid "Thank you for your review!"
 msgstr "Agradecemos sua avaliação!"
 
 msgid ""
-"We've generated your one-time promo-code and within 10 minutes it will reach "
-"your email:"
+"We've generated your one-time promo-code and within 10 minutes it will reach"
+" your email:"
 msgstr ""
 "Geramos seu código único promocional e você o receberá por e-mail dentro de "
 "10 minutos:"
@@ -54,16 +53,16 @@ msgid "Please rate the product:"
 msgstr "Por favor, classifique o produto:"
 
 msgid "STATISTICS"
-msgstr ""
+msgstr "ESTATISTICAS"
 
 msgid "Average rating"
-msgstr ""
+msgstr "Classificação média"
 
 msgid "Product rating"
-msgstr ""
+msgstr "Avaliação do produto"
 
 msgid "INCLUDES"
-msgstr ""
+msgstr "INCLUI"
 
 msgid "Type your answer here"
 msgstr "Escreva sua resposta aqui"
@@ -78,16 +77,16 @@ msgid "Reply"
 msgstr "Resposta"
 
 msgid "You can't estimate your own review"
-msgstr ""
+msgstr "Você não pode estimar sua própria revisão"
 
 msgid "Please log in at first"
-msgstr ""
+msgstr "Faça o login no início"
 
 msgid "Helpful"
-msgstr ""
+msgstr "Útil"
 
 msgid "Useless"
-msgstr ""
+msgstr "Sem utilidade"
 
 msgid "Jan"
 msgstr "Jan"
@@ -148,8 +147,8 @@ msgstr "à"
 
 msgid ""
 "The review is visible only for you. Sorry, but we need to check your review "
-"before publication. In case your review corresponds to our rules, it will be "
-"published soon :)"
+"before publication. In case your review corresponds to our rules, it will be"
+" published soon :)"
 msgstr ""
 "Essa avaliação só pode ser vista por você. Desculpe, mas precisamos revisar "
 "sua avaliação antes de publicá-la. Caso ela esteja de acordo com nossas "
@@ -163,7 +162,7 @@ msgstr ""
 "com nossas regras, tente novamente com outra análise"
 
 msgid "Only buyers of that product can rate it"
-msgstr ""
+msgstr "Somente os compradores desse produto podem avaliá-lo"
 
 msgid ""
 "It seems there are no reviews to this product from your locale.\n"
@@ -173,43 +172,41 @@ msgstr ""
 "ver as análises de outras localidades."
 
 msgid "It seems there are no reviews to this product."
-msgstr ""
+msgstr "Parece que não há comentários para este produto."
 
 msgid "View "
 msgstr "Visualizar"
 
 msgid "REVIEWS & RATINGS"
-msgstr "ANÁLISES & CLASSIFICAÇÕES"
+msgstr "Análises & Classificações"
 
 msgid "Newest"
-msgstr ""
+msgstr "O mais novo"
 
 msgid "Most helpful"
-msgstr ""
+msgstr "Mais útil"
 
 msgid "Top ratings"
-msgstr ""
+msgstr "Melhores classificações"
 
 msgid "Low ratings"
-msgstr ""
+msgstr "Avaliações baixas"
 
 msgid "Show first:"
-msgstr ""
+msgstr "Mostre primeiro:"
 
 msgid "Show more"
-msgstr ""
+msgstr "Mostre mais"
 
 msgid "Home"
 msgstr "Home"
 
 msgid "Mascot test"
-msgstr ""
+msgstr "Teste de Mascote"
 
 msgid "Social test"
-msgstr ""
+msgstr "Teste social"
 
 msgid "Reviews & Ratings"
 msgstr "Análises & Classificações"
 
-#~ msgid " REVIEWS & RATINGS"
-#~ msgstr "ANÁLISES & CLASSIFICAÇÕES"
