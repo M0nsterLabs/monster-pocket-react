@@ -4,20 +4,146 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n != 1)",
+            "plural_forms": "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2",
             "lang": "cs"
          },
+         "Review must contain at least 60 symbols": [
+            "Recenze musí obsahovat nejméně 60 znaků"
+         ],
+         "Please remove special symbols": [
+            "Smažte speciální znaky"
+         ],
+         "Please, write at least 60 symbols for review": [
+            "Prosím, napište alespoň 60 znaků"
+         ],
+         "Your opinion about this product": [
+            "Váš názor na tento produkt"
+         ],
+         "Cancel": [
+            "Zrušit"
+         ],
+         "Post": [
+            "Zveřejnit"
+         ],
+         "Thank you for your review!": [
+            "Děkujeme za recenzi!"
+         ],
+         "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
+            "Na Váš email přijde během 10 minut jednorázový promo kód, který jsme vygenerovali:"
+         ],
+         "on all our themes": [
+            "na všechny naše šablony"
+         ],
+         "Please rate the product:": [
+            "Ohodnoťte produkt:"
+         ],
+         "Type your answer here": [
+            "Svou odpověď napište tady"
+         ],
+         "Send Message": [
+            "Poslat zprávu"
+         ],
+         "Press Ctrl + Enter to send your message": [
+            "Chcete-li odeslat zprávu, stiskněte klávesy Ctrl + Enter"
+         ],
+         "Reply": [
+            "Odpovědět "
+         ],
+         "Jan": [
+            "Leden"
+         ],
+         "Feb": [
+            "Únor"
+         ],
+         "Mar": [
+            "Březen"
+         ],
+         "Apr": [
+            "Duben"
+         ],
+         "May": [
+            "Květen"
+         ],
+         "Jun": [
+            "Červen"
+         ],
+         "Jul": [
+            "Červenec"
+         ],
+         "Aug": [
+            "Srpen"
+         ],
+         "Sep": [
+            "Září"
+         ],
+         "Oct": [
+            "Říjen"
+         ],
+         "Nov": [
+            "Listopad"
+         ],
+         "Dec": [
+            "Prosinec"
+         ],
+         "Now": [
+            "Teď"
+         ],
+         "minutes ago": [
+            "před minutami"
+         ],
+         "hour ago": [
+            "před hodinou"
+         ],
+         "hours ago": [
+            "před hodinami"
+         ],
+         "Today at": [
+            "Dnes v"
+         ],
+         "Yesterday at": [
+            "Včera v"
+         ],
+         "at": [
+            "v"
+         ],
+         "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
+            "Recenze je viditelná pouze pro vás. Je nám líto, ale musíme zkontrolovat vaši recenzi před zveřejněním. Pokud je recenze v souladu s našimi pravidly, brzy ji zveřejníme:)"
+         ],
+         "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "Bohužel, nemůžeme zveřejnit recenzi, protože není v souladu s našimi pravidly. Zkuste to znovu."
+         ],
+         "Only buyers of that product can rate it": [
+            "Tento produkt mohou hodnotit pouze uživatelé, kteří si jej koupili"
+         ],
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            "Zdá se, že na této jazykové verzi není žádná recenze na tento produkt.\nMůžete si prohlédnout recenze na jiných verzích."
+         ],
+         "It seems there are no reviews to this product.": [
+            "Zdá se, že není žádná recenze na tento produkt."
+         ],
+         "View ": [
+            "Zobrazit"
+         ],
+         "REVIEWS & RATINGS": [
+            "RECENZE A HODNOCENÍ"
+         ],
+         " REVIEWS & RATINGS": [
+            "RECENZE A HODNOCENÍ"
+         ],
+         "Show more": [
+            "Zobrazit více"
+         ],
          "Home": [
-            ""
+            "Domovská stránka"
          ],
          "Mascot test": [
-            ""
+            "Mascot test"
          ],
          "Social test": [
-            ""
+            "Social test"
          ],
-         "test": [
-            ""
+         "Reviews & Ratings": [
+            "Recenze a hodnocení"
          ]
       }
    }

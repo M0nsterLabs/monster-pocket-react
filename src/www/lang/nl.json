@@ -7,8 +7,134 @@
             "plural_forms": "nplurals=2; plural=(n != 1)",
             "lang": "nl"
          },
-         "Home": [
+         "Review must contain at least 60 symbols": [
+            "De beoordeling moet ten minste uit 60 symbolen bestaan"
+         ],
+         "Please remove special symbols": [
+            "Verwijder alle speciale symbolen"
+         ],
+         "Please, write at least 60 symbols for review": [
+            "Gebruik alsjeblieft ten minste 60 symbolen voor een beoordeling"
+         ],
+         "Your opinion about this product": [
             ""
+         ],
+         "Cancel": [
+            ""
+         ],
+         "Post": [
+            ""
+         ],
+         "Thank you for your review!": [
+            "Bedankt voor je beoordeling!"
+         ],
+         "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
+            "We hebben je eenmalige promo-code aangemaakt en je ontvangt hem binnen 10 minuten in de mail!"
+         ],
+         "on all our themes": [
+            "Op al onze themes"
+         ],
+         "Please rate the product:": [
+            "Beoordeel alsjeblieft het product:"
+         ],
+         "Type your answer here": [
+            "Type jouw antwoord hier:"
+         ],
+         "Send Message": [
+            "Verstuur bericht"
+         ],
+         "Press Ctrl + Enter to send your message": [
+            "Druk op Ctrl + Enter om jouw bericht te versturen"
+         ],
+         "Reply": [
+            "Beantwoorden"
+         ],
+         "Jan": [
+            "Jan"
+         ],
+         "Feb": [
+            "Feb"
+         ],
+         "Mar": [
+            "Mar"
+         ],
+         "Apr": [
+            "Apr"
+         ],
+         "May": [
+            "Mei"
+         ],
+         "Jun": [
+            "Jun"
+         ],
+         "Jul": [
+            "Jul"
+         ],
+         "Aug": [
+            "Aug"
+         ],
+         "Sep": [
+            "Sep"
+         ],
+         "Oct": [
+            "Okt"
+         ],
+         "Nov": [
+            "Nov"
+         ],
+         "Dec": [
+            "Dec"
+         ],
+         "Now": [
+            "Nu"
+         ],
+         "minutes ago": [
+            "minuten geleden"
+         ],
+         "hour ago": [
+            "een uur geleden"
+         ],
+         "hours ago": [
+            "uren geleden"
+         ],
+         "Today at": [
+            "Vandaag om"
+         ],
+         "Yesterday at": [
+            "Gisteren om"
+         ],
+         "at": [
+            "om"
+         ],
+         "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
+            "De beoordeling is alleen zichtbaar voor jou. Sorry, maar we moeten eerst je beoordeling voor publicatie controleren. Als het voldoet aan al onze regels, wordt deze snel gepubliceerd :)"
+         ],
+         "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "Helaas kunnen we je beoordeling niet plaatsen omdat deze niet aan onze richtlijnen voldoet. Probeer het nogmaals met een andere beoordeling."
+         ],
+         "Only buyers of that product can rate it": [
+            ""
+         ],
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            "Het lijkt erop dat er geen beoordelingen zijn vanaf jouw locatie. Je kunt de beoordelingen van andere locaties bekijken."
+         ],
+         "It seems there are no reviews to this product.": [
+            ""
+         ],
+         "View ": [
+            "Bekijken"
+         ],
+         "REVIEWS & RATINGS": [
+            "BEOORDELINGEN & RATINGS"
+         ],
+         " REVIEWS & RATINGS": [
+            "BEOORDELINGEN & RATINGS"
+         ],
+         "Show more": [
+            ""
+         ],
+         "Home": [
+            "Home"
          ],
          "Mascot test": [
             ""
@@ -16,8 +142,8 @@
          "Social test": [
             ""
          ],
-         "test": [
-            ""
+         "Reviews & Ratings": [
+            "Beoordelingen & Ratings"
          ]
       }
    }

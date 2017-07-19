@@ -4,20 +4,146 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n != 1)",
+            "plural_forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)",
             "lang": "ru"
          },
+         "Review must contain at least 60 symbols": [
+            "Отзыв должен содержать не менее 60 символов"
+         ],
+         "Please remove special symbols": [
+            "Удалите специальные символы"
+         ],
+         "Please, write at least 60 symbols for review": [
+            "Пожалуйста, напишите не менее 60 символов для отзыва"
+         ],
+         "Your opinion about this product": [
+            "Ваше мнение об этом продукте"
+         ],
+         "Cancel": [
+            "Отменить"
+         ],
+         "Post": [
+            "Опубликовать"
+         ],
+         "Thank you for your review!": [
+            "Благодарим за отзыв!"
+         ],
+         "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
+            "Мы создали одноразовый промо-код, который вы получите на свой email в течение 10 минут:"
+         ],
+         "on all our themes": [
+            "на все наши шаблоны"
+         ],
+         "Please rate the product:": [
+            "Пожалуйста, оцените продукт:"
+         ],
+         "Type your answer here": [
+            "Введите свой ответ здесь"
+         ],
+         "Send Message": [
+            "Отправить сообщение"
+         ],
+         "Press Ctrl + Enter to send your message": [
+            "Нажмите Ctrl + Enter для отправки сообщения"
+         ],
+         "Reply": [
+            "Ответить"
+         ],
+         "Jan": [
+            "Янв"
+         ],
+         "Feb": [
+            "Фев"
+         ],
+         "Mar": [
+            "Март"
+         ],
+         "Apr": [
+            "Апр"
+         ],
+         "May": [
+            "Май"
+         ],
+         "Jun": [
+            "Июнь"
+         ],
+         "Jul": [
+            "Июль"
+         ],
+         "Aug": [
+            "Авг"
+         ],
+         "Sep": [
+            "Сент"
+         ],
+         "Oct": [
+            "Окт"
+         ],
+         "Nov": [
+            "Нояб"
+         ],
+         "Dec": [
+            "Дек"
+         ],
+         "Now": [
+            "Сейчас"
+         ],
+         "minutes ago": [
+            "минут назад"
+         ],
+         "hour ago": [
+            "час назад"
+         ],
+         "hours ago": [
+            "часов назад"
+         ],
+         "Today at": [
+            "Сегодня в"
+         ],
+         "Yesterday at": [
+            "Вчера в"
+         ],
+         "at": [
+            "в"
+         ],
+         "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
+            "Этот отзыв виден только вам. Извините, но мы должны проверить его перед публикацией. Если отзыв соответствует нашим правилам, он вскоре будет опубликован :)"
+         ],
+         "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "К сожалению, мы не можем опубликовать ваш отзыв, потому что он не соответствует нашим правилам. Попробуйте написать еще раз."
+         ],
+         "Only buyers of that product can rate it": [
+            "Только купившие этот продукт могут ставить ему оценку"
+         ],
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            "Похоже, об этом продукте отсутствуют отзывы из вашей местности. Вы можете посмотреть рецензии пользователей из других стран."
+         ],
+         "It seems there are no reviews to this product.": [
+            "Кажется, об этом продукте отзывы отсутствуют."
+         ],
+         "View ": [
+            "Посмотреть"
+         ],
+         "REVIEWS & RATINGS": [
+            "ОТЗЫВЫ И ОЦЕНКИ"
+         ],
+         " REVIEWS & RATINGS": [
+            " ОТЗЫВЫ И ОЦЕНКИ"
+         ],
+         "Show more": [
+            "Показать больше"
+         ],
          "Home": [
-            "Дом"
+            "На главную"
          ],
          "Mascot test": [
-            "Маскоты тест"
+            ""
          ],
          "Social test": [
-            "Социальный тест"
+            ""
          ],
-         "test": [
-            "тест"
+         "Reviews & Ratings": [
+            "Отзывы и оценки"
          ]
       }
    }

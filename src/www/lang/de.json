@@ -7,17 +7,143 @@
             "plural_forms": "nplurals=2; plural=(n != 1)",
             "lang": "de"
          },
+         "Review must contain at least 60 symbols": [
+            "Ihre Bewertung muss mindestens 60 Symbole enthalten"
+         ],
+         "Please remove special symbols": [
+            "Bitte entfernen Sie Sonderzeichen"
+         ],
+         "Please, write at least 60 symbols for review": [
+            "Bitte schreiben Sie mindestens 60 Symbole für Ihre Bewertung"
+         ],
+         "Your opinion about this product": [
+            "Ihre Meinung zu diesem Produkt"
+         ],
+         "Cancel": [
+            "Stornieren"
+         ],
+         "Post": [
+            "Posten"
+         ],
+         "Thank you for your review!": [
+            "Vielen Dank für Ihre Bewertung!"
+         ],
+         "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
+            "Wir haben einen einmaligen Promocode generiert und innerhalb von 10 Minuten bekommen Sie ihn per E-Mail:"
+         ],
+         "on all our themes": [
+            "auf alle unsere Themes"
+         ],
+         "Please rate the product:": [
+            "Bitte bewerten Sie dieses Produkt:"
+         ],
+         "Type your answer here": [
+            "Geben Sie hier Ihre Antwort ein"
+         ],
+         "Send Message": [
+            "Nachricht senden"
+         ],
+         "Press Ctrl + Enter to send your message": [
+            "Drücken Sie Ctrl + Enter, um Ihre Nachricht zu verschicken"
+         ],
+         "Reply": [
+            "Antworten"
+         ],
+         "Jan": [
+            "Jan."
+         ],
+         "Feb": [
+            "Feb."
+         ],
+         "Mar": [
+            "März"
+         ],
+         "Apr": [
+            "Apr."
+         ],
+         "May": [
+            "Mai"
+         ],
+         "Jun": [
+            "Jun."
+         ],
+         "Jul": [
+            "Jul."
+         ],
+         "Aug": [
+            "Aug."
+         ],
+         "Sep": [
+            "Sept."
+         ],
+         "Oct": [
+            "Okt."
+         ],
+         "Nov": [
+            "Nov."
+         ],
+         "Dec": [
+            "Dez."
+         ],
+         "Now": [
+            "Jetzt"
+         ],
+         "minutes ago": [
+            "vor ein paar Minuten"
+         ],
+         "hour ago": [
+            "vor einer Stunde"
+         ],
+         "hours ago": [
+            "vor Stunden"
+         ],
+         "Today at": [
+            "Heute um"
+         ],
+         "Yesterday at": [
+            "Gestern um"
+         ],
+         "at": [
+            "um"
+         ],
+         "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
+            "Die Bewertung ist nur für Sie sichtbar. Nach unseren Vorschriften muss Ihre Bewertung vor der Veröffentlichung überprüft werden. Wenn sie unseren Regeln entspricht, wird sie bald veröffentlicht."
+         ],
+         "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "Leider können wir Ihre Bewertung nicht veröffentlichen, weil es unsere Richtlinien nicht erfüllt, bitte versuchen Sie es erneut mit etwas anderen Worten."
+         ],
+         "Only buyers of that product can rate it": [
+            "Nur Käufer dieses Produktes können es bewerten"
+         ],
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            "Es scheint, es gibt keine Bewertungen zu diesem Produkt auf Ihrer Sprache.⏎\nSie können sich die Bewertungen auf anderen Sprachen anschauen."
+         ],
+         "It seems there are no reviews to this product.": [
+            "Es scheint, es gibt keine Bewertungen zu diesem Produkt."
+         ],
+         "View ": [
+            "Ansehen"
+         ],
+         "REVIEWS & RATINGS": [
+            "REZENSIONEN UND BEWERTUNGEN"
+         ],
+         " REVIEWS & RATINGS": [
+            " REZENSIONEN UND BEWERTUNGEN"
+         ],
+         "Show more": [
+            "Mehr anzeigen"
+         ],
          "Home": [
-            ""
+            "Zur Startseite"
          ],
          "Mascot test": [
-            ""
+            "Maskottchen-Test"
          ],
          "Social test": [
-            ""
+            "Sozialtest "
          ],
-         "test": [
-            ""
+         "Reviews & Ratings": [
+            "Rezensionen und Ratings"
          ]
       }
    }

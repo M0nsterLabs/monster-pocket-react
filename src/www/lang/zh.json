@@ -4,20 +4,146 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n != 1)",
+            "plural_forms": "nplurals=1; plural=0",
             "lang": "zh_CN"
          },
+         "Review must contain at least 60 symbols": [
+            "评论内容必须大于60个字符（30个汉字）"
+         ],
+         "Please remove special symbols": [
+            "评论内容不能包含特殊字符"
+         ],
+         "Please, write at least 60 symbols for review": [
+            "请至少填入60个字符（30个汉字）作为评论"
+         ],
+         "Your opinion about this product": [
+            "关于此产品，请给出您的评价。"
+         ],
+         "Cancel": [
+            "拒绝"
+         ],
+         "Post": [
+            "接受"
+         ],
+         "Thank you for your review!": [
+            "谢谢您的评论！"
+         ],
+         "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
+            "您的一次性促销代码已经生成，它会在10分钟内被发送至您的邮箱。"
+         ],
+         "on all our themes": [
+            "全场主题"
+         ],
+         "Please rate the product:": [
+            "请对产品做出您的评价："
+         ],
+         "Type your answer here": [
+            "请在这里输入答复"
+         ],
+         "Send Message": [
+            "发送信息"
+         ],
+         "Press Ctrl + Enter to send your message": [
+            "请同时按住Ctrl+Enter键以发送信息"
+         ],
+         "Reply": [
+            "回复"
+         ],
+         "Jan": [
+            "一月"
+         ],
+         "Feb": [
+            "二月"
+         ],
+         "Mar": [
+            "三月"
+         ],
+         "Apr": [
+            "四月"
+         ],
+         "May": [
+            "五月"
+         ],
+         "Jun": [
+            "六月"
+         ],
+         "Jul": [
+            "七月"
+         ],
+         "Aug": [
+            "八月"
+         ],
+         "Sep": [
+            "九月"
+         ],
+         "Oct": [
+            "十月"
+         ],
+         "Nov": [
+            "十一月"
+         ],
+         "Dec": [
+            "十二月"
+         ],
+         "Now": [
+            "现在"
+         ],
+         "minutes ago": [
+            "几分钟前"
+         ],
+         "hour ago": [
+            "一小时前"
+         ],
+         "hours ago": [
+            "数小时前"
+         ],
+         "Today at": [
+            "今天"
+         ],
+         "Yesterday at": [
+            "明天"
+         ],
+         "at": [
+            "在"
+         ],
+         "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
+            "此评论目前仅对您可见。依照公司相关规定，我们会对您的评论内容进行相关审查，给您带来不便，敬请谅解。若您的评论通过审查，则会被很快发表:)"
+         ],
+         "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "对不起，您的评论未能通过审查，我们不能对其进行发表，请您修改后再次申请相关审查，谢谢您的合作！"
+         ],
+         "Only buyers of that product can rate it": [
+            "仅限此产品购买者对其进行评价"
+         ],
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            "您所在的服务区未发现相关此产品的任何评价。⏎\n您可查看其他服务区的相关评价。"
+         ],
+         "It seems there are no reviews to this product.": [
+            "未发现相关此产品的任何评价。"
+         ],
+         "View ": [
+            "查看"
+         ],
+         "REVIEWS & RATINGS": [
+            "评论与评分"
+         ],
+         " REVIEWS & RATINGS": [
+            "评论与评分"
+         ],
+         "Show more": [
+            "查看更多"
+         ],
          "Home": [
-            ""
+            "主页"
          ],
          "Mascot test": [
-            ""
+            "Mascot test"
          ],
          "Social test": [
-            ""
+            "Social test"
          ],
-         "test": [
-            ""
+         "Reviews & Ratings": [
+            "评论与评分"
          ]
       }
    }

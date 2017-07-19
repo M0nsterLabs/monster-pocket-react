@@ -5,6 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && webpack-dev-server",
+    "build:local": "NODE_ENV=local webpack",
+    "build:beta": "NODE_ENV=beta node_modules/.bin/webpack",
+    "build:production": "NODE_ENV=production node_modules/.bin/webpack",
+    "build:dev": "node_modules/.bin/webpack",
+    "build:demo2": "NODE_ENV=demo2 node_modules/.bin/webpack",
+    "build:demo3": "NODE_ENV=demo3 node_modules/.bin/webpack",
     "build": "rm -rf ./build && webpack",
     "watch": "webpack -w",
     "rebuild": "npm install",
@@ -15,6 +21,7 @@
   },
   "jest": {
     "moduleNameMapper": {
+      "config.js": "<rootDir>/config/application.local.js",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
     }
@@ -65,16 +72,17 @@
     "lodash": "^4.17.2",
     "mocha": "^3.2.0",
     "nools": "^0.4.4",
-    "npm": "^4.5.0",
     "optimize-css-assets-webpack-plugin": "^1.3.0",
     "po2json": "^0.4.5",
     "postcss-inline-svg": "^2.3.0",
     "postcss-loader": "^1.2.0",
     "postcss-safe-parser": "^2.0.0",
-    "react": "^15.6.1",
-    "react-addons-test-utils": "^15.6.0",
-    "react-dom": "^15.6.1",
-    "react-router": "^3.0.5",
+    "prop-types": "^15.5.8",
+    "react": "^15.4.1",
+    "react-addons-test-utils": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-interpolate-component": "^0.10.0",
+    "react-router": "^3.0.0",
     "shortid": "^2.2.6",
     "style-loader": "^0.13.1",
     "transfer-webpack-plugin": "^0.1.4",
@@ -85,9 +93,10 @@
     "webpack-uglify-js-plugin": "^1.1.9"
   },
   "dependencies": {
-    "plasma-membership-api-client-js": "^1.0.17",
-    "plasma-order-api-client-js": "^1.0.7",
-    "quark": "git+https://git@github.com/templatemonster/QUARK-React.git#feature/PTR-2225"
+    "qs": "^6.2.1",
+    "plasma-reviews-api-client-js": "^1.0.8",
+    "tm-products-api-client-js": "^1.0.14",
+    "quark": "https://git@github.com:Plasma-Platform/Plasma-QUARK.git#feature/PTR-2225"
   },
   "babel": {
     "presets": [
