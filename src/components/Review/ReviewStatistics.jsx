@@ -15,6 +15,9 @@ export default class ReviewStatistics extends React.Component {
     this.lineBlockWidth = 650;
     this.maxLine = 5;
     this.maxPercent = 100;
+    this.widthLine = [];
+    this.color = [];
+    this.widthLinePercent = [];
   }
 
   static propTypes = {
@@ -24,12 +27,19 @@ export default class ReviewStatistics extends React.Component {
   };
 
   componentWillMount () {
-    this.countPercents();
-    this.maxPercent = this.getMaxPercent();
+    this.calculateData();
   };
 
-  componentDidMount () {
+  calculateData = () => {
+    this.countPercents();
+    this.maxPercent = this.getMaxPercent();
     this.lineBlockWidth = document.querySelector(".page-content").clientWidth - 240;
+
+    this.props.countReview.map((countReviewItem, i) => {
+      this.widthLine[i] = this.percentReview[i]*this.lineBlockWidth/this.maxPercent;
+      this.color[i] = this.setColor(this.percentReview[i]);
+      this.widthLinePercent[i] = this.widthLine[i]*100/this.lineBlockWidth +'%';
+    });
   };
 
   setColor = (percent) => {
@@ -39,13 +49,7 @@ export default class ReviewStatistics extends React.Component {
 
   showStatisticsLine = (stars) => {
     let {countReview} = this.props;
-    if (this.iterator >= this.maxLine) return;
-    this.iterator++;
-    if (countReview[this.iterator-1] === 0) return;
-    let percent = this.percentReview[this.iterator-1],
-      widthLine = percent*this.lineBlockWidth/this.maxPercent,
-      color = this.setColor(percent),
-      widthLinePercent = widthLine*100/this.lineBlockWidth +'%';
+    if (countReview[stars-1] === 0) return;
     return (
         <div className="statistics__line-block">
           <div className="statistics__stars rating__stars rating-stars-block">
@@ -53,11 +57,11 @@ export default class ReviewStatistics extends React.Component {
               defaultRating={stars}
               disabled
             />
-            <span className="t5">{countReview[this.iterator-1]}</span>
+            <span className="t5">{countReview[stars-1]}</span>
           </div>
-          <div className="statistics__line-wrap" style={{"color": color, width: `calc(100% - 220px)`}}>
-            <div className="statistics__line" style={{ width: widthLinePercent, "backgroundColor": color}}>
-              <span className="statistics__percent t5" style={{"color": color}}>{this.percentReview[this.iterator-1]}% </span>
+          <div className="statistics__line-wrap" style={{"color": this.color[stars-1], width: `calc(100% - 220px)`}}>
+            <div className="statistics__line" style={{ width: this.widthLinePercent[stars-1], "backgroundColor": this.color[stars-1]}}>
+              <span className="statistics__percent t5" style={{"color": this.color[stars-1]}}>{this.percentReview[stars-1]}% </span>
             </div>
           </div>
         </div>
