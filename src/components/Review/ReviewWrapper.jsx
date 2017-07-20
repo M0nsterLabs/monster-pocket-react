@@ -609,7 +609,7 @@ export default class Reviews extends React.Component {
               : (
                 <div className="reviews">
                   <ReviewStatistics
-                    countReview={[totalCount5, totalCount4, totalCount3, totalCount2,totalCount1]}
+                    countReview={[totalCount1, totalCount2, totalCount3, totalCount4,totalCount5]}
                     summReview={totalCount5+totalCount4+totalCount3+totalCount2+totalCount1}
                     averageRating={averageRating}
                   />
