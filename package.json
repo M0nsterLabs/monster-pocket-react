@@ -94,10 +94,11 @@
     "webpack-uglify-js-plugin": "^1.1.9"
   },
   "dependencies": {
-    "qs": "^6.2.1",
+    "amdefine": "^1.0.1",
     "plasma-reviews-api-client-js": "^1.0.8",
-    "tm-products-api-client-js": "^1.0.14",
-    "quark": "https://git@github.com:Plasma-Platform/Plasma-QUARK.git#feature/PTR-2225"
+    "qs": "^6.2.1",
+    "quark": "https://git@github.com:Plasma-Platform/Plasma-QUARK.git#feature/PTR-2225",
+    "tm-products-api-client-js": "^1.0.14"
   },
   "babel": {
     "presets": [
