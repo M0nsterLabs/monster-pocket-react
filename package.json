@@ -5,6 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && webpack-dev-server",
+    "build:local": "NODE_ENV=local webpack",
+    "build:beta": "NODE_ENV=beta node_modules/.bin/webpack",
+    "build:production": "NODE_ENV=production node_modules/.bin/webpack",
+    "build:dev": "node_modules/.bin/webpack",
+    "build:demo2": "NODE_ENV=demo2 node_modules/.bin/webpack",
+    "build:demo3": "NODE_ENV=demo3 node_modules/.bin/webpack",
+    "build:demo4": "NODE_ENV=demo4 node_modules/.bin/webpack",
     "build": "rm -rf ./build && webpack",
     "watch": "webpack -w",
     "rebuild": "npm install",
@@ -15,6 +22,7 @@
   },
   "jest": {
     "moduleNameMapper": {
+      "config.js": "<rootDir>/config/application.local.js",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
     }
@@ -34,6 +42,7 @@
     "babel-plugin-resolver": "^1.1.0",
     "babel-plugin-transform-async-to-generator": "^6.22.0",
     "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
@@ -71,10 +80,12 @@
     "postcss-inline-svg": "^2.3.0",
     "postcss-loader": "^1.2.0",
     "postcss-safe-parser": "^2.0.0",
-    "react": "^15.6.1",
-    "react-addons-test-utils": "^15.6.0",
-    "react-dom": "^15.6.1",
-    "react-router": "^3.0.5",
+    "prop-types": "^15.5.8",
+    "react": "^15.4.1",
+    "react-addons-test-utils": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-interpolate-component": "^0.10.0",
+    "react-router": "^3.0.0",
     "shortid": "^2.2.6",
     "style-loader": "^0.13.1",
     "transfer-webpack-plugin": "^0.1.4",
@@ -85,8 +96,10 @@
     "webpack-uglify-js-plugin": "^1.1.9"
   },
   "dependencies": {
+    "qs": "^6.2.1",
+    "plasma-reviews-api-client-js": "^1.0.8",
+    "tm-products-api-client-js": "^1.0.14",
     "plasma-membership-api-client-js": "^1.0.17",
-    "plasma-order-api-client-js": "^1.0.7",
     "quark": "git+https://git@github.com/templatemonster/QUARK-React.git#feature/PTR-2225"
   },
   "babel": {

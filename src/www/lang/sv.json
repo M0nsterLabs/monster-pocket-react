@@ -7,8 +7,134 @@
             "plural_forms": "nplurals=2; plural=(n != 1)",
             "lang": "sv"
          },
-         "Home": [
+         "Review must contain at least 60 symbols": [
+            "Recensionen måste innehålla minst 60 symboler"
+         ],
+         "Please remove special symbols": [
+            "Vänlign ta bort spcialsymboler"
+         ],
+         "Please, write at least 60 symbols for review": [
+            "Vänligen, skriv minst 60 symboler i recensionen"
+         ],
+         "Your opinion about this product": [
             ""
+         ],
+         "Cancel": [
+            ""
+         ],
+         "Post": [
+            ""
+         ],
+         "Thank you for your review!": [
+            "Tack för din recension!"
+         ],
+         "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
+            "Vi har genererat en engångsrabattkod och du bör ha den på din mail inom 10 min"
+         ],
+         "on all our themes": [
+            "på alla våra teman"
+         ],
+         "Please rate the product:": [
+            "Vänligen betygssätt produkten:"
+         ],
+         "Type your answer here": [
+            "Skriv ditt svar här"
+         ],
+         "Send Message": [
+            "Skicka meddelande"
+         ],
+         "Press Ctrl + Enter to send your message": [
+            "Tryck Ctrl+Enter för at skicka ditt meddelande"
+         ],
+         "Reply": [
+            "Svar"
+         ],
+         "Jan": [
+            "Jan"
+         ],
+         "Feb": [
+            "Feb"
+         ],
+         "Mar": [
+            "Mar"
+         ],
+         "Apr": [
+            "Apr"
+         ],
+         "May": [
+            "Maj"
+         ],
+         "Jun": [
+            "Jun"
+         ],
+         "Jul": [
+            "Jul"
+         ],
+         "Aug": [
+            "Aug"
+         ],
+         "Sep": [
+            "Sep"
+         ],
+         "Oct": [
+            "Okt"
+         ],
+         "Nov": [
+            "Nov"
+         ],
+         "Dec": [
+            "Dec"
+         ],
+         "Now": [
+            "Nu"
+         ],
+         "minutes ago": [
+            "minuter sedan"
+         ],
+         "hour ago": [
+            "timme sedan"
+         ],
+         "hours ago": [
+            "timmar sedan"
+         ],
+         "Today at": [
+            "Idag vid"
+         ],
+         "Yesterday at": [
+            "Igår vid"
+         ],
+         "at": [
+            "på"
+         ],
+         "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
+            "Recensinonen är endast synlig för dig. Ursäkta, men vi behöver kontrollera din recension innan den publiceras. Om din recension följer våra regler kommer den publiceras snart :)"
+         ],
+         "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "Tyvärr kan vi inte publicera din recension eftersom den inte följer våra riktlinjer, vänligen försök igen med en annan resencion."
+         ],
+         "Only buyers of that product can rate it": [
+            ""
+         ],
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            ""
+         ],
+         "It seems there are no reviews to this product.": [
+            ""
+         ],
+         "View ": [
+            "Visa"
+         ],
+         "REVIEWS & RATINGS": [
+            "Recensioner & betyg"
+         ],
+         " REVIEWS & RATINGS": [
+            "Recensioner & betyg"
+         ],
+         "Show more": [
+            ""
+         ],
+         "Home": [
+            "Hem"
          ],
          "Mascot test": [
             ""
@@ -16,8 +142,8 @@
          "Social test": [
             ""
          ],
-         "test": [
-            ""
+         "Reviews & Ratings": [
+            "Recensioner & betyg"
          ]
       }
    }

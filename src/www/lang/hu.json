@@ -7,8 +7,134 @@
             "plural_forms": "nplurals=2; plural=(n != 1)",
             "lang": "hu"
          },
-         "Home": [
+         "Review must contain at least 60 symbols": [
+            "Az értékelésnek legalább 60 karaktert kell tartalmaznia"
+         ],
+         "Please remove special symbols": [
+            "Kérjük, távolítsa el a speciális szimbólumokat"
+         ],
+         "Please, write at least 60 symbols for review": [
+            "Kérjük, írjon legalább 60 karaktert az értékeléshez"
+         ],
+         "Your opinion about this product": [
+            "Az Ön véleménye"
+         ],
+         "Cancel": [
+            "Törlés"
+         ],
+         "Post": [
+            "Hozzászólás"
+         ],
+         "Thank you for your review!": [
+            "Köszönjük az értékelését!"
+         ],
+         "We've generated your one-time promo-code and within 10 minutes it will reach your email:": [
+            "Az Ön egyszeri prómóciós kódját létre hoztuk, és 10 percen belül elküldjük az e-mail címére:"
+         ],
+         "on all our themes": [
+            "minden témánkra"
+         ],
+         "Please rate the product:": [
+            "Kérjük, értékelje a terméket"
+         ],
+         "Type your answer here": [
+            "A válaszát ide gépelje be"
+         ],
+         "Send Message": [
+            "Üzenet küldése"
+         ],
+         "Press Ctrl + Enter to send your message": [
+            "Nyomja meg a Ctrl+Enter gombokat az üzenet elküldéséhez"
+         ],
+         "Reply": [
+            "Válasz"
+         ],
+         "Jan": [
+            "Jan."
+         ],
+         "Feb": [
+            "Febr."
+         ],
+         "Mar": [
+            "Márc."
+         ],
+         "Apr": [
+            "Ápr."
+         ],
+         "May": [
+            "Máj."
+         ],
+         "Jun": [
+            "Jún."
+         ],
+         "Jul": [
+            "Júl."
+         ],
+         "Aug": [
+            "Aug."
+         ],
+         "Sep": [
+            "Szept."
+         ],
+         "Oct": [
+            "Okt."
+         ],
+         "Nov": [
+            "Nov."
+         ],
+         "Dec": [
+            "Dec."
+         ],
+         "Now": [
+            "Most"
+         ],
+         "minutes ago": [
+            "perccel ezelőtt"
+         ],
+         "hour ago": [
+            "órával ezelőtt"
+         ],
+         "hours ago": [
+            "órával ezelőtt"
+         ],
+         "Today at": [
+            "Ma"
+         ],
+         "Yesterday at": [
+            "Tegnap"
+         ],
+         "at": [
             ""
+         ],
+         "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
+            "Az értékelést csak Ön láthatja. Sajnáljuk, de a közzététele előtt ellenőrizünk kell az értékelést. Ha az Ön értékelése megfelel a szabályainknak, hamarosan közzétesszük :)"
+         ],
+         "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
+            "Sajnos nem tudjuk közzétenni az értékelését, mert nem felel meg az irányelveinknek. Kérjük, próbálkozzon újra egy másik értékeléssel."
+         ],
+         "Only buyers of that product can rate it": [
+            "Ezt csak a terméket megvásárló felhasználók értékelhetik"
+         ],
+         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
+            "Úgy tűnik, nincs magyar nyelvű vélemény.⏎\nJavasoljuk a más nyelvű vélemények megtekintését."
+         ],
+         "It seems there are no reviews to this product.": [
+            "Úgy tűnik, nincs vélemény erre a termékre."
+         ],
+         "View ": [
+            "Nézet "
+         ],
+         "REVIEWS & RATINGS": [
+            "VÉLEMÉNYEK ÉS ÉRTÉKELÉSEK"
+         ],
+         " REVIEWS & RATINGS": [
+            " VÉLEMÉNYEK ÉS ÉRTÉKELÉSEK"
+         ],
+         "Show more": [
+            "Több megjelenítése"
+         ],
+         "Home": [
+            "Főoldal"
          ],
          "Mascot test": [
             ""
@@ -16,8 +142,8 @@
          "Social test": [
             ""
          ],
-         "test": [
-            ""
+         "Reviews & Ratings": [
+            "Vélemények és értékelések"
          ]
       }
    }

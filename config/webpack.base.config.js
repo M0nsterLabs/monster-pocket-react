@@ -2,6 +2,7 @@ const path = require('path');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const baseDir = process.cwd();
 const nodeModulesPath = path.resolve(baseDir, 'node_modules');
+const env = process.env.NODE_ENV || 'dev';
 const buildPath = path.resolve(baseDir, 'build');
 
 module.exports = {
@@ -11,7 +12,8 @@ module.exports = {
     mascotAndSocialProof : './entry/MascotAndSocialProof.js',
     MembershipsClient    : './entry/Memberships.js',
     OrdersClient         : './entry/Orders.js',
-    index                : './entry/index.js'
+    index                : './entry/index.js',
+    review               : './entry/Review.js'
   },
   output: {
     path     : buildPath,
@@ -76,6 +78,9 @@ module.exports = {
     )
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      'config.js': path.join(baseDir, 'config', 'application.' + env + '.js')
+    }
   }
 };

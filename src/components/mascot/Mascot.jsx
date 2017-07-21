@@ -1,9 +1,10 @@
-import React from 'react';
+import React     from 'react';
+import PropTypes from 'prop-types';
 import './Mascot.less';
 export default class Mascot extends React.Component {
   static propTypes = {
-    type : React.PropTypes.string,
-    hide : React.PropTypes.bool
+    type : PropTypes.string,
+    hide : PropTypes.bool
   };
 
   static defaultProps = {
