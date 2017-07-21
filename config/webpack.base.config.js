@@ -52,7 +52,7 @@ module.exports = {
         test    : /\.js?$/,
         loader  : 'babel',
         exclude : nodeModulesPath,
-        query   : {presets: ['es2015', 'react', 'stage-0']}
+        query   : {presets: ['react', 'latest']}
       },
       {
         test    : /\.(png|ttf|eot|svg|woff|json(2)?)(\?[a-z0-9=&.]+)?$/,
