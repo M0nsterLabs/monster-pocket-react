@@ -96,11 +96,12 @@
     "webpack-uglify-js-plugin": "^1.1.9"
   },
   "dependencies": {
-    "qs": "^6.2.1",
-    "plasma-reviews-api-client-js": "^1.0.8",
-    "tm-products-api-client-js": "^1.0.14",
     "plasma-membership-api-client-js": "^1.0.17",
-    "quark": "git+https://git@github.com/templatemonster/QUARK-React.git#feature/PTR-2225"
+    "plasma-order-api-client-js": "^1.0.7",
+    "plasma-reviews-api-client-js": "^1.0.42",
+    "qs": "^6.2.1",
+    "quark": "git+https://git@github.com/templatemonster/QUARK-React.git#feature/PTR-2225",
+    "tm-products-api-client-js": "^1.0.14"
   },
   "babel": {
     "presets": [
