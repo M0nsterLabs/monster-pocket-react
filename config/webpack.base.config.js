@@ -8,6 +8,7 @@ const buildPath = path.resolve(baseDir, 'build');
 module.exports = {
   node  : {fs: 'empty'},
   entry : {
+    polyfillTrick        : ['babel-polyfill', './entry/polyfillTrick.js'],
     advice               : './src/model/advice/Advice.js',
     mascotAndSocialProof : './entry/MascotAndSocialProof.js',
     MembershipsClient    : './entry/Memberships.js',
@@ -52,7 +53,7 @@ module.exports = {
         test    : /\.js?$/,
         loader  : 'babel',
         exclude : nodeModulesPath,
-        query   : {presets: ['react', 'stage-0']}
+        query   : {presets: ['es2015', 'react', 'stage-0']}
       },
       {
         test    : /\.(png|ttf|eot|svg|woff|json(2)?)(\?[a-z0-9=&.]+)?$/,
