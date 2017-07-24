@@ -12,6 +12,7 @@
     "build:demo2": "NODE_ENV=demo2 node_modules/.bin/webpack",
     "build:demo3": "NODE_ENV=demo3 node_modules/.bin/webpack",
     "build:demo4": "NODE_ENV=demo4 node_modules/.bin/webpack",
+    "build:demo5": "NODE_ENV=demo5 node_modules/.bin/webpack",
     "build": "rm -rf ./build && webpack",
     "watch": "webpack -w",
     "rebuild": "npm install",
