@@ -8,17 +8,12 @@ const buildPath = path.resolve(baseDir, 'build');
 module.exports = {
   node  : {fs: 'empty'},
   entry : {
-    polyfillTrick        : ['babel-polyfill', './entry/polyfillTrick.js'],
-    advice               : './src/model/advice/Advice.js',
-    mascotAndSocialProof : './entry/MascotAndSocialProof.js',
-    MembershipsClient    : './entry/Memberships.js',
-    OrdersClient         : './entry/Orders.js',
-    index                : './entry/index.js',
-    review               : './entry/Review.js'
+    monsterBundle : ['babel-polyfill', './entry/monsterBundle.js'],
+    index         : './entry/index.js'
   },
   output: {
     path     : buildPath,
-    filename : '../build/[name].js',
+    filename : '[name].js',
     library  : '[name]'
   },
   externals: {
