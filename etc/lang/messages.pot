@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 14:32+0300\n"
+"POT-Creation-Date: 2017-07-14 10:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,6 +47,18 @@ msgid "on all our themes"
 msgstr ""
 
 msgid "Please rate the product:"
+msgstr ""
+
+msgid "STATISTICS"
+msgstr ""
+
+msgid "Average rating"
+msgstr ""
+
+msgid "Product rating"
+msgstr ""
+
+msgid "INCLUDES"
 msgstr ""
 
 msgid "Type your answer here"
