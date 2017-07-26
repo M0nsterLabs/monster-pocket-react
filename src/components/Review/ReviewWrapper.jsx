@@ -13,6 +13,7 @@ import ProductsData        from 'tm-products-api-client-js';
 
 import ReviewItem          from './ReviewItem';
 import ReviewEditor        from './ReviewEditor';
+import ReviewStatistics    from './ReviewStatistics';
 
 import {
   getCdnImageUrl,
@@ -59,7 +60,13 @@ export default class Reviews extends React.Component {
     countReviewOtherLocale : 0,
     otherLocale            : false,
     showMoreVisible        : false,
-    sort                   : '-id'
+    sort                   : '-id',
+    totalCount5: 0,
+    totalCount4: 0,
+    totalCount3: 0,
+    totalCount2: 0,
+    totalCount1: 0,
+    averageRating: 0,
   };
 
   constructor (props) {
@@ -70,6 +77,8 @@ export default class Reviews extends React.Component {
     this.iteratorLocale = 0;
     this.countReview = 0;
     this.updateUserReview = this.updateUserReview.bind(this);
+    this.timeCountScoreReviews = 500;
+    this.timeAverageRating = 500;
   }
 
   updateUserReview (item) {
@@ -321,7 +330,7 @@ export default class Reviews extends React.Component {
     });
   };
 
-  // Get reviews of user on template
+  //Get reviews of user on template
   getReviewsUser = () => {
     return this.getReviewsUserData({
       'template_id'  : this.props.templateId,
@@ -340,7 +349,7 @@ export default class Reviews extends React.Component {
       this.getUserData();
     });
   };
-  // Get reviews of user on template
+  //Get reviews of user on template
 
   // Product data of template
   getProductUser = (locale = 'en') => {
@@ -401,6 +410,49 @@ export default class Reviews extends React.Component {
     const currentItemsCount = currentState.items ? currentState.items.length : 0;
     const totalItemsCount   = currentState.totalCount;
     return currentItemsCount === 0 || currentItemsCount < totalItemsCount;
+  };
+
+  getCountScoreReviews = (score) => {
+    fetch(`${Config.reviewsServiceURL}reviews?template_id=${this.props.templateId}&score=${score}`, {
+      method: 'head',
+    })
+    .then(response => {
+      var key = `totalCount${score}`;
+      var obj  = {};
+      obj[key] = parseInt(response.headers.get('X-Pagination-Total-Count'), 10);
+      this.setState(obj);
+    })
+    .catch(() => {
+      this.timeCountScoreReviews*=2;
+      setTimeout(this.getCountScoreReviews(), this.timeCountScoreReviews);
+    });
+  };
+
+  findProperty = (property) => {
+    return property.propertyName === 'review_average_score';
+  };
+
+  getAverageRating = () => {
+    fetch(`${Config.productsServiceURL}products?ids=${this.props.templateId}`, {
+      method: 'get',
+    })
+    .then(getResponseJSON)
+    .then(data => {
+      this.setState({
+        averageRating: parseInt(data[0].properties.find(this.findProperty).value)
+      });
+    })
+    .catch(() => {
+      this.timeAverageRating*=2;
+      setTimeout(this.getAverageRating(), this.timeAverageRating);
+    });
+  };
+
+  componentWillMount () {
+    for (let i=1; i<=5; i++) {
+      this.getCountScoreReviews(i);
+    }
+    this.getAverageRating();
   };
 
   componentDidMount () {
@@ -496,7 +548,6 @@ export default class Reviews extends React.Component {
         items: []
       },
     }, () => {
-      console.log(this.state.otherLocale, this.iteratorLocale);
       this.getReviews(this.state.otherLocale ? '' : LOCALES[this.iteratorLocale]);
     })
   };
@@ -527,6 +578,7 @@ export default class Reviews extends React.Component {
   };
 
   render () {
+    let {totalCount5, totalCount4, totalCount3, totalCount2, totalCount1, averageRating} = this.state;
     return (
       <div className="page-content"><span className="reviews__count">{this.state.reviews.totalCount}</span>
         {
@@ -556,6 +608,12 @@ export default class Reviews extends React.Component {
                 )
               : (
                 <div className="reviews">
+                  <ReviewStatistics
+                    countReview={[totalCount1, totalCount2, totalCount3, totalCount4,totalCount5]}
+                    summReview={totalCount5+totalCount4+totalCount3+totalCount2+totalCount1}
+                    averageRating={averageRating}
+                  />
+
                   <div className="reviews__header">
                     <h2 className="h3"><span className="reviews__total-count">{this.state.reviews.totalCount}</span> {this.context.i18n.l(`REVIEWS & RATINGS`)}</h2>
                     {this.sortReviews()}
