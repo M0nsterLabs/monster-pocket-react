@@ -7,7 +7,7 @@
     "start": "npm run build && webpack-dev-server",
     "build:local": "NODE_ENV=local webpack",
     "build:beta": "NODE_ENV=beta node_modules/.bin/webpack",
-    "build:production": "NODE_ENV=production node_modules/.bin/webpack",
+    "build:production": "NODE_ENV=production webpack",
     "build:dev": "node_modules/.bin/webpack",
     "build:demo2": "NODE_ENV=demo2 node_modules/.bin/webpack",
     "build:demo3": "NODE_ENV=demo3 node_modules/.bin/webpack",
