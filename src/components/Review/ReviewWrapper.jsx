@@ -330,7 +330,7 @@ export default class Reviews extends React.Component {
     });
   };
 
-  // Get reviews of user on template
+  //Get reviews of user on template
   getReviewsUser = () => {
     return this.getReviewsUserData({
       'template_id'  : this.props.templateId,
@@ -349,7 +349,7 @@ export default class Reviews extends React.Component {
       this.getUserData();
     });
   };
-  // Get reviews of user on template
+  //Get reviews of user on template
 
   // Product data of template
   getProductUser = (locale = 'en') => {
