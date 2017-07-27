@@ -417,15 +417,11 @@ export default class Reviews extends React.Component {
       method: 'head',
     })
     .then(response => {
-      var key = `totalCount${score}`;
-      var obj  = {};
+      let key = `totalCount${score}`;
+      let obj  = {};
       obj[key] = parseInt(response.headers.get('X-Pagination-Total-Count'), 10);
       this.setState(obj);
-    })
-    .catch(() => {
-      this.timeCountScoreReviews*=2;
-      setTimeout(this.getCountScoreReviews(), this.timeCountScoreReviews);
-    });
+    }).catch(()=>{});
   };
 
   findProperty = (property) => {
@@ -441,11 +437,7 @@ export default class Reviews extends React.Component {
       this.setState({
         averageRating: parseInt(data[0].properties.find(this.findProperty).value)
       });
-    })
-    .catch(() => {
-      this.timeAverageRating*=2;
-      setTimeout(this.getAverageRating(), this.timeAverageRating);
-    });
+    }).catch(()=>{});
   };
 
   componentWillMount () {
