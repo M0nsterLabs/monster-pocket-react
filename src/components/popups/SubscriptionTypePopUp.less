@@ -1,0 +1,64 @@
+@import "../../www/styles/variables";
+
+//temp rule because of absence this in QUARK
+button {
+  border: 0 none;
+}
+
+.subscription-type-popup {
+
+  .popup__content {
+    width: 984px;
+    margin: @s4 0 @s8;
+
+    //костыль чтобы крестик был внутри контейнера
+    .popup__close-btn {
+      margin-left: -35px;
+    }
+
+    //костыль чтобы тултип под крестиком из-за верхнего костыля
+    .popup__close-text {
+      margin-left: -15px;
+    }
+  }
+
+  &__head {
+    margin-bottom: @s4;
+
+    &__title {
+      margin-bottom: @s2;
+    }
+  }
+
+  &__licenses {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 300px;
+    margin-bottom: 155px;
+  }
+
+  &__questions {
+    margin: @s4 0;
+    display: flex;
+    justify-content: space-between;
+
+    &__item {
+      display: inherit;
+      align-items: flex-start;
+
+      &__icon {
+        margin-right: @s2;
+      }
+
+      &__description {
+        text-align: left;
+        width: 392px;
+
+        &__title {
+          margin-bottom: @s2;
+        }
+      }
+    }
+  }
+}
