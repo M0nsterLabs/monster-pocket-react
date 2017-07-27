@@ -421,10 +421,6 @@ export default class Reviews extends React.Component {
       let obj  = {};
       obj[key] = parseInt(response.headers.get('X-Pagination-Total-Count'), 10);
       this.setState(obj);
-    })
-    .catch(() => {
-      this.timeCountScoreReviews*=2;
-      setTimeout(this.getCountScoreReviews, this.timeCountScoreReviews);
     });
   };
 
@@ -441,10 +437,6 @@ export default class Reviews extends React.Component {
       this.setState({
         averageRating: parseInt(data[0].properties.find(this.findProperty).value)
       });
-    })
-    .catch(() => {
-      this.timeAverageRating*=2;
-      setTimeout(this.getAverageRating, this.timeAverageRating);
     });
   };
 
