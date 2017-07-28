@@ -483,14 +483,14 @@
             &.quark-animated-tooltip {
               &_open {
                 &_bottom {
-                  animation-name: animation-tooltip_bottom;
+                  animation-name: animation-tooltip_bottom-controls !important;
                   transform-origin: 0 0 0;
                 }
               }
             }
           }
 
-          @keyframes animation-tooltip_bottom {
+          @keyframes animation-tooltip_bottom-controls {
             0% {
               opacity: 0;
               transform: scale(0.8) translate(-50%, -40px);
