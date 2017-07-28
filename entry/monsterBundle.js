@@ -4,6 +4,7 @@ import ReviewsClient from 'plasma-reviews-api-client-js';
 import advice from '../src/model/advice/Advice';
 import mascotAndSocialProof from './MascotAndSocialProof';
 import review from './Review';
+import Memberships from './memberships';
 
 export default {
   OrdersClient         : OrdersClient,
@@ -11,5 +12,6 @@ export default {
   ReviewsClient        : ReviewsClient,
   advice               : advice,
   mascotAndSocialProof : mascotAndSocialProof,
-  review               : review
+  review               : review,
+  memberships          : Memberships
 };

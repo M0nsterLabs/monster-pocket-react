@@ -8,8 +8,7 @@ const buildPath = path.resolve(baseDir, 'build');
 module.exports = {
   node  : {fs: 'empty'},
   entry : {
-    monsterBundle : ['babel-polyfill', './entry/monsterBundle.js'],
-    index         : './entry/index.js'
+    monsterBundle: ['babel-polyfill', './entry/monsterBundle.js']
   },
   output: {
     path     : buildPath,

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && webpack-dev-server",
+    "start": "NODE_ENV=debug && npm run build && webpack-dev-server",
     "build:local": "rm -rf build && NODE_ENV=local webpack",
     "build:beta": "rm -rf build && NODE_ENV=beta node_modules/.bin/webpack",
     "build:production": "rm -rf build && NODE_ENV=production node_modules/.bin/webpack",
@@ -79,7 +79,7 @@
     "postcss-inline-svg": "^2.3.0",
     "postcss-loader": "^1.2.0",
     "postcss-safe-parser": "^2.0.0",
-    "prop-types": "^15.5.8",
+    "prop-types": "^15.5.10",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -97,7 +97,7 @@
   "dependencies": {
     "amdefine": "^1.0.1",
     "babel-polyfill": "^6.23.0",
-    "babel-runtime": "^6.23.0",
+    "babel-runtime": "^6.25.0",
     "plasma-membership-api-client-js": "^1.0.27",
     "plasma-order-api-client-js": "^1.0.7",
     "plasma-reviews-api-client-js": "^1.0.42",

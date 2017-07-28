@@ -1,5 +1,7 @@
 @import "../../../www/styles/variables";
 @import "../../../www/styles/animations";
+@imgBaseWidth: 150px;
+@imgBaseHeight: 100px;
 
 .subscription-type__card {
 	padding: @s2 @s2 @s4;
@@ -12,34 +14,59 @@
 		transform: scale(.8);
 	}
 
-	&:nth-of-type(1),
-	&:nth-of-type(5){
-		background: @subscription-card-bg;
-		padding-bottom: @s2;
-		box-shadow: 0 10px 20px 0 @shadow-color;
-		transition-delay: 0.3s;
-	}
+	&_five{
+		&:nth-of-type(1),
+		&:nth-of-type(5){
+			background: @subscription-card-bg;
+			padding-bottom: @s2;
+			box-shadow: 0 10px 20px 0 @shadow-color;
+			transition-delay: 0.3s;
+		}
 
-	&:nth-of-type(3) {
-		background: #455A64;
-		box-shadow: 0 20px 20px -10px @shadow-color;
-		transition-delay: 0.1s;
+		&:nth-of-type(3) {
+			background: #455A64;
+			box-shadow: 0 20px 20px -10px @shadow-color;
+			transition-delay: 0.1s;
 
-		.subscription-type__card__img {
-			width: 120px;
+			.subscription-type__card__img {
+				width: @imgBaseWidth - 30px;
+				min-height: @imgBaseHeight - 20px;
+			}
+		}
+
+		&:nth-of-type(2),
+		&:nth-of-type(4) {
+			background: #334650;
+			padding-bottom: @s2 + @s1;
+			padding-top: @s2 + @s1;
+			box-shadow: 0 20px 20px -10px @shadow-color;
+			z-index: 10;
+			transition-delay: 0.2s;
 		}
 	}
 
-	&:nth-of-type(2),
-	&:nth-of-type(4) {
-		background: #334650;
-		padding-bottom: @s2 + @s1;
-		padding-top: @s2 + @s1;
-		box-shadow: 0 20px 20px -10px @shadow-color;
-		z-index: 10;
-		transition-delay: 0.2s;
-	}
+	&_three{
+		&:nth-of-type(2) {
+			background: #455A64;
+			box-shadow: 0 20px 20px -10px @shadow-color;
+			transition-delay: 0.1s;
 
+			.subscription-type__card__img {
+				width: @imgBaseWidth + 30px;
+				min-height: @imgBaseHeight + 20px;
+			}
+		}
+
+		&:nth-of-type(1),
+		&:nth-of-type(3) {
+			background: #334650;
+			padding-bottom: @s2 + @s1;
+			padding-top: @s2 + @s1;
+			box-shadow: 0 20px 20px -10px @shadow-color;
+			z-index: 10;
+			transition-delay: 0.2s;
+		}
+	}
 	//temp styles - absence of H4 in QUARK
 	&__title {
 		display: block;
@@ -48,24 +75,25 @@
 		margin-bottom: @s2;
 
 		&.bronze {
-			color: #d7995c;
+			color: #ffffff;
 		}
 		&.silver {
-			color: #cfd8dc;
+			color: #ffffff;
 		}
 		&.gold {
-			color: #ffd54f;
+			color: #ffffff;
 		}
 		&.platinum {
 			color: #ffffff;
 		}
 		&.diamond {
-			color: #90caf9;
+			color: #ffffff;
 		}
 	}
 
 	&__img {
-		width: 100px;
+		width: @imgBaseWidth;
+		min-height: @imgBaseHeight;
 		margin-bottom: @s4;
 	}
 
@@ -83,11 +111,11 @@
 		}
 
 		&__price-per-template {
-			color: #76D48F;
+			color: #76d48f;
 			font-weight: bold;
 			font-size: 40px;
 			display: table-cell;
-			padding-right: 10px;
+			padding-right: 25px;
 
 			.currency-sign {
 				font-size: 20px;
@@ -108,13 +136,20 @@
 			vertical-align: middle;
 			font-size: 14px;
 			//padding: 5px 0;
-			
-			.sale {
-				color: #FFE082;
+			.sale,
+			.info{
 				font-size: 12px;
 				display: block;
 				text-align: left;
 				padding-bottom: 4px;
+				margin-top: 10px;
+			}
+			.sale {
+				color: #ffe082;
+				margin-top: 4px;
+			}
+			.info {
+				color: #76d48f;
 			}
 		}
 
@@ -128,8 +163,8 @@
 
 			&__value {
 				display: table-cell;
-				min-width: 58px;
-				text-align: right;
+				min-width: 75px;
+				text-align: center;
 				font-weight: bold;
 			}
 

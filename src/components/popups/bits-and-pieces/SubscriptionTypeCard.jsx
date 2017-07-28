@@ -1,11 +1,16 @@
 import React from 'react';
 import Typography from 'quark/lib/typography';
 import Buttons from 'quark/lib/buttons';
+import PropTypes from 'prop-types';
 import './SubscriptionTypeCard.less';
 
 export default class SubscriptionTypeCard extends React.Component {
   state = {
     isCardVisible: false
+  };
+
+  static contextTypes = {
+    i18n: PropTypes.object
   };
 
   componentDidMount () {
@@ -18,10 +23,23 @@ export default class SubscriptionTypeCard extends React.Component {
   }
 
   render () {
-    let   Button            = (this.props.buttonType) || Buttons.B2C;
-    let   cardVisibility    = this.state.isCardVisible ? '' : 'opacity_null scaled';
-    // тут нужно передавать ссылку на продукт который попадет в виртуальную корзину (про виртуальную корзину читать тут http://confluence.devoffice.com/pages/viewpage.action?pageId=19399881)
-    const urlToAdd          = 'https://www.templatemonster.com/checkout.php?add=62046&channel=preview&price_variant=regular&p_62046_512=1&sc_62046_512=656&pr_62046_512=5937&oids%5B%5D=512&p_62046_239=2&sc_62046_239=656&pr_62046_239=1311&oids%5B%5D=239&p_62046_515=3&sc_62046_515=656&pr_62046_515=5948&oids%5B%5D=515&p_62046_420=4&sc_62046_420=656&pr_62046_420=3987&oids%5B%5D=420&_tmvcid=_vc_ats'
+    const l = this.context.i18n.l;
+    const sprintf = this.context.i18n.sprintf;
+    const Button = (this.props.buttonType) || Buttons.B2C;
+    const cardVisibility    = this.state.isCardVisible ? '' : 'opacity_null scaled';
+    let cardLength = '';
+
+    switch (true) {
+      case (this.props.cardLength >= 5):
+        cardLength = 'subscription-type__card_five';
+        break;
+      case (this.props.cardLength >= 3):
+        cardLength = 'subscription-type__card_three';
+        break;
+      default:
+        cardLength = '';
+        break;
+    }
 
     const DetailedInfo = (props) => (
       <span className="subscription-type__card__price-info_detailed">
@@ -35,8 +53,8 @@ export default class SubscriptionTypeCard extends React.Component {
     );
 
     return (
-      <div className={'subscription-type__card' + ' ' + cardVisibility}>
-        <T1 className={'subscription-type__card__title' + ' ' + this.props.subscriptionType}>
+      <div className={`subscription-type__card ${cardVisibility} ${cardLength}`}>
+        <T1 className={`subscription-type__card__title ${this.props.subscriptionType}`}>
           {this.props.subscriptionType}
         </T1>
         <img
@@ -44,13 +62,15 @@ export default class SubscriptionTypeCard extends React.Component {
           src         = {this.props.subscriptionTypeImg}
         />
         <Button
-          href        = {urlToAdd}
+          onClick = {() => {
+            this.props.bySubscriptionFunc(this.props.itemID, this.props.groupID);
+          }}
           className   = "subscription-type__card__button"
           roundedType = "all"
           type        = "link"
           icon        = ""
         >
-          {'Choose' + ' ' + this.props.subscriptionType}
+          {sprintf(l('Choose %s subscription'), this.props.subscriptionType)}
         </Button>
         <section className="subscription-type__card__price-info">
             <div className="subscription-type__card__price-info__wrapper">
@@ -59,24 +79,18 @@ export default class SubscriptionTypeCard extends React.Component {
                 <span className="price">{this.props.pricePerTemplate}</span>
               </span>
               <span className="subscription-type__card__price-info__sale-per-template">
-                <span className="sale">{this.props.currencySign} {this.props.saleAmount} off</span>
-                <T3>
-                  per template
-                </T3>
+                <span className="sale">{sprintf(l('$%d economy'), parseInt(this.props.economy, 10))}</span>
+                <span className="info">{l('per month, paid annually')}</span>
               </span>
             </div>
             <div>
               <DetailedInfo
                 value={this.props.downloads}
-                label="downloads"
-              />
-              <DetailedInfo
-                value={this.props.months}
-                label="months"
+                label={l('downloads per month')}
               />
               <DetailedInfo
                 value={this.props.currencySign + this.props.toPay}
-                label="to pay"
+                label={l('you`ll be charged once a year')}
               />
             </div>
         </section>

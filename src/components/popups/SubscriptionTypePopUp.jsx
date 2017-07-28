@@ -2,6 +2,8 @@ import React from 'react';
 import POP2 from 'quark/lib/popups/POP2';
 import Typography from 'quark/lib/typography';
 import Buttons from 'quark/lib/buttons';
+import Interpolate from 'react-interpolate-component';
+import PropTypes from 'prop-types';
 
 import SubscriptionTypeCard, {T1, T3} from './bits-and-pieces/SubscriptionTypeCard.jsx';
 import './SubscriptionTypePopUp.less';
@@ -19,36 +21,50 @@ export default class SubscriptionTypePopUp extends React.Component {
   };
 
   render () {
-    // этот комопнент на вход должен получить по сути только объект с данными по лицензиям и колбек для открытия чата
-    const licenseTypes = ['bronze', 'silver', 'gold', 'platinum', 'diamond'];
+    const l = this.context.i18n.l;
     const currencySign = '$';
+    const cards = this.props.subscriptions.map((item, key) => {
+      const unLim = parseInt(item.unlimited_downloads, 10);
+      const cardLength = this.props.subscriptions.length;
+      const economy = !unLim
+        ? parseInt(this.props.defaultTemplatePrice, 10) * parseInt(item.max_downloads, 10)
+        : parseInt(this.props.defaultTemplatePrice, 10) * parseInt(this.props.templatesQuantity, 10);
+      let centerElement;
 
-    const cards = licenseTypes.map((item, key) => {
-      const imgUrl = `./img/license_types/${item}.png`;
-      const pricePerTemplate  = '22';
-      const saleAmount        = '108';
-      const downloads         = '45';
-      const months            = '6';
-      const toPay             = '999';
-
+      switch (true) {
+        case (cardLength >= 5):
+          centerElement = 2;
+          break;
+        case (cardLength >= 3):
+          centerElement = 1;
+          break;
+        default:
+          centerElement = 2;
+          break;
+      }
       return (
         <SubscriptionTypeCard
-          key                 = {key}
-          subscriptionType    = {item}
-          subscriptionTypeImg = {imgUrl}
-          buttonType          = {item === 'gold' ? Buttons.B1C : ''}
-          currencySign        = {currencySign}
-          pricePerTemplate    = {pricePerTemplate}
-          saleAmount          = {saleAmount}
-          downloads           = {downloads}
-          months              = {months}
-          toPay               = {toPay}
+          cardLength = {cardLength}
+          itemID = {item.id}
+          groupID = {item.group.id}
+          key = {`subscription-${key}`}
+          subscriptionType = {item.title}
+          subscriptionTypeImg = {item.icon}
+          buttonType = {centerElement === key ? Buttons.B1C : ''}
+          currencySign = {currencySign}
+          pricePerTemplate = {item.price / 12}
+          downloads = {unLim ? l('Unlimited') : item.max_downloads}
+          toPay = {item.price}
+          economy = {economy}
+          templatesQuantity = {this.props.templatesQuantity}
+          defaultTemplatePrice = {this.props.defaultTemplatePrice}
+          bySubscriptionFunc = {this.props.bySubscriptionFunc}
         >
-          {item === 'gold' &&
+          {centerElement === key &&
             <span className="subscription-type__card__advice">
-              <span>55% of customers choose this subscription</span>
+              <span>{l('55% of customers choose this subscription')}</span>
               <img
-                src="./img/license_types/arrow.svg"
+                src="https://s.tmimgcdn.com/wp-content/uploads/memberships/arrow.svg"
               />
             </span>
           }
@@ -84,7 +100,6 @@ export default class SubscriptionTypePopUp extends React.Component {
         open             = {this.state.showPopup}
         onRequestClose   = {this.hidePopUp}
         ref              = {(ref) => { this.licenceTypePopup = ref; }}
-        open             = {this.state.showPopup}
       >
         <div className="subscription-type-popup__head">
           <Typography.H3
@@ -92,13 +107,13 @@ export default class SubscriptionTypePopUp extends React.Component {
             themeType='dark'
             type='default'
           >
-            Choose the plan and get any shopify product cheaper up to 90%
+            {l('Choose the plan and get any shopify product cheaper up to 90%')}
           </Typography.H3>
           <Typography.T1
             themeType='dark'
             type='default'
           >
-            You’ll be able to download certain quantity of any of 260+ Shopify templates for a chosen period of time!
+            {l('You’ll be able to download certain quantity of any of 260+ Shopify templates for a chosen period of time!')}
           </Typography.T1>
         </div>
 
@@ -115,23 +130,48 @@ export default class SubscriptionTypePopUp extends React.Component {
 
         <span className="subscription-type-popup__questions">
           <AskedQuestion
-            icon  = "./img/license_types/icon-question.svg"
-            title = "What’s going to happen if the subscription expires but there are still downloads left?"
-            text  = "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. Unfortunately unused downloads will be unavailable."
+            icon  = "https://s.tmimgcdn.com/wp-content/uploads/memberships/icon-question.svg"
+            title = {l('What’s going to happen if the subscription expires but there are still downloads left?')}
+            text  = {l('When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. Unfortunately unused downloads will be unavailable.')}
           />
           <AskedQuestion
-            icon  = "./img/license_types/icon-support.svg"
-            title = "What’s going to happen if downloads are up before the subscription expires?"
-            text  = "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price."
+            icon  = "https://s.tmimgcdn.com/wp-content/uploads/memberships/icon-support.svg"
+            title = {l('What’s going to happen if downloads are up before the subscription expires?')}
+            text  = {l('In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.')}
           />
         </span>
 
         <T3
           type="default"
         >
-          Still have questions? <a href="#" onClick={() => this.props.contacUsCallback()} className="font_bold">Contact us in chat</a>, we will help with the choice!
+          <Interpolate
+            with={{
+              contactUs: (<a href="#" onClick={() => { this.props.contactUsCallback(); }} className="font_bold">{l('Contact us in chat')}</a>)
+            }}
+            format={l('Still have questions? %(contactUs)s, we will help with the choice!')}
+          />
         </T3>
       </POP2>
     );
   }
 }
+
+SubscriptionTypePopUp.propTypes = {
+  subscriptions        : PropTypes.array,
+  templatesQuantity    : PropTypes.number,
+  defaultTemplatePrice : PropTypes.number,
+  contactUsCallback    : PropTypes.func,
+  bySubscriptionFunc   : PropTypes.func
+};
+
+SubscriptionTypePopUp.defaultProps = {
+  subscriptions        : [],
+  templatesQuantity    : 310,
+  defaultTemplatePrice : 139,
+  contactUsCallback    : () => {},
+  bySubscriptionFunc   : () => {}
+};
+
+SubscriptionTypePopUp.contextTypes = {
+  i18n: PropTypes.object
+};
