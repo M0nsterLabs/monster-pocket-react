@@ -54,7 +54,7 @@ export default class SubscriptionTypePopUp extends React.Component {
           currencySign = {currencySign}
           pricePerTemplate = {item.price / 12}
           downloads = {unLim ? l('Unlimited') : item.max_downloads}
-          toPay = {item.price}
+          toPay = {parseInt(item.price, 10)}
           economy = {economy}
           templatesQuantity = {this.props.templatesQuantity}
           defaultTemplatePrice = {this.props.defaultTemplatePrice}
@@ -62,7 +62,7 @@ export default class SubscriptionTypePopUp extends React.Component {
         >
           {centerElement === key &&
             <span className="subscription-type__card__advice">
-              <span>{l('55% of customers choose this subscription')}</span>
+              <span>{l('68% of customers choose this subscription')}</span>
               <img
                 src="https://s.tmimgcdn.com/wp-content/uploads/memberships/arrow.svg"
               />
@@ -80,7 +80,7 @@ export default class SubscriptionTypePopUp extends React.Component {
             src={props.icon}
           />
           <span className="subscription-type-popup__questions__item__description">
-            <T1 className="subscription-type-popup__questions__item__description__title font_bold">
+            <T1 className="subscription-type-popup__questions__item__description__title font_bold" themeType="dark">
               {props.title}
             </T1>
             <T3 type="default">
@@ -107,13 +107,14 @@ export default class SubscriptionTypePopUp extends React.Component {
             themeType='dark'
             type='default'
           >
-            {l('Choose the plan and get any shopify product cheaper up to 90%')}
+            {l('Choose the plan and get any shopify product cheaper up to 9%')}
           </Typography.H3>
           <Typography.T1
             themeType='dark'
             type='default'
+            className="subscription-type-popup__head__subtitle"
           >
-            {l('You’ll be able to download certain quantity of any of 260+ Shopify templates for a chosen period of time!')}
+            {l('You’ll be able to download certain quantity of any from hundreds Shopify themes for year!')}
           </Typography.T1>
         </div>
 

@@ -46,9 +46,9 @@ export default class SubscriptionTypeCard extends React.Component {
           <T1 className="subscription-type__card__price-info_detailed__value">
             {props.value}
           </T1>
-          <T3 className="subscription-type__card__price-info_detailed__label">
+          <T5 className="subscription-type__card__price-info_detailed__label">
             {props.label}
-          </T3>
+          </T5>
         </span>
     );
 
@@ -78,15 +78,15 @@ export default class SubscriptionTypeCard extends React.Component {
                 <span className="currency-sign">{this.props.currencySign}</span>
                 <span className="price">{this.props.pricePerTemplate}</span>
               </span>
-              <span className="subscription-type__card__price-info__sale-per-template">
+              <T5 className="subscription-type__card__price-info__sale-per-template">
                 <span className="sale">{sprintf(l('$%d economy'), parseInt(this.props.economy, 10))}</span>
                 <span className="info">{l('per month, paid annually')}</span>
-              </span>
+              </T5>
             </div>
             <div>
               <DetailedInfo
                 value={this.props.downloads}
-                label={l('downloads per month')}
+                label={l('templates')}
               />
               <DetailedInfo
                 value={this.props.currencySign + this.props.toPay}
@@ -103,7 +103,7 @@ export default class SubscriptionTypeCard extends React.Component {
 export const T1 = (props) => (
   <Typography.T1
     className   = {props.className}
-    themeType   = 'dark'
+    themeType   = {props.themeType || ''}
     type        = 'default'
   >
     {props.children}
@@ -118,4 +118,14 @@ export const T3 = (props) => (
   >
     {props.children}
   </Typography.T3>
+);
+
+export const T5 = (props) => (
+  <Typography.T5
+    className   = {props.className}
+    themeType   = 'dark'
+    type        = {props.type || 'secondary'}
+  >
+    {props.children}
+  </Typography.T5>
 );

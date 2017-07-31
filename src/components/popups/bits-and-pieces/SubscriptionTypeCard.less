@@ -5,7 +5,6 @@
 
 .subscription-type__card {
 	padding: @s2 @s2 @s4;
-	min-height: 100%;
 	flex-grow: 1;
 	position: relative;
 	.easeInOutBack(all, .3s, 0s);
@@ -73,22 +72,7 @@
 		text-transform: uppercase;
 		font-weight: bold;
 		margin-bottom: @s2;
-
-		&.bronze {
-			color: #ffffff;
-		}
-		&.silver {
-			color: #ffffff;
-		}
-		&.gold {
-			color: #ffffff;
-		}
-		&.platinum {
-			color: #ffffff;
-		}
-		&.diamond {
-			color: #ffffff;
-		}
+		color: #ffffff;
 	}
 
 	&__img {
@@ -108,14 +92,15 @@
 
 		&__wrapper {
 			margin-bottom: 20px;
+			display: flex;
+			justify-content: flex-end;
 		}
 
 		&__price-per-template {
 			color: #76d48f;
 			font-weight: bold;
 			font-size: 40px;
-			display: table-cell;
-			padding-right: 25px;
+			min-width: 90px;
 
 			.currency-sign {
 				font-size: 20px;
@@ -140,8 +125,10 @@
 			.info{
 				font-size: 12px;
 				display: block;
+				width: 180px;
 				text-align: left;
 				padding-bottom: 4px;
+				padding-left: 8px;
 				margin-top: 10px;
 			}
 			.sale {
@@ -154,7 +141,8 @@
 		}
 
 		&_detailed {
-			display: block;
+			display: flex;
+			justify-content: flex-end;
 			margin-bottom: @s2;
 
 			&:last-of-type {
@@ -163,14 +151,18 @@
 
 			&__value {
 				display: table-cell;
-				min-width: 75px;
+				min-width: 90px;
 				text-align: center;
 				font-weight: bold;
+				color: #ffffff;
 			}
 
 			&__label {
-				display: table-cell;
+				display: block;
+				width: 180px;
 				padding-left: 8px;
+				line-height: 24px;
+				text-align: left;
 				vertical-align: middle;
 			}
 		}
@@ -178,7 +170,7 @@
 
 	&__advice {
 		position: absolute;
-		left: -288px;
+		left: -220px;
 		right: 98px;
 		bottom: -73px;
 		display: flex;
@@ -199,4 +191,8 @@
 			flex-shrink: 3;
 		}
 	}
+}
+
+.TMUI__TypographyText--dark{
+	color: #b0bec5;
 }
