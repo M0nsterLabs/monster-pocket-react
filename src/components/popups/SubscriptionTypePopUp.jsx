@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 import SubscriptionTypeCard, {T1, T3} from './bits-and-pieces/SubscriptionTypeCard.jsx';
 import './SubscriptionTypePopUp.less';
+import '../../www/styles/helpers.less';
 
 export default class SubscriptionTypePopUp extends React.Component {
   state = {
@@ -133,7 +134,13 @@ export default class SubscriptionTypePopUp extends React.Component {
           <AskedQuestion
             icon  = "https://s.tmimgcdn.com/wp-content/uploads/memberships/icon-question.svg"
             title = {l('What’s going to happen if the subscription expires but there are still downloads left?')}
-            text  = {l('When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. Unfortunately unused downloads will be unavailable.')}
+            text  = {(<Interpolate
+              with={{
+                newString: (<br />)
+              }}
+              format={
+                l('When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.')
+              } />)}
           />
           <AskedQuestion
             icon  = "https://s.tmimgcdn.com/wp-content/uploads/memberships/icon-support.svg"
