@@ -133,10 +133,16 @@ msgstr ""
 msgid "hours ago"
 msgstr ""
 
+msgid "Today"
+msgstr ""
+
 msgid "Today at"
 msgstr ""
 
 msgid "Yesterday at"
+msgstr ""
+
+msgid "Yesterday"
 msgstr ""
 
 msgid "at"
