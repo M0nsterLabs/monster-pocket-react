@@ -546,8 +546,8 @@ export default class Reviews extends React.Component {
 
   sortReviews = () => {
     const sortValue = [
-      this.context.i18n.l('Newest'),
       this.context.i18n.l('Most helpful'),
+      this.context.i18n.l('Newest'),
       this.context.i18n.l('Top ratings'),
       this.context.i18n.l('Low ratings')
     ];
@@ -563,7 +563,7 @@ export default class Reviews extends React.Component {
         ref={(ref) => { form = ref; }}
         label={this.context.i18n.l('Show first:')}
         pattern=""
-        defaultValue={"Newest" || null}
+        defaultValue={"Most helpful" || null}
         onChange={value => this.changeSortValue(value)}
       />
     )
