@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="35px" viewBox="0 0 40 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-support</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Master-File" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Membership-Popup" transform="translate(-640.000000, -864.000000)">
+            <g id="FAQ" transform="translate(108.000000, 797.000000)">
+                <g id="2" transform="translate(532.000000, 63.000000)">
+                    <g id="ic-support" transform="translate(0.000000, 1.000000)">
+                        <rect id="container" x="0" y="0" width="40" height="40"></rect>
+                        <g id="Group-1293" transform="translate(0.000000, 4.000000)" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M29.1133913,23.4473684 L31.6438261,23.4473684 C31.6438261,23.4473684 39.1307826,22.473 39.1307826,15.1400526 C39.1307826,10.494 35.2890435,6.67468421 30.5133913,6.84836842 C28.6473043,2.91442105 24.6473043,0.187578947 20.0003478,0.187578947 C13.802087,0.187578947 8.75165217,5.02468421 8.38991304,11.1192632 C4.50817391,10.3098947 0.869913043,13.2607895 0.869913043,17.2155789 C0.869913043,23.5463684 7.52382609,23.4473684 7.52382609,23.4473684 L10.8386087,23.4473684" id="Stroke-1676"></path>
+                            <path d="M20,33 L20,15.6315789" id="Stroke-1677"></path>
+                            <polyline id="Stroke-1678" points="14.7826087 27.7894737 20 33 25.2173913 27.7894737"></polyline>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

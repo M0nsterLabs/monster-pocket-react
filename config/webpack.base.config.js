@@ -2,21 +2,18 @@ const path = require('path');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const baseDir = process.cwd();
 const nodeModulesPath = path.resolve(baseDir, 'node_modules');
-var env = process.env.NODE_ENV || 'dev';
+const env = process.env.NODE_ENV || 'dev';
 const buildPath = path.resolve(baseDir, 'build');
 
 module.exports = {
   node  : {fs: 'empty'},
   entry : {
-    advice               : './src/model/advice/Advice.js',
-    mascotAndSocialProof : './entry/MascotAndSocialProof.js',
-    index                : './entry/index.js',
-    review               : './entry/Review.js'
+    monsterBundle: ['babel-polyfill', './entry/monsterBundle.js']
   },
   output: {
     path     : buildPath,
-    filename : '../build/[name].js',
-    library  : ['[name]']
+    filename : '[name].js',
+    library  : '[name]'
   },
   externals: {
     'react'     : 'React',
