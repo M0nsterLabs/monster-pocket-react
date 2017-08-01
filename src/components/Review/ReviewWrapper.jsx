@@ -606,37 +606,40 @@ export default class Reviews extends React.Component {
                     averageRating={averageRating}
                   />
 
-                  <div className="reviews__header">
-                    <h2 className="h3"><span className="reviews__total-count">{this.state.reviews.totalCount}</span> {this.context.i18n.l(`REVIEWS & RATINGS`)}</h2>
-                    {this.sortReviews()}
+                  <div className="reviews__comments">
+                    <div className="reviews__header">
+                      <h2 className="h3"><span className="reviews__total-count">{this.state.reviews.totalCount}</span> {this.context.i18n.l(`REVIEWS & RATINGS`)}</h2>
+                        {this.sortReviews()}
+                    </div>
+
+                      {this.renderReviewEditor()}
+
+                      {_.isEmpty(this.state.reviews.items)
+                          ? <L1 className="content-loader" />
+                          :
+                          <ul className="reviews__list">
+                              {this.renderMyReviews()}
+                              {this.renderReviews()}
+                          </ul>
+                      }
+
+                      {this.state.showMoreVisible && !_.isEmpty(this.state.reviews.items) && (
+                          <B2E
+                              className = "reviews__btn"
+                              id        = "show-more-reviews"
+                              onClick   = {this.loadDownloads}
+                              disabled  = {this.state.isFetching}
+                              isLoading = {this.state.isFetching}
+                          >
+                              {this.state.isFetching ? (
+                                  <L3 />
+                              ) : (
+                                  this.context.i18n.l('Show more')
+                              )}
+                          </B2E>
+                      )}
                   </div>
 
-                  {this.renderReviewEditor()}
-
-                  {_.isEmpty(this.state.reviews.items)
-                    ? <L1 className="content-loader" />
-                    :
-                      <ul className="reviews__list">
-                        {this.renderMyReviews()}
-                        {this.renderReviews()}
-                      </ul>
-                  }
-
-                  {this.state.showMoreVisible && !_.isEmpty(this.state.reviews.items) && (
-                    <B2E
-                      className = "reviews__btn"
-                      id        = "show-more-reviews"
-                      onClick   = {this.loadDownloads}
-                      disabled  = {this.state.isFetching}
-                      isLoading = {this.state.isFetching}
-                    >
-                      {this.state.isFetching ? (
-                        <L3 />
-                      ) : (
-                        this.context.i18n.l('Show more')
-                      )}
-                    </B2E>
-                  )}
                 </div>
                 )
             )

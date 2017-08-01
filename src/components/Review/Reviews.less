@@ -1260,3 +1260,94 @@
     }
   }
 }
+
+
+/*-------------------REVIEWS-NEW-PAGE-----------------------------*/
+
+.js-item-page-b {
+
+  .review-component-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .page-content {
+    width: 950px;
+
+    .reviews {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      &__comments {
+        width: 600px;
+      }
+
+      &__infographics {
+        width: 270px;
+
+        &-text-new-page {
+          display: block;
+          margin-top: @spacing4x;
+        }
+      }
+
+      .statistics {
+        margin-top: @spacing2x;
+
+        .stars-rating-wrapper {
+          margin-right: @spacing2x;
+        }
+
+        &__stars {
+          margin-bottom: @spacing2x;
+          justify-content: flex-start;
+        }
+
+        &__line-block {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-bottom: @spacing4x;
+        }
+
+        &__line {
+          height: 100px;
+          border-radius: 3px;
+        }
+
+        &__percent {
+          width: 30px;
+          height: 14px;
+          font-size: 12px;
+          line-height: 10px;
+        }
+      }
+
+      .rating {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+
+        .stars-rating__icon {
+          width: 40px;
+          height: 38px;
+          margin-right: @spacing1x;
+          border: none;
+        }
+
+        &__name {
+          display: none;
+        }
+
+        &__text {
+          display: none;
+
+          &_new-page {
+            display: block;
+            margin-bottom: @spacing2x;
+          }
+        }
+      }
+    }
+  }
+}
+
