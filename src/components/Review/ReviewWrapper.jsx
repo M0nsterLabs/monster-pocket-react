@@ -60,7 +60,7 @@ export default class Reviews extends React.Component {
     countReviewOtherLocale : 0,
     otherLocale            : false,
     showMoreVisible        : false,
-    sort                   : '-id',
+    sort                   : '-helpful,-created_at',
     totalCount5: 0,
     totalCount4: 0,
     totalCount3: 0,
@@ -531,7 +531,7 @@ export default class Reviews extends React.Component {
         sortedBy = 'score,-created_at';
         break;
       default:
-        sortedBy = '-created_at';
+        sortedBy = '-helpful,-created_at';
         break;
     }
     this.setState({
@@ -546,8 +546,8 @@ export default class Reviews extends React.Component {
 
   sortReviews = () => {
     const sortValue = [
-      this.context.i18n.l('Newest'),
       this.context.i18n.l('Most helpful'),
+      this.context.i18n.l('Newest'),
       this.context.i18n.l('Top ratings'),
       this.context.i18n.l('Low ratings')
     ];
@@ -563,7 +563,7 @@ export default class Reviews extends React.Component {
         ref={(ref) => { form = ref; }}
         label={this.context.i18n.l('Show first:')}
         pattern=""
-        defaultValue={"Newest" || null}
+        defaultValue={"Most helpful" || null}
         onChange={value => this.changeSortValue(value)}
       />
     )
