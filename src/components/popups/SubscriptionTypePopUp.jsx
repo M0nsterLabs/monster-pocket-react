@@ -108,7 +108,7 @@ export default class SubscriptionTypePopUp extends React.Component {
             themeType='dark'
             type='default'
           >
-            {l('Choose the plan and get any shopify product cheaper up to 9%')}
+            {l('Choose the plan and get any shopify product cheaper up to 99%')}
           </Typography.H3>
           <Typography.T1
             themeType='dark'
