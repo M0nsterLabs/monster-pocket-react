@@ -60,7 +60,7 @@ export default class Reviews extends React.Component {
     countReviewOtherLocale : 0,
     otherLocale            : false,
     showMoreVisible        : false,
-    sort                   : '-id',
+    sort                   : '-helpful,-created_at',
     totalCount5: 0,
     totalCount4: 0,
     totalCount3: 0,
@@ -531,7 +531,7 @@ export default class Reviews extends React.Component {
         sortedBy = 'score,-created_at';
         break;
       default:
-        sortedBy = '-created_at';
+        sortedBy = '-helpful,-created_at';
         break;
     }
     this.setState({
