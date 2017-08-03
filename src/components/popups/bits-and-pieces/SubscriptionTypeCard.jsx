@@ -25,6 +25,10 @@ export default class SubscriptionTypeCard extends React.Component {
     }, 100);
   }
 
+  addSubscriptionToCart =  () => {
+    this.props.bySubscriptionFunc(this.props.itemID, this.props.groupID);
+  };
+
   render () {
     const l = this.context.i18n.l;
     const format = Formats[getCurrentLocale() || 'en'];
@@ -56,7 +60,10 @@ export default class SubscriptionTypeCard extends React.Component {
     );
 
     return (
-      <div className={`subscription-type__card ${cardVisibility} ${cardLength}`}>
+      <div
+        onClick = {this.addSubscriptionToCart}
+        className={`subscription-type__card ${cardVisibility} ${cardLength}`}
+      >
         <T1 className={`subscription-type__card__title ${this.props.subscriptionType}`}>
           {this.props.subscriptionType}
         </T1>
@@ -65,9 +72,7 @@ export default class SubscriptionTypeCard extends React.Component {
           src         = {this.props.subscriptionTypeImg}
         />
         <Button
-          onClick = {() => {
-            this.props.bySubscriptionFunc(this.props.itemID, this.props.groupID);
-          }}
+          onClick = {this.addSubscriptionToCart}
           className   = "subscription-type__card__button"
           roundedType = "all"
           type        = "link"
