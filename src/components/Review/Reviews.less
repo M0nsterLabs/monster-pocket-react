@@ -1261,7 +1261,6 @@
   }
 }
 
-
 /*-------------------REVIEWS-NEW-PAGE-----------------------------*/
 
 .js-item-page-b {
@@ -1279,7 +1278,11 @@
       flex-direction: row-reverse;
       justify-content: space-between;
 
-      &__comments {
+      &__header {
+        margin-bottom: @spacing2x;
+      }
+
+      &__wrapper {
         width: 600px;
       }
 
@@ -1311,7 +1314,7 @@
         }
 
         &__line {
-          height: 100px;
+          height: 10px;
           border-radius: 3px;
         }
 
@@ -1332,6 +1335,10 @@
           height: 38px;
           margin-right: @spacing1x;
           border: none;
+
+          &:last-child {
+            margin-right: 0;
+          }
         }
 
         &__name {
@@ -1350,4 +1357,3 @@
     }
   }
 }
-

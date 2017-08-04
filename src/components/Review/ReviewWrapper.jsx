@@ -60,7 +60,7 @@ export default class Reviews extends React.Component {
     countReviewOtherLocale : 0,
     otherLocale            : false,
     showMoreVisible        : false,
-    sort                   : '-id',
+    sort                   : '-helpful,-created_at',
     totalCount5: 0,
     totalCount4: 0,
     totalCount3: 0,
@@ -531,7 +531,7 @@ export default class Reviews extends React.Component {
         sortedBy = 'score,-created_at';
         break;
       default:
-        sortedBy = '-created_at';
+        sortedBy = '-helpful,-created_at';
         break;
     }
     this.setState({
@@ -546,8 +546,8 @@ export default class Reviews extends React.Component {
 
   sortReviews = () => {
     const sortValue = [
-      this.context.i18n.l('Newest'),
       this.context.i18n.l('Most helpful'),
+      this.context.i18n.l('Newest'),
       this.context.i18n.l('Top ratings'),
       this.context.i18n.l('Low ratings')
     ];
@@ -563,7 +563,7 @@ export default class Reviews extends React.Component {
         ref={(ref) => { form = ref; }}
         label={this.context.i18n.l('Show first:')}
         pattern=""
-        defaultValue={"Newest" || null}
+        defaultValue={"Most helpful" || null}
         onChange={value => this.changeSortValue(value)}
       />
     )
@@ -606,40 +606,39 @@ export default class Reviews extends React.Component {
                     averageRating={averageRating}
                   />
 
-                  <div className="reviews__comments">
+                  <div className="reviews__wrapper">
                     <div className="reviews__header">
                       <h2 className="h3"><span className="reviews__total-count">{this.state.reviews.totalCount}</span> {this.context.i18n.l(`REVIEWS & RATINGS`)}</h2>
-                        {this.sortReviews()}
+                      {this.sortReviews()}
                     </div>
 
-                      {this.renderReviewEditor()}
+                    {this.renderReviewEditor()}
+  
+                    {_.isEmpty(this.state.reviews.items)
+                      ? <L1 className="content-loader" />
+                      :
+                        <ul className="reviews__list">
+                          {this.renderMyReviews()}
+                          {this.renderReviews()}
+                        </ul>
+                    }
 
-                      {_.isEmpty(this.state.reviews.items)
-                          ? <L1 className="content-loader" />
-                          :
-                          <ul className="reviews__list">
-                              {this.renderMyReviews()}
-                              {this.renderReviews()}
-                          </ul>
-                      }
-
-                      {this.state.showMoreVisible && !_.isEmpty(this.state.reviews.items) && (
-                          <B2E
-                              className = "reviews__btn"
-                              id        = "show-more-reviews"
-                              onClick   = {this.loadDownloads}
-                              disabled  = {this.state.isFetching}
-                              isLoading = {this.state.isFetching}
-                          >
-                              {this.state.isFetching ? (
-                                  <L3 />
-                              ) : (
-                                  this.context.i18n.l('Show more')
-                              )}
-                          </B2E>
-                      )}
+                    {this.state.showMoreVisible && !_.isEmpty(this.state.reviews.items) && (
+                      <B2E
+                        className = "reviews__btn"
+                        id        = "show-more-reviews"
+                        onClick   = {this.loadDownloads}
+                        disabled  = {this.state.isFetching}
+                        isLoading = {this.state.isFetching}
+                      >
+                        {this.state.isFetching ? (
+                          <L3 />
+                        ) : (
+                          this.context.i18n.l('Show more')
+                        )}
+                      </B2E>
+                    )}
                   </div>
-
                 </div>
                 )
             )
