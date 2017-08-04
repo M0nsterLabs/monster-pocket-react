@@ -13,8 +13,8 @@ module.exports = {
     historyApiFallback : true,
     inline             : true,
     hot                : false,
-    https              : true,
-    disableHostCheck   : true
+    // https              : true,
+    // disableHostCheck   : true
   },
   devtool : ['source-map', 'css-loader?sourceMap'],
   plugins : [
