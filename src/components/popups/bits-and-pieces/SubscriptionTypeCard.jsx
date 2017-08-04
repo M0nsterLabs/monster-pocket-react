@@ -60,10 +60,7 @@ export default class SubscriptionTypeCard extends React.Component {
     );
 
     return (
-      <div
-        onClick = {this.addSubscriptionToCart}
-        className={`subscription-type__card ${cardVisibility} ${cardLength}`}
-      >
+      <div className={`subscription-type__card ${cardVisibility} ${cardLength}`}>
         <T1 className={`subscription-type__card__title ${this.props.subscriptionType}`}>
           {this.props.subscriptionType}
         </T1>
