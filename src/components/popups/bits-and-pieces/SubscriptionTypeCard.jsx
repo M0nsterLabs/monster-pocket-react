@@ -1,8 +1,11 @@
 import React from 'react';
+import currencyFormatter from 'currency-formatter';
 import Typography from 'quark/lib/typography';
 import Buttons from 'quark/lib/buttons';
 import PropTypes from 'prop-types';
 import './SubscriptionTypeCard.less';
+import { getCurrentLocale } from '../../../utils';
+import Formats from '../../../../config/currencyFormats';
 
 export default class SubscriptionTypeCard extends React.Component {
   state = {
@@ -22,13 +25,17 @@ export default class SubscriptionTypeCard extends React.Component {
     }, 100);
   }
 
+  addSubscriptionToCart =  () => {
+    this.props.bySubscriptionFunc(this.props.itemID, this.props.groupID);
+  };
+
   render () {
     const l = this.context.i18n.l;
+    const format = Formats[getCurrentLocale() || 'en'];
     const sprintf = this.context.i18n.sprintf;
     const Button = (this.props.buttonType) || Buttons.B2C;
     const cardVisibility    = this.state.isCardVisible ? '' : 'opacity_null scaled';
     let cardLength = '';
-
     switch (true) {
       case (this.props.cardLength >= 5):
         cardLength = 'subscription-type__card_five';
@@ -62,9 +69,7 @@ export default class SubscriptionTypeCard extends React.Component {
           src         = {this.props.subscriptionTypeImg}
         />
         <Button
-          onClick = {() => {
-            this.props.bySubscriptionFunc(this.props.itemID, this.props.groupID);
-          }}
+          onClick = {this.addSubscriptionToCart}
           className   = "subscription-type__card__button"
           roundedType = "all"
           type        = "link"
@@ -79,7 +84,7 @@ export default class SubscriptionTypeCard extends React.Component {
                 <span className="price">{this.props.pricePerTemplate}</span>
               </span>
               <T5 className="subscription-type__card__price-info__sale-per-template">
-                <span className="sale">{sprintf(l('$%d economy'), parseInt(this.props.economy, 10))}</span>
+                <span className="sale">{sprintf(l('%s economy'), currencyFormatter.format(parseInt(this.props.economy, 10), format))}</span>
                 <span className="info">{l('per month, paid annually')}</span>
               </T5>
             </div>
@@ -89,7 +94,7 @@ export default class SubscriptionTypeCard extends React.Component {
                 label={l('templates')}
               />
               <DetailedInfo
-                value={this.props.currencySign + this.props.toPay}
+                value={currencyFormatter.format(this.props.toPay, format)}
                 label={l('you`ll be charged once a year')}
               />
             </div>
