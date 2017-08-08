@@ -2,7 +2,7 @@ import React               from 'react';
 import Config              from 'config.js';
 import _                   from 'lodash';
 import PropTypes           from 'prop-types';
-import ContentEmptyMessage from 'components/ContentEmptyMessage/';
+import ContentEmptyMessage from '../ContentEmptyMessage/';
 import L1                  from 'quark/lib/loaders/L1';
 import L3                  from 'quark/lib/loaders/L3';
 import B2E                 from 'quark/lib/buttons/B2E';
