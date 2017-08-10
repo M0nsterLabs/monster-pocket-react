@@ -24,83 +24,15 @@ export default class SubscriptionTypePopUp extends React.Component {
   render () {
     const l = this.context.i18n.l;
     const currencySign = '$';
-    const cards = this.props.subscriptions.map((item, key) => {
-      const unLim = parseInt(item.unlimited_downloads, 10);
-      const cardLength = this.props.subscriptions.length;
-      const economy = !unLim
-        ? parseInt(this.props.defaultTemplatePrice, 10) * parseInt(item.max_downloads, 10)
-        : parseInt(this.props.defaultTemplatePrice, 10) * parseInt(this.props.templatesQuantity, 10);
-      let centerElement;
-
-      switch (true) {
-        case (cardLength >= 5):
-          centerElement = 2;
-          break;
-        case (cardLength >= 3):
-          centerElement = 1;
-          break;
-        default:
-          centerElement = 2;
-          break;
-      }
-      return (
-        <SubscriptionTypeCard
-          cardLength = {cardLength}
-          itemID = {item.id}
-          groupID = {item.group.id}
-          key = {`subscription-${key}`}
-          subscriptionType = {item.title}
-          subscriptionTypeImg = {item.icon}
-          buttonType = {centerElement === key ? Buttons.B1C : ''}
-          currencySign = {currencySign}
-          pricePerTemplate = {item.price / 12}
-          downloads = {unLim ? l('Unlimited') : item.max_downloads}
-          toPay = {parseInt(item.price, 10)}
-          economy = {economy}
-          templatesQuantity = {this.props.templatesQuantity}
-          defaultTemplatePrice = {this.props.defaultTemplatePrice}
-          bySubscriptionFunc = {this.props.bySubscriptionFunc}
-        >
-          {centerElement === key &&
-            <span className="subscription-type__card__advice">
-              <span>{l('68% of customers choose this subscription')}</span>
-              <img
-                src="https://s.tmimgcdn.com/wp-content/uploads/memberships/arrow.svg"
-              />
-            </span>
-          }
-        </SubscriptionTypeCard>
-      );
-    });
-
-    const AskedQuestion = (props) => {
-      return (
-        <div className="subscription-type-popup__questions__item">
-          <img
-            className="subscription-type-popup__questions__item__icon"
-            src={props.icon}
-          />
-          <span className="subscription-type-popup__questions__item__description">
-            <T1 className="subscription-type-popup__questions__item__description__title font_bold" themeType="dark">
-              {props.title}
-            </T1>
-            <T3 type="default">
-              {props.text}
-            </T3>
-          </span>
-        </div>
-      );
-    };
-
     return (
       <POP2
-        id               = "subscription-type-popup"
-        className        = "subscription-type-popup"
-        padding          = "none"
-        closeText        = "Close"
-        open             = {this.state.showPopup}
-        onRequestClose   = {this.hidePopUp}
-        ref              = {(ref) => { this.licenceTypePopup = ref; }}
+        id = "subscription-type-popup"
+        className = "subscription-type-popup"
+        padding = "none"
+        closeText = "Close"
+        open = {this.state.showPopup}
+        onRequestClose = {this.hidePopUp}
+        ref = {ref => { this.licenceTypePopup = ref; }}
       >
         <div className="subscription-type-popup__head">
           <Typography.H3
@@ -120,7 +52,42 @@ export default class SubscriptionTypePopUp extends React.Component {
         </div>
 
         <section className="subscription-type-popup__licenses">
-          {cards}
+          {this.props.subscriptions.map((item, key) => {
+            const unLim = parseInt(item.unlimited_downloads, 10);
+            const cardLength = this.props.subscriptions.length;
+            const economy = !unLim
+              ? parseInt(this.props.defaultTemplatePrice, 10) * parseInt(item.max_downloads, 10)
+              : parseInt(this.props.defaultTemplatePrice, 10) * parseInt(this.props.templatesQuantity, 10);
+            const centerElement = (cardLength >= 5) ? 2 : 1;
+            return (
+              <SubscriptionTypeCard
+                cardLength = {cardLength}
+                itemID = {item.id}
+                groupID = {item.group.id}
+                key = {`subscription-${key}`}
+                subscriptionType = {item.title}
+                subscriptionTypeImg = {item.icon}
+                buttonType = {centerElement === key ? Buttons.B1C : ''}
+                currencySign = {currencySign}
+                pricePerTemplate = {item.price / 12}
+                downloads = {unLim ? l('Unlimited') : item.max_downloads}
+                toPay = {parseInt(item.price, 10)}
+                economy = {economy}
+                templatesQuantity = {this.props.templatesQuantity}
+                defaultTemplatePrice = {this.props.defaultTemplatePrice}
+                bySubscriptionFunc = {this.props.bySubscriptionFunc}
+              >
+                {centerElement === key &&
+                <span className="subscription-type__card__advice">
+              <span>{l('68% of customers choose this subscription')}</span>
+              <img
+                src="https://s.tmimgcdn.com/wp-content/uploads/memberships/arrow.svg"
+              />
+            </span>
+                }
+              </SubscriptionTypeCard>
+            );
+          })}
         </section>
 
         <Typography.H3
@@ -131,22 +98,40 @@ export default class SubscriptionTypePopUp extends React.Component {
         </Typography.H3>
 
         <span className="subscription-type-popup__questions">
-          <AskedQuestion
-            icon  = "https://s.tmimgcdn.com/wp-content/uploads/memberships/icon-question.svg"
-            title = {l('What’s going to happen if the subscription expires but there are still downloads left?')}
-            text  = {(<Interpolate
-              with={{
-                newString: (<br />)
-              }}
-              format={
-                l('When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.')
-              } />)}
-          />
-          <AskedQuestion
-            icon  = "https://s.tmimgcdn.com/wp-content/uploads/memberships/icon-support.svg"
-            title = {l('What’s going to happen if downloads are up before the subscription expires?')}
-            text  = {l('In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.')}
-          />
+          <div className="subscription-type-popup__questions__item">
+            <img
+              className="subscription-type-popup__questions__item__icon"
+              src="https://s.tmimgcdn.com/wp-content/uploads/memberships/icon-question.svg"
+            />
+            <span className="subscription-type-popup__questions__item__description">
+              <T1 className="subscription-type-popup__questions__item__description__title font_bold" themeType="dark">
+                {l('What’s going to happen if the subscription expires but there are still downloads left?')}
+              </T1>
+              <T3 type="default">
+                {(<Interpolate
+                  with={{
+                    newString: (<br />)
+                  }}
+                  format={
+                    l('When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.')
+                  } />)}
+              </T3>
+            </span>
+          </div>
+          <div className="subscription-type-popup__questions__item">
+            <img
+              className="subscription-type-popup__questions__item__icon"
+              src="https://s.tmimgcdn.com/wp-content/uploads/memberships/icon-support.svg"
+            />
+            <span className="subscription-type-popup__questions__item__description">
+              <T1 className="subscription-type-popup__questions__item__description__title font_bold" themeType="dark">
+                {l('What’s going to happen if downloads are up before the subscription expires?')}
+              </T1>
+              <T3 type="default">
+                {l('In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.')}
+              </T3>
+            </span>
+          </div>
         </span>
 
         <T3

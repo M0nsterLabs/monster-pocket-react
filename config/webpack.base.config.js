@@ -16,8 +16,8 @@ module.exports = {
     library  : '[name]'
   },
   externals: {
-    'react'     : 'React',
-    'react-dom' : 'ReactDOM'
+    // 'react'     : 'React',
+    // 'react-dom' : 'ReactDOM'
   },
   module: {
     preLoaders: [
