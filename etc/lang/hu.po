@@ -1,21 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
 #
-# Translators:
-#   <>, 2017.
+# Translators
+#
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2017-08-14 07:56:36-0400\n"
 "Project-Id-Version: Template Monster\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-14 10:38+0300\n"
-"PO-Revision-Date: 2017-07-14 09:11+0000\n"
-"Last-Translator: tmhu <>\n"
-"Language-Team: Hungarian (http://example.com/transifex/projects/p/tm/team/hu/)\n"
+"Resource-Id-Version: Plasma Pocket React\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Review must contain at least 60 symbols"
@@ -27,42 +21,17 @@ msgstr "Kérjük, távolítsa el a speciális szimbólumokat"
 msgid "Please, write at least 60 symbols for review"
 msgstr "Kérjük, írjon legalább 60 karaktert az értékeléshez"
 
-msgid "Your opinion about this product"
-msgstr "Az Ön véleménye"
-
-msgid "Cancel"
-msgstr "Törlés"
-
-msgid "Post"
-msgstr "Hozzászólás"
-
 msgid "Thank you for your review!"
 msgstr "Köszönjük az értékelését!"
 
-msgid ""
-"We've generated your one-time promo-code and within 10 minutes it will reach"
-" your email:"
-msgstr ""
-"Az Ön egyszeri prómóciós kódját létre hoztuk, és 10 percen belül elküldjük "
-"az e-mail címére:"
+msgid "We\'ve generated your one-time promo-code and within 10 minutes it will reach your email:"
+msgstr "Az Ön egyszeri prómóciós kódját létre hoztuk, és 10 percen belül elküldjük az e-mail címére:"
 
 msgid "on all our themes"
 msgstr "minden témánkra"
 
 msgid "Please rate the product:"
 msgstr "Kérjük, értékelje a terméket"
-
-msgid "STATISTICS"
-msgstr "STATISZTIKA"
-
-msgid "Average rating"
-msgstr "Átlagos értékelés"
-
-msgid "Product rating"
-msgstr "Termék értékelése"
-
-msgid "INCLUDES"
-msgstr "TARTALMAZ"
 
 msgid "Type your answer here"
 msgstr "A válaszát ide gépelje be"
@@ -72,21 +41,6 @@ msgstr "Üzenet küldése"
 
 msgid "Press Ctrl + Enter to send your message"
 msgstr "Nyomja meg a Ctrl+Enter gombokat az üzenet elküldéséhez"
-
-msgid "Reply"
-msgstr "Válasz"
-
-msgid "You can't estimate your own review"
-msgstr "Ön nem értékelheti a saját véleményét"
-
-msgid "Please log in at first"
-msgstr "Kérjük, előszőr jelentkezzen be"
-
-msgid "Helpful"
-msgstr "Hasznos"
-
-msgid "Useless"
-msgstr "Hasztalan"
 
 msgid "Jan"
 msgstr "Jan."
@@ -124,61 +78,53 @@ msgstr "Nov."
 msgid "Dec"
 msgstr "Dec."
 
-msgid "Now"
-msgstr "Most"
+msgid "Reply"
+msgstr "Válasz"
 
-msgid "minutes ago"
-msgstr "perccel ezelőtt"
+msgid "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)"
+msgstr "Az értékelést csak Ön láthatja. Sajnáljuk, de a közzététele előtt ellenőrizünk kell az értékelést. Ha az Ön értékelése megfelel a szabályainknak, hamarosan közzétesszük :)"
 
-msgid "hour ago"
-msgstr "órával ezelőtt"
+msgid "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review."
+msgstr "Sajnos nem tudjuk közzétenni az értékelését, mert nem felel meg az irányelveinknek. Kérjük, próbálkozzon újra egy másik értékeléssel."
 
-msgid "hours ago"
-msgstr "órával ezelőtt"
+msgid "Reviews & Ratings"
+msgstr "Vélemények és értékelések"
 
-msgid "Today at"
-msgstr "Ma"
+msgid "Home"
+msgstr "Főoldal"
 
-msgid "Yesterday at"
-msgstr "Tegnap"
+msgid "Mascot test"
+msgstr "Mascot teszt"
 
-msgid "at"
-msgstr ""
-
-msgid ""
-"The review is visible only for you. Sorry, but we need to check your review "
-"before publication. In case your review corresponds to our rules, it will be"
-" published soon :)"
-msgstr ""
-"Az értékelést csak Ön láthatja. Sajnáljuk, de a közzététele előtt "
-"ellenőrizünk kell az értékelést. Ha az Ön értékelése megfelel a "
-"szabályainknak, hamarosan közzétesszük :)"
-
-msgid ""
-"Unfortunately, we can’t post your review because it doesn’t meet our "
-"guidelines, please try again with another review."
-msgstr ""
-"Sajnos nem tudjuk közzétenni az értékelését, mert nem felel meg az "
-"irányelveinknek. Kérjük, próbálkozzon újra egy másik értékeléssel."
+msgid "Social test"
+msgstr "Szociális teszt"
 
 msgid "Only buyers of that product can rate it"
 msgstr "Ezt csak a terméket megvásárló felhasználók értékelhetik"
 
-msgid ""
-"It seems there are no reviews to this product from your locale.\n"
-"You can look at the reviews from other locales."
-msgstr ""
-"Úgy tűnik, nincs magyar nyelvű vélemény.⏎\n"
-"Javasoljuk a más nyelvű vélemények megtekintését."
+msgid "Show more"
+msgstr "Több megjelenítése"
 
-msgid "It seems there are no reviews to this product."
-msgstr "Úgy tűnik, nincs vélemény erre a termékre."
+msgid "Your opinion about this product"
+msgstr "Az Ön véleménye"
 
-msgid "View "
-msgstr "Nézet "
+msgid "Cancel"
+msgstr "Törlés"
 
-msgid "REVIEWS & RATINGS"
-msgstr "VÉLEMÉNYEK ÉS ÉRTÉKELÉSEK"
+msgid "Post"
+msgstr "Hozzászólás"
+
+msgid "You can\'t estimate your own review"
+msgstr "Ön nem értékelheti a saját véleményét"
+
+msgid "Please log in at first"
+msgstr "Kérjük, előszőr jelentkezzen be"
+
+msgid "Helpful"
+msgstr "Hasznos"
+
+msgid "Useless"
+msgstr "Hasztalan"
 
 msgid "Newest"
 msgstr "Legújabb"
@@ -195,18 +141,69 @@ msgstr "Alacsony értékelések"
 msgid "Show first:"
 msgstr "Megjelenítés elsőként:"
 
-msgid "Show more"
-msgstr "Több megjelenítése"
+msgid "STATISTICS"
+msgstr "STATISZTIKA"
 
-msgid "Home"
-msgstr "Főoldal"
+msgid "Average rating"
+msgstr "Átlagos értékelés"
 
-msgid "Mascot test"
-msgstr "Mascot teszt"
+msgid "Product rating"
+msgstr "Termék értékelése"
 
-msgid "Social test"
-msgstr "Szociális teszt"
+msgid "INCLUDES"
+msgstr "TARTALMAZ"
 
-msgid "Reviews & Ratings"
-msgstr "Vélemények és értékelések"
+msgid "Today"
+msgstr "Ma"
+
+msgid "Yesterday"
+msgstr "Tegnap"
+
+msgid "Popup test"
+msgstr "Popup teszt"
+
+msgid "Choose %s subscription"
+msgstr "Válassza a %s előfizetést"
+
+msgid "$%d economy"
+msgstr "$%d megtakarítás"
+
+msgid "per month, paid annually"
+msgstr "per hónap, évente fizetett"
+
+msgid "templates"
+msgstr "sablonok"
+
+msgid "you`ll be charged once a year"
+msgstr "évente egyszer kell fizetnie"
+
+msgid "Unlimited"
+msgstr "Korlátlan"
+
+msgid "68% of customers choose this subscription"
+msgstr "Az ügyfelek 68% ezt az előfizetést válasszák"
+
+msgid "Choose the plan and get any shopify product cheaper up to 9%"
+msgstr "Válasszon ki egy tervet és bármilyen Shopify terméket 9% olcsóbban kaphat meg"
+
+msgid "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!"
+msgstr "Ön képes lesz arra, hogy évente a Shopify sablonok százai közül egy bizonyos mennyiséget letöltsön!"
+
+msgid "What’s going to happen if the subscription expires but there are still downloads left?"
+msgstr "Mi történik, ha lejárt az előfizetés, de még mindig maradtak letöltések?"
+
+msgid "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable."
+msgstr "Miután lejárt az előfizetés, többé nem lesz lehetősége letölteni a termékeket, ha nem újítsa meg az előfizetést. Az ellenkező esetben, Ön teljes áron megvásárolhatja a termékeket. %(newString)s Sajnos a nem használt letöltések elérhetetlenek lesznek."
+
+msgid "What’s going to happen if downloads are up before the subscription expires?"
+msgstr "Mi fog történni, ha van aktív letöltés az előfizetés lejárata előtt?"
+
+msgid "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price."
+msgstr "Ebben az esetben az előfizetés automatikusan befejeződik. Önnek lehetősége lesz egy új megkezdésére, hogy extra letöltéseket tudjon kapni. Ellenkező esetben a termékeket teljes áron vásárolhatja meg."
+
+msgid "Contact us in chat"
+msgstr "Lépjen chaten kapcsolatba velünk"
+
+msgid "Still have questions? %(contactUs)s, we will help with the choice!"
+msgstr "Még mindig kérdése van? %(contactUs)s, segítünk a választással!"
 

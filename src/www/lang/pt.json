@@ -4,7 +4,7 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n > 1)",
+            "plural_forms": "nplurals=2; plural=(n != 1)",
             "lang": "pt_BR"
          },
          "Review must contain at least 60 symbols": [
@@ -15,15 +15,6 @@
          ],
          "Please, write at least 60 symbols for review": [
             "Por favor, escreva pelo menos 60 símbolos para avaliação"
-         ],
-         "Your opinion about this product": [
-            ""
-         ],
-         "Cancel": [
-            ""
-         ],
-         "Post": [
-            ""
          ],
          "Thank you for your review!": [
             "Agradecemos sua avaliação!"
@@ -45,9 +36,6 @@
          ],
          "Press Ctrl + Enter to send your message": [
             "Pressione Ctrl + Enter para enviar sua mensagem"
-         ],
-         "Reply": [
-            "Resposta"
          ],
          "Jan": [
             "Jan"
@@ -85,26 +73,8 @@
          "Dec": [
             "Dez"
          ],
-         "Now": [
-            "Agora"
-         ],
-         "minutes ago": [
-            "minutos atrás"
-         ],
-         "hour ago": [
-            "hora atrás"
-         ],
-         "hours ago": [
-            "horas atrás"
-         ],
-         "Today at": [
-            "Hoje à"
-         ],
-         "Yesterday at": [
-            "Ontem à"
-         ],
-         "at": [
-            "à"
+         "Reply": [
+            "Resposta"
          ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
             "Essa avaliação só pode ser vista por você. Desculpe, mas precisamos revisar sua avaliação antes de publicá-la. Caso ela esteja de acordo com nossas regras, será publicada em breve :)"
@@ -112,38 +82,125 @@
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
             "Infelizmente, não podemos publicar sua análise pois ela não está de acordo com nossas regras, tente novamente com outra análise"
          ],
-         "Only buyers of that product can rate it": [
-            ""
-         ],
-         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Não parecem haver análises para esse produto em sua localização. Você pode ver as análises de outras localidades."
-         ],
-         "It seems there are no reviews to this product.": [
-            ""
-         ],
-         "View ": [
-            "Visualizar"
-         ],
-         "REVIEWS & RATINGS": [
-            "ANÁLISES & CLASSIFICAÇÕES"
-         ],
-         " REVIEWS & RATINGS": [
-            "ANÁLISES & CLASSIFICAÇÕES"
-         ],
-         "Show more": [
-            ""
+         "Reviews & Ratings": [
+            "Análises & Classificações"
          ],
          "Home": [
             "Home"
          ],
          "Mascot test": [
-            ""
+            "Teste de Mascote"
          ],
          "Social test": [
-            ""
+            "Teste social"
          ],
-         "Reviews & Ratings": [
-            "Análises & Classificações"
+         "Only buyers of that product can rate it": [
+            "Somente os compradores desse produto podem avaliá-lo"
+         ],
+         "Show more": [
+            "Mostre mais"
+         ],
+         "Your opinion about this product": [
+            "Sua opinião sobre este produto"
+         ],
+         "Cancel": [
+            "Cancelar"
+         ],
+         "Post": [
+            "Postar"
+         ],
+         "You can't estimate your own review": [
+            "Você não pode estimar sua própria revisão"
+         ],
+         "Please log in at first": [
+            "Faça o login no início"
+         ],
+         "Helpful": [
+            "Útil"
+         ],
+         "Useless": [
+            "Sem utilidade"
+         ],
+         "Newest": [
+            "O mais novo"
+         ],
+         "Most helpful": [
+            "Mais útil"
+         ],
+         "Top ratings": [
+            "Melhores classificações"
+         ],
+         "Low ratings": [
+            "Avaliações baixas"
+         ],
+         "Show first:": [
+            "Mostre primeiro:"
+         ],
+         "STATISTICS": [
+            "ESTATISTICAS"
+         ],
+         "Average rating": [
+            "Classificação média"
+         ],
+         "Product rating": [
+            "Avaliação do produto"
+         ],
+         "INCLUDES": [
+            "INCLUI"
+         ],
+         "Today": [
+            "Hoje"
+         ],
+         "Yesterday": [
+            "Ontem"
+         ],
+         "Popup test": [
+            "teste Popup"
+         ],
+         "Choose %s subscription": [
+            "Escolha a subscrição %s"
+         ],
+         "$%d economy": [
+            "$%d economia"
+         ],
+         "per month, paid annually": [
+            "Por mês, paga anualmente"
+         ],
+         "templates": [
+            "modelos"
+         ],
+         "you`ll be charged once a year": [
+            "Você será cobrado uma vez por ano"
+         ],
+         "Unlimited": [
+            "Ilimitado"
+         ],
+         "68% of customers choose this subscription": [
+            "68% dos clientes escolhem esta assinatura"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 9%": [
+            "Escolha o plano e obtenha qualquer produto de compra mais barato até 9%"
+         ],
+         "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
+            "Você poderá fazer o download de determinada quantidade de qualquer um de centenas de temas de Shopify para o ano!"
+         ],
+         "What’s going to happen if the subscription expires but there are still downloads left?": [
+            "O que vai acontecer se a assinatura expirar, mas ainda há downloads restantes?"
+         ],
+         "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.": [
+            "Quando a assinatura expira, você não pode mais fazer o download de produtos, a menos que você pague por subscrição, caso contrário, você deve comprá-los a preço total. % (Nova Cadeia) s Infelizmente, os downloads não utilizados não estarão disponíveis."
+         ],
+         "What’s going to happen if downloads are up before the subscription expires?": [
+            "O que vai acontecer se os downloads estiverem terminados antes da expiração da assinatura?"
+         ],
+         "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.": [
+            "Neste caso, a assinatura terminará automaticamente. Você poderá arranjar um novo e obter downloads extras, no outro caso você deve comprar produtos a preço total."
+         ],
+         "Contact us in chat": [
+            "Contacte-nos no chat"
+         ],
+         "Still have questions? %(contactUs)s, we will help with the choice!": [
+            "Ainda tem dúvidas? %(contactUs)s, vamos ajudar com a escolha!"
          ]
       }
    }

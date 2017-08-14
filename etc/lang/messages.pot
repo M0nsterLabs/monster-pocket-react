@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-01 18:58+0300\n"
+"POT-Creation-Date: 2017-08-14 12:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgid "Choose %s subscription"
 msgstr ""
 
 #, javascript-format
-msgid "$%d economy"
+msgid "%s economy"
 msgstr ""
 
 msgid "per month, paid annually"
@@ -49,19 +49,19 @@ msgstr ""
 msgid "you`ll be charged once a year"
 msgstr ""
 
-msgid "Unlimited"
-msgstr ""
-
-#, javascript-format
-msgid "68% of customers choose this subscription"
-msgstr ""
-
-msgid "Choose the plan and get any shopify product cheaper up to 9%"
+msgid "Choose the plan and get any shopify product cheaper up to 99%"
 msgstr ""
 
 msgid ""
 "You’ll be able to download certain quantity of any from hundreds Shopify "
 "themes for year!"
+msgstr ""
+
+msgid "Unlimited"
+msgstr ""
+
+#, javascript-format
+msgid "68% of customers choose this subscription"
 msgstr ""
 
 msgid ""
@@ -91,39 +91,16 @@ msgstr ""
 msgid "Still have questions? %(contactUs)s, we will help with the choice!"
 msgstr ""
 
-msgid ""
-"The review is visible only for you. Sorry, but we need to check your review "
-"before publication. In case your review corresponds to our rules, it will be "
-"published soon :)"
+msgid "STATISTICS"
 msgstr ""
 
-msgid ""
-"Unfortunately, we can’t post your review because it doesn’t meet our "
-"guidelines, please try again with another review."
+msgid "Average rating"
 msgstr ""
 
-msgid "Only buyers of that product can rate it"
+msgid "Product rating"
 msgstr ""
 
-msgid "REVIEWS & RATINGS"
-msgstr ""
-
-msgid "Newest"
-msgstr ""
-
-msgid "Most helpful"
-msgstr ""
-
-msgid "Top ratings"
-msgstr ""
-
-msgid "Low ratings"
-msgstr ""
-
-msgid "Show first:"
-msgstr ""
-
-msgid "Show more"
+msgid "INCLUDES"
 msgstr ""
 
 msgid "Type your answer here"
@@ -224,14 +201,37 @@ msgstr ""
 msgid "Please rate the product:"
 msgstr ""
 
-msgid "STATISTICS"
+msgid ""
+"The review is visible only for you. Sorry, but we need to check your review "
+"before publication. In case your review corresponds to our rules, it will be "
+"published soon :)"
 msgstr ""
 
-msgid "Average rating"
+msgid ""
+"Unfortunately, we can’t post your review because it doesn’t meet our "
+"guidelines, please try again with another review."
 msgstr ""
 
-msgid "Product rating"
+msgid "Only buyers of that product can rate it"
 msgstr ""
 
-msgid "INCLUDES"
+msgid "REVIEWS & RATINGS"
+msgstr ""
+
+msgid "Most helpful"
+msgstr ""
+
+msgid "Newest"
+msgstr ""
+
+msgid "Top ratings"
+msgstr ""
+
+msgid "Low ratings"
+msgstr ""
+
+msgid "Show first:"
+msgstr ""
+
+msgid "Show more"
 msgstr ""

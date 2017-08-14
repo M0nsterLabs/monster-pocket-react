@@ -1,22 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
 #
-# Translators:
-#   <>, 2017.
+# Translators
+#
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2017-08-14 07:56:44-0400\n"
 "Project-Id-Version: Template Monster\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-14 10:38+0300\n"
-"PO-Revision-Date: 2017-07-14 07:46+0000\n"
-"Last-Translator: vadimp <>\n"
-"Language-Team: Turkish (http://example.com/transifex/projects/p/tm/team/tr/)\n"
+"Resource-Id-Version: Plasma Pocket React\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Review must contain at least 60 symbols"
 msgstr "Yorum en az 60 sembol içermelidir"
@@ -27,42 +21,17 @@ msgstr "Lütfen özel sembolleri kaldırın"
 msgid "Please, write at least 60 symbols for review"
 msgstr "Lütfen, yorum için en az 60 sembol yazınız"
 
-msgid "Your opinion about this product"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
-msgid "Post"
-msgstr ""
-
 msgid "Thank you for your review!"
 msgstr "Yorumunuz için teşekkür ederiz"
 
-msgid ""
-"We've generated your one-time promo-code and within 10 minutes it will reach"
-" your email:"
-msgstr ""
-"Bir defaya mahsus promosyon kodunuzu oluşturduk ve 10 dakika içinde "
-"e-postanıza ulaşacak:"
+msgid "We\'ve generated your one-time promo-code and within 10 minutes it will reach your email:"
+msgstr "Bir defaya mahsus promosyon kodunuzu oluşturduk ve 10 dakika içinde e-postanıza ulaşacak:"
 
 msgid "on all our themes"
 msgstr "tüm temalarımızda"
 
 msgid "Please rate the product:"
 msgstr "Lütfen ürünü puanlayınız"
-
-msgid "STATISTICS"
-msgstr ""
-
-msgid "Average rating"
-msgstr ""
-
-msgid "Product rating"
-msgstr ""
-
-msgid "INCLUDES"
-msgstr ""
 
 msgid "Type your answer here"
 msgstr "Cevabınızı buraya yazınız"
@@ -71,22 +40,7 @@ msgid "Send Message"
 msgstr "Mesaj gönder"
 
 msgid "Press Ctrl + Enter to send your message"
-msgstr "Mesajınızı göndermek için Ctrl + Enter 'a basınız"
-
-msgid "Reply"
-msgstr "Cevap"
-
-msgid "You can't estimate your own review"
-msgstr ""
-
-msgid "Please log in at first"
-msgstr ""
-
-msgid "Helpful"
-msgstr ""
-
-msgid "Useless"
-msgstr ""
+msgstr "Mesajınızı göndermek için Ctrl + Enter \'a basınız"
 
 msgid "Jan"
 msgstr "Ock"
@@ -124,77 +78,17 @@ msgstr "Kas"
 msgid "Dec"
 msgstr "Arl"
 
-msgid "Now"
-msgstr "Şimdi"
+msgid "Reply"
+msgstr "Cevap"
 
-msgid "minutes ago"
-msgstr "dakika önce"
+msgid "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)"
+msgstr "Yaptığınız yorum yalnızca sizin için görünür durumdadır. Maalesef, yorumunuzu yayınlamadan önce kontrol etmemiz gerekiyor. İncelemeniz kurallarımıza uygunsa, kısa süre içinde yayınlanacaktır :)"
 
-msgid "hour ago"
-msgstr "saat önce"
+msgid "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review."
+msgstr "Maalesef, yorumunuzu kurallarımıza uygun olmadığı için yayınlayamıyoruz. Lütfen başka bir yorum ile tekrar deneyin."
 
-msgid "hours ago"
-msgstr "saat önce"
-
-msgid "Today at"
-msgstr "Bugün"
-
-msgid "Yesterday at"
-msgstr "Dün"
-
-msgid "at"
-msgstr ""
-
-msgid ""
-"The review is visible only for you. Sorry, but we need to check your review "
-"before publication. In case your review corresponds to our rules, it will be"
-" published soon :)"
-msgstr ""
-"Yaptığınız yorum yalnızca sizin için görünür durumdadır. Maalesef, "
-"yorumunuzu yayınlamadan önce kontrol etmemiz gerekiyor. İncelemeniz "
-"kurallarımıza uygunsa, kısa süre içinde yayınlanacaktır :)"
-
-msgid ""
-"Unfortunately, we can’t post your review because it doesn’t meet our "
-"guidelines, please try again with another review."
-msgstr ""
-"Maalesef, yorumunuzu kurallarımıza uygun olmadığı için yayınlayamıyoruz. "
-"Lütfen başka bir yorum ile tekrar deneyin."
-
-msgid "Only buyers of that product can rate it"
-msgstr ""
-
-msgid ""
-"It seems there are no reviews to this product from your locale.\n"
-"You can look at the reviews from other locales."
-msgstr ""
-
-msgid "It seems there are no reviews to this product."
-msgstr ""
-
-msgid "View "
-msgstr "Görütüle"
-
-msgid "REVIEWS & RATINGS"
-msgstr "YORUMLAR & PUANLAR"
-
-msgid "Newest"
-msgstr ""
-
-msgid "Most helpful"
-msgstr ""
-
-msgid "Top ratings"
-msgstr ""
-
-msgid "Low ratings"
-msgstr ""
-
-msgid "Show first:"
-msgstr ""
-
-msgid "Show more"
-msgstr ""
+msgid "Reviews & Ratings"
+msgstr "Yorumlar & Puanlar"
 
 msgid "Home"
 msgstr "Anasayfa"
@@ -205,6 +99,111 @@ msgstr "Mascot testi"
 msgid "Social test"
 msgstr "Sosyal test"
 
-msgid "Reviews & Ratings"
-msgstr "Yorumlar & Puanlar"
+msgid "Only buyers of that product can rate it"
+msgstr "Yalnızca ürünü alanlar oy verebilirler. "
+
+msgid "Show more"
+msgstr "Daha fazlasını göster"
+
+msgid "Your opinion about this product"
+msgstr "Ürün hakkında fikriniz"
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid "Post"
+msgstr "İlan"
+
+msgid "You can\'t estimate your own review"
+msgstr "Kendi yorumları değerlendiremezsiniz"
+
+msgid "Please log in at first"
+msgstr "Lütfen önce giriş yap"
+
+msgid "Helpful"
+msgstr "yararlı"
+
+msgid "Useless"
+msgstr "yararsız"
+
+msgid "Newest"
+msgstr "en yeni "
+
+msgid "Most helpful"
+msgstr "daha yararlı"
+
+msgid "Top ratings"
+msgstr "Üst reyting"
+
+msgid "Low ratings"
+msgstr "Alt reyting"
+
+msgid "Show first:"
+msgstr "Önce şunu gösterin"
+
+msgid "STATISTICS"
+msgstr "İstatistik"
+
+msgid "Average rating"
+msgstr "Reyting ortalaması"
+
+msgid "Product rating"
+msgstr "ürün değerlendirmesi "
+
+msgid "INCLUDES"
+msgstr "içerir"
+
+msgid "Today"
+msgstr "Bügün "
+
+msgid "Yesterday"
+msgstr "Dün"
+
+msgid "Popup test"
+msgstr "Açılan testi "
+
+msgid "Choose %s subscription"
+msgstr "\'%s\' aboneliği seçin"
+
+msgid "$%d economy"
+msgstr "$\'%d\'economi"
+
+msgid "per month, paid annually"
+msgstr "aylık, yıllık ödeme "
+
+msgid "templates"
+msgstr "şablonlar"
+
+msgid "you`ll be charged once a year"
+msgstr "Yılda bir kez ücretlendirileceksiniz"
+
+msgid "Unlimited"
+msgstr "sınırsız"
+
+msgid "68% of customers choose this subscription"
+msgstr "Müşterilerin % 68\'i bu aboneliği seçiyor"
+
+msgid "Choose the plan and get any shopify product cheaper up to 9%"
+msgstr "Planı seçin ve herhangi bir shopify ürününü % 9\'a kadar ucuza alın"
+
+msgid "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!"
+msgstr "Yıl boyunca yüzlerce Shopify temasından herhangi birini belli miktarda indirebilirsiniz!"
+
+msgid "What’s going to happen if the subscription expires but there are still downloads left?"
+msgstr "İndirme işlemi devam ettiği halde abonelik sona ererse ne olacak?"
+
+msgid "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable."
+msgstr "Abone süreniz sona erdiğinde, abonelik ücreti ödemediğiniz sürece artık ürünü indiremezsiniz, diğer bir durumda tam fiyatla satın almanız gerekir. %(newString)s\' ne yazık ki kullanılmayan indirimler mevcut olmayacaklar."
+
+msgid "What’s going to happen if downloads are up before the subscription expires?"
+msgstr "Abonelik sona erdiğinde indirme işlemi devam ederse ne olacak?"
+
+msgid "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price."
+msgstr "Bu durumda abonelik otomatik olarak sona erecektir. Yeni bir tane ayarlayabilirsiniz ve ekstra indirimler alabilirsiniz, diğer bir durumda ürünü tam fiyatla satın almanız gerekir."
+
+msgid "Contact us in chat"
+msgstr "Canlı sohbet aracılığıyla bizimle iletişime geçin"
+
+msgid "Still have questions? %(contactUs)s, we will help with the choice!"
+msgstr "Hâlâ sorularınız var mı?  \'%(contactUs)s\', seçiminde yardımcı olacağiz. "
 

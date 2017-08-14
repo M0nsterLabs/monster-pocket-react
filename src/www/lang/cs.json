@@ -4,7 +4,7 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2",
+            "plural_forms": "nplurals=2; plural=(n != 1)",
             "lang": "cs"
          },
          "Review must contain at least 60 symbols": [
@@ -15,15 +15,6 @@
          ],
          "Please, write at least 60 symbols for review": [
             "Prosím, napište alespoň 60 znaků"
-         ],
-         "Your opinion about this product": [
-            "Váš názor na tento produkt"
-         ],
-         "Cancel": [
-            "Zrušit"
-         ],
-         "Post": [
-            "Zveřejnit"
          ],
          "Thank you for your review!": [
             "Děkujeme za recenzi!"
@@ -45,9 +36,6 @@
          ],
          "Press Ctrl + Enter to send your message": [
             "Chcete-li odeslat zprávu, stiskněte klávesy Ctrl + Enter"
-         ],
-         "Reply": [
-            "Odpovědět "
          ],
          "Jan": [
             "Leden"
@@ -85,26 +73,8 @@
          "Dec": [
             "Prosinec"
          ],
-         "Now": [
-            "Teď"
-         ],
-         "minutes ago": [
-            "před minutami"
-         ],
-         "hour ago": [
-            "před hodinou"
-         ],
-         "hours ago": [
-            "před hodinami"
-         ],
-         "Today at": [
-            "Dnes v"
-         ],
-         "Yesterday at": [
-            "Včera v"
-         ],
-         "at": [
-            "v"
+         "Reply": [
+            "Odpovědět "
          ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
             "Recenze je viditelná pouze pro vás. Je nám líto, ale musíme zkontrolovat vaši recenzi před zveřejněním. Pokud je recenze v souladu s našimi pravidly, brzy ji zveřejníme:)"
@@ -112,26 +82,8 @@
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
             "Bohužel, nemůžeme zveřejnit recenzi, protože není v souladu s našimi pravidly. Zkuste to znovu."
          ],
-         "Only buyers of that product can rate it": [
-            "Tento produkt mohou hodnotit pouze uživatelé, kteří si jej koupili"
-         ],
-         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Zdá se, že na této jazykové verzi není žádná recenze na tento produkt.\nMůžete si prohlédnout recenze na jiných verzích."
-         ],
-         "It seems there are no reviews to this product.": [
-            "Zdá se, že není žádná recenze na tento produkt."
-         ],
-         "View ": [
-            "Zobrazit"
-         ],
-         "REVIEWS & RATINGS": [
-            "RECENZE A HODNOCENÍ"
-         ],
-         " REVIEWS & RATINGS": [
-            "RECENZE A HODNOCENÍ"
-         ],
-         "Show more": [
-            "Zobrazit více"
+         "Reviews & Ratings": [
+            "Recenze a hodnocení"
          ],
          "Home": [
             "Domovská stránka"
@@ -142,8 +94,113 @@
          "Social test": [
             "Social test"
          ],
-         "Reviews & Ratings": [
-            "Recenze a hodnocení"
+         "Only buyers of that product can rate it": [
+            "Tento produkt mohou hodnotit pouze uživatelé, kteří si jej koupili"
+         ],
+         "Show more": [
+            "Zobrazit více"
+         ],
+         "Your opinion about this product": [
+            "Váš názor na tento produkt"
+         ],
+         "Cancel": [
+            "Zrušit"
+         ],
+         "Post": [
+            "Zveřejnit"
+         ],
+         "You can't estimate your own review": [
+            "Nemůžete ocenit vlastní recenzi"
+         ],
+         "Please log in at first": [
+            "Nejprve se přihlaste"
+         ],
+         "Helpful": [
+            "Užitečná"
+         ],
+         "Useless": [
+            "Neužitečná"
+         ],
+         "Newest": [
+            "Nejnovější"
+         ],
+         "Most helpful": [
+            "Nejužitečnější"
+         ],
+         "Top ratings": [
+            "Nejlépe hodnocení"
+         ],
+         "Low ratings": [
+            "Nejméně hodnocení"
+         ],
+         "Show first:": [
+            "Zobrazit jako první:"
+         ],
+         "STATISTICS": [
+            "STATISTIKY"
+         ],
+         "Average rating": [
+            "Průměrné hodnocení"
+         ],
+         "Product rating": [
+            "Hodnocení produktu"
+         ],
+         "INCLUDES": [
+            "ZAHRNUJE"
+         ],
+         "Today": [
+            "Dnes"
+         ],
+         "Yesterday": [
+            "Včera"
+         ],
+         "Popup test": [
+            "Popup test"
+         ],
+         "Choose %s subscription": [
+            "Předplatné na %s"
+         ],
+         "$%d economy": [
+            "$%d ušetření nákladů"
+         ],
+         "per month, paid annually": [
+            "měsíčně, platíte celý rok"
+         ],
+         "templates": [
+            "šablon"
+         ],
+         "you`ll be charged once a year": [
+            "platíte jedenkrát ročně"
+         ],
+         "Unlimited": [
+            "Neomezený počet"
+         ],
+         "68% of customers choose this subscription": [
+            "68% zákazníků si vybírají tento typ předplatného"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 9%": [
+            "Vyberte si tarif a ušetřete až 9% při nákupu produktů shopify"
+         ],
+         "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
+            "Budete moci si stáhnout za rok určitý počet Shopify šablon, které lze vybrat z naší nabídky!"
+         ],
+         "What’s going to happen if the subscription expires but there are still downloads left?": [
+            "Co se stane, když mi vyprší předplatné, ale nepoužil jsem možnost stáhnout všechny produkty?"
+         ],
+         "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.": [
+            "Pokud platnost předplatného vyprší, stažení už nebude možné. V tom případě si musíte koupit předplatné znovu nebo koupit si produkt za plnou cenu. %(newString)s Bohužel nevyužitá stažení nemůžete využít později."
+         ],
+         "What’s going to happen if downloads are up before the subscription expires?": [
+            "Co se stane, pokud limit počtu stažených souborů bude dosažen před vypršením platnosti předplatného?"
+         ],
+         "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.": [
+            "V tom případě bude předplatné automaticky ukončeno. Můžete založit nové předplatné a získat balíček pro dodatečná stažení. V opačném případě lze produkt zakoupit pouze za plnou cenu."
+         ],
+         "Contact us in chat": [
+            "Kontaktujte nás v chatu"
+         ],
+         "Still have questions? %(contactUs)s, we will help with the choice!": [
+            "Stále máte otázky? %(contactUs)s, pomůžeme Vám s výběrem produktu!"
          ]
       }
    }

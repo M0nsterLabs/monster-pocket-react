@@ -16,15 +16,6 @@
          "Please, write at least 60 symbols for review": [
             ""
          ],
-         "Your opinion about this product": [
-            ""
-         ],
-         "Cancel": [
-            ""
-         ],
-         "Post": [
-            ""
-         ],
          "Thank you for your review!": [
             ""
          ],
@@ -44,9 +35,6 @@
             ""
          ],
          "Press Ctrl + Enter to send your message": [
-            ""
-         ],
-         "Reply": [
             ""
          ],
          "Jan": [
@@ -85,25 +73,7 @@
          "Dec": [
             ""
          ],
-         "Now": [
-            ""
-         ],
-         "minutes ago": [
-            ""
-         ],
-         "hour ago": [
-            ""
-         ],
-         "hours ago": [
-            ""
-         ],
-         "Today at": [
-            ""
-         ],
-         "Yesterday at": [
-            ""
-         ],
-         "at": [
+         "Reply": [
             ""
          ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
@@ -112,25 +82,7 @@
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
             ""
          ],
-         "Only buyers of that product can rate it": [
-            ""
-         ],
-         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            ""
-         ],
-         "It seems there are no reviews to this product.": [
-            ""
-         ],
-         "View ": [
-            ""
-         ],
-         "REVIEWS & RATINGS": [
-            ""
-         ],
-         " REVIEWS & RATINGS": [
-            ""
-         ],
-         "Show more": [
+         "Reviews & Ratings": [
             ""
          ],
          "Home": [
@@ -142,7 +94,112 @@
          "Social test": [
             ""
          ],
-         "Reviews & Ratings": [
+         "Only buyers of that product can rate it": [
+            ""
+         ],
+         "Show more": [
+            ""
+         ],
+         "Your opinion about this product": [
+            ""
+         ],
+         "Cancel": [
+            ""
+         ],
+         "Post": [
+            ""
+         ],
+         "You can't estimate your own review": [
+            ""
+         ],
+         "Please log in at first": [
+            ""
+         ],
+         "Helpful": [
+            ""
+         ],
+         "Useless": [
+            ""
+         ],
+         "Newest": [
+            ""
+         ],
+         "Most helpful": [
+            ""
+         ],
+         "Top ratings": [
+            ""
+         ],
+         "Low ratings": [
+            ""
+         ],
+         "Show first:": [
+            ""
+         ],
+         "STATISTICS": [
+            ""
+         ],
+         "Average rating": [
+            ""
+         ],
+         "Product rating": [
+            ""
+         ],
+         "INCLUDES": [
+            ""
+         ],
+         "Today": [
+            ""
+         ],
+         "Yesterday": [
+            ""
+         ],
+         "Popup test": [
+            ""
+         ],
+         "Choose %s subscription": [
+            ""
+         ],
+         "$%d economy": [
+            ""
+         ],
+         "per month, paid annually": [
+            ""
+         ],
+         "templates": [
+            ""
+         ],
+         "you`ll be charged once a year": [
+            ""
+         ],
+         "Unlimited": [
+            ""
+         ],
+         "68% of customers choose this subscription": [
+            ""
+         ],
+         "Choose the plan and get any shopify product cheaper up to 9%": [
+            ""
+         ],
+         "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
+            ""
+         ],
+         "What’s going to happen if the subscription expires but there are still downloads left?": [
+            ""
+         ],
+         "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.": [
+            ""
+         ],
+         "What’s going to happen if downloads are up before the subscription expires?": [
+            ""
+         ],
+         "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.": [
+            ""
+         ],
+         "Contact us in chat": [
+            ""
+         ],
+         "Still have questions? %(contactUs)s, we will help with the choice!": [
             ""
          ]
       }
