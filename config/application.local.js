@@ -13,5 +13,4 @@ export default {
   chatURL                     : '//chat.template-help.dev/',
   tmimgcdnURL                 : '//s.tmimgcdn.com/scr/400x400/',
   facebookAppId               : '1449028418459900'
-
 };
