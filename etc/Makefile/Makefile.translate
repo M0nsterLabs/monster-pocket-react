@@ -29,8 +29,6 @@ gettext:
 		 --no-location \
 		 --from-code=UTF-8 \
 		 --output=$(LANG.REF)
-		 
-	find $(LANG.SRC.DIR) -name ??.po | xargs -L 1 -t -i msgmerge --backup=off -U {} $(LANG.REF)
 	rm -rf $(TMP.TRANSLATE.DIR)
 
 
