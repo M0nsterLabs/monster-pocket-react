@@ -4,7 +4,7 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=1; plural=0",
+            "plural_forms": "nplurals=2; plural=(n != 1)",
             "lang": "tr"
          },
          "Review must contain at least 60 symbols": [
@@ -15,15 +15,6 @@
          ],
          "Please, write at least 60 symbols for review": [
             "Lütfen, yorum için en az 60 sembol yazınız"
-         ],
-         "Your opinion about this product": [
-            ""
-         ],
-         "Cancel": [
-            ""
-         ],
-         "Post": [
-            ""
          ],
          "Thank you for your review!": [
             "Yorumunuz için teşekkür ederiz"
@@ -45,9 +36,6 @@
          ],
          "Press Ctrl + Enter to send your message": [
             "Mesajınızı göndermek için Ctrl + Enter 'a basınız"
-         ],
-         "Reply": [
-            "Cevap"
          ],
          "Jan": [
             "Ock"
@@ -85,26 +73,8 @@
          "Dec": [
             "Arl"
          ],
-         "Now": [
-            "Şimdi"
-         ],
-         "minutes ago": [
-            "dakika önce"
-         ],
-         "hour ago": [
-            "saat önce"
-         ],
-         "hours ago": [
-            "saat önce"
-         ],
-         "Today at": [
-            "Bugün"
-         ],
-         "Yesterday at": [
-            "Dün"
-         ],
-         "at": [
-            ""
+         "Reply": [
+            "Cevap"
          ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
             "Yaptığınız yorum yalnızca sizin için görünür durumdadır. Maalesef, yorumunuzu yayınlamadan önce kontrol etmemiz gerekiyor. İncelemeniz kurallarımıza uygunsa, kısa süre içinde yayınlanacaktır :)"
@@ -112,26 +82,8 @@
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
             "Maalesef, yorumunuzu kurallarımıza uygun olmadığı için yayınlayamıyoruz. Lütfen başka bir yorum ile tekrar deneyin."
          ],
-         "Only buyers of that product can rate it": [
-            ""
-         ],
-         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            ""
-         ],
-         "It seems there are no reviews to this product.": [
-            ""
-         ],
-         "View ": [
-            "Görütüle"
-         ],
-         "REVIEWS & RATINGS": [
-            "YORUMLAR & PUANLAR"
-         ],
-         " REVIEWS & RATINGS": [
-            "YORUMLAR & PUANLAR"
-         ],
-         "Show more": [
-            ""
+         "Reviews & Ratings": [
+            "Yorumlar & Puanlar"
          ],
          "Home": [
             "Anasayfa"
@@ -142,8 +94,113 @@
          "Social test": [
             "Sosyal test"
          ],
-         "Reviews & Ratings": [
-            "Yorumlar & Puanlar"
+         "Only buyers of that product can rate it": [
+            "Yalnızca ürünü alanlar oy verebilirler. "
+         ],
+         "Show more": [
+            "Daha fazlasını göster"
+         ],
+         "Your opinion about this product": [
+            "Ürün hakkında fikriniz"
+         ],
+         "Cancel": [
+            "İptal"
+         ],
+         "Post": [
+            "İlan"
+         ],
+         "You can't estimate your own review": [
+            "Kendi yorumları değerlendiremezsiniz"
+         ],
+         "Please log in at first": [
+            "Lütfen önce giriş yap"
+         ],
+         "Helpful": [
+            "yararlı"
+         ],
+         "Useless": [
+            "yararsız"
+         ],
+         "Newest": [
+            "en yeni "
+         ],
+         "Most helpful": [
+            "daha yararlı"
+         ],
+         "Top ratings": [
+            "Üst reyting"
+         ],
+         "Low ratings": [
+            "Alt reyting"
+         ],
+         "Show first:": [
+            "Önce şunu gösterin"
+         ],
+         "STATISTICS": [
+            "İstatistik"
+         ],
+         "Average rating": [
+            "Reyting ortalaması"
+         ],
+         "Product rating": [
+            "ürün değerlendirmesi "
+         ],
+         "INCLUDES": [
+            "içerir"
+         ],
+         "Today": [
+            "Bügün "
+         ],
+         "Yesterday": [
+            "Dün"
+         ],
+         "Popup test": [
+            "Açılan testi "
+         ],
+         "Choose %s subscription": [
+            "'%s' aboneliği seçin"
+         ],
+         "$%d economy": [
+            "$'%d'economi"
+         ],
+         "per month, paid annually": [
+            "aylık, yıllık ödeme "
+         ],
+         "templates": [
+            "şablonlar"
+         ],
+         "you`ll be charged once a year": [
+            "Yılda bir kez ücretlendirileceksiniz"
+         ],
+         "Unlimited": [
+            "sınırsız"
+         ],
+         "68% of customers choose this subscription": [
+            "Müşterilerin % 68'i bu aboneliği seçiyor"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 9%": [
+            "Planı seçin ve herhangi bir shopify ürününü % 9'a kadar ucuza alın"
+         ],
+         "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
+            "Yıl boyunca yüzlerce Shopify temasından herhangi birini belli miktarda indirebilirsiniz!"
+         ],
+         "What’s going to happen if the subscription expires but there are still downloads left?": [
+            "İndirme işlemi devam ettiği halde abonelik sona ererse ne olacak?"
+         ],
+         "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.": [
+            "Abone süreniz sona erdiğinde, abonelik ücreti ödemediğiniz sürece artık ürünü indiremezsiniz, diğer bir durumda tam fiyatla satın almanız gerekir. %(newString)s' ne yazık ki kullanılmayan indirimler mevcut olmayacaklar."
+         ],
+         "What’s going to happen if downloads are up before the subscription expires?": [
+            "Abonelik sona erdiğinde indirme işlemi devam ederse ne olacak?"
+         ],
+         "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.": [
+            "Bu durumda abonelik otomatik olarak sona erecektir. Yeni bir tane ayarlayabilirsiniz ve ekstra indirimler alabilirsiniz, diğer bir durumda ürünü tam fiyatla satın almanız gerekir."
+         ],
+         "Contact us in chat": [
+            "Canlı sohbet aracılığıyla bizimle iletişime geçin"
+         ],
+         "Still have questions? %(contactUs)s, we will help with the choice!": [
+            "Hâlâ sorularınız var mı?  '%(contactUs)s', seçiminde yardımcı olacağiz. "
          ]
       }
    }
