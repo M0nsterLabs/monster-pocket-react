@@ -9,7 +9,7 @@ export default {
   ordersServiceURL            : '//api.templatemonsterdev.com/orders/v1/',
   reviewsServiceURL           : '//api.templatemonsterdev.com/reviews/v1/',
   balancesServiceURL          : '//api.templatemonsterdev.com/balances/v1/',
-  monsterURL                  : '//monster-4.dev5.dev/',
+  monsterURL                  : '//www.templatemonsterdev.com/',
   chatURL                     : '//chat.template-help.dev/',
   tmimgcdnURL                 : '//s.tmimgcdn.com/scr/400x400/',
   facebookAppId               : '1449028418459900'

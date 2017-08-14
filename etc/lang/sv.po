@@ -1,21 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
 #
-# Translators:
-#   <nataly@templatemonster.com>, 2017.
+# Translators
+#
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2017-08-14 07:56:47-0400\n"
 "Project-Id-Version: Template Monster\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-14 10:38+0300\n"
-"PO-Revision-Date: 2017-07-17 10:58+0000\n"
-"Last-Translator: nataly <nataly@templatemonster.com>\n"
-"Language-Team: Swedish (http://example.com/transifex/projects/p/tm/team/sv/)\n"
+"Resource-Id-Version: Plasma Pocket React\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Review must contain at least 60 symbols"
@@ -27,42 +21,17 @@ msgstr "Vänlign ta bort spcialsymboler"
 msgid "Please, write at least 60 symbols for review"
 msgstr "Vänligen, skriv minst 60 symboler i recensionen"
 
-msgid "Your opinion about this product"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
-msgid "Post"
-msgstr ""
-
 msgid "Thank you for your review!"
 msgstr "Tack för din recension!"
 
-msgid ""
-"We've generated your one-time promo-code and within 10 minutes it will reach"
-" your email:"
-msgstr ""
-"Vi har genererat en engångsrabattkod och du bör ha den på din mail inom 10 "
-"min"
+msgid "We\'ve generated your one-time promo-code and within 10 minutes it will reach your email:"
+msgstr "Vi har genererat en engångsrabattkod och du bör ha den på din mail inom 10 min"
 
 msgid "on all our themes"
 msgstr "på alla våra teman"
 
 msgid "Please rate the product:"
 msgstr "Vänligen betygssätt produkten:"
-
-msgid "STATISTICS"
-msgstr ""
-
-msgid "Average rating"
-msgstr ""
-
-msgid "Product rating"
-msgstr ""
-
-msgid "INCLUDES"
-msgstr ""
 
 msgid "Type your answer here"
 msgstr "Skriv ditt svar här"
@@ -72,21 +41,6 @@ msgstr "Skicka meddelande"
 
 msgid "Press Ctrl + Enter to send your message"
 msgstr "Tryck Ctrl+Enter för at skicka ditt meddelande"
-
-msgid "Reply"
-msgstr "Svar"
-
-msgid "You can't estimate your own review"
-msgstr ""
-
-msgid "Please log in at first"
-msgstr ""
-
-msgid "Helpful"
-msgstr ""
-
-msgid "Useless"
-msgstr ""
 
 msgid "Jan"
 msgstr "Jan"
@@ -124,77 +78,17 @@ msgstr "Nov"
 msgid "Dec"
 msgstr "Dec"
 
-msgid "Now"
-msgstr "Nu"
+msgid "Reply"
+msgstr "Svar"
 
-msgid "minutes ago"
-msgstr "minuter sedan"
+msgid "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)"
+msgstr "Recensinonen är endast synlig för dig. Ursäkta, men vi behöver kontrollera din recension innan den publiceras. Om din recension följer våra regler kommer den publiceras snart :)"
 
-msgid "hour ago"
-msgstr "timme sedan"
+msgid "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review."
+msgstr "Tyvärr kan vi inte publicera din recension eftersom den inte följer våra riktlinjer, vänligen försök igen med en annan resencion."
 
-msgid "hours ago"
-msgstr "timmar sedan"
-
-msgid "Today at"
-msgstr "Idag vid"
-
-msgid "Yesterday at"
-msgstr "Igår vid"
-
-msgid "at"
-msgstr "på"
-
-msgid ""
-"The review is visible only for you. Sorry, but we need to check your review "
-"before publication. In case your review corresponds to our rules, it will be"
-" published soon :)"
-msgstr ""
-"Recensinonen är endast synlig för dig. Ursäkta, men vi behöver kontrollera "
-"din recension innan den publiceras. Om din recension följer våra regler "
-"kommer den publiceras snart :)"
-
-msgid ""
-"Unfortunately, we can’t post your review because it doesn’t meet our "
-"guidelines, please try again with another review."
-msgstr ""
-"Tyvärr kan vi inte publicera din recension eftersom den inte följer våra "
-"riktlinjer, vänligen försök igen med en annan resencion."
-
-msgid "Only buyers of that product can rate it"
-msgstr ""
-
-msgid ""
-"It seems there are no reviews to this product from your locale.\n"
-"You can look at the reviews from other locales."
-msgstr ""
-
-msgid "It seems there are no reviews to this product."
-msgstr ""
-
-msgid "View "
-msgstr "Visa"
-
-msgid "REVIEWS & RATINGS"
+msgid "Reviews & Ratings"
 msgstr "Recensioner & betyg"
-
-msgid "Newest"
-msgstr ""
-
-msgid "Most helpful"
-msgstr ""
-
-msgid "Top ratings"
-msgstr ""
-
-msgid "Low ratings"
-msgstr ""
-
-msgid "Show first:"
-msgstr ""
-
-msgid "Show more"
-msgstr "Visa fler"
 
 msgid "Home"
 msgstr "Hem"
@@ -205,6 +99,111 @@ msgstr ""
 msgid "Social test"
 msgstr ""
 
-msgid "Reviews & Ratings"
-msgstr "Recensioner & betyg"
+msgid "Only buyers of that product can rate it"
+msgstr "Endast köpare av produkten kan betygsätta den"
+
+msgid "Show more"
+msgstr "Visa fler"
+
+msgid "Your opinion about this product"
+msgstr "Din åsikt om den här produkten"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Post"
+msgstr "Skicka"
+
+msgid "You can\'t estimate your own review"
+msgstr "Du kan inte uppskatta din egen recension"
+
+msgid "Please log in at first"
+msgstr "Var god logga in först"
+
+msgid "Helpful"
+msgstr "Hjälpsam"
+
+msgid "Useless"
+msgstr "Värdelös"
+
+msgid "Newest"
+msgstr "Nyaste"
+
+msgid "Most helpful"
+msgstr "Mest hjälpsamma"
+
+msgid "Top ratings"
+msgstr "Topp-betyg"
+
+msgid "Low ratings"
+msgstr "Låga betyg"
+
+msgid "Show first:"
+msgstr "Visa först:"
+
+msgid "STATISTICS"
+msgstr "STATISTIK"
+
+msgid "Average rating"
+msgstr "Genomsnittliga betyg"
+
+msgid "Product rating"
+msgstr "Produktens betyg"
+
+msgid "INCLUDES"
+msgstr "INKLUDERAR"
+
+msgid "Today"
+msgstr "Idag"
+
+msgid "Yesterday"
+msgstr "Igår"
+
+msgid "Popup test"
+msgstr ""
+
+msgid "Choose %s subscription"
+msgstr "Välj %s prenumeration"
+
+msgid "$%d economy"
+msgstr "$%d ekonomi"
+
+msgid "per month, paid annually"
+msgstr "per månad, betalas årsvis"
+
+msgid "templates"
+msgstr "mallar"
+
+msgid "you`ll be charged once a year"
+msgstr "du debiteras en gång per år"
+
+msgid "Unlimited"
+msgstr "Obegränsad"
+
+msgid "68% of customers choose this subscription"
+msgstr "68% av kunderna väljer denna prenumeration"
+
+msgid "Choose the plan and get any shopify product cheaper up to 9%"
+msgstr "Välj denna plan och få alla Shopify produkter upp till 9% billigare"
+
+msgid "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!"
+msgstr "Du kommer att kunna ladda ner viss mängd av hundratals Shopify-teman under året!"
+
+msgid "What’s going to happen if the subscription expires but there are still downloads left?"
+msgstr "Vad händer om prenumerationen löper ut men det fortfarande finns nedladdningar kvar?"
+
+msgid "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable."
+msgstr "När prenumerationen löper ut kan du inte längre ladda ner produkter om du inte betalar för prenumeration igen, annars ska du köpa dem till full pris. %(newString)s Tyvärr blir oanvända nedladdningar otillgängliga."
+
+msgid "What’s going to happen if downloads are up before the subscription expires?"
+msgstr "Vad händer om nedladdningarna tar slut innan prenumerationen löper ut?"
+
+msgid "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price."
+msgstr "I så fall avslutas prenumerationen automatiskt. Du kan ordna en ny och få extra nedladdningar, i annat fall ska du köpa produkter till full pris."
+
+msgid "Contact us in chat"
+msgstr "Kontakta oss via chatt"
+
+msgid "Still have questions? %(contactUs)s, we will help with the choice!"
+msgstr "Har du fortfarande frågor? %(contactUs)s, vi hjälper dig med valet!"
 
