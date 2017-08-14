@@ -1,0 +1,75 @@
+@import "../../styles/variables.less";
+
+.comments {
+  &__count {
+    display: none;
+  }
+
+  .h3 {
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: @spacing4x;
+  }
+
+  &__item {
+    display: flex;
+    margin-bottom: @spacing4x;
+  }
+
+  &__avatar {
+    margin-right: @spacing1x;
+  }
+
+  &__describe {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: @spacing2x @spacing2x @spacing2x 25px;
+    border: 1px solid @light-grey-2;
+    border-radius: @border_radius;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 14px;
+      width: 9px;
+      height: 9px;
+      transform: rotate(45deg);
+      background: @color-white;
+      border-radius: 0 0 0 4px;
+      border-bottom: 1px solid @light-grey-2;
+      border-left: 1px solid @light-grey-2;
+      border-top: none;
+      border-right: none;
+    }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: @spacing2x;
+      color: @secondary;
+    }
+
+    &__footer {
+      display: flex;
+    }
+  }
+
+  &__content {
+    margin-bottom: @spacing2x;
+    color: @basic;
+  }
+
+  &__author {
+    font-weight: bold;
+  }
+}
