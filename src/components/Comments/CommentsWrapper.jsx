@@ -3,6 +3,7 @@ import Config              from 'config.js';
 import _                   from 'lodash';
 import PropTypes           from 'prop-types';
 import ContentEmptyMessage from '../ContentEmptyMessage/';
+import FromNow             from '../formattedDate';
 import L1                  from 'quark/lib/loaders/L1';
 import L3                  from 'quark/lib/loaders/L3';
 import B2E                 from 'quark/lib/buttons/B2E';
@@ -17,7 +18,8 @@ import {
   getCdnImageUrl,
   infiniteDataLoader,
   getCurrentLocale,
-  getResponseJSON
+  getResponseJSON,
+  formattedDate,
 } from 'utils/';
 
 import './Comments.less';
@@ -44,6 +46,7 @@ export default class Comments extends React.Component {
     sort: '-helpful,-created_at',
     showMoreVisible: false,
     localeIterator: 0,
+    countCommentsOtherLocale: 0,
   };
 
   componentDidMount () {
@@ -55,6 +58,7 @@ export default class Comments extends React.Component {
     if (comments.items) {
       return (
         comments.items.map((comment) => {
+         // let date = new FromNow(this.context, comment.created_at, 'TIME', 'en');
           return (
             <CommentsItem
               userName={comments.user_name}
@@ -75,7 +79,7 @@ export default class Comments extends React.Component {
       isLoading: false,
     });
     let params = {
-      'template_id' : 55555,
+      'template_id' : this.props.templateId,
       'per-page'    : 10,
       'locale'      : locale,
       'sort'        : this.state.sort,
@@ -121,17 +125,29 @@ export default class Comments extends React.Component {
           }
         })
         .then(() => {
-          if (this.state.comments.totalCount === 0 && this.state.localeIterator >= 1) {
-            console.log('no countLocaleCurrent');
-            LOCALE='it';
-            if (this.state.localeIterator >= 2) {
-              LOCALE='';
-            }
+          if (this.state.comments.totalCount === 0 && this.state.localeIterator === 1 && LOCALE !== 'en') {
+            LOCALE = 'en';
             this.getComments(LOCALE);
+          } else if (this.state.comments.totalCount === 0 && this.state.localeIterator <= 2 && LOCALE === 'en') {
+            LOCALE = '';
+            this.getCommentsOtherLocales();
           }
         });
     }
+  };
 
+  getCommentsOtherLocales = () => {
+    let params = {
+      'template_id' : this.props.templateId,
+      'per-page'    : 10,
+      'sort'        : this.state.sort,
+      'expand'      : 'vote',
+    };
+    comments.getComments(params).then((data) => {
+      this.setState({
+        countCommentsOtherLocale: data.totalCount
+      });
+    });
   };
 
   shouldFetchDataItems = (currentState) => {
@@ -200,6 +216,25 @@ export default class Comments extends React.Component {
     }
   };
 
+  otherLocale = () => {
+    this.getComments('');
+  };
+
+  renderEmptyPage = () => {
+    console.log('this.state.countCommentsOtherLocale', this.state.countCommentsOtherLocale);
+    return (
+      <ContentEmptyMessage
+        page         = {'comments'}
+        show         = {this.state.isEmpty}
+        description  = {this.context.i18n.l(`It seems there are no comments to this product from your locale.\nYou can look at the comments from other locales.`)}
+        textNoLocale = {this.context.i18n.l(`It seems there are no comments to this product.`)}
+        isButton     = {this.state.countCommentsOtherLocale > 0}
+        buttonText   = {this.context.i18n.l(`View ${this.state.countCommentsOtherLocale} Comments From Other Locales`)}
+        buttonClick  = {this.otherLocale}
+      />
+    )
+  };
+
   render () {
     const {comments} = this.state;
 
@@ -212,39 +247,52 @@ export default class Comments extends React.Component {
             <L1 className="content-loader"/>
           )
           : (
-            <div className="comments">
-              <div className="comments__header">
-                <h2 className="h3">
-                  <span className="comments__total-count">{comments.totalCount} </span>
-                  {this.context.i18n.l(`Questions & Answers`)}
-                </h2>
-                {this.sortReviews()}
-              </div>
+            this.state.comments.totalCount === 0
+              ? (
+                <div className="page-content__empty">
+                  <div className="comments">
+                    <h2 className="h3">{this.context.i18n.l('Questions & Answers')}</h2>
 
-              {_.isEmpty(this.state.comments.items)
-                ? <L1 className="content-loader"/>
-                :
-                this.renderComments()
-              }
 
-              {
-                this.state.showMoreVisible && !_.isEmpty(this.state.comments.items) && (
-                  <B2E
-                    className = "reviews__btn"
-                    id        = "show-more-reviews"
-                    onClick   = {this.loadDownloads}
-                    disabled  = {!this.state.isLoading}
-                    isLoading = {!this.state.isLoading}
-                  >
-                    {!this.state.isLoading ? (
-                      <L3 />
-                    ) : (
-                      this.context.i18n.l('Show more')
-                    )}
-                  </B2E>
-                )
-              }
-            </div>
+                  </div>
+                  {this.renderEmptyPage()}
+                </div>
+              )
+              : (
+                <div className="comments">
+                  <div className="comments__header">
+                    <h2 className="h3">
+                      <span className="comments__total-count">{comments.totalCount} </span>
+                      {this.context.i18n.l(`Questions & Answers`)}
+                    </h2>
+                    {this.sortReviews()}
+                  </div>
+
+                  {_.isEmpty(this.state.comments.items)
+                    ? <L1 className="content-loader"/>
+                    :
+                    this.renderComments()
+                  }
+
+                  {
+                    this.state.showMoreVisible && !_.isEmpty(this.state.comments.items) && (
+                      <B2E
+                        className = "reviews__btn"
+                        id        = "show-more-reviews"
+                        onClick   = {this.loadDownloads}
+                        disabled  = {!this.state.isLoading}
+                        isLoading = {!this.state.isLoading}
+                      >
+                        {!this.state.isLoading ? (
+                          <L3 />
+                        ) : (
+                          this.context.i18n.l('Show more')
+                        )}
+                      </B2E>
+                    )
+                  }
+                </div>
+              )
           )
         }
       </div>

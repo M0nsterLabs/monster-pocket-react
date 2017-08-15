@@ -10,6 +10,7 @@ export default class CommentsItem extends React.Component {
     userMail: PropTypes.string,
     userName: PropTypes.string,
     userAvatar: PropTypes.string,
+    date: PropTypes.string,
   };
 
   static contextTypes = {
