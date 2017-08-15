@@ -23,6 +23,7 @@ import {
 import './Comments.less';
 
 let comments = new ReviewsData(Config.reviewsServiceURL);
+let LOCALE = getCurrentLocale();
 
 export default class Comments extends React.Component {
   static propTypes = {
@@ -42,10 +43,11 @@ export default class Comments extends React.Component {
     },
     sort: '-helpful,-created_at',
     showMoreVisible: false,
+    localeIterator: 0,
   };
 
   componentDidMount () {
-    this.getComments();
+    this.getComments(LOCALE);
   };
 
   renderComments = () => {
@@ -60,6 +62,7 @@ export default class Comments extends React.Component {
               content={comment.content}
               avatar=""
               date={comment.created_at}
+              key={comment.id}
             />
           );
         })
@@ -67,14 +70,14 @@ export default class Comments extends React.Component {
     }
   };
 
-  getComments = () => {
+  getComments = (locale) => {
     this.setState({
       isLoading: false,
     });
     let params = {
       'template_id' : 55555,
       'per-page'    : 10,
-      'locale'      : 'en',
+      'locale'      : locale,
       'sort'        : this.state.sort,
       'expand'      : 'vote',
     };
@@ -107,6 +110,7 @@ export default class Comments extends React.Component {
               ...paginationData,
             },
             isLoading: true,
+            localeIterator: this.state.localeIterator+1
           })
         })
         .then(() => {
@@ -114,6 +118,16 @@ export default class Comments extends React.Component {
             this.setState({
               showMoreVisible: false
             })
+          }
+        })
+        .then(() => {
+          if (this.state.comments.totalCount === 0 && this.state.localeIterator >= 1) {
+            console.log('no countLocaleCurrent');
+            LOCALE='it';
+            if (this.state.localeIterator >= 2) {
+              LOCALE='';
+            }
+            this.getComments(LOCALE);
           }
         });
     }
@@ -151,7 +165,7 @@ export default class Comments extends React.Component {
         items: []
       },
     }, () => {
-      this.getComments();
+      this.getComments(LOCALE);
     })
   };
 
@@ -182,12 +196,7 @@ export default class Comments extends React.Component {
 
   loadDownloads = () => {
     if (this.state.comments.totalCount > 0 && this.state.isLoading === true) {
-      this.getComments();
-      // if (this.state.countReviewOtherLocale > 0) {
-      //   return this.getReviews();
-      // } else {
-      //   return this.getReviews(LOCALES[this.iteratorLocale]);
-      // }
+      this.getComments(LOCALE);
     }
   };
 
