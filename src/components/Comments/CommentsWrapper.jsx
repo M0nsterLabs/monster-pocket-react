@@ -41,6 +41,11 @@ export default class Comments extends React.Component {
       isLoading: false,
     },
     sort: '-helpful,-created_at',
+    showMoreVisible: false,
+  };
+
+  componentDidMount () {
+    this.getComments();
   };
 
   renderComments = () => {
@@ -48,7 +53,6 @@ export default class Comments extends React.Component {
     if (comments.items) {
       return (
         comments.items.map((comment) => {
-          console.log(comment);
           return (
             <CommentsItem
               userName={comments.user_name}
@@ -75,26 +79,51 @@ export default class Comments extends React.Component {
       'expand'      : 'vote',
     };
     const paginationData   = {};
-    comments.getComments(params).then((data) => {
-      paginationData.currentPageIndex = data.currentPageIndex;
-      paginationData.lastPageIndex = data.lastPageIndex;
-      paginationData.totalCount = data.totalCount;
+    const currentState = this.state.comments;
+    if (this.shouldFetchDataItems(currentState)) {
+      const requestPageIndex = currentState.currentPageIndex + 1 || 1;
+      params = {
+        ...params,
+        'page': requestPageIndex
+      };
 
-      console.log(data);
+      comments.getComments(params)
+        .then((data) => {
 
-      this.setState({
-        comments: {
-          items: [...this.state.comments.items, ...data.items],
-          totalCount: data.totalCount,
-        },
-        isLoading: true,
-      })
-    })
+          paginationData.currentPageIndex = data.currentPageIndex;
+          paginationData.lastPageIndex = data.lastPageIndex;
+          paginationData.totalCount = data.totalCount;
+
+          if (paginationData.totalCount > 10) {
+            this.setState({
+              showMoreVisible: true
+            })
+          }
+
+          this.setState({
+            comments: {
+              items: [...this.state.comments.items, ...data.items],
+              totalCount: data.totalCount,
+              ...paginationData,
+            },
+            isLoading: true,
+          })
+        })
+        .then(() => {
+          if (paginationData.currentPageIndex === paginationData.lastPageIndex) {
+            this.setState({
+              showMoreVisible: false
+            })
+          }
+        });
+    }
 
   };
 
-  componentDidMount () {
-    this.getComments();
+  shouldFetchDataItems = (currentState) => {
+    const currentItemsCount = currentState.items ? currentState.items.length : 0;
+    const totalItemsCount   = currentState.totalCount;
+    return currentItemsCount === 0 || currentItemsCount < totalItemsCount;
   };
 
   changeSortValue = (sorted) => {
@@ -151,6 +180,17 @@ export default class Comments extends React.Component {
     )
   };
 
+  loadDownloads = () => {
+    if (this.state.comments.totalCount > 0 && this.state.isLoading === true) {
+      this.getComments();
+      // if (this.state.countReviewOtherLocale > 0) {
+      //   return this.getReviews();
+      // } else {
+      //   return this.getReviews(LOCALES[this.iteratorLocale]);
+      // }
+    }
+  };
+
   render () {
     const {comments} = this.state;
 
@@ -176,6 +216,24 @@ export default class Comments extends React.Component {
                 ? <L1 className="content-loader"/>
                 :
                 this.renderComments()
+              }
+
+              {
+                this.state.showMoreVisible && !_.isEmpty(this.state.comments.items) && (
+                  <B2E
+                    className = "reviews__btn"
+                    id        = "show-more-reviews"
+                    onClick   = {this.loadDownloads}
+                    disabled  = {!this.state.isLoading}
+                    isLoading = {!this.state.isLoading}
+                  >
+                    {!this.state.isLoading ? (
+                      <L3 />
+                    ) : (
+                      this.context.i18n.l('Show more')
+                    )}
+                  </B2E>
+                )
               }
             </div>
           )
