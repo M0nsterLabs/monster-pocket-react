@@ -3,23 +3,21 @@ import Config              from 'config.js';
 import _                   from 'lodash';
 import PropTypes           from 'prop-types';
 import ContentEmptyMessage from '../ContentEmptyMessage/';
-import FromNow             from '../formattedDate';
 import L1                  from 'quark/lib/loaders/L1';
 import L3                  from 'quark/lib/loaders/L3';
 import B2E                 from 'quark/lib/buttons/B2E';
 import DD1                 from 'quark/lib/dropdowns/DD1';
 
 import ReviewsData         from 'plasma-reviews-api-client-js';
-import ProductsData        from 'tm-products-api-client-js';
 
 import CommentsItem from './CommentsItem';
+import CommentsForm from './CommentsForm';
 
 import {
   getCdnImageUrl,
   infiniteDataLoader,
   getCurrentLocale,
   getResponseJSON,
-  formattedDate,
 } from 'utils/';
 
 import './Comments.less';
@@ -47,9 +45,18 @@ export default class Comments extends React.Component {
     showMoreVisible: false,
     localeIterator: 0,
     countCommentsOtherLocale: 0,
+    user: {
+      name: '',
+      avatar: '',
+      mail: '',
+    }
   };
 
   componentDidMount () {
+    if (this.props.accessToken) {
+      this.getUserProfile();
+      this.getCommentsUser(LOCALE);
+    }
     this.getComments(LOCALE);
   };
 
@@ -57,8 +64,7 @@ export default class Comments extends React.Component {
     const { comments } = this.state;
     if (comments.items) {
       return (
-        comments.items.map((comment) => {
-         // let date = new FromNow(this.context, comment.created_at, 'TIME', 'en');
+        comments.items.map((comment, i) => {
           return (
             <CommentsItem
               userName={comments.user_name}
@@ -110,7 +116,7 @@ export default class Comments extends React.Component {
           this.setState({
             comments: {
               items: [...this.state.comments.items, ...data.items],
-              totalCount: data.totalCount,
+              totalCount: this.state.comments.totalCount+data.totalCount,
               ...paginationData,
             },
             isLoading: true,
@@ -134,6 +140,27 @@ export default class Comments extends React.Component {
           }
         });
     }
+  };
+
+  getCommentsUser = (locale) => {
+    let params = {
+      'access_token': this.props.accessToken,
+      'template_id': this.props.templateId,
+      'per-page': 10,
+      'locale': locale,
+      'sort': this.state.sort,
+      'status': 'pending',
+    };
+    comments.getCommentsUser(params)
+      .then((data) => {
+        console.log('data', data);
+        this.setState({
+          comments: {
+            items: [...this.state.comments.items, ...data.items],
+            totalCount: this.state.comments.totalCount+data.totalCount,
+          },
+        })
+      });
   };
 
   getCommentsOtherLocales = () => {
@@ -235,6 +262,38 @@ export default class Comments extends React.Component {
     )
   };
 
+  renderForm = () => {
+    return (
+      <CommentsForm
+        template_id={this.props.templateId}
+        access_token={this.props.accessToken}
+        userName={this.state.user.name}
+        userMail={this.state.user.mail}
+        userAvatar={this.state.user.avatar}
+      />
+    )
+  };
+
+  getUserProfile = () => {
+    fetch(`${Config.accountServiceURL}users/profile`, {
+      method  : 'get',
+      headers : {
+        'Authorization': this.props.accessToken
+      }
+    })
+      .then(getResponseJSON)
+      .then((data) => {
+      console.log(data);
+        this.setState({
+          user: {
+            name: data.userName,
+            avatar: data.avatar,
+            mail: data.login,
+          }
+        });
+      });
+  };
+
   render () {
     const {comments} = this.state;
 
@@ -242,12 +301,12 @@ export default class Comments extends React.Component {
       <div className="page-content ">
         <span className="comments__count">{comments.totalCount}</span>
         {
-          this.state.comments.totalCount === 0 && !this.state.isLoading
+          comments.totalCount === 0 && !this.state.isLoading
           ? (
             <L1 className="content-loader"/>
           )
           : (
-            this.state.comments.totalCount === 0
+            comments.totalCount === 0
               ? (
                 <div className="page-content__empty">
                   <div className="comments">
@@ -267,6 +326,8 @@ export default class Comments extends React.Component {
                     </h2>
                     {this.sortReviews()}
                   </div>
+
+                  {this.renderForm()}
 
                   {_.isEmpty(this.state.comments.items)
                     ? <L1 className="content-loader"/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Avatar from 'quark/lib/Avatar';
-
+import FormattedDate from '../formattedDate';
 import './Comments.less';
 
 export default class CommentsItem extends React.Component {
@@ -10,7 +10,7 @@ export default class CommentsItem extends React.Component {
     userMail: PropTypes.string,
     userName: PropTypes.string,
     userAvatar: PropTypes.string,
-    date: PropTypes.string,
+    date: PropTypes.number,
   };
 
   static contextTypes = {
@@ -44,7 +44,7 @@ export default class CommentsItem extends React.Component {
         <div className="comments__describe">
           <div className="comments__describe-header t5">
             <div className="comments__author">{userName || this.context.i18n.l('User')}</div>
-            <div className="comments__date">{date}</div>
+            <FormattedDate timestamp={date} className="comments__date" />
           </div>
           <div className="comments__content t3">{content}</div>
           <div className="comments__describe-footer t3">

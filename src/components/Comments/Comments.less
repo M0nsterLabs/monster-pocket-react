@@ -82,3 +82,94 @@
     }
   }
 }
+
+.CommentsForm {
+  width: 100%;
+  margin-bottom: @spacing4x;
+
+  &__textarea {
+    margin-bottom: @spacing2x;
+    padding: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 14px;
+      width: 9px;
+      height: 9px;
+      transform: rotate(45deg);
+      background: @light-grey;
+      border-radius: 0 0 0 4px;
+      border-bottom: 1px solid @light-grey;
+      border-left: 1px solid @light-grey;
+      border-top: none;
+      border-right: none;
+    }
+
+    .text-area {
+      &__limit {
+        display: none;
+      }
+
+      &__input {
+        height: 10px !important;
+        min-height: 40px;
+        padding: @spacing1x @spacing4x @spacing1x @spacing2x;
+      }
+
+      &__label {
+        top: 10px;
+      }
+    }
+
+    &.text-area_filled {
+      .text-area {
+        &__label {
+          display: none;
+        }
+      }
+    }
+
+    &.text-area_focused {
+      padding: @spacing2x;
+
+      &::before {
+        background: @color-white;
+        border-bottom: 1px solid @light-blue;
+        border-left: 1px solid @light-blue;
+      }
+
+      .text-area {
+        &__limit {
+          display: block;
+        }
+
+        &__label {
+          top: 19px;
+        }
+
+        &__input {
+          padding: 0;
+          height: inherit !important;
+        }
+      }
+
+      &.text-area_filled {
+        .text-area {
+          &__label {
+            top: 8px;
+          }
+        }
+      }
+
+      & + .CommentsForm__button {
+        display: block;
+      }
+    }
+  }
+
+  //&__button {
+  //  display: none;
+  //}
+}
