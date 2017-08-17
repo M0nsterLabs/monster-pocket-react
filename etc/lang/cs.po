@@ -3,7 +3,7 @@
 #
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-08-14 07:56:30-0400\n"
+"PO-Revision-Date: 2017-08-17 03:33:47-0400\n"
 "Project-Id-Version: Template Monster\n"
 "Resource-Id-Version: Plasma Pocket React\n"
 "Language: cs\n"
@@ -165,9 +165,6 @@ msgstr "Popup test"
 msgid "Choose %s subscription"
 msgstr "Předplatné na %s"
 
-msgid "$%d economy"
-msgstr "$%d ušetření nákladů"
-
 msgid "per month, paid annually"
 msgstr "měsíčně, platíte celý rok"
 
@@ -182,9 +179,6 @@ msgstr "Neomezený počet"
 
 msgid "68% of customers choose this subscription"
 msgstr "68% zákazníků si vybírají tento typ předplatného"
-
-msgid "Choose the plan and get any shopify product cheaper up to 9%"
-msgstr "Vyberte si tarif a ušetřete až 9% při nákupu produktů shopify"
 
 msgid "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!"
 msgstr "Budete moci si stáhnout za rok určitý počet Shopify šablon, které lze vybrat z naší nabídky!"
@@ -206,4 +200,10 @@ msgstr "Kontaktujte nás v chatu"
 
 msgid "Still have questions? %(contactUs)s, we will help with the choice!"
 msgstr "Stále máte otázky? %(contactUs)s, pomůžeme Vám s výběrem produktu!"
+
+msgid "%s savings"
+msgstr "%s ušetříte"
+
+msgid "Choose the plan and get any shopify product cheaper up to 99%"
+msgstr "Vyberte si tarif a získejte produkt až o 99 % levněji"
 

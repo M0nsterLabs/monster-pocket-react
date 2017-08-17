@@ -160,9 +160,6 @@
          "Choose %s subscription": [
             "Оберіть %s підписку"
          ],
-         "$%d economy": [
-            "$%d економії"
-         ],
          "per month, paid annually": [
             "в місяць, оплачується щорічно"
          ],
@@ -177,9 +174,6 @@
          ],
          "68% of customers choose this subscription": [
             "68% клієнтів обирають цей тариф"
-         ],
-         "Choose the plan and get any shopify product cheaper up to 9%": [
-            "Оберіть тариф and отримайте будь shopify продукт дешевше до 9%"
          ],
          "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
             "Ви зможете завантажувати певну кількість із сотень Shopify шаблонів в рік!"
@@ -201,6 +195,12 @@
          ],
          "Still have questions? %(contactUs)s, we will help with the choice!": [
             "Залишилися питання? %(contactUs)s, ми допоможемо з вибором!"
+         ],
+         "%s savings": [
+            "%s економії"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Оберіть тариф, щоб отримати будь-який shopify продукт дешевше до 99%"
          ]
       }
    }

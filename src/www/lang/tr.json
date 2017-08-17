@@ -160,9 +160,6 @@
          "Choose %s subscription": [
             "'%s' aboneliği seçin"
          ],
-         "$%d economy": [
-            "$'%d'economi"
-         ],
          "per month, paid annually": [
             "aylık, yıllık ödeme "
          ],
@@ -177,9 +174,6 @@
          ],
          "68% of customers choose this subscription": [
             "Müşterilerin % 68'i bu aboneliği seçiyor"
-         ],
-         "Choose the plan and get any shopify product cheaper up to 9%": [
-            "Planı seçin ve herhangi bir shopify ürününü % 9'a kadar ucuza alın"
          ],
          "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
             "Yıl boyunca yüzlerce Shopify temasından herhangi birini belli miktarda indirebilirsiniz!"
@@ -201,6 +195,12 @@
          ],
          "Still have questions? %(contactUs)s, we will help with the choice!": [
             "Hâlâ sorularınız var mı?  '%(contactUs)s', seçiminde yardımcı olacağiz. "
+         ],
+         "%s savings": [
+            "%s tasarruf"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Planı seçin ve % 99'a varan indirimle bir shopify ürününü elde edin. "
          ]
       }
    }

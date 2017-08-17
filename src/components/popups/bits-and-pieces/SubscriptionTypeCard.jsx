@@ -84,7 +84,7 @@ export default class SubscriptionTypeCard extends React.Component {
                 <span className="price">{this.props.pricePerTemplate}</span>
               </span>
               <T5 className="subscription-type__card__price-info__sale-per-template">
-                <span className="sale">{sprintf(l('%s economy'), currencyFormatter.format(parseInt(this.props.economy, 10), format))}</span>
+                <span className="sale">{sprintf(l('%s savings'), currencyFormatter.format(parseInt(this.props.economy, 10), format))}</span>
                 <span className="info">{l('per month, paid annually')}</span>
               </T5>
             </div>

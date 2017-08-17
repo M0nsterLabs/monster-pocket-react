@@ -160,9 +160,6 @@
          "Choose %s subscription": [
             "Válassza a %s előfizetést"
          ],
-         "$%d economy": [
-            "$%d megtakarítás"
-         ],
          "per month, paid annually": [
             "per hónap, évente fizetett"
          ],
@@ -177,9 +174,6 @@
          ],
          "68% of customers choose this subscription": [
             "Az ügyfelek 68% ezt az előfizetést válasszák"
-         ],
-         "Choose the plan and get any shopify product cheaper up to 9%": [
-            "Válasszon ki egy tervet és bármilyen Shopify terméket 9% olcsóbban kaphat meg"
          ],
          "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
             "Ön képes lesz arra, hogy évente a Shopify sablonok százai közül egy bizonyos mennyiséget letöltsön!"
@@ -201,6 +195,12 @@
          ],
          "Still have questions? %(contactUs)s, we will help with the choice!": [
             "Még mindig kérdése van? %(contactUs)s, segítünk a választással!"
+         ],
+         "%s savings": [
+            "%s spórolás"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Válasszon tervet és szerezzen shopify termékeket akár 99% olcsóbban"
          ]
       }
    }

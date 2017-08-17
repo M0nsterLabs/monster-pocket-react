@@ -160,9 +160,6 @@
          "Choose %s subscription": [
             "Välj %s prenumeration"
          ],
-         "$%d economy": [
-            "$%d ekonomi"
-         ],
          "per month, paid annually": [
             "per månad, betalas årsvis"
          ],
@@ -177,9 +174,6 @@
          ],
          "68% of customers choose this subscription": [
             "68% av kunderna väljer denna prenumeration"
-         ],
-         "Choose the plan and get any shopify product cheaper up to 9%": [
-            "Välj denna plan och få alla Shopify produkter upp till 9% billigare"
          ],
          "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
             "Du kommer att kunna ladda ner viss mängd av hundratals Shopify-teman under året!"
@@ -201,6 +195,12 @@
          ],
          "Still have questions? %(contactUs)s, we will help with the choice!": [
             "Har du fortfarande frågor? %(contactUs)s, vi hjälper dig med valet!"
+         ],
+         "%s savings": [
+            "%s sparmedel"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Välj planen och få Valfri shopify produkt billigare med upp till 99% rabatt"
          ]
       }
    }

@@ -3,7 +3,7 @@
 #
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-08-14 07:56:36-0400\n"
+"PO-Revision-Date: 2017-08-17 03:33:52-0400\n"
 "Project-Id-Version: Template Monster\n"
 "Resource-Id-Version: Plasma Pocket React\n"
 "Language: hu\n"
@@ -165,9 +165,6 @@ msgstr "Popup teszt"
 msgid "Choose %s subscription"
 msgstr "Válassza a %s előfizetést"
 
-msgid "$%d economy"
-msgstr "$%d megtakarítás"
-
 msgid "per month, paid annually"
 msgstr "per hónap, évente fizetett"
 
@@ -182,9 +179,6 @@ msgstr "Korlátlan"
 
 msgid "68% of customers choose this subscription"
 msgstr "Az ügyfelek 68% ezt az előfizetést válasszák"
-
-msgid "Choose the plan and get any shopify product cheaper up to 9%"
-msgstr "Válasszon ki egy tervet és bármilyen Shopify terméket 9% olcsóbban kaphat meg"
 
 msgid "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!"
 msgstr "Ön képes lesz arra, hogy évente a Shopify sablonok százai közül egy bizonyos mennyiséget letöltsön!"
@@ -206,4 +200,10 @@ msgstr "Lépjen chaten kapcsolatba velünk"
 
 msgid "Still have questions? %(contactUs)s, we will help with the choice!"
 msgstr "Még mindig kérdése van? %(contactUs)s, segítünk a választással!"
+
+msgid "%s savings"
+msgstr "%s spórolás"
+
+msgid "Choose the plan and get any shopify product cheaper up to 99%"
+msgstr "Válasszon tervet és szerezzen shopify termékeket akár 99% olcsóbban"
 

@@ -160,9 +160,6 @@
          "Choose %s subscription": [
             ""
          ],
-         "$%d economy": [
-            ""
-         ],
          "per month, paid annually": [
             ""
          ],
@@ -176,9 +173,6 @@
             ""
          ],
          "68% of customers choose this subscription": [
-            ""
-         ],
-         "Choose the plan and get any shopify product cheaper up to 9%": [
             ""
          ],
          "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
@@ -200,6 +194,12 @@
             ""
          ],
          "Still have questions? %(contactUs)s, we will help with the choice!": [
+            ""
+         ],
+         "%s savings": [
+            ""
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
             ""
          ]
       }

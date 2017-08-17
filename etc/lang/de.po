@@ -3,7 +3,7 @@
 #
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-08-14 07:56:35-0400\n"
+"PO-Revision-Date: 2017-08-17 03:33:51-0400\n"
 "Project-Id-Version: Template Monster\n"
 "Resource-Id-Version: Plasma Pocket React\n"
 "Language: de\n"
@@ -165,9 +165,6 @@ msgstr "Popup-Test"
 msgid "Choose %s subscription"
 msgstr "Wählen Sie %s Abonnement"
 
-msgid "$%d economy"
-msgstr "$%d Ersparnis "
-
 msgid "per month, paid annually"
 msgstr "Pro Monat, jährlich bezahlt"
 
@@ -183,9 +180,6 @@ msgstr "∞"
 msgid "68% of customers choose this subscription"
 msgstr "68% der Kunden wählen dieses Abonnement"
 
-msgid "Choose the plan and get any shopify product cheaper up to 9%"
-msgstr "Wählen Sie den Plan und erhalten Sie jedes Shopify Produkt bis zu 9% günstiger "
-
 msgid "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!"
 msgstr "Sie können eine gewünschte Anzahl aus Hunderten von Shopify Themes im Jahr wählen!"
 
@@ -193,7 +187,7 @@ msgid "What’s going to happen if the subscription expires but there are still 
 msgstr "Was passiert, wenn das Abonnement abläuft, aber es gibt noch Downloads?"
 
 msgid "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable."
-msgstr "Wenn das Abonnement abläuft, können Sie nicht mehr Produkte herunterladen. Sie müssen erneut für das Abonnement zahlen. Wenn Sie es nicht machen, bezahlen Sie den vollen Preis. %(newString)s Leider können unbenutzte Downloads nicht mehr verwendet werden."
+msgstr "Wenn das Abonnement abläuft, können Sie die Produkte nicht mehr herunterladen. Sie müssen erneut für das Abonnement zahlen. Wenn Sie es nicht machen, bezahlen Sie den vollen Preis. %(newString)s Leider können unbenutzte Downloads nicht mehr verwendet werden."
 
 msgid "What’s going to happen if downloads are up before the subscription expires?"
 msgstr "Was passiert, wenn es keine Downloads mehr gibt, obwohl das Abonnement noch nicht abgelaufen ist?"
@@ -206,4 +200,10 @@ msgstr "Kontaktieren Sie uns im Chat"
 
 msgid "Still have questions? %(contactUs)s, we will help with the choice!"
 msgstr "Noch Fragen? %(contactUs)s, wir helfen Ihnen bei der Auswahl!"
+
+msgid "%s savings"
+msgstr "%s Ersparnis"
+
+msgid "Choose the plan and get any shopify product cheaper up to 99%"
+msgstr "Wählen Sie den Plan und erhalten Sie ein Shopify Produkt bis zu 99% preiswerter"
 

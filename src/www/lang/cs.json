@@ -160,9 +160,6 @@
          "Choose %s subscription": [
             "Předplatné na %s"
          ],
-         "$%d economy": [
-            "$%d ušetření nákladů"
-         ],
          "per month, paid annually": [
             "měsíčně, platíte celý rok"
          ],
@@ -177,9 +174,6 @@
          ],
          "68% of customers choose this subscription": [
             "68% zákazníků si vybírají tento typ předplatného"
-         ],
-         "Choose the plan and get any shopify product cheaper up to 9%": [
-            "Vyberte si tarif a ušetřete až 9% při nákupu produktů shopify"
          ],
          "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
             "Budete moci si stáhnout za rok určitý počet Shopify šablon, které lze vybrat z naší nabídky!"
@@ -201,6 +195,12 @@
          ],
          "Still have questions? %(contactUs)s, we will help with the choice!": [
             "Stále máte otázky? %(contactUs)s, pomůžeme Vám s výběrem produktu!"
+         ],
+         "%s savings": [
+            "%s ušetříte"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Vyberte si tarif a získejte produkt až o 99 % levněji"
          ]
       }
    }
