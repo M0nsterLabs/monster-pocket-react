@@ -73,6 +73,7 @@ export default class Comments extends React.Component {
               avatar=""
               date={comment.created_at}
               key={comment.id}
+              status={comment.status}
             />
           );
         })
@@ -153,7 +154,6 @@ export default class Comments extends React.Component {
     };
     comments.getCommentsUser(params)
       .then((data) => {
-        console.log('data', data);
         this.setState({
           comments: {
             items: [...this.state.comments.items, ...data.items],

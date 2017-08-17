@@ -27,6 +27,12 @@
     margin-right: 15px;
   }
 
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   &__describe {
     display: flex;
     flex-direction: column;
@@ -35,6 +41,7 @@
     padding: @spacing2x @spacing2x @spacing2x 25px;
     border: 1px solid @light-grey-2;
     border-radius: @border_radius;
+    box-sizing: border-box;
 
     &::before {
       content: "";
