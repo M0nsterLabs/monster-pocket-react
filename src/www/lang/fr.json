@@ -158,10 +158,7 @@
             "Popup test"
          ],
          "Choose %s subscription": [
-            "Choisissez %s"
-         ],
-         "$%d economy": [
-            "%d $ d'économie"
+            "Choisissez abonnement %s"
          ],
          "per month, paid annually": [
             "par mois, payé annuellement"
@@ -177,9 +174,6 @@
          ],
          "68% of customers choose this subscription": [
             "68% des clients choisissent cet abonnement"
-         ],
-         "Choose the plan and get any shopify product cheaper up to 9%": [
-            "Choisissez le plan et obtenez un produit Shopify moins cher jusqu'à 9%"
          ],
          "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
             "Vous pourrez télécharger une certaine quantité de thèmes Shopify par année!"
@@ -201,6 +195,12 @@
          ],
          "Still have questions? %(contactUs)s, we will help with the choice!": [
             "Vous avez encore des questions? %(contactUs)s, nous vous aiderons!"
+         ],
+         "%s savings": [
+            "%s d'économie"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Choisissez un plan et obtenez tout produit Shopify jusqu'à 99% moins cher"
          ]
       }
    }

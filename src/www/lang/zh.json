@@ -160,9 +160,6 @@
          "Choose %s subscription": [
             "选择 %s 订阅"
          ],
-         "$%d economy": [
-            "$%d 经济"
-         ],
          "per month, paid annually": [
             "每月、每年可各复一次"
          ],
@@ -177,9 +174,6 @@
          ],
          "68% of customers choose this subscription": [
             "这里有68%客户在选择订阅"
-         ],
-         "Choose the plan and get any shopify product cheaper up to 9%": [
-            "请选择计划，获得任何shopify产品高达9％优惠"
          ],
          "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
             "在此一年之内，您任意时间下载年度数百个优质Shopify模板！"
@@ -201,6 +195,12 @@
          ],
          "Still have questions? %(contactUs)s, we will help with the choice!": [
             "您还有问题吗？%(contactUs)s，我公司全力帮您的!"
+         ],
+         "%s savings": [
+            "%s 储蓄"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "请您选择计划：获得便宜高达99％的任何shopify产品"
          ]
       }
    }

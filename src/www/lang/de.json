@@ -160,9 +160,6 @@
          "Choose %s subscription": [
             "Wählen Sie %s Abonnement"
          ],
-         "$%d economy": [
-            "$%d Ersparnis "
-         ],
          "per month, paid annually": [
             "Pro Monat, jährlich bezahlt"
          ],
@@ -178,9 +175,6 @@
          "68% of customers choose this subscription": [
             "68% der Kunden wählen dieses Abonnement"
          ],
-         "Choose the plan and get any shopify product cheaper up to 9%": [
-            "Wählen Sie den Plan und erhalten Sie jedes Shopify Produkt bis zu 9% günstiger "
-         ],
          "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
             "Sie können eine gewünschte Anzahl aus Hunderten von Shopify Themes im Jahr wählen!"
          ],
@@ -188,7 +182,7 @@
             "Was passiert, wenn das Abonnement abläuft, aber es gibt noch Downloads?"
          ],
          "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.": [
-            "Wenn das Abonnement abläuft, können Sie nicht mehr Produkte herunterladen. Sie müssen erneut für das Abonnement zahlen. Wenn Sie es nicht machen, bezahlen Sie den vollen Preis. %(newString)s Leider können unbenutzte Downloads nicht mehr verwendet werden."
+            "Wenn das Abonnement abläuft, können Sie die Produkte nicht mehr herunterladen. Sie müssen erneut für das Abonnement zahlen. Wenn Sie es nicht machen, bezahlen Sie den vollen Preis. %(newString)s Leider können unbenutzte Downloads nicht mehr verwendet werden."
          ],
          "What’s going to happen if downloads are up before the subscription expires?": [
             "Was passiert, wenn es keine Downloads mehr gibt, obwohl das Abonnement noch nicht abgelaufen ist?"
@@ -201,6 +195,12 @@
          ],
          "Still have questions? %(contactUs)s, we will help with the choice!": [
             "Noch Fragen? %(contactUs)s, wir helfen Ihnen bei der Auswahl!"
+         ],
+         "%s savings": [
+            "%s Ersparnis"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Wählen Sie den Plan und erhalten Sie ein Shopify Produkt bis zu 99% preiswerter"
          ]
       }
    }
