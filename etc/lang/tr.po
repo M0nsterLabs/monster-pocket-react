@@ -3,7 +3,7 @@
 #
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-08-14 07:56:44-0400\n"
+"PO-Revision-Date: 2017-08-17 03:34:00-0400\n"
 "Project-Id-Version: Template Monster\n"
 "Resource-Id-Version: Plasma Pocket React\n"
 "Language: tr\n"
@@ -165,9 +165,6 @@ msgstr "Açılan testi "
 msgid "Choose %s subscription"
 msgstr "\'%s\' aboneliği seçin"
 
-msgid "$%d economy"
-msgstr "$\'%d\'economi"
-
 msgid "per month, paid annually"
 msgstr "aylık, yıllık ödeme "
 
@@ -182,9 +179,6 @@ msgstr "sınırsız"
 
 msgid "68% of customers choose this subscription"
 msgstr "Müşterilerin % 68\'i bu aboneliği seçiyor"
-
-msgid "Choose the plan and get any shopify product cheaper up to 9%"
-msgstr "Planı seçin ve herhangi bir shopify ürününü % 9\'a kadar ucuza alın"
 
 msgid "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!"
 msgstr "Yıl boyunca yüzlerce Shopify temasından herhangi birini belli miktarda indirebilirsiniz!"
@@ -206,4 +200,10 @@ msgstr "Canlı sohbet aracılığıyla bizimle iletişime geçin"
 
 msgid "Still have questions? %(contactUs)s, we will help with the choice!"
 msgstr "Hâlâ sorularınız var mı?  \'%(contactUs)s\', seçiminde yardımcı olacağiz. "
+
+msgid "%s savings"
+msgstr "%s tasarruf"
+
+msgid "Choose the plan and get any shopify product cheaper up to 99%"
+msgstr "Planı seçin ve % 99\'a varan indirimle bir shopify ürününü elde edin. "
 

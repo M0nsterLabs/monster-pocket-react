@@ -160,9 +160,6 @@
          "Choose %s subscription": [
             "Scegli l'abbonamento %s"
          ],
-         "$%d economy": [
-            "$%d di risparmio"
-         ],
          "per month, paid annually": [
             "al mese, pagati annualmente"
          ],
@@ -177,9 +174,6 @@
          ],
          "68% of customers choose this subscription": [
             "il 68% dei clienti sceglie questo tipo di abbonamento"
-         ],
-         "Choose the plan and get any shopify product cheaper up to 9%": [
-            "Scegli l'abbonamento e risparmia fino al 9% su qualunque prodotto shopify"
          ],
          "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
             "Potrai affettuare una certa quantità di download all'anno scegliendo tra centinaia di temi Shopify!"
@@ -201,6 +195,12 @@
          ],
          "Still have questions? %(contactUs)s, we will help with the choice!": [
             "Hai ancora delle domande? %(contactUs)s, ti aiutiamo a scegliere il prodotto più adatto alle tue esigenze!"
+         ],
+         "%s savings": [
+            "%s di risparmio"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Scegli il piano e risparmia fino al 99% su qualunque prodotto shopify"
          ]
       }
    }
