@@ -61,21 +61,25 @@ export default class Comments extends React.Component {
   };
 
   renderComments = () => {
-    const { comments } = this.state;
+    const { accessToken, templateId } = this.props;
+    const { comments, user } = this.state;
     if (comments.items) {
       return (
         comments.items.map((comment) => {
           return (
             <CommentsItem
-              userName={comments.user_name}
-              userMame={comments.user_email}
+              userName={comment.user_name}
+              userMail={comment.user_email}
               content={comment.content}
               avatar=""
               date={comment.created_at}
-              key={comment.id}
+              // key={comment.id}
               status={comment.status}
-              access_token={this.props.accessToken}
+              access_token={accessToken}
               answers={comment.answers}
+              parentId={comment.id}
+              templateId={templateId}
+              userData={user}
             />
           )
         })
