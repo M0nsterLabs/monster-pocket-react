@@ -64,7 +64,7 @@ export default class Comments extends React.Component {
     const { comments } = this.state;
     if (comments.items) {
       return (
-        comments.items.map((comment, i) => {
+        comments.items.map((comment) => {
           return (
             <CommentsItem
               userName={comments.user_name}
@@ -74,8 +74,10 @@ export default class Comments extends React.Component {
               date={comment.created_at}
               key={comment.id}
               status={comment.status}
+              access_token={this.props.accessToken}
+              answers={comment.answers}
             />
-          );
+          )
         })
       )
     }
@@ -90,7 +92,7 @@ export default class Comments extends React.Component {
       'per-page'    : 10,
       'locale'      : locale,
       'sort'        : this.state.sort,
-      'expand'      : 'vote',
+      'expand'      : 'vote,answers',
     };
     const paginationData   = {};
     const currentState = this.state.comments;
@@ -248,7 +250,6 @@ export default class Comments extends React.Component {
   };
 
   renderEmptyPage = () => {
-    console.log('this.state.countCommentsOtherLocale', this.state.countCommentsOtherLocale);
     return (
       <ContentEmptyMessage
         page         = {'comments'}
@@ -283,7 +284,6 @@ export default class Comments extends React.Component {
     })
       .then(getResponseJSON)
       .then((data) => {
-      console.log(data);
         this.setState({
           user: {
             name: data.userName,

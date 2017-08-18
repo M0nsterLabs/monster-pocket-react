@@ -21,6 +21,26 @@
   &__item {
     display: flex;
     margin-bottom: @spacing4x;
+
+    &-reply {
+      cursor: pointer;
+      color: @primary;
+
+      &:before {
+        padding-right: 10px;
+      }
+    }
+  }
+
+  &__viewAnswer {
+    cursor: pointer;
+    color: @primary;
+    margin-left: @spacing4x;
+  }
+
+  &__votes {
+    flex-grow: 1;
+    text-align: right;
   }
 
   &__avatar {
@@ -66,7 +86,7 @@
       color: @secondary;
     }
 
-    &__footer {
+    &-footer {
       display: flex;
     }
   }
@@ -78,6 +98,14 @@
 
   &__author {
     font-weight: bold;
+  }
+
+  &__answers {
+    margin-top: @spacing2x;
+
+    .comments__item {
+      margin-bottom: 0;
+    }
   }
 }
 
