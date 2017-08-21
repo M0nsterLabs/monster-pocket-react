@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Config from 'config.js';
 import _ from 'lodash';
 import Interpolate from 'react-interpolate-component';
+import ReviewsData from 'plasma-reviews-api-client-js';
 import Avatar from 'quark/lib/Avatar';
+import N1C from 'quark/lib/notifications/N1C';
 import FormattedDate from '../formattedDate';
 import NotificationModeration from '../NotificationModeration/';
 import AnswersForm from './AnswersForm';
 import './Comments.less';
 
 const APPROVED = 'approved';
+let comments = new ReviewsData(Config.reviewsServiceURL);
 
 export default class CommentsItem extends React.Component {
   static propTypes = {
@@ -23,6 +27,10 @@ export default class CommentsItem extends React.Component {
     parentId: PropTypes.number,
     templateId: PropTypes.number,
     userData: PropTypes.object,
+    voteUp: PropTypes.number,
+    voteDown: PropTypes.number,
+    vote: PropTypes.string,
+    noVote: PropTypes.bool
   };
 
   static contextTypes = {
@@ -33,6 +41,9 @@ export default class CommentsItem extends React.Component {
     showComments: false,
     showFormAnswer: false,
     showForm: false,
+    voteUp: this.props.voteUp,
+    voteDown: this.props.voteDown,
+    vote: this.props.vote,
   };
 
   showAvatar = (email, name, avatar) => {
@@ -151,7 +162,7 @@ export default class CommentsItem extends React.Component {
                     />
                   </div>
                   }
-                  <div className="comments__votes">Controls</div>
+                  <div className="comments__votes">{this.voteControls}</div>
                 </div>
             }
           </div>
@@ -161,6 +172,90 @@ export default class CommentsItem extends React.Component {
           {showFormAnswer && this.renderForm()}
         </div>
       </article>
+    )
+  };
+
+  addVote = (type) => {
+    const { access_token, parentId } = this.props;
+    comments.addCommentVote(access_token, parentId, {vote_type: type}).then(
+      (data) => {
+        this.setState({
+          voteUp: data.items.vote_up,
+          voteDown: data.items.vote_down
+        });
+      }
+    );
+  };
+
+  addVoteUp = () => {
+    this.addVote("up");
+    switch (this.state.vote) {
+      case "up":
+        this.setState({
+          vote: ""
+        });
+        break;
+      default:
+        this.setState({
+          vote: "up"
+        });
+        break;
+    }
+  };
+
+  addVoteDown = () => {
+    this.addVote("down");
+    switch (this.state.vote) {
+      case "down":
+        this.setState({
+          vote: ""
+        });
+        break;
+      default:
+        this.setState({
+          vote: "down"
+        });
+        break;
+    }
+  };
+
+  showControl = (id, type, clickVote, constrolText, controlNotification, stateVote) => {
+    const {vote} = this.state;
+    const {noVote, access_token} = this.props;
+    return (
+      <div className={`review-votes__control`}>
+          <span
+            className={`review-votes__item review-votes__item-${type} ${vote === type ? `review-votes__item-${type}_active` : ""}`}
+            onClick={() => {!noVote && access_token ? clickVote() : ""}}
+          >
+            {constrolText}
+            {stateVote > 0 && <span className="review-votes__item-counter t5">{stateVote}</span>}
+          </span>
+        {noVote || !access_token
+          ? <N1C
+            className="review-votes__notification"
+            text={controlNotification}
+          />
+          : ''}
+      </div>
+    )
+  };
+
+  voteControls = () => {
+    const {voteUp, voteDown} = this.state;
+    const {access_token, noVote} = this.props;
+    const {l} = this.context.i18n;
+    let notificationText ="";
+    if (access_token) {
+      notificationText = l("You can't estimate your own comment");
+    } else {
+      notificationText = l("Please log in at first");
+    }
+    return (
+      <div className={`review-votes t3 ${noVote || !access_token ? "review-votes__no-vote" : ""}`}>
+        {this.showControl("up", this.addVoteUp, l("Helpful"), notificationText, voteUp)}
+        {this.showControl("down", this.addVoteDown, l("Useless"), notificationText, voteDown)}
+      </div>
     )
   };
 
@@ -183,11 +278,6 @@ export default class CommentsItem extends React.Component {
   render () {
     const { userMail, userName, userAvatar, content, date, parentId } = this.props;
     const { showForm } = this.state;
-    console.log('userMail', userMail);
-    console.log('userName', userName);
-    console.log('userAvatar', userAvatar);
-    console.log('content', content);
-    console.log('date',date );
     return (
       <div>
         {this.showCommentItem(userName, userMail, userAvatar, date, content, true, true, true )}

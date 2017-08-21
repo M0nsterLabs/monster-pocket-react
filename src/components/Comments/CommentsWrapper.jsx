@@ -24,6 +24,7 @@ import './Comments.less';
 
 let comments = new ReviewsData(Config.reviewsServiceURL);
 let LOCALE = getCurrentLocale();
+const PENDING = 'pending';
 
 export default class Comments extends React.Component {
   static propTypes = {
@@ -80,6 +81,9 @@ export default class Comments extends React.Component {
               parentId={comment.id}
               templateId={templateId}
               userData={user}
+              voteUp={comment.vote_up}
+              voteDown={comment.vote_down}
+              vote={accessToken && comment.vote ? comment.vote.type : ''}
             />
           )
         })
