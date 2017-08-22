@@ -42,7 +42,7 @@ export default class Comments extends React.Component {
       totalCount: 0,
       isLoading: false,
     },
-    sort: '-helpful,-created_at',
+    sort: '-created_at',
     showMoreVisible: false,
     localeIterator: 0,
     countCommentsOtherLocale: 0,
@@ -202,11 +202,8 @@ export default class Comments extends React.Component {
       case 'sortMosthelpful':
         sortedBy = '-helpful,-created_at';
         break;
-      case 'sortTopratings':
-        sortedBy = '-score,-created_at';
-        break;
-      case 'sortLowratings':
-        sortedBy = 'score,-created_at';
+      case 'sortNewanswers':
+        sortedBy = '-last_reply,-created_at';
         break;
       default:
         sortedBy = '-helpful,-created_at';
@@ -224,10 +221,9 @@ export default class Comments extends React.Component {
 
   sortReviews = () => {
     const sortValue = [
-      this.context.i18n.l('Most helpful'),
       this.context.i18n.l('Newest'),
-      this.context.i18n.l('Top ratings'),
-      this.context.i18n.l('Low ratings')
+      this.context.i18n.l('Most helpful'),
+      this.context.i18n.l('New answers'),
     ];
     let form;
     return (

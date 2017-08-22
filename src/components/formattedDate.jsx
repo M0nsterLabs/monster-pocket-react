@@ -79,7 +79,7 @@ export default class FormattedDate extends React.Component {
 
   render () {
     return (
-      <time dateTime className={`${this.props.className}`}>
+      <time className={`${this.props.className}`} itemProp="dateCreated" dateTime={this.props.timestamp}>
         { date }
       </time>
     )

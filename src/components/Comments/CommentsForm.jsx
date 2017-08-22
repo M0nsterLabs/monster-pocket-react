@@ -78,13 +78,46 @@ export default class CommentsForm extends React.Component {
   };
 
 
+  textValidationRule (value) {
+    const valueRegExp = /^[^<>]+$/;
+    const teatAreaValue = value.trim();
+    const valueCount = value.length;
+    const isValid = valueRegExp.test(teatAreaValue);
+    if (isValid) {
+      if (valueCount < 1) {
+        return {
+          isValid : false,
+          message : this.context.i18n.l('Minimum length of the comment is 1 sign')
+        };
+      } else {
+        return {
+          isValid : true,
+          message : null
+        };
+      }
+    } else {
+      if (valueCount < 1) {
+        return {
+          isValid : false,
+          message : this.context.i18n.l('Minimum length of the comment is 1 sign')
+        };
+      } else {
+        return {
+          isValid: false,
+          message: this.context.i18n.l('Please remove special symbols')
+        };
+      }
+    }
+  }
+
+
   handleFormSubmit = (event) => {
     const { template_id, userName, userMail, parentId } = this.props;
     event.preventDefault();
     let textArea = document.getElementById('comment-text');
     let reviewText = textArea.value;
 
-    if (reviewText.length > 0) {
+    if (this.textValidationRule(reviewText).isValid) {
       const commentsData = {
         template_id: template_id,
         content: reviewText,
@@ -97,12 +130,13 @@ export default class CommentsForm extends React.Component {
       }
       this.sendComment(commentsData);
     }
-    // else {
-    //   this.textarea.input.handleValidation({
-    //     status  : false,
-    //     message : this.textValidationRule(reviewText).message
-    //   });
-    // }
+    else {
+      this.textarea.input.handleValidation({
+        status  : false,
+        message : this.textValidationRule(reviewText).message
+      });
+    }
+    textArea.value='';
   };
 
   showComments = () => {

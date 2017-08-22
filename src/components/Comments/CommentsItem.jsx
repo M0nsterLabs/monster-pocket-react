@@ -9,6 +9,7 @@ import N1C from 'quark/lib/notifications/N1C';
 import FormattedDate from '../formattedDate';
 import NotificationModeration from '../NotificationModeration/';
 import AnswersForm from './AnswersForm';
+import CommentsForm from './CommentsForm';
 import './Comments.less';
 
 const APPROVED = 'approved';
@@ -44,6 +45,7 @@ export default class CommentsItem extends React.Component {
     voteUp: this.props.voteUp,
     voteDown: this.props.voteDown,
     vote: this.props.vote,
+    answersVote: this.props.answers,
   };
 
   showAvatar = (email, name, avatar) => {
@@ -85,14 +87,13 @@ export default class CommentsItem extends React.Component {
   showFormAnswer = () => {
     this.setState({
       showFormAnswer: true,
-      showForm: false,
     });
   };
 
   showForm = () => {
     this.setState({
       showForm: true,
-      showFormAnswer: false,
+      showFormAnswer: true,
     });
   };
 
@@ -114,13 +115,12 @@ export default class CommentsItem extends React.Component {
     this.setState({
       showComments: !this.state.showComments,
       showFormAnswer: false,
-      showForm: false,
     })
   };
 
-  showCommentItem = (name, email, avatar, date, content, showModeratorMessage, showAnswersToComment, mainComment ) => {
+  showCommentItem = (params) => {
     const { access_token, answers, parentId, status } = this.props;
-    const { showComments, showForm, showFormAnswer } = this.state;
+    const { showComments, showForm, showFormAnswer, voteUp, voteDown, vote, answersVote } = this.state;
     let textViewButton;
     if (!_.isEmpty(answers)) {
       if (!showComments && answers.length === 1) {
@@ -133,51 +133,59 @@ export default class CommentsItem extends React.Component {
         textViewButton = this.context.i18n.l('Hide %(countAnswers)s answers');
       }
     }
+
     return (
-      <article className="comments__item">
+      <article className="comments__item" itemScope itemType="http://schema.org/Question">
+        <meta itemProp="upvoteCount" content = {params.voteUp} />
         <div className="comments__avatar">
-          {this.showAvatar(email, name, avatar)}
+          {this.showAvatar(params.email, params.name, params.avatar)}
         </div>
         <div className="comments__info">
           <div className="comments__describe">
             <div className="comments__describe-header t5">
-              <div className="comments__author">{name || this.context.i18n.l('User')}</div>
-              <FormattedDate timestamp={date} className="comments__date"/>
+              <div className="comments__author" itemScope itemType="http://schema.org/Person" itemProp="author">
+                <meta itemProp="name" content={params.name} />
+                {params.name || this.context.i18n.l('User')}
+              </div>
+              <FormattedDate timestamp={params.date} className="comments__date"/>
             </div>
-            <div className="comments__content t3">{content}</div>
+            <div className="comments__content t3" itemProp="text">{params.content}</div>
             {
               status === APPROVED &&
                 <div className="comments__describe-footer t3">
                   {access_token &&
-                  (mainComment
+                  (params.mainComment
                       ? this.replyButton()
                       : this.replyButton('answer')
                   )
                   }
-                  {showAnswersToComment && !_.isEmpty(answers)
+                  {params.showAnswersToComment && !_.isEmpty(answers)
                   && <div className="comments__viewAnswer" onClick={() => this.showComments()}>
+                    <meta itemProp="answerCount" content={answers.length} />
                     <Interpolate
                       with={{countAnswers: answers.length}}
                       format={textViewButton}
                     />
                   </div>
                   }
-                  <div className="comments__votes">{this.voteControls}</div>
+                  <div className="comments__votes">
+                    {this.voteControls(params.id, answersVote.vote_up || voteUp,  answersVote.voteDown || voteDown,  answersVote.vote || vote)}
+                  </div>
                 </div>
             }
           </div>
-          {showModeratorMessage && this.showModeratorMessage()}
-          {showForm && this.renderForm()}
-          {showAnswersToComment && showComments && this.showAnswersToComment()}
-          {showFormAnswer && this.renderForm()}
+          {params.showModeratorMessage && this.showModeratorMessage()}
+          {showForm && params.mainComment && this.renderForm()}
+          {params.showAnswersToComment && showComments && this.showAnswersToComment()}
+          {showFormAnswer && !params.mainComment && this.renderForm()}
         </div>
       </article>
     )
   };
 
-  addVote = (type) => {
-    const { access_token, parentId } = this.props;
-    comments.addCommentVote(access_token, parentId, {vote_type: type}).then(
+  addVote = (id, type) => {
+    const { access_token } = this.props;
+    comments.addCommentVote(access_token, id, {vote_type: type}).then(
       (data) => {
         this.setState({
           voteUp: data.items.vote_up,
@@ -187,8 +195,8 @@ export default class CommentsItem extends React.Component {
     );
   };
 
-  addVoteUp = () => {
-    this.addVote("up");
+  addVoteUp = (id) => {
+    this.addVote(id, "up");
     switch (this.state.vote) {
       case "up":
         this.setState({
@@ -203,8 +211,8 @@ export default class CommentsItem extends React.Component {
     }
   };
 
-  addVoteDown = () => {
-    this.addVote("down");
+  addVoteDown = (id) => {
+    this.addVote(id, "down");
     switch (this.state.vote) {
       case "down":
         this.setState({
@@ -219,14 +227,14 @@ export default class CommentsItem extends React.Component {
     }
   };
 
-  showControl = (id, type, clickVote, constrolText, controlNotification, stateVote) => {
-    const {vote} = this.state;
+  showControl = (id, type, clickVote, constrolText, controlNotification, stateVote, vote) => {
+   // const {vote} = this.state;
     const {noVote, access_token} = this.props;
     return (
       <div className={`review-votes__control`}>
           <span
             className={`review-votes__item review-votes__item-${type} ${vote === type ? `review-votes__item-${type}_active` : ""}`}
-            onClick={() => {!noVote && access_token ? clickVote() : ""}}
+            onClick={() => {!noVote && access_token ? clickVote(id) : ""}}
           >
             {constrolText}
             {stateVote > 0 && <span className="review-votes__item-counter t5">{stateVote}</span>}
@@ -241,8 +249,8 @@ export default class CommentsItem extends React.Component {
     )
   };
 
-  voteControls = () => {
-    const {voteUp, voteDown} = this.state;
+  voteControls = (id, voteUp, voteDown, vote) => {
+   // const {voteUp, voteDown} = this.state;
     const {access_token, noVote} = this.props;
     const {l} = this.context.i18n;
     let notificationText ="";
@@ -253,22 +261,35 @@ export default class CommentsItem extends React.Component {
     }
     return (
       <div className={`review-votes t3 ${noVote || !access_token ? "review-votes__no-vote" : ""}`}>
-        {this.showControl("up", this.addVoteUp, l("Helpful"), notificationText, voteUp)}
-        {this.showControl("down", this.addVoteDown, l("Useless"), notificationText, voteDown)}
+        {this.showControl(id, "up", this.addVoteUp, l("Helpful"), notificationText, voteUp, vote)}
+        {this.showControl(id, "down", this.addVoteDown, l("Useless"), notificationText, voteDown, vote)}
       </div>
     )
   };
 
   showAnswersToComment = () => {
-    const { answers, parentId } = this.props;
-    // const { showFormAnswer } = this.state;
-
+    const { answers, access_token } = this.props;
     if (_.isEmpty(answers)) return;
     return (
       answers.map((answer) => {
+
+        let params = {
+          id: answer.id,
+          name: answer.user_name,
+          email: answer.user_email,
+          avatar: answer.avatar,
+          date: answer.created_at,
+          content: answer.content,
+          showModeratorMessage: true,
+          showAnswersToComment: false,
+          mainComment: false,
+          voteUp: answer.vote_up,
+          voteDown: answer.vote_down,
+          vote: access_token && answer.vote ? answer.vote.type : ''
+        };
         return (
           <div className="comments__answers">
-            {this.showCommentItem(answer.user_name, answer.user_email, answer.avatar, answer.created_at, answer.content, true, false, false )}
+            {this.showCommentItem(params)}
           </div>
         )
       })
@@ -277,10 +298,21 @@ export default class CommentsItem extends React.Component {
 
   render () {
     const { userMail, userName, userAvatar, content, date, parentId } = this.props;
-    const { showForm } = this.state;
+    const { showForm, showFormAnswer } = this.state;
+    let params = {
+      id: parentId,
+      name: userName,
+      email: userMail,
+      avatar: userAvatar,
+      date: date,
+      content: content,
+      showModeratorMessage: true,
+      showAnswersToComment: true,
+      mainComment: true,
+    };
     return (
       <div>
-        {this.showCommentItem(userName, userMail, userAvatar, date, content, true, true, true )}
+        {this.showCommentItem(params)}
         {/*{showForm && this.renderForm(parentId) }*/}
       </div>
     )

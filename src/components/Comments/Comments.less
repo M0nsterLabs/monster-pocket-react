@@ -30,6 +30,14 @@
         padding-right: 10px;
       }
     }
+
+    .comments__form {
+      .comments__item {
+        &-new {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 
   &__viewAnswer {
@@ -51,6 +59,14 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+
+    .comments__item {
+      margin: @spacing4x 0 0;
+
+      .CommentsForm {
+        margin: 0;
+      }
+    }
   }
 
   &__describe {
@@ -136,6 +152,8 @@
     margin-bottom: @spacing2x;
     padding: 0;
 
+    transition: .3s .5s;
+
     &::before {
       content: "";
       position: absolute;
@@ -158,7 +176,7 @@
       }
 
       &__input {
-        height: 10px !important;
+        max-height: 10px !important;
         min-height: 40px;
         padding: @spacing1x @spacing4x @spacing1x @spacing2x;
       }
@@ -178,6 +196,7 @@
 
     &.text-area_focused {
       padding: @spacing2x;
+      transition: .3s;
 
       &::before {
         background: @color-white;
@@ -196,7 +215,7 @@
 
         &__input {
           padding: 0;
-          height: inherit !important;
+          max-height: 100% !important;
         }
       }
 
@@ -214,7 +233,7 @@
     }
   }
 
-  //&__button {
-  //  display: none;
-  //}
+  &__button {
+   // display: none;
+  }
 }
