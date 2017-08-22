@@ -87,6 +87,7 @@
         &-arrow {
           position: absolute;
           right: 0;
+          top: 7px;
         }
 
         &-content {
@@ -482,7 +483,7 @@
             &.quark-animated-tooltip {
               &_open {
                 &_bottom {
-                  animation-name: animation-tooltip_bottom;
+                  animation-name: animation-tooltip_bottom !important;
                   transform-origin: 0 0 0;
                 }
               }
@@ -1263,7 +1264,7 @@
 
 /*-------------------REVIEWS-NEW-PAGE-----------------------------*/
 
-.js-item-page-b {
+.item-page {
 
   .review-component-wrapper {
     display: flex;
@@ -1316,6 +1317,10 @@
         &__line {
           height: 10px;
           border-radius: 3px;
+
+          &-wrap {
+            width: calc(~'100% - 50px') !important;
+          }
         }
 
         &__percent {

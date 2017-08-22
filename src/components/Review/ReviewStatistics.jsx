@@ -50,8 +50,6 @@ export default class ReviewStatistics extends React.Component {
   showStatisticsLine = (stars) => {
     let {countReview} = this.props;
     if (countReview[stars-1] === 0) return;
-    let statistics__line_width = 220;
-    if (document.body.classList.contains("js-item-page-b")) statistics__line_width = 50;
     return (
         <div className="statistics__line-block">
           <div className="statistics__stars rating__stars rating-stars-block">
@@ -61,7 +59,7 @@ export default class ReviewStatistics extends React.Component {
             />
             <span className="t5">{countReview[stars-1]}</span>
           </div>
-          <div className="statistics__line-wrap" style={{"color": this.color[stars-1], width: `calc(100% - ${statistics__line_width}px)`}}>
+          <div className="statistics__line-wrap" style={{"color": this.color[stars-1], width: `calc(100% - 220px)`}}>
             <div className="statistics__line" style={{ width: this.widthLinePercent[stars-1], "backgroundColor": this.color[stars-1]}}>
               <span className="statistics__percent t5" style={{"color": this.color[stars-1]}}>{this.percentReview[stars-1]}% </span>
             </div>
