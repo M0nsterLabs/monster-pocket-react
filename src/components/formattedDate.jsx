@@ -9,9 +9,11 @@ import PropTypes from 'prop-types';
  * @return {ReactComponent} return rendered component
  */
 
-let date = '';
-
 export default class FormattedDate extends React.Component {
+
+  state = {
+    date: '',
+  };
 
   componentDidMount () {
     const time = new Date(this.props.timestamp * 1000);
@@ -68,11 +70,17 @@ export default class FormattedDate extends React.Component {
     // }
 
     if ((average < units.DAY * 1) && (timeNowUTC.toDateString() === time.toDateString())) {
-      date = `${this.context.i18n.l('Today')}`;
+      this.setState({
+        date: `${this.context.i18n.l('Today')}`
+      });
     }  else if ((average < units.DAY * 2) && (timeNowUTC.toDateString() !== time.toDateString())) {
-      date = `${this.context.i18n.l('Yesterday')}`;
+      this.setState({
+        date: `${this.context.i18n.l('Yesterday')}`
+      });
     } else {
-      date = `${month} ${day}, ${year}`;
+      this.setState({
+        date: `${month} ${day}, ${year}`
+      });
     }
 
   }
@@ -80,7 +88,7 @@ export default class FormattedDate extends React.Component {
   render () {
     return (
       <time className={`${this.props.className}`} itemProp="dateCreated" dateTime={this.props.timestamp}>
-        { date }
+        { this.state.date }
       </time>
     )
   }

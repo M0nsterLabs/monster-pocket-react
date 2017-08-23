@@ -151,7 +151,7 @@ export default class CommentsForm extends React.Component {
                 userMail={comment.user_email}
                 content={comment.content}
                 avatar=""
-                date={comment.created_at}
+                date={comment.date}
                 status={comment.status}
                 access_token={access_token}
                 answers={comment.answers}
