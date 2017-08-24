@@ -10,7 +10,7 @@ import DD1                 from 'quark/lib/dropdowns/DD1';
 
 import ReviewsData         from 'plasma-reviews-api-client-js';
 
-import CommentsItem from './CommentsItem';
+import CommentItem from './CommentItem';
 import CommentsForm from './CommentsForm';
 
 import {
@@ -68,7 +68,7 @@ export default class Comments extends React.Component {
       return (
         comments.items.map((comment) => {
           return (
-            <CommentsItem
+            <CommentItem
               userName={comment.user_name}
               userMail={comment.user_email}
               content={comment.content}
@@ -78,7 +78,7 @@ export default class Comments extends React.Component {
               status={comment.status}
               access_token={accessToken}
               answers={comment.answers}
-              parentId={comment.id}
+              id={comment.id}
               templateId={templateId}
               userData={user}
               voteUp={comment.vote_up}

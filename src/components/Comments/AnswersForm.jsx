@@ -77,7 +77,6 @@ export default class CommentsForm extends React.Component {
     });
   };
 
-
   textValidationRule (value) {
     const valueRegExp = /^[^<>]+$/;
     const teatAreaValue = value.trim();
@@ -110,11 +109,10 @@ export default class CommentsForm extends React.Component {
     }
   }
 
-
   handleFormSubmit = (event) => {
     const { template_id, userName, userMail, parentId } = this.props;
     event.preventDefault();
-    let textArea = document.getElementById('comment-text');
+    let textArea = document.getElementById('answer-text');
     let reviewText = textArea.value;
 
     if (this.textValidationRule(reviewText).isValid) {
@@ -136,7 +134,6 @@ export default class CommentsForm extends React.Component {
         message : this.textValidationRule(reviewText).message
       });
     }
-    textArea.value='';
   };
 
   showComments = () => {
@@ -144,6 +141,7 @@ export default class CommentsForm extends React.Component {
     const { comments } = this.state;
     return (
       comments.items.map((comment) => {
+          console.log('comment', comment);
           return (
             <div className="comments__item-new">
               <CommentItem
@@ -151,7 +149,7 @@ export default class CommentsForm extends React.Component {
                 userMail={comment.user_email}
                 content={comment.content}
                 avatar=""
-                date={comment.date}
+                date={comment.created_at}
                 status={comment.status}
                 access_token={access_token}
                 answers={comment.answers}
@@ -166,9 +164,11 @@ export default class CommentsForm extends React.Component {
     )
   };
 
+
   render () {
-    const { userMail, userName, userAvatar } = this.props;
+    const { userMail, userName, userAvatar} = this.props;
     const { showComment } = this.state;
+
     return (
       <div className="comments__form">
         <div className="comments__item">
@@ -177,14 +177,14 @@ export default class CommentsForm extends React.Component {
           </div>
           <form
             className="CommentsForm"
-            id="comment-form"
+            id="answer-form"
             onSubmit={(event) => {
               this.handleFormSubmit(event);
             }}
           >
             <TA5
               className="CommentsForm__textarea"
-              id="comment-text"
+              id="answer-text"
               label={this.context.i18n.l("Ask the author any question about the product")}
               ref={c => this.textarea = c}
               name="content"
