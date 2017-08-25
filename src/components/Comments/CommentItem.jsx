@@ -203,7 +203,7 @@ export default class CommentItem extends React.Component {
   };
 
   showAnswers = () => {
-    const { answers, access_token, templateId } = this.props;
+    const { answers, access_token, templateId, userData } = this.props;
     if (_.isEmpty(answers)) return;
     return (
       answers.map((answer) => {
@@ -220,7 +220,7 @@ export default class CommentItem extends React.Component {
               access_token={access_token}
               id={answer.id}
               templateId={templateId}
-             // userData={user}
+              userData={userData}
               voteUp={answer.vote_up}
               voteDown={answer.vote_down}
               vote={access_token && answer.vote ? answer.vote.type : ''}

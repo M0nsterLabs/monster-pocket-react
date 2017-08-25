@@ -57,8 +57,10 @@ export default class Comments extends React.Component {
     if (this.props.accessToken) {
       this.getUserProfile();
       this.getCommentsUser(LOCALE);
+      this.getComments(LOCALE);
+    } else {
+      this.getComments(LOCALE);
     }
-    this.getComments(LOCALE);
   };
 
   renderComments = () => {
@@ -157,7 +159,7 @@ export default class Comments extends React.Component {
     let params = {
       'access_token': this.props.accessToken,
       'template_id': this.props.templateId,
-      'per-page': 10,
+      'per-page': 50,
       'locale': locale,
       'sort': this.state.sort,
       'status': 'pending',

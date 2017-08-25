@@ -205,6 +205,7 @@ export default class AnswerItem extends React.Component {
     const { showForm, voteUp, showModeratorMessage } = this.state;
 
     return (
+    <div className="answer">
       <article className="comments__item" itemScope itemType="http://schema.org/Question">
         <meta itemProp="upvoteCount" content = {voteUp} />
         <div className="comments__avatar">
@@ -231,9 +232,10 @@ export default class AnswerItem extends React.Component {
             }
           </div>
           {showModeratorMessage && this.showModeratorMessage()}
-          {showForm && this.renderForm()}
         </div>
       </article>
+      {showForm && this.renderForm()}
+    </div>
     )
   }
 }
