@@ -127,28 +127,35 @@ export default class CommentsForm extends React.Component {
   }
 
   handleFormSubmit = (event) => {
-    const { template_id, userName, userMail, parentId } = this.props;
+    const { template_id, userName, userMail, parentId, replyToAnswer } = this.props;
+    let { userAnswerName } = this.props;
     event.preventDefault();
     let textArea = document.getElementById('answer-text');
-    let reviewText = textArea.value;
+    let commentText = textArea.value;
 
-    if (this.textValidationRule(reviewText).isValid) {
+    if (this.textValidationRule(commentText).isValid) {
+
+      let commentTextNew = commentText;
+      // if (replyToAnswer) {
+      //   userAnswerName = userAnswerName || this.context.i18n.l("User");
+      //   let reg = new RegExp(userAnswerName,"g");
+      //   commentTextNew = commentText.replace(reg, "<em>$1</em>");
+      // }
+
       const commentsData = {
         template_id: template_id,
-        content: reviewText,
+        content: commentTextNew,
         locale: LOCALE,
         user_name: userName,
         user_email: userMail,
+        parent_id: parentId,
       };
-      if (parentId) {
-        commentsData['parent_id'] = parentId;
-      }
       this.sendComment(commentsData);
     }
     else {
       this.textarea.input.handleValidation({
         status  : false,
-        message : this.textValidationRule(reviewText).message
+        message : this.textValidationRule(commentText).message
       });
     }
   };
@@ -158,7 +165,6 @@ export default class CommentsForm extends React.Component {
     const { comments } = this.state;
     return (
       comments.items.map((comment) => {
-          console.log('comment', comment);
           return (
             <div className="comments__item-new">
               <CommentItem

@@ -98,7 +98,7 @@ export default class CommentItem extends React.Component {
   };
 
   renderForm = () => {
-    const { templateId, access_token, userData, parentId } = this.props;
+    const { templateId, access_token, userData, id } = this.props;
     return (
       <AnswersForm
         template_id={templateId}
@@ -106,7 +106,7 @@ export default class CommentItem extends React.Component {
         userName={userData.name}
         userMail={userData.mail}
         userAvatar={userData.avatar}
-        parentId={parentId}
+        parentId={id}
       />
     )
   };
@@ -203,7 +203,7 @@ export default class CommentItem extends React.Component {
   };
 
   showAnswers = () => {
-    const { answers, access_token, templateId, userData } = this.props;
+    const { answers, access_token, templateId, userData, id } = this.props;
     if (_.isEmpty(answers)) return;
     return (
       answers.map((answer) => {
@@ -224,6 +224,7 @@ export default class CommentItem extends React.Component {
               voteUp={answer.vote_up}
               voteDown={answer.vote_down}
               vote={access_token && answer.vote ? answer.vote.type : ''}
+              parentId={id}
             />
           </div>
         );

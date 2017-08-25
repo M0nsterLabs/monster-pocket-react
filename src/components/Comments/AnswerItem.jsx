@@ -31,7 +31,8 @@ export default class AnswerItem extends React.Component {
     voteUp: PropTypes.number,
     voteDown: PropTypes.number,
     vote: PropTypes.string,
-    noVote: PropTypes.bool
+    noVote: PropTypes.bool,
+    parentId: PropTypes.number,
   };
 
   static contextTypes = {
