@@ -97,7 +97,7 @@ export default class AnswerItem extends React.Component {
   };
 
   renderForm = () => {
-    const { templateId, access_token, userData, parentId } = this.props;
+    const { templateId, access_token, userData, parentId, userName } = this.props;
     return (
       <AnswersForm
         template_id={templateId}
@@ -106,6 +106,8 @@ export default class AnswerItem extends React.Component {
         userMail={userData.mail}
         userAvatar={userData.avatar}
         parentId={parentId}
+        userAnswerName={userName}
+        replyToAnswer
       />
     )
   };

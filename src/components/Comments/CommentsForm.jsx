@@ -195,7 +195,6 @@ export default class CommentsForm extends React.Component {
           </div>
           <form
             className="CommentsForm"
-            id="comment-form"
             onSubmit={(event) => {
               this.handleFormSubmit(event);
             }}

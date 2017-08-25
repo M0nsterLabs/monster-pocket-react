@@ -24,6 +24,9 @@ export default class CommentsForm extends React.Component {
     userName: PropTypes.string,
     userAvatar: PropTypes.string,
     parentId: PropTypes.number,
+    userData: PropTypes.object,
+    replyToAnswer: PropTypes.bool,
+    userAnswerName: PropTypes.string,
   };
 
   static contextTypes = {
@@ -180,7 +183,7 @@ export default class CommentsForm extends React.Component {
 
 
   render () {
-    const { userMail, userName, userAvatar} = this.props;
+    const { userMail, userName, userAvatar, replyToAnswer, userAnswerName } = this.props;
     const { showComment } = this.state;
 
     return (
@@ -191,7 +194,6 @@ export default class CommentsForm extends React.Component {
           </div>
           <form
             className="CommentsForm"
-            id="answer-form"
             onSubmit={(event) => {
               this.handleFormSubmit(event);
             }}
@@ -203,6 +205,7 @@ export default class CommentsForm extends React.Component {
               ref={c => this.textarea = c}
               name="content"
               notificationType="N2B"
+              value={replyToAnswer ? `${userAnswerName || this.context.i18n.l('User')}, ` : ''}
             />
             <B1A
               className="CommentsForm__button"
