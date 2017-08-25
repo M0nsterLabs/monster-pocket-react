@@ -45,7 +45,6 @@ export default class CommentItem extends React.Component {
     voteUp: this.props.voteUp,
     voteDown: this.props.voteDown,
     vote: this.props.vote,
-    showModeratorMessage: false,
     showAnswers: false,
   };
 
@@ -208,7 +207,6 @@ export default class CommentItem extends React.Component {
     if (_.isEmpty(answers)) return;
     return (
       answers.map((answer) => {
-        console.log('answer', answer);
         return (
           <div className="comments__answers">
             <AnswerItem
@@ -235,7 +233,7 @@ export default class CommentItem extends React.Component {
 
   render () {
     const { userMail, userName, userAvatar, content, date, access_token, answers, status } = this.props;
-    const { showForm, voteUp, showModeratorMessage, showAnswers } = this.state;
+    const { showForm, voteUp, showAnswers } = this.state;
     let textViewButton;
     if (!_.isEmpty(answers)) {
       if (!showAnswers && answers.length === 1) {
@@ -284,7 +282,7 @@ export default class CommentItem extends React.Component {
               </div>
             }
           </div>
-          {showModeratorMessage && this.showModeratorMessage()}
+          {this.showModeratorMessage()}
           {showForm && this.renderForm()}
           {showAnswers && this.showAnswers()}
         </div>

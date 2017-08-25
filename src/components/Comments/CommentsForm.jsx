@@ -6,6 +6,7 @@ import TA5 from 'quark/lib/textareas/TA5';
 import B1A from 'quark/lib/buttons/B1A';
 import ReviewsData from 'plasma-reviews-api-client-js';
 import CommentItem from './CommentItem';
+import NotificationModeration from '../NotificationModeration/';
 
 import './Comments.less';
 
@@ -142,6 +143,9 @@ export default class CommentsForm extends React.Component {
   showComments = () => {
     const { access_token, template_id } = this.props;
     const { comments } = this.state;
+    comments.items.sort(function(a, b) {
+      return b.date - a.date;
+    });
     return (
       comments.items.map((comment) => {
           return (
@@ -199,9 +203,7 @@ export default class CommentsForm extends React.Component {
             </B1A>
           </form>
         </div>
-        {
-          showComment && this.showComments()
-        }
+        { showComment && this.showComments() }
       </div>
     );
   }
