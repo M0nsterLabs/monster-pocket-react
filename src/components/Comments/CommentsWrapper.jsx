@@ -69,6 +69,7 @@ export default class Comments extends React.Component {
     if (comments.items) {
       return (
         comments.items.map((comment) => {
+          let isUserComment = accessToken && parseInt(user.id) === parseInt(comment.user_id);
           return (
             <CommentItem
               userName={comment.user_name}
@@ -86,6 +87,7 @@ export default class Comments extends React.Component {
               voteUp={comment.vote_up}
               voteDown={comment.vote_down}
               vote={accessToken && comment.vote ? comment.vote.type : ''}
+              noVote={isUserComment}
             />
           )
         })
@@ -292,6 +294,7 @@ export default class Comments extends React.Component {
       .then((data) => {
         this.setState({
           user: {
+            id: data.id,
             name: data.userName,
             avatar: data.avatar,
             mail: data.login,
