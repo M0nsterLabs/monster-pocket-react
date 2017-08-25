@@ -38,6 +38,20 @@ export default class CommentsForm extends React.Component {
     },
   };
 
+  componentDidMount () {
+    window.addEventListener('keydown', this.sendCommentKey);
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('keydown', this.sendCommentKey);
+  }
+
+  sendCommentKey = (event) => {
+    if (event.keyCode === 13 && event.ctrlKey && document.querySelector('.text-area.text-area_focused')) {
+      this.handleFormSubmit(event);
+    }
+  };
+
   showAvatar = (email, name, avatar) => {
     return (
       <Avatar
@@ -201,6 +215,7 @@ export default class CommentsForm extends React.Component {
             >
               {this.context.i18n.l("Send Message")}
             </B1A>
+            <span className="CommentsForm__text t6">{this.context.i18n.l("Press Ctrl + Enter to send your message")}</span>
           </form>
         </div>
         { showComment && this.showComments() }
