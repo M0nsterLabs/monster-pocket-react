@@ -38,6 +38,30 @@
         }
       }
     }
+
+    &-moderator {
+      .comments__describe {
+        border: 2px solid @important-2;
+
+        &:before {
+          border-bottom: 2px solid @important-2;
+          border-left: 2px solid @important-2;
+          left: -7px;
+        }
+      }
+    }
+
+    &-contributor {
+      .comments__describe {
+        border: 2px solid @success;
+
+        &:before {
+          border-bottom: 2px solid @success;
+          border-left: 2px solid @success;
+          left: -7px;
+        }
+      }
+    }
   }
 
   &__viewAnswer {
@@ -114,6 +138,23 @@
 
   &__author {
     font-weight: bold;
+
+    &-moderator, &-contributor {
+      font-weight: normal;
+      border-radius: 2px;
+      margin-left: 10px;
+      padding: 0 3px;
+    }
+
+    &-moderator {
+      color: @important-2;
+      border: 1px solid @important-2;
+    }
+
+    &-contributor {
+      color: @success;
+      border: 1px solid @success;
+    }
   }
 
   &__answers {

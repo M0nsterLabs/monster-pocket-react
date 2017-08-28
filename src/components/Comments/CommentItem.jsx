@@ -225,6 +225,7 @@ export default class CommentItem extends React.Component {
               voteDown={answer.vote_down}
               vote={access_token && answer.vote ? answer.vote.type : ''}
               parentId={id}
+              author={answer.author}
             />
           </div>
         );

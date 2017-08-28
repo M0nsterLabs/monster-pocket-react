@@ -33,6 +33,7 @@ export default class AnswerItem extends React.Component {
     vote: PropTypes.string,
     noVote: PropTypes.bool,
     parentId: PropTypes.number,
+    author: PropTypes.string,
   };
 
   static contextTypes = {
@@ -204,12 +205,17 @@ export default class AnswerItem extends React.Component {
   };
 
   render () {
-    const { userMail, userName, userAvatar, content, date, access_token, status } = this.props;
+    const { userMail, userName, userAvatar, content, date, access_token, status, author } = this.props;
     const { showForm, voteUp, showModeratorMessage } = this.state;
-
     return (
     <div className="answer">
-      <article className="comments__item" itemScope itemType="http://schema.org/Question">
+      <article
+        className={`comments__item
+          ${author === 'moderator' ? 'comments__item-moderator' : ''}
+          ${author === 'contributor' ? 'comments__item-contributor' : ''}`}
+        itemScope
+        itemType="http://schema.org/Question"
+      >
         <meta itemProp="upvoteCount" content = {voteUp} />
         <div className="comments__avatar">
           {this.showAvatar(userMail, userName, userAvatar)}
@@ -220,6 +226,12 @@ export default class AnswerItem extends React.Component {
               <div className="comments__author" itemScope itemType="http://schema.org/Person" itemProp="author">
                 <meta itemProp="name" content={userName} />
                 {userName || this.context.i18n.l('User')}
+                {author === 'moderator'
+                  ? (<span className="comments__author-moderator t5" >TemplateMonster</span>)
+                  : ''}
+                {author === 'contributor'
+                  ? (<span className="comments__author-contributor t5" >{this.context.i18n.l('Contributor')}</span>)
+                  : ''}
               </div>
               <FormattedDate timestamp={date} className="comments__date"/>
             </div>
