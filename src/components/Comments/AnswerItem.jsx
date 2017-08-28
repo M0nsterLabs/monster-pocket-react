@@ -205,10 +205,10 @@ export default class AnswerItem extends React.Component {
   };
 
   render () {
-    const { userMail, userName, userAvatar, content, date, access_token, status, author } = this.props;
+    const { userMail, userName, userAvatar, content, date, access_token, status, author, id } = this.props;
     const { showForm, voteUp, showModeratorMessage } = this.state;
     return (
-    <div className="answer">
+    <div className="answer" id={id}>
       <article
         className={`comments__item
           ${author === 'moderator' ? 'comments__item-moderator' : ''}

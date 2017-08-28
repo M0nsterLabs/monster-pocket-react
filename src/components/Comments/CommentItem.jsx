@@ -234,7 +234,7 @@ export default class CommentItem extends React.Component {
   };
 
   render () {
-    const { userMail, userName, userAvatar, content, date, access_token, answers, status } = this.props;
+    const { userMail, userName, userAvatar, content, date, access_token, answers, status, id } = this.props;
     const { showForm, voteUp, showAnswers } = this.state;
     let textViewButton;
     if (!_.isEmpty(answers)) {
@@ -250,7 +250,7 @@ export default class CommentItem extends React.Component {
     }
 
     return (
-      <article className="comments__item" itemScope itemType="http://schema.org/Question">
+      <article id={id} className="comments__item" itemScope itemType="http://schema.org/Question">
         <meta itemProp="upvoteCount" content = {voteUp} />
         <div className="comments__avatar">
           {this.showAvatar(userMail, userName, userAvatar)}
