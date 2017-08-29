@@ -17,12 +17,12 @@ export default class NotificationModeration extends React.Component {
     const { status, message } = this.props;
 
     return (
-      <div className={`notification notification_${status}`}>
-        <i className="notification__icon tm-icon icon-sand-clock"/>
+      <div className={`notification-mod notification-mod_${status}`}>
+        <i className="notification-mod__icon tm-icon icon-sand-clock"/>
         <p
-          className="notification__text t3">{message}
+          className="notification-mod__text t3">{message}
         </p>
-        <div className={`notification__triangle notification__triangle_${status}`}> </div>
+        <div className={`notification-mod__triangle notification-mod__triangle_${status}`}> </div>
       </div>
     )
   }

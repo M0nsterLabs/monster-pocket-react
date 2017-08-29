@@ -38,6 +38,7 @@ export default class CommentsForm extends React.Component {
     comments: {
       items: []
     },
+    commentValue: "",
   };
 
   componentDidMount () {
@@ -68,6 +69,16 @@ export default class CommentsForm extends React.Component {
   };
 
   sendComment = (params) => {
+    this.setState({
+      commentValue: ' ',
+    }, () => {
+      const textarea = document.querySelector('.CommentsForm__textarea ');
+      if (textarea.classList.contains('text-area_focused')) {
+        textarea.classList.remove('text-area_focused');
+      }
+      textarea.classList.remove('text-area_filled');
+    });
+
     const { access_token, template_id, userName, userMail, userAvatar } = this.props;
     const user = {
       user_name: userName,
@@ -136,11 +147,12 @@ export default class CommentsForm extends React.Component {
     if (this.textValidationRule(commentText).isValid) {
 
       let commentTextNew = commentText;
-      // if (replyToAnswer) {
-      //   userAnswerName = userAnswerName || this.context.i18n.l("User");
-      //   let reg = new RegExp(userAnswerName,"g");
-      //   commentTextNew = commentText.replace(reg, "<em>$1</em>");
-      // }
+      if (replyToAnswer) {
+        userAnswerName = userAnswerName || this.context.i18n.l("User");
+        let reg = new RegExp(userAnswerName,"g");
+       // commentTextNew = commentText.replace(reg, "&lt;em&gt;$1&lt;/em&gt;");
+        commentTextNew = commentText.replace(reg, userAnswerName);
+      }
 
       const commentsData = {
         template_id: template_id,
@@ -190,7 +202,7 @@ export default class CommentsForm extends React.Component {
 
   render () {
     const { userMail, userName, userAvatar, replyToAnswer, userAnswerName } = this.props;
-    const { showComment } = this.state;
+    const { showComment, commentValue } = this.state;
 
     return (
       <div className="comments__form">

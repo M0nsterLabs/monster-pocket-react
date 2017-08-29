@@ -36,6 +36,7 @@ export default class CommentsForm extends React.Component {
     comments: {
       items: []
     },
+    commentValue: "",
   };
 
   componentDidMount () {
@@ -45,6 +46,12 @@ export default class CommentsForm extends React.Component {
   componentWillUnmount () {
     window.removeEventListener('keydown', this.sendCommentKey);
   }
+
+  // componentWillUpdate () {
+  //   this.setState({
+  //     commentValue: '',
+  //   });
+  // }
 
   sendCommentKey = (event) => {
     if (event.keyCode === 13 && event.ctrlKey && document.querySelector('.text-area.text-area_focused')) {
@@ -66,6 +73,16 @@ export default class CommentsForm extends React.Component {
   };
 
   sendComment = (params) => {
+    this.setState({
+      commentValue: ' ',
+    }, () => {
+      const textarea = document.querySelector('.CommentsForm__textarea ');
+      if (textarea.classList.contains('text-area_focused')) {
+        textarea.classList.remove('text-area_focused');
+      }
+      textarea.classList.remove('text-area_filled');
+    });
+
     const { access_token, template_id, userName, userMail, userAvatar } = this.props;
     const user = {
       user_name: userName,
@@ -151,7 +168,6 @@ export default class CommentsForm extends React.Component {
         message : this.textValidationRule(reviewText).message
       });
     }
-    textArea.value='';
   };
 
   showComments = () => {
@@ -186,7 +202,7 @@ export default class CommentsForm extends React.Component {
 
   render () {
     const { userMail, userName, userAvatar } = this.props;
-    const { showComment } = this.state;
+    const { showComment, commentValue } = this.state;
     return (
       <div className="comments__form">
         <div className="comments__item">
@@ -206,6 +222,7 @@ export default class CommentsForm extends React.Component {
               ref={c => this.textarea = c}
               name="content"
               notificationType="N2B"
+              value={commentValue}
             />
             <B1A
               className="CommentsForm__button"
