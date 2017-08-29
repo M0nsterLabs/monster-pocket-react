@@ -34,6 +34,7 @@ export default class AnswerItem extends React.Component {
     noVote: PropTypes.bool,
     parentId: PropTypes.number,
     author: PropTypes.string,
+    author_id: PropTypes.number,
   };
 
   static contextTypes = {
@@ -99,7 +100,7 @@ export default class AnswerItem extends React.Component {
   };
 
   renderForm = () => {
-    const { templateId, access_token, userData, parentId, userName } = this.props;
+    const { templateId, access_token, userData, parentId, userName, author_id } = this.props;
     return (
       <AnswersForm
         template_id={templateId}
@@ -110,6 +111,7 @@ export default class AnswerItem extends React.Component {
         parentId={parentId}
         userAnswerName={userName}
         replyToAnswer
+        author_id={author_id}
       />
     )
   };

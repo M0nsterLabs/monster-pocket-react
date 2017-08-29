@@ -32,7 +32,8 @@ export default class CommentItem extends React.Component {
     voteUp: PropTypes.number,
     voteDown: PropTypes.number,
     vote: PropTypes.string,
-    noVote: PropTypes.bool
+    noVote: PropTypes.bool,
+    author_id: PropTypes.number,
   };
 
   static contextTypes = {
@@ -98,7 +99,7 @@ export default class CommentItem extends React.Component {
   };
 
   renderForm = () => {
-    const { templateId, access_token, userData, id } = this.props;
+    const { templateId, access_token, userData, id, author_id } = this.props;
     return (
       <AnswersForm
         template_id={templateId}
@@ -107,6 +108,7 @@ export default class CommentItem extends React.Component {
         userMail={userData.mail}
         userAvatar={userData.avatar}
         parentId={id}
+        author_id={author_id}
       />
     )
   };
@@ -203,7 +205,7 @@ export default class CommentItem extends React.Component {
   };
 
   showAnswers = () => {
-    const { answers, access_token, templateId, userData, id } = this.props;
+    const { answers, access_token, templateId, userData, id, author_id } = this.props;
     if (_.isEmpty(answers)) return;
     return (
       answers.map((answer) => {
@@ -226,6 +228,7 @@ export default class CommentItem extends React.Component {
               vote={access_token && answer.vote ? answer.vote.type : ''}
               parentId={id}
               author={answer.author}
+              author_id={author_id}
             />
           </div>
         );

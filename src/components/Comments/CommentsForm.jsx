@@ -25,6 +25,7 @@ export default class CommentsForm extends React.Component {
     userName: PropTypes.string,
     userAvatar: PropTypes.string,
     parentId: PropTypes.number,
+    author_id: PropTypes.number,
   };
 
   static contextTypes = {
@@ -144,7 +145,7 @@ export default class CommentsForm extends React.Component {
 
 
   handleFormSubmit = (event) => {
-    const { template_id, userName, userMail, parentId } = this.props;
+    const { template_id, userName, userMail, parentId, author_id } = this.props;
     event.preventDefault();
     let textArea = document.getElementById('comment-text');
     let reviewText = textArea.value;
@@ -156,6 +157,7 @@ export default class CommentsForm extends React.Component {
         locale: LOCALE,
         user_name: userName,
         user_email: userMail,
+        author_id: author_id,
       };
       if (parentId) {
         commentsData['parent_id'] = parentId;

@@ -50,7 +50,8 @@ export default class Comments extends React.Component {
       name: '',
       avatar: '',
       mail: '',
-    }
+    },
+    productAuthorId: 0,
   };
 
   componentDidMount () {
@@ -58,14 +59,35 @@ export default class Comments extends React.Component {
       this.getUserProfile();
       this.getCommentsUser(LOCALE);
       this.getComments(LOCALE);
+      this.getProductData(LOCALE);
     } else {
       this.getComments(LOCALE);
+      this.getProductData(LOCALE);
     }
+  };
+
+  /**
+   * get product data of template
+   * @param locale
+   */
+
+  getProductData = (locale = 'en') => {
+    const { templateId } = this.props;
+
+    fetch(`${Config.productsServiceURL}products/${locale}/${templateId}`, {
+      method: 'get'
+    })
+      .then(getResponseJSON)
+      .then((product) => {
+        this.setState({
+          productAuthorId: product.authorUserId
+        });
+      });
   };
 
   renderComments = () => {
     const { accessToken, templateId } = this.props;
-    const { comments, user } = this.state;
+    const { comments, user, productAuthorId } = this.state;
     if (comments.items) {
       return (
         comments.items.map((comment) => {
@@ -88,6 +110,7 @@ export default class Comments extends React.Component {
               voteDown={comment.vote_down}
               vote={accessToken && comment.vote ? comment.vote.type : ''}
               noVote={isUserComment}
+              author_id={parseInt(productAuthorId)}
             />
           )
         })
@@ -272,13 +295,16 @@ export default class Comments extends React.Component {
   };
 
   renderForm = () => {
+    const { templateId, accessToken } = this.props;
+    const { user, productAuthorId } = this.state;
     return (
       <CommentsForm
-        template_id={this.props.templateId}
-        access_token={this.props.accessToken}
-        userName={this.state.user.name}
-        userMail={this.state.user.mail}
-        userAvatar={this.state.user.avatar}
+        template_id={templateId}
+        access_token={accessToken}
+        userName={user.name}
+        userMail={user.mail}
+        userAvatar={user.avatar}
+        author_id={parseInt(productAuthorId)}
       />
     )
   };
