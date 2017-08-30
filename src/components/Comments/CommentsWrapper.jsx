@@ -275,9 +275,9 @@ export default class Comments extends React.Component {
    */
   sortComments = () => {
     const sortValue = [
-      this.context.i18n.l('Newest'),
-      this.context.i18n.l('Most helpful'),
-      this.context.i18n.l('New answers'),
+      'Newest',
+      'Most helpful',
+      'New answers',
     ];
     let form;
     return (
@@ -377,18 +377,18 @@ export default class Comments extends React.Component {
     const {comments} = this.state;
 
     return (
-      <div className="page-content ">
-        <span className="comments__count">{comments.totalCount}</span>
+      <div className="PageContent">
+        <span className="Comments__count">{comments.totalCount}</span>
         {
           comments.totalCount === 0 && !this.state.isLoading
           ? (
-            <L1 className="content-loader"/>
+            <L1 className="ContentLoader"/>
           )
           : (
             comments.totalCount === 0
               ? (
-                <div className="page-content__empty">
-                  <div className="comments">
+                <div className="PageContent__empty">
+                  <div className="Comments">
                     <h2 className="h3">{this.context.i18n.l('Questions & Answers')}</h2>
 
 
@@ -397,10 +397,10 @@ export default class Comments extends React.Component {
                 </div>
               )
               : (
-                <div className="comments">
-                  <div className="comments__header">
+                <div className="Comments">
+                  <div className="Comments__header">
                     <h2 className="h3">
-                      <span className="comments__total-count">{comments.totalCount} </span>
+                      <span className="Comments__totalCount">{comments.totalCount} </span>
                       {this.context.i18n.l(`Questions & Answers`)}
                     </h2>
                     {this.sortComments()}
@@ -409,7 +409,7 @@ export default class Comments extends React.Component {
                   {this.renderForm()}
 
                   {_.isEmpty(this.state.comments.items)
-                    ? <L1 className="content-loader"/>
+                    ? <L1 className="ContentLoader"/>
                     :
                     this.renderComments()
                   }
@@ -417,8 +417,8 @@ export default class Comments extends React.Component {
                   {
                     this.state.showMoreVisible && !_.isEmpty(this.state.comments.items) && (
                       <B2E
-                        className = "reviews__btn"
-                        id        = "show-more-reviews"
+                        className = "Comments__btn"
+                        id        = "ShowMoreComments"
                         onClick   = {this.loadDownloads}
                         disabled  = {!this.state.isLoading}
                         isLoading = {!this.state.isLoading}

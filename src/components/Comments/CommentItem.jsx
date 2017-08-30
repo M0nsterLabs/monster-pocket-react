@@ -32,7 +32,7 @@ export default class CommentItem extends React.Component {
     voteUp: PropTypes.number,
     voteDown: PropTypes.number,
     vote: PropTypes.string,
-    noVote: PropTypes.bool,
+    noVote: PropTypes.string,
     author_id: PropTypes.number,
   };
 
@@ -93,7 +93,7 @@ export default class CommentItem extends React.Component {
   replyButton = (answer) => {
     return (
       <span
-        className="comments__item-reply tm-icon icon-message"
+        className="Comments__itemReply tm-icon icon-message"
         onClick={() => (answer === 'answer' ? this.showFormAnswer(): this.showForm())}
       >
           {this.context.i18n.l('Reply')}
@@ -265,7 +265,7 @@ export default class CommentItem extends React.Component {
     return (
       answers.map((answer) => {
         return (
-          <div className="comments__answers">
+          <div className="Comments__answers">
             <AnswerItem
               userName={answer.user_name}
               userMail={answer.user_email}
@@ -308,27 +308,27 @@ export default class CommentItem extends React.Component {
     }
 
     return (
-      <article id={id} className="comments__item" itemScope itemType="http://schema.org/Question">
+      <article id={id} className="Comments__item" itemScope itemType="http://schema.org/Question">
         <meta itemProp="upvoteCount" content = {voteUp} />
-        <div className="comments__avatar">
+        <div className="Comments__avatar">
           {this.showAvatar(userMail, userName, userAvatar)}
         </div>
-        <div className="comments__info">
-          <div className="comments__describe">
-            <div className="comments__describe-header t5">
-              <div className="comments__author" itemScope itemType="http://schema.org/Person" itemProp="author">
+        <div className="Comments__info">
+          <div className="Comments__describe">
+            <div className="Comments__describeHeader t5">
+              <div className="Comments__author" itemScope itemType="http://schema.org/Person" itemProp="author">
                 <meta itemProp="name" content={userName} />
                 {userName || this.context.i18n.l('Anonymous')}
               </div>
-              <FormattedDate timestamp={date} className="comments__date"/>
+              <FormattedDate timestamp={date} className="Comments__date"/>
             </div>
-            <div className="comments__content t3" itemProp="text">{content}</div>
+            <div className="Comments__content t3" itemProp="text">{content}</div>
             {
               status === APPROVED &&
-              <div className="comments__describe-footer t3">
+              <div className="Comments__describeFooter t3">
                 {access_token && this.replyButton()}
                 { !_.isEmpty(answers)
-                && <div className="comments__viewAnswer" onClick={() => this.showComments()}>
+                && <div className="Comments__viewAnswer" onClick={() => this.showComments()}>
                   <meta itemProp="answerCount" content={answers.length} />
                   <Interpolate
                     with={{countAnswers: answers.length}}
@@ -336,7 +336,7 @@ export default class CommentItem extends React.Component {
                   />
                 </div>
                 }
-                <div className="comments__votes">
+                <div className="Comments__votes">
                   {this.voteControls()}
                 </div>
               </div>
@@ -344,7 +344,7 @@ export default class CommentItem extends React.Component {
           </div>
           {this.showModeratorMessage()}
           {showForm && this.renderForm()}
-          <div className="comments__answers-wrap">
+          <div className="Comments__answersWrap">
             {showAnswers && this.showAnswers()}
           </div>
         </div>

@@ -1,8 +1,14 @@
 @import "../../styles/variables.less";
 
-.comments {
+.Comments {
   &__count {
     display: none;
+  }
+
+  &__btn {
+    display: block !important;
+    margin: auto !important;
+    min-width: 120px;
   }
 
   .h3 {
@@ -22,7 +28,7 @@
     display: flex;
     margin-bottom: @spacing4x;
 
-    &-reply {
+    &Reply {
       cursor: pointer;
       color: @primary;
       margin-right: @spacing4x;
@@ -32,35 +38,35 @@
       }
     }
 
-    .comments__form {
-      .comments__item {
-        &-new {
+    .Comments__form {
+      .Comments__item {
+        &New {
           margin-bottom: 0;
         }
       }
     }
+  }
 
-    &-moderator {
-      .comments__describe {
-        border: 2px solid @important-2;
+  &__itemModerator {
+    .Comments__describe {
+      border: 2px solid @important-2;
 
-        &:before {
-          border-bottom: 2px solid @important-2;
-          border-left: 2px solid @important-2;
-          left: -7px;
-        }
+      &:before {
+        border-bottom: 2px solid @important-2;
+        border-left: 2px solid @important-2;
+        left: -7px;
       }
     }
+  }
 
-    &-contributor {
-      .comments__describe {
-        border: 2px solid @success;
+  &__itemContributor {
+    .Comments__describe {
+      border: 2px solid @success;
 
-        &:before {
-          border-bottom: 2px solid @success;
-          border-left: 2px solid @success;
-          left: -7px;
-        }
+      &:before {
+        border-bottom: 2px solid @success;
+        border-left: 2px solid @success;
+        left: -7px;
       }
     }
   }
@@ -84,7 +90,7 @@
     flex-direction: column;
     width: 100%;
 
-    .comments__item {
+    .Comments__item {
       margin: @spacing4x 0 0;
 
       .CommentsForm {
@@ -119,14 +125,14 @@
       border-right: none;
     }
 
-    &-header {
+    &Header {
       display: flex;
       justify-content: space-between;
       margin-bottom: @spacing2x;
       color: @secondary;
     }
 
-    &-footer {
+    &Footer {
       display: flex;
     }
   }
@@ -138,53 +144,76 @@
 
   &__author {
     font-weight: bold;
+  }
 
-    &-moderator, &-contributor {
-      font-weight: normal;
-      border-radius: 2px;
-      margin-left: 10px;
-      padding: 0 3px;
-    }
+  &__authorModerator, &__authorContributor {
+    font-weight: normal;
+    border-radius: 2px;
+    margin-left: 10px;
+    padding: 0 3px;
+  }
 
-    &-moderator {
-      color: @important-2;
-      border: 1px solid @important-2;
-    }
+  &__authorModerator {
+    color: @important-2;
+    border: 1px solid @important-2;
+  }
 
-    &-contributor {
-      color: @success;
-      border: 1px solid @success;
-    }
+  &__authorContributor {
+    color: @success;
+    border: 1px solid @success;
   }
 
   &__answers {
     margin-top: @spacing2x;
 
-    &-wrap {
+    &Wrap {
       margin-top: @spacing2x;
     }
 
-    .comments__item {
+    .Comments__item {
       margin: 0;
     }
   }
 
   &__form {
-    .comments__item {
+    .Comments__item {
       margin-bottom: 0;
 
-      &-new {
+      &New {
         margin-bottom: @spacing4x;
       }
     }
   }
 }
 
-.page-content__empty {
-  .comments {
+.PageContent {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  min-height: calc(100vh - 290px);
+  font-family: 'PT Sans', sans-serif;
+
+  &__loader {
+    margin-top: @spacing4x;
+  }
+
+  &__empty {
+    text-align: center;
+
     .h3 {
+      font-weight: bold;
+      margin-bottom: @spacing4x;
+    }
+
+    .reviews {
       text-align: left;
-      letter-spacing: 2px;
+    }
+
+    .Comments {
+      .h3 {
+        text-align: left;
+        letter-spacing: 2px;
+      }
     }
   }
 }
@@ -296,4 +325,8 @@
     margin-left: @spacing2x;
     color: @secondary;
   }
+}
+
+.ContentLoader {
+  align-self: center;
 }

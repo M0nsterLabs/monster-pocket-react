@@ -208,7 +208,7 @@ export default class CommentsForm extends React.Component {
     return (
       comments.items.map((comment) => {
           return (
-            <div className="comments__item-new">
+            <div className="Comments__itemNew">
               <CommentItem
                 userName={comment.user_name}
                 userMail={comment.user_email}
@@ -235,9 +235,9 @@ export default class CommentsForm extends React.Component {
     const { showComment, commentValue } = this.state;
 
     return (
-      <div className="comments__form">
-        <div className="comments__item">
-          <div className="comments__avatar">
+      <div className="Comments__form">
+        <div className="Comments__item">
+          <div className="Comments__avatar">
             {this.showAvatar(userMail, userName, userAvatar)}
           </div>
           <form

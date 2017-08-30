@@ -94,7 +94,7 @@ export default class AnswerItem extends React.Component {
   replyButton = (answer) => {
     return (
       <span
-        className="comments__item-reply tm-icon icon-message"
+        className="Comments__itemReply tm-icon icon-message"
         onClick={() => (answer === 'answer' ? this.showFormAnswer(): this.showForm())}
       >
           {this.context.i18n.l('Reply')}
@@ -262,39 +262,39 @@ export default class AnswerItem extends React.Component {
     const { userMail, userName, userAvatar, content, date, access_token, status, author, id } = this.props;
     const { showForm, voteUp, showModeratorMessage } = this.state;
     return (
-    <div className="answer" id={id}>
+    <div className="Answer" id={id}>
       <article
-        className={`comments__item
-          ${author === 'moderator' ? 'comments__item-moderator' : ''}
-          ${author === 'contributor' ? 'comments__item-contributor' : ''}`}
+        className={`Comments__item
+          ${author === 'moderator' ? 'Comments__itemModerator' : ''}
+          ${author === 'contributor' ? 'Comments__itemContributor' : ''}`}
         itemScope
         itemType="http://schema.org/Question"
       >
         <meta itemProp="upvoteCount" content = {voteUp} />
-        <div className="comments__avatar">
+        <div className="Comments__avatar">
           {this.showAvatar(userMail, userName, userAvatar)}
         </div>
-        <div className="comments__info">
-          <div className="comments__describe">
-            <div className="comments__describe-header t5">
-              <div className="comments__author" itemScope itemType="http://schema.org/Person" itemProp="author">
+        <div className="Comments__info">
+          <div className="Comments__describe">
+            <div className="Comments__describeHeader t5">
+              <div className="Comments__author" itemScope itemType="http://schema.org/Person" itemProp="author">
                 <meta itemProp="name" content={userName} />
                 {userName || this.context.i18n.l('Anonymous')}
                 {author === 'moderator'
-                  ? (<span className="comments__author-moderator t5" >TemplateMonster</span>)
+                  ? (<span className="Comments__authorModerator t5" >TemplateMonster</span>)
                   : ''}
                 {author === 'contributor'
-                  ? (<span className="comments__author-contributor t5" >{this.context.i18n.l('Contributor')}</span>)
+                  ? (<span className="Comments__authorContributor t5" >{this.context.i18n.l('Contributor')}</span>)
                   : ''}
               </div>
-              <FormattedDate timestamp={date} className="comments__date"/>
+              <FormattedDate timestamp={date} className="Comments__date"/>
             </div>
-            <div className="comments__content t3" itemProp="text">{content}</div>
+            <div className="Comments__content t3" itemProp="text">{content}</div>
             {
               status === APPROVED &&
-              <div className="comments__describe-footer t3">
+              <div className="Comments__describeFooter t3">
                 {access_token && this.replyButton()}
-                <div className="comments__votes">
+                <div className="Comments__votes">
                   {this.voteControls()}
                 </div>
               </div>
