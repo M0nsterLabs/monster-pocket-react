@@ -50,6 +50,13 @@ export default class AnswerItem extends React.Component {
     showModeratorMessage: false,
   };
 
+  /**
+   * Show user avatar
+   * @param email
+   * @param name
+   * @param avatar
+   * @returns {XML}
+   */
   showAvatar = (email, name, avatar) => {
     return (
       <Avatar
@@ -63,6 +70,10 @@ export default class AnswerItem extends React.Component {
     )
   };
 
+  /**
+   * Show moderator message - answer is on review
+   * @returns {XML}
+   */
   showModeratorMessage = () => {
     const { status } = this.props;
     if (status === 'pending') {
@@ -75,6 +86,11 @@ export default class AnswerItem extends React.Component {
     }
   };
 
+  /**
+   * Show reply button on answer
+   * @param answer
+   * @returns {XML}
+   */
   replyButton = (answer) => {
     return (
       <span
@@ -86,12 +102,18 @@ export default class AnswerItem extends React.Component {
     )
   };
 
+  /**
+   * Set state on show answer form
+   */
   showFormAnswer = () => {
     this.setState({
       showFormAnswer: true,
     });
   };
 
+  /**
+   * Set state on show forms
+   */
   showForm = () => {
     this.setState({
       showForm: true,
@@ -99,6 +121,10 @@ export default class AnswerItem extends React.Component {
     });
   };
 
+  /**
+   * Show answer form
+   * @returns {XML}
+   */
   renderForm = () => {
     const { templateId, access_token, userData, parentId, userName, author_id } = this.props;
     return (
@@ -116,12 +142,19 @@ export default class AnswerItem extends React.Component {
     )
   };
 
+  /**
+   * Set state show comments
+   */
   showComments = () => {
     this.setState({
       showFormAnswer: false,
     })
   };
 
+  /**
+   * Votes on answers
+   * @param type
+   */
   addVote = (type) => {
     const { access_token, id } = this.props;
     comments.addCommentVote(access_token, id, {vote_type: type}).then(
@@ -134,6 +167,9 @@ export default class AnswerItem extends React.Component {
     );
   };
 
+  /**
+   * Add vote up on answer
+   */
   addVoteUp = () => {
     this.addVote("up");
     switch (this.state.vote) {
@@ -150,6 +186,9 @@ export default class AnswerItem extends React.Component {
     }
   };
 
+  /**
+   * Add vote down on answer
+   */
   addVoteDown = () => {
     this.addVote("down");
     switch (this.state.vote) {
@@ -166,6 +205,15 @@ export default class AnswerItem extends React.Component {
     }
   };
 
+  /**
+   * Show control buttons on answer
+   * @param type
+   * @param clickVote
+   * @param constrolText
+   * @param controlNotification
+   * @param stateVote
+   * @returns {XML}
+   */
   showControl = (type, clickVote, constrolText, controlNotification, stateVote) => {
     const {vote} = this.state;
     const {noVote, access_token} = this.props;
@@ -188,6 +236,10 @@ export default class AnswerItem extends React.Component {
     )
   };
 
+  /**
+   * Show vote controls on answer
+   * @returns {XML}
+   */
   voteControls = () => {
     const {voteUp, voteDown} = this.state;
     const {access_token, noVote} = this.props;

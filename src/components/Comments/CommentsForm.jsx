@@ -54,12 +54,23 @@ export default class CommentsForm extends React.Component {
   //   });
   // }
 
+  /**
+   * Add ctrl+enter event on send form
+   * @param event
+   */
   sendCommentKey = (event) => {
     if (event.keyCode === 13 && event.ctrlKey && document.querySelector('.text-area.text-area_focused')) {
       this.handleFormSubmit(event);
     }
   };
 
+  /**
+   * Show user avatar
+   * @param email
+   * @param name
+   * @param avatar
+   * @returns {XML}
+   */
   showAvatar = (email, name, avatar) => {
     return (
       <Avatar
@@ -73,6 +84,10 @@ export default class CommentsForm extends React.Component {
     )
   };
 
+  /**
+   * Send comment
+   * @param params
+   */
   sendComment = (params) => {
     this.setState({
       commentValue: ' ',
@@ -110,7 +125,11 @@ export default class CommentsForm extends React.Component {
     });
   };
 
-
+  /**
+   * Validation text from form
+   * @param value
+   * @returns {*}
+   */
   textValidationRule (value) {
     const valueRegExp = /^[^<>]+$/;
     const teatAreaValue = value.trim();
@@ -143,7 +162,10 @@ export default class CommentsForm extends React.Component {
     }
   }
 
-
+  /**
+   * Validation text and send form
+   * @param event
+   */
   handleFormSubmit = (event) => {
     const { template_id, userName, userMail, parentId, author_id } = this.props;
     event.preventDefault();
@@ -172,6 +194,10 @@ export default class CommentsForm extends React.Component {
     }
   };
 
+  /**
+   * Show comment
+   * @returns {Array}
+   */
   showComments = () => {
     const { access_token, template_id } = this.props;
     const { comments } = this.state;

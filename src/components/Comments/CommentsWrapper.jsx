@@ -67,10 +67,9 @@ export default class Comments extends React.Component {
   };
 
   /**
-   * get product data of template
+   * Get product data of template
    * @param locale
    */
-
   getProductData = (locale = 'en') => {
     const { templateId } = this.props;
 
@@ -85,6 +84,10 @@ export default class Comments extends React.Component {
       });
   };
 
+  /**
+   * Show all comments on template
+   * @returns {Array}
+   */
   renderComments = () => {
     const { accessToken, templateId } = this.props;
     const { comments, user, productAuthorId } = this.state;
@@ -118,6 +121,10 @@ export default class Comments extends React.Component {
     }
   };
 
+  /**
+   * Get all comments on template
+   * @param locale
+   */
   getComments = (locale) => {
     this.setState({
       isLoading: false,
@@ -180,6 +187,10 @@ export default class Comments extends React.Component {
     }
   };
 
+  /**
+   * Get users comments (all status)
+   * @param locale
+   */
   getCommentsUser = (locale) => {
     let params = {
       'access_token': this.props.accessToken,
@@ -200,6 +211,9 @@ export default class Comments extends React.Component {
       });
   };
 
+  /**
+   * Get comments from other locales
+   */
   getCommentsOtherLocales = () => {
     let params = {
       'template_id' : this.props.templateId,
@@ -214,12 +228,21 @@ export default class Comments extends React.Component {
     });
   };
 
+  /**
+   * Loading on page for get next page with comments
+   * @param currentState
+   * @returns {boolean}
+   */
   shouldFetchDataItems = (currentState) => {
     const currentItemsCount = currentState.items ? currentState.items.length : 0;
     const totalItemsCount   = currentState.totalCount;
     return currentItemsCount === 0 || currentItemsCount < totalItemsCount;
   };
 
+  /**
+   * Get sorted comments
+   * @param sorted
+   */
   changeSortValue = (sorted) => {
     let sortedBy;
     switch (sorted) {
@@ -246,7 +269,11 @@ export default class Comments extends React.Component {
     })
   };
 
-  sortReviews = () => {
+  /**
+   * Sorting for comments
+   * @returns {XML}
+   */
+  sortComments = () => {
     const sortValue = [
       this.context.i18n.l('Newest'),
       this.context.i18n.l('Most helpful'),
@@ -270,16 +297,26 @@ export default class Comments extends React.Component {
     )
   };
 
+  /**
+   * Load next comments
+   */
   loadDownloads = () => {
     if (this.state.comments.totalCount > 0 && this.state.isLoading === true) {
       this.getComments(LOCALE);
     }
   };
 
+  /**
+   * Get reviews from other locales
+   */
   otherLocale = () => {
     this.getComments('');
   };
 
+  /**
+   * Show empty comments page
+   * @returns {XML}
+   */
   renderEmptyPage = () => {
     return (
       <ContentEmptyMessage
@@ -294,6 +331,10 @@ export default class Comments extends React.Component {
     )
   };
 
+  /**
+   * Show form
+   * @returns {XML}
+   */
   renderForm = () => {
     const { templateId, accessToken } = this.props;
     const { user, productAuthorId } = this.state;
@@ -309,6 +350,9 @@ export default class Comments extends React.Component {
     )
   };
 
+  /**
+   * Get users profile
+   */
   getUserProfile = () => {
     fetch(`${Config.accountServiceURL}users/profile`, {
       method  : 'get',
@@ -359,7 +403,7 @@ export default class Comments extends React.Component {
                       <span className="comments__total-count">{comments.totalCount} </span>
                       {this.context.i18n.l(`Questions & Answers`)}
                     </h2>
-                    {this.sortReviews()}
+                    {this.sortComments()}
                   </div>
 
                   {this.renderForm()}

@@ -49,6 +49,13 @@ export default class CommentItem extends React.Component {
     showAnswers: false,
   };
 
+  /**
+   * Show user avatar
+   * @param email
+   * @param name
+   * @param avatar
+   * @returns {XML}
+   */
   showAvatar = (email, name, avatar) => {
     return (
       <Avatar
@@ -62,6 +69,10 @@ export default class CommentItem extends React.Component {
     )
   };
 
+  /**
+   * Show moderator message - comment is on review
+   * @returns {XML}
+   */
   showModeratorMessage = () => {
     const { status } = this.props;
     if (status === 'pending') {
@@ -74,6 +85,11 @@ export default class CommentItem extends React.Component {
     }
   };
 
+  /**
+   * Show reply button on comment
+   * @param answer
+   * @returns {XML}
+   */
   replyButton = (answer) => {
     return (
       <span
@@ -85,12 +101,18 @@ export default class CommentItem extends React.Component {
     )
   };
 
+  /**
+   * Set state on show answer form
+   */
   showFormAnswer = () => {
     this.setState({
       showFormAnswer: true,
     });
   };
 
+  /**
+   * Set state on show forms
+   */
   showForm = () => {
     this.setState({
       showForm: true,
@@ -98,6 +120,10 @@ export default class CommentItem extends React.Component {
     });
   };
 
+  /**
+   * Show comment form
+   * @returns {XML}
+   */
   renderForm = () => {
     const { templateId, access_token, userData, id, author_id } = this.props;
     return (
@@ -113,6 +139,9 @@ export default class CommentItem extends React.Component {
     )
   };
 
+  /**
+   * Set state show comments
+   */
   showComments = () => {
     this.setState({
       showAnswers: !this.state.showAnswers,
@@ -120,6 +149,10 @@ export default class CommentItem extends React.Component {
     })
   };
 
+  /**
+   * Votes on comment
+   * @param type
+   */
   addVote = (type) => {
     const { access_token, id } = this.props;
     comments.addCommentVote(access_token, id, {vote_type: type}).then(
@@ -132,6 +165,9 @@ export default class CommentItem extends React.Component {
     );
   };
 
+  /**
+   * Add vote up on comment
+   */
   addVoteUp = () => {
     this.addVote("up");
     switch (this.state.vote) {
@@ -148,6 +184,9 @@ export default class CommentItem extends React.Component {
     }
   };
 
+  /**
+   * Add vote down on comment
+   */
   addVoteDown = () => {
     this.addVote("down");
     switch (this.state.vote) {
@@ -164,6 +203,15 @@ export default class CommentItem extends React.Component {
     }
   };
 
+  /**
+   * Show control buttons on comment
+   * @param type
+   * @param clickVote
+   * @param constrolText
+   * @param controlNotification
+   * @param stateVote
+   * @returns {XML}
+   */
   showControl = (type, clickVote, constrolText, controlNotification, stateVote) => {
     const {vote} = this.state;
     const {noVote, access_token} = this.props;
@@ -186,6 +234,10 @@ export default class CommentItem extends React.Component {
     )
   };
 
+  /**
+   * Show vote controls on comment
+   * @returns {XML}
+   */
   voteControls = () => {
     const {voteUp, voteDown} = this.state;
     const {access_token, noVote} = this.props;
@@ -204,6 +256,9 @@ export default class CommentItem extends React.Component {
     )
   };
 
+  /**
+   * Show answers on comment
+   */
   showAnswers = () => {
     const { answers, access_token, templateId, userData, id, author_id } = this.props;
     if (_.isEmpty(answers)) return;
