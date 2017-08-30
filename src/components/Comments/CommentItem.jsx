@@ -263,31 +263,35 @@ export default class CommentItem extends React.Component {
     const { answers, access_token, templateId, userData, id, author_id } = this.props;
     if (_.isEmpty(answers)) return;
     return (
-      answers.map((answer) => {
-        return (
-          <div className="Comments__answers">
-            <AnswerItem
-              userName={answer.user_name}
-              userMail={answer.user_email}
-              content={answer.content}
-              avatar=""
-              date={answer.created_at}
-              // key={comment.id}
-              status={answer.status}
-              access_token={access_token}
-              id={answer.id}
-              templateId={templateId}
-              userData={userData}
-              voteUp={answer.vote_up}
-              voteDown={answer.vote_down}
-              vote={access_token && answer.vote ? answer.vote.type : ''}
-              parentId={id}
-              author={answer.author}
-              author_id={author_id}
-            />
-          </div>
-        );
-      })
+      <div className="Comments__answersWrap">
+        {
+          answers.map((answer) => {
+            return (
+              <div className="Comments__answers">
+                <AnswerItem
+                  userName={answer.user_name}
+                  userMail={answer.user_email}
+                  content={answer.content}
+                  avatar=""
+                  date={answer.created_at}
+                  // key={comment.id}
+                  status={answer.status}
+                  access_token={access_token}
+                  id={answer.id}
+                  templateId={templateId}
+                  userData={userData}
+                  voteUp={answer.vote_up}
+                  voteDown={answer.vote_down}
+                  vote={access_token && answer.vote ? answer.vote.type : ''}
+                  parentId={id}
+                  author={answer.author}
+                  author_id={author_id}
+                />
+              </div>
+            );
+          })
+        }
+      </div>
     );
   };
 
@@ -344,9 +348,7 @@ export default class CommentItem extends React.Component {
           </div>
           {this.showModeratorMessage()}
           {showForm && this.renderForm()}
-          <div className="Comments__answersWrap">
-            {showAnswers && this.showAnswers()}
-          </div>
+          {showAnswers && this.showAnswers()}
         </div>
       </article>
     );

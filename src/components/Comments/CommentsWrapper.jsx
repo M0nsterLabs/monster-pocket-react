@@ -374,7 +374,8 @@ export default class Comments extends React.Component {
   };
 
   render () {
-    const {comments} = this.state;
+    const { accessToken } = this.props;
+    const { comments } = this.state;
 
     return (
       <div className="PageContent">
@@ -406,7 +407,7 @@ export default class Comments extends React.Component {
                     {this.sortComments()}
                   </div>
 
-                  {this.renderForm()}
+                  {accessToken && this.renderForm()}
 
                   {_.isEmpty(this.state.comments.items)
                     ? <L1 className="ContentLoader"/>
