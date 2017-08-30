@@ -125,7 +125,7 @@ export default class CommentItem extends React.Component {
    * @returns {XML}
    */
   renderForm = () => {
-    const { templateId, access_token, userData, id, author_id } = this.props;
+    const { templateId, access_token, userData, id, author_id, userName } = this.props;
     return (
       <AnswersForm
         template_id={templateId}
@@ -135,6 +135,8 @@ export default class CommentItem extends React.Component {
         userAvatar={userData.avatar}
         parentId={id}
         author_id={author_id}
+        userAnswerName={userName}
+        replyToAnswer
       />
     )
   };
