@@ -6,8 +6,8 @@ export default class ReviewTab extends React.Component {
   render () {
     return (
       <Reviews
-        templateId={55555}
-        accessToken={''}
+        templateId={51241}
+        accessToken={'ctwbIXaQWE1LCpm03JzX5dFV7VGXd4VGyeaWrlcS'}
       />
     )
   }
