@@ -10,7 +10,8 @@ import FormattedDate from '../formattedDate';
 import NotificationModeration from '../NotificationModeration/';
 import AnswersForm from './AnswersForm';
 import './Comments.less';
-import AnswerItem from "./AnswerItem";
+import AnswerItem from './AnswerItem';
+import HtmlToJsx from '../html-to-js';
 import {
   getResponseJSON
 } from 'utils/';
@@ -387,7 +388,7 @@ export default class CommentItem extends React.Component {
               </div>
               <FormattedDate timestamp={date} className="Comments__date"/>
             </div>
-            <div className="Comments__content t3" itemProp="text">{content}</div>
+            <div className="Comments__content t3" itemProp="text">{<HtmlToJsx html={content}/>}</div>
             {
               status === APPROVED &&
               <div className="Comments__describeFooter t3">

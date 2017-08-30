@@ -10,6 +10,7 @@ import FormattedDate from '../formattedDate';
 import NotificationModeration from '../NotificationModeration/';
 import AnswersForm from './AnswersForm';
 import CommentsForm from './CommentsForm';
+import HtmlToJsx from '../html-to-js';
 import './Comments.less';
 
 const APPROVED = 'approved';
@@ -290,7 +291,7 @@ export default class AnswerItem extends React.Component {
               </div>
               <FormattedDate timestamp={date} className="Comments__date"/>
             </div>
-            <div className="Comments__content t3" itemProp="text">{content}</div>
+            <div className="Comments__content t3" itemProp="text"><HtmlToJsx html={content}/></div>
             {
               status === APPROVED &&
               <div className="Comments__describeFooter t3">

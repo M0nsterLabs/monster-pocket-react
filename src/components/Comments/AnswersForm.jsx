@@ -166,8 +166,7 @@ export default class CommentsForm extends React.Component {
     const { template_id, userName, userMail, parentId, replyToAnswer, author_id } = this.props;
     let { userAnswerName } = this.props;
     event.preventDefault();
-    let textArea = document.getElementById('answer-text');
-    let commentText = textArea.value;
+    let commentText = this.textarea.input.inputElement.value;
 
     if (this.textValidationRule(commentText).isValid) {
 
@@ -175,8 +174,7 @@ export default class CommentsForm extends React.Component {
       if (replyToAnswer) {
         userAnswerName = userAnswerName || this.context.i18n.l("Anonymous");
         let reg = new RegExp(userAnswerName,"g");
-       // commentTextNew = commentText.replace(reg, "&lt;em&gt;$1&lt;/em&gt;");
-        commentTextNew = commentText.replace(reg, userAnswerName);
+        commentTextNew = commentText.replace(reg, "<strong>"+userAnswerName+"</strong>");
       }
 
       const commentsData = {
