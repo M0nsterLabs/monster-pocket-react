@@ -218,7 +218,7 @@ export default class Comments extends React.Component {
         usersData = [...usersData, ...data];
       })
       .then(() => {
-        comments.items.map((comment, i) => {
+        comments.items.map((comment) => {
           return (
             usersData.map((userData) => {
               if (comment.user_id != userData.id) return;

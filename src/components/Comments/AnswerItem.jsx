@@ -35,6 +35,7 @@ export default class AnswerItem extends React.Component {
     parentId: PropTypes.number,
     author: PropTypes.string,
     author_id: PropTypes.number,
+    avatar: PropTypes.string,
   };
 
   static contextTypes = {
@@ -259,7 +260,7 @@ export default class AnswerItem extends React.Component {
   };
 
   render () {
-    const { userMail, userName, userAvatar, content, date, access_token, status, author, id } = this.props;
+    const { userMail, userName, content, date, access_token, status, author, id, avatar } = this.props;
     const { showForm, voteUp, showModeratorMessage } = this.state;
     return (
     <div className="Answer" id={id}>
@@ -272,7 +273,7 @@ export default class AnswerItem extends React.Component {
       >
         <meta itemProp="upvoteCount" content = {voteUp} />
         <div className="Comments__avatar">
-          {this.showAvatar(userMail, userName, userAvatar)}
+          {this.showAvatar(userMail, userName, avatar)}
         </div>
         <div className="Comments__info">
           <div className="Comments__describe">

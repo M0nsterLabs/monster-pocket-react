@@ -9,11 +9,14 @@ import N1C from 'quark/lib/notifications/N1C';
 import FormattedDate from '../formattedDate';
 import NotificationModeration from '../NotificationModeration/';
 import AnswersForm from './AnswersForm';
-import CommentsForm from './CommentsForm';
 import './Comments.less';
 import AnswerItem from "./AnswerItem";
+import {
+  getResponseJSON
+} from 'utils/';
 
 const APPROVED = 'approved';
+const PENDING = 'pending';
 let comments = new ReviewsData(Config.reviewsServiceURL);
 
 export default class CommentItem extends React.Component {
@@ -48,6 +51,51 @@ export default class CommentItem extends React.Component {
     voteDown: this.props.voteDown,
     vote: this.props.vote,
     showAnswers: false,
+    usersIds: [],
+    usersData: [],
+    allAvatars: false,
+  };
+
+  getUsersIds = () => {
+    const { answers } = this.props;
+    const { showAnswers, usersIds } = this.state;
+    if (showAnswers && answers.length) {
+      answers.map((answer) => {
+        usersIds.push(answer.user_id);
+      });
+      this.getAvatars();
+    }
+  };
+
+  /**
+   * Get users avatars
+   */
+  getAvatars = () => {
+    const { answers } = this.props;
+    const { usersIds } = this.state;
+    let { usersData } = this.state;
+    fetch(`${Config.accountServiceURL}users/profiles?ids=${usersIds}`, {
+      method: 'get',
+    })
+      .then(getResponseJSON)
+      .then((data) => {
+        usersData = [...usersData, ...data];
+      })
+      .then(() => {
+        answers.map((answer) => {
+          return (
+            usersData.map((userData) => {
+              if (answer.user_id != userData.id) return;
+              answer['avatar'] = userData.avatar;
+            })
+          );
+        });
+      })
+      .then(() => {
+        this.setState({
+          allAvatars: true,
+        });
+      });
   };
 
   /**
@@ -149,7 +197,9 @@ export default class CommentItem extends React.Component {
     this.setState({
       showAnswers: !this.state.showAnswers,
       showFormAnswer: false,
-    })
+    }, () => {
+      this.getUsersIds();
+    });
   };
 
   /**
@@ -263,19 +313,27 @@ export default class CommentItem extends React.Component {
    * Show answers on comment
    */
   showAnswers = () => {
-    const { answers, access_token, templateId, userData, id, author_id } = this.props;
+    const { answers, access_token, templateId, userData, id, author_id, userAvatar, userMail } = this.props;
     if (_.isEmpty(answers)) return;
     return (
       <div className="Comments__answersWrap">
         {
           answers.map((answer) => {
+            let avatar = '';
+            let email = answer.user_email;
+            if (answer.avatar) {
+              avatar = answer.avatar;
+            } else if (answer.status === PENDING) {
+              avatar = userAvatar;
+              email = userMail;
+            }
             return (
               <div className="Comments__answers">
                 <AnswerItem
                   userName={answer.user_name}
-                  userMail={answer.user_email}
+                  userMail={email}
                   content={answer.content}
-                  avatar=""
+                  avatar={avatar}
                   date={answer.created_at}
                   // key={comment.id}
                   status={answer.status}
