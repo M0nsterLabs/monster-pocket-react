@@ -4,7 +4,7 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)",
+            "plural_forms": "nplurals=2; plural=(n != 1)",
             "lang": "uk"
          },
          "Review must contain at least 60 symbols": [
@@ -15,15 +15,6 @@
          ],
          "Please, write at least 60 symbols for review": [
             "Будь ласка, напишіть не менше 60 символів для відгуку"
-         ],
-         "Your opinion about this product": [
-            "Ваша думка щодо цього продукту"
-         ],
-         "Cancel": [
-            "Скасувати"
-         ],
-         "Post": [
-            "Опублікувати"
          ],
          "Thank you for your review!": [
             "Дякуємо за відгук!"
@@ -45,9 +36,6 @@
          ],
          "Press Ctrl + Enter to send your message": [
             "Натисніть Ctrl + Enter для відправки повідомлення"
-         ],
-         "Reply": [
-            "Відповісти"
          ],
          "Jan": [
             "Січ"
@@ -85,26 +73,8 @@
          "Dec": [
             "Груд"
          ],
-         "Now": [
-            "Зараз"
-         ],
-         "minutes ago": [
-            "хвилин тому"
-         ],
-         "hour ago": [
-            "годину тому"
-         ],
-         "hours ago": [
-            "годин тому"
-         ],
-         "Today at": [
-            "Сьогодні в"
-         ],
-         "Yesterday at": [
-            "Вчора в"
-         ],
-         "at": [
-            "в"
+         "Reply": [
+            "Відповісти"
          ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
             "Цей відгук видно тільки вам. Вибачте, але ми повинні перевірити його перед публікацією. Якщо відгук відповідає нашим правилам, він незабаром буде опублікований :)"
@@ -112,26 +82,8 @@
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
             "На жаль, ми не можемо опублікувати ваш відгук, тому що він не відповідає нашим правилам. Спробуйте написати ще раз."
          ],
-         "Only buyers of that product can rate it": [
-            "Лише покупці цього продукту можуть ставити йому оцінку"
-         ],
-         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Схоже, про цей продукт відсутні відгуки з вашої місцевості. Ви можете подивитися рецензії користувачів з інших країн."
-         ],
-         "It seems there are no reviews to this product.": [
-            "Здається, про цей продукт відгуки відсутні."
-         ],
-         "View ": [
-            "Подивитися"
-         ],
-         "REVIEWS & RATINGS": [
-            "ВІДГУКИ ТА ОЦІНКИ"
-         ],
-         " REVIEWS & RATINGS": [
-            " ВІДГУКИ ТА ОЦІНКИ"
-         ],
-         "Show more": [
-            "Показати більше"
+         "Reviews & Ratings": [
+            "Відгуки та оцінки"
          ],
          "Home": [
             "На головну"
@@ -142,8 +94,113 @@
          "Social test": [
             ""
          ],
-         "Reviews & Ratings": [
-            "Відгуки та оцінки"
+         "Only buyers of that product can rate it": [
+            "Лише покупці цього продукту можуть ставити йому оцінку"
+         ],
+         "Show more": [
+            "Показати більше"
+         ],
+         "Your opinion about this product": [
+            "Ваша думка щодо цього продукту"
+         ],
+         "Cancel": [
+            "Скасувати"
+         ],
+         "Post": [
+            "Опублікувати"
+         ],
+         "You can't estimate your own review": [
+            "Ви не можете оцінити свій відгук"
+         ],
+         "Please log in at first": [
+            "Будь ласка, увійдіть спершу на сайт"
+         ],
+         "Helpful": [
+            "Корисно"
+         ],
+         "Useless": [
+            "Некорисно"
+         ],
+         "Newest": [
+            "Нові"
+         ],
+         "Most helpful": [
+            "Дуже корисно"
+         ],
+         "Top ratings": [
+            "Найкращі оцінки"
+         ],
+         "Low ratings": [
+            "Низькі оцінки"
+         ],
+         "Show first:": [
+            "Спершу показати:"
+         ],
+         "STATISTICS": [
+            "СТАТИСТИКА:"
+         ],
+         "Average rating": [
+            "Середня оцінка"
+         ],
+         "Product rating": [
+            "Оцінка товару"
+         ],
+         "INCLUDES": [
+            "ВКЛЮЧАЄ"
+         ],
+         "Today": [
+            "Сьогодні"
+         ],
+         "Yesterday": [
+            "Вчора"
+         ],
+         "Popup test": [
+            ""
+         ],
+         "Choose %s subscription": [
+            "Оберіть %s підписку"
+         ],
+         "per month, paid annually": [
+            "в місяць, оплачується щорічно"
+         ],
+         "templates": [
+            "шаблонів"
+         ],
+         "you`ll be charged once a year": [
+            "з вас буде стягуватися раз на рік"
+         ],
+         "Unlimited": [
+            "Без обмежень"
+         ],
+         "68% of customers choose this subscription": [
+            "68% клієнтів обирають цей тариф"
+         ],
+         "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
+            "Ви зможете завантажувати певну кількість із сотень Shopify шаблонів в рік!"
+         ],
+         "What’s going to happen if the subscription expires but there are still downloads left?": [
+            "Що станеться, якщо термін дії підписки закінчиться, але завантаження ще залишаться?"
+         ],
+         "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.": [
+            "Коли термін дії підписки закінчиться, ви більше не зможете завантажувати продукти, поки не оплатили підписку. В такому випадку вам доведеться купити їх за повною ціною. %(newString)s На жаль, невикористані завантаження будуть недоступні."
+         ],
+         "What’s going to happen if downloads are up before the subscription expires?": [
+            "Що станеться, якщо завантаження вичерпаються до закінчення терміну підписки?"
+         ],
+         "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.": [
+            "В цьому випадку підписка буде автоматично завершена. Ви зможете купити нову і отримати додаткові завантаження, в іншому випадку вам доведеться купувати продукти за повною ціною."
+         ],
+         "Contact us in chat": [
+            "Зв'яжіться з нами в чаті"
+         ],
+         "Still have questions? %(contactUs)s, we will help with the choice!": [
+            "Залишилися питання? %(contactUs)s, ми допоможемо з вибором!"
+         ],
+         "%s savings": [
+            "%s економії"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Оберіть тариф, щоб отримати будь-який shopify продукт дешевше до 99%"
          ]
       }
    }

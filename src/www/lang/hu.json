@@ -16,15 +16,6 @@
          "Please, write at least 60 symbols for review": [
             "Kérjük, írjon legalább 60 karaktert az értékeléshez"
          ],
-         "Your opinion about this product": [
-            "Az Ön véleménye"
-         ],
-         "Cancel": [
-            "Törlés"
-         ],
-         "Post": [
-            "Hozzászólás"
-         ],
          "Thank you for your review!": [
             "Köszönjük az értékelését!"
          ],
@@ -45,9 +36,6 @@
          ],
          "Press Ctrl + Enter to send your message": [
             "Nyomja meg a Ctrl+Enter gombokat az üzenet elküldéséhez"
-         ],
-         "Reply": [
-            "Válasz"
          ],
          "Jan": [
             "Jan."
@@ -85,26 +73,8 @@
          "Dec": [
             "Dec."
          ],
-         "Now": [
-            "Most"
-         ],
-         "minutes ago": [
-            "perccel ezelőtt"
-         ],
-         "hour ago": [
-            "órával ezelőtt"
-         ],
-         "hours ago": [
-            "órával ezelőtt"
-         ],
-         "Today at": [
-            "Ma"
-         ],
-         "Yesterday at": [
-            "Tegnap"
-         ],
-         "at": [
-            ""
+         "Reply": [
+            "Válasz"
          ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
             "Az értékelést csak Ön láthatja. Sajnáljuk, de a közzététele előtt ellenőrizünk kell az értékelést. Ha az Ön értékelése megfelel a szabályainknak, hamarosan közzétesszük :)"
@@ -112,38 +82,125 @@
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
             "Sajnos nem tudjuk közzétenni az értékelését, mert nem felel meg az irányelveinknek. Kérjük, próbálkozzon újra egy másik értékeléssel."
          ],
-         "Only buyers of that product can rate it": [
-            "Ezt csak a terméket megvásárló felhasználók értékelhetik"
-         ],
-         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Úgy tűnik, nincs magyar nyelvű vélemény.⏎\nJavasoljuk a más nyelvű vélemények megtekintését."
-         ],
-         "It seems there are no reviews to this product.": [
-            "Úgy tűnik, nincs vélemény erre a termékre."
-         ],
-         "View ": [
-            "Nézet "
-         ],
-         "REVIEWS & RATINGS": [
-            "VÉLEMÉNYEK ÉS ÉRTÉKELÉSEK"
-         ],
-         " REVIEWS & RATINGS": [
-            " VÉLEMÉNYEK ÉS ÉRTÉKELÉSEK"
-         ],
-         "Show more": [
-            "Több megjelenítése"
+         "Reviews & Ratings": [
+            "Vélemények és értékelések"
          ],
          "Home": [
             "Főoldal"
          ],
          "Mascot test": [
-            ""
+            "Mascot teszt"
          ],
          "Social test": [
-            ""
+            "Szociális teszt"
          ],
-         "Reviews & Ratings": [
-            "Vélemények és értékelések"
+         "Only buyers of that product can rate it": [
+            "Ezt csak a terméket megvásárló felhasználók értékelhetik"
+         ],
+         "Show more": [
+            "Több megjelenítése"
+         ],
+         "Your opinion about this product": [
+            "Az Ön véleménye"
+         ],
+         "Cancel": [
+            "Törlés"
+         ],
+         "Post": [
+            "Hozzászólás"
+         ],
+         "You can't estimate your own review": [
+            "Ön nem értékelheti a saját véleményét"
+         ],
+         "Please log in at first": [
+            "Kérjük, előszőr jelentkezzen be"
+         ],
+         "Helpful": [
+            "Hasznos"
+         ],
+         "Useless": [
+            "Hasztalan"
+         ],
+         "Newest": [
+            "Legújabb"
+         ],
+         "Most helpful": [
+            "Leghasznosabb"
+         ],
+         "Top ratings": [
+            "Top értékelések"
+         ],
+         "Low ratings": [
+            "Alacsony értékelések"
+         ],
+         "Show first:": [
+            "Megjelenítés elsőként:"
+         ],
+         "STATISTICS": [
+            "STATISZTIKA"
+         ],
+         "Average rating": [
+            "Átlagos értékelés"
+         ],
+         "Product rating": [
+            "Termék értékelése"
+         ],
+         "INCLUDES": [
+            "TARTALMAZ"
+         ],
+         "Today": [
+            "Ma"
+         ],
+         "Yesterday": [
+            "Tegnap"
+         ],
+         "Popup test": [
+            "Popup teszt"
+         ],
+         "Choose %s subscription": [
+            "Válassza a %s előfizetést"
+         ],
+         "per month, paid annually": [
+            "per hónap, évente fizetett"
+         ],
+         "templates": [
+            "sablonok"
+         ],
+         "you`ll be charged once a year": [
+            "évente egyszer kell fizetnie"
+         ],
+         "Unlimited": [
+            "Korlátlan"
+         ],
+         "68% of customers choose this subscription": [
+            "Az ügyfelek 68% ezt az előfizetést válasszák"
+         ],
+         "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
+            "Ön képes lesz arra, hogy évente a Shopify sablonok százai közül egy bizonyos mennyiséget letöltsön!"
+         ],
+         "What’s going to happen if the subscription expires but there are still downloads left?": [
+            "Mi történik, ha lejárt az előfizetés, de még mindig maradtak letöltések?"
+         ],
+         "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.": [
+            "Miután lejárt az előfizetés, többé nem lesz lehetősége letölteni a termékeket, ha nem újítsa meg az előfizetést. Az ellenkező esetben, Ön teljes áron megvásárolhatja a termékeket. %(newString)s Sajnos a nem használt letöltések elérhetetlenek lesznek."
+         ],
+         "What’s going to happen if downloads are up before the subscription expires?": [
+            "Mi fog történni, ha van aktív letöltés az előfizetés lejárata előtt?"
+         ],
+         "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.": [
+            "Ebben az esetben az előfizetés automatikusan befejeződik. Önnek lehetősége lesz egy új megkezdésére, hogy extra letöltéseket tudjon kapni. Ellenkező esetben a termékeket teljes áron vásárolhatja meg."
+         ],
+         "Contact us in chat": [
+            "Lépjen chaten kapcsolatba velünk"
+         ],
+         "Still have questions? %(contactUs)s, we will help with the choice!": [
+            "Még mindig kérdése van? %(contactUs)s, segítünk a választással!"
+         ],
+         "%s savings": [
+            "%s spórolás"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Válasszon tervet és szerezzen shopify termékeket akár 99% olcsóbban"
          ]
       }
    }

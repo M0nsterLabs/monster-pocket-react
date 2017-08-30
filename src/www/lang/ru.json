@@ -4,7 +4,7 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)",
+            "plural_forms": "nplurals=2; plural=(n != 1)",
             "lang": "ru"
          },
          "Review must contain at least 60 symbols": [
@@ -15,15 +15,6 @@
          ],
          "Please, write at least 60 symbols for review": [
             "Пожалуйста, напишите не менее 60 символов для отзыва"
-         ],
-         "Your opinion about this product": [
-            "Ваше мнение об этом продукте"
-         ],
-         "Cancel": [
-            "Отменить"
-         ],
-         "Post": [
-            "Опубликовать"
          ],
          "Thank you for your review!": [
             "Благодарим за отзыв!"
@@ -45,9 +36,6 @@
          ],
          "Press Ctrl + Enter to send your message": [
             "Нажмите Ctrl + Enter для отправки сообщения"
-         ],
-         "Reply": [
-            "Ответить"
          ],
          "Jan": [
             "Янв"
@@ -85,26 +73,8 @@
          "Dec": [
             "Дек"
          ],
-         "Now": [
-            "Сейчас"
-         ],
-         "minutes ago": [
-            "минут назад"
-         ],
-         "hour ago": [
-            "час назад"
-         ],
-         "hours ago": [
-            "часов назад"
-         ],
-         "Today at": [
-            "Сегодня в"
-         ],
-         "Yesterday at": [
-            "Вчера в"
-         ],
-         "at": [
-            "в"
+         "Reply": [
+            "Ответить"
          ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
             "Этот отзыв виден только вам. Извините, но мы должны проверить его перед публикацией. Если отзыв соответствует нашим правилам, он вскоре будет опубликован :)"
@@ -112,26 +82,8 @@
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
             "К сожалению, мы не можем опубликовать ваш отзыв, потому что он не соответствует нашим правилам. Попробуйте написать еще раз."
          ],
-         "Only buyers of that product can rate it": [
-            "Только купившие этот продукт могут ставить ему оценку"
-         ],
-         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            "Похоже, об этом продукте отсутствуют отзывы из вашей местности. Вы можете посмотреть рецензии пользователей из других стран."
-         ],
-         "It seems there are no reviews to this product.": [
-            "Кажется, об этом продукте отзывы отсутствуют."
-         ],
-         "View ": [
-            "Посмотреть"
-         ],
-         "REVIEWS & RATINGS": [
-            "ОТЗЫВЫ И ОЦЕНКИ"
-         ],
-         " REVIEWS & RATINGS": [
-            " ОТЗЫВЫ И ОЦЕНКИ"
-         ],
-         "Show more": [
-            "Показать больше"
+         "Reviews & Ratings": [
+            "Отзывы и оценки"
          ],
          "Home": [
             "На главную"
@@ -142,8 +94,113 @@
          "Social test": [
             ""
          ],
-         "Reviews & Ratings": [
-            "Отзывы и оценки"
+         "Only buyers of that product can rate it": [
+            "Только купившие этот продукт могут ставить ему оценку"
+         ],
+         "Show more": [
+            "Показать больше"
+         ],
+         "Your opinion about this product": [
+            "Ваше мнение об этом продукте"
+         ],
+         "Cancel": [
+            "Отменить"
+         ],
+         "Post": [
+            "Опубликовать"
+         ],
+         "You can't estimate your own review": [
+            "Вы не можете оценить свой собственный отзыв"
+         ],
+         "Please log in at first": [
+            "Пожалуйста, сначала войдите на сайт"
+         ],
+         "Helpful": [
+            "Полезно"
+         ],
+         "Useless": [
+            "Безполезно"
+         ],
+         "Newest": [
+            "Самые новые"
+         ],
+         "Most helpful": [
+            "Весьма полезно"
+         ],
+         "Top ratings": [
+            "Высокая оценка"
+         ],
+         "Low ratings": [
+            "Низкая оценка"
+         ],
+         "Show first:": [
+            "Показывать сначала:"
+         ],
+         "STATISTICS": [
+            "СТАТИСТИКА:"
+         ],
+         "Average rating": [
+            "Средняя оценка"
+         ],
+         "Product rating": [
+            "Оценка продукта"
+         ],
+         "INCLUDES": [
+            "ВКЛЮЧАЕТ:"
+         ],
+         "Today": [
+            "Сегодня"
+         ],
+         "Yesterday": [
+            "Вчера"
+         ],
+         "Popup test": [
+            ""
+         ],
+         "Choose %s subscription": [
+            "Выберите %s подписку"
+         ],
+         "per month, paid annually": [
+            "в месяц, оплачивается ежегодно"
+         ],
+         "templates": [
+            "шаблонов"
+         ],
+         "you`ll be charged once a year": [
+            "с вас будет взиматься раз в год"
+         ],
+         "Unlimited": [
+            "Без ограничений"
+         ],
+         "68% of customers choose this subscription": [
+            "68% клиентов выбирают эту подписку"
+         ],
+         "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
+            "Вы сможете загружать определенное количество из сотен Shopify шаблонов в год!"
+         ],
+         "What’s going to happen if the subscription expires but there are still downloads left?": [
+            "Что произойдет, если срок действия подписки истечет, но загрузки еще останутся?"
+         ],
+         "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.": [
+            "Когда срок действия подписки истечет, вы больше не сможете скачать продукты, пока не оплатите подписку. В таком случае вам придется купить их по полной цене. %(newString)s К сожалению, неиспользованные загрузки будут недоступны."
+         ],
+         "What’s going to happen if downloads are up before the subscription expires?": [
+            "Что произойдет, если загрузки закончатся до истечения срока подписки?"
+         ],
+         "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.": [
+            "В этом случае подписка будет автоматически завершена. Вы сможете купить новую и получить дополнительные загрузки, в противном случае вам придется приобретать продукты по полной цене."
+         ],
+         "Contact us in chat": [
+            "Свяжитесь с нами в чате"
+         ],
+         "Still have questions? %(contactUs)s, we will help with the choice!": [
+            "Остались вопросы? %(contactUs)s, мы поможем с выбором!"
+         ],
+         "%s savings": [
+            "%s экономии"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Выберите тариф, чтобы получить любой shopify продукт дешевле до 99%"
          ]
       }
    }

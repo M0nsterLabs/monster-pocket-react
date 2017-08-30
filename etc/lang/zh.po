@@ -1,22 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
 #
-# Translators:
-#   <>, 2017.
+# Translators
+#
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2017-08-17 03:33:46-0400\n"
 "Project-Id-Version: Template Monster\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-14 10:38+0300\n"
-"PO-Revision-Date: 2017-07-14 07:46+0000\n"
-"Last-Translator: vadimp <>\n"
-"Language-Team: Chinese (China) (http://example.com/transifex/projects/p/tm/team/zh_CN/)\n"
+"Resource-Id-Version: Plasma Pocket React\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Review must contain at least 60 symbols"
 msgstr "评论内容必须大于60个字符（30个汉字）"
@@ -27,21 +21,10 @@ msgstr "评论内容不能包含特殊字符"
 msgid "Please, write at least 60 symbols for review"
 msgstr "请至少填入60个字符（30个汉字）作为评论"
 
-msgid "Your opinion about this product"
-msgstr "关于此产品，请给出您的评价。"
-
-msgid "Cancel"
-msgstr "拒绝"
-
-msgid "Post"
-msgstr "接受"
-
 msgid "Thank you for your review!"
 msgstr "谢谢您的评论！"
 
-msgid ""
-"We've generated your one-time promo-code and within 10 minutes it will reach"
-" your email:"
+msgid "We\'ve generated your one-time promo-code and within 10 minutes it will reach your email:"
 msgstr "您的一次性促销代码已经生成，它会在10分钟内被发送至您的邮箱。"
 
 msgid "on all our themes"
@@ -49,18 +32,6 @@ msgstr "全场主题"
 
 msgid "Please rate the product:"
 msgstr "请对产品做出您的评价："
-
-msgid "STATISTICS"
-msgstr ""
-
-msgid "Average rating"
-msgstr ""
-
-msgid "Product rating"
-msgstr ""
-
-msgid "INCLUDES"
-msgstr ""
 
 msgid "Type your answer here"
 msgstr "请在这里输入答复"
@@ -70,21 +41,6 @@ msgstr "发送信息"
 
 msgid "Press Ctrl + Enter to send your message"
 msgstr "请同时按住Ctrl+Enter键以发送信息"
-
-msgid "Reply"
-msgstr "回复"
-
-msgid "You can't estimate your own review"
-msgstr ""
-
-msgid "Please log in at first"
-msgstr ""
-
-msgid "Helpful"
-msgstr ""
-
-msgid "Useless"
-msgstr ""
 
 msgid "Jan"
 msgstr "一月"
@@ -122,74 +78,17 @@ msgstr "十一月"
 msgid "Dec"
 msgstr "十二月"
 
-msgid "Now"
-msgstr "现在"
+msgid "Reply"
+msgstr "回复"
 
-msgid "minutes ago"
-msgstr "几分钟前"
-
-msgid "hour ago"
-msgstr "一小时前"
-
-msgid "hours ago"
-msgstr "数小时前"
-
-msgid "Today at"
-msgstr "今天"
-
-msgid "Yesterday at"
-msgstr "明天"
-
-msgid "at"
-msgstr "在"
-
-msgid ""
-"The review is visible only for you. Sorry, but we need to check your review "
-"before publication. In case your review corresponds to our rules, it will be"
-" published soon :)"
+msgid "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)"
 msgstr "此评论目前仅对您可见。依照公司相关规定，我们会对您的评论内容进行相关审查，给您带来不便，敬请谅解。若您的评论通过审查，则会被很快发表:)"
 
-msgid ""
-"Unfortunately, we can’t post your review because it doesn’t meet our "
-"guidelines, please try again with another review."
+msgid "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review."
 msgstr "对不起，您的评论未能通过审查，我们不能对其进行发表，请您修改后再次申请相关审查，谢谢您的合作！"
 
-msgid "Only buyers of that product can rate it"
-msgstr "仅限此产品购买者对其进行评价"
-
-msgid ""
-"It seems there are no reviews to this product from your locale.\n"
-"You can look at the reviews from other locales."
-msgstr ""
-"您所在的服务区未发现相关此产品的任何评价。⏎\n"
-"您可查看其他服务区的相关评价。"
-
-msgid "It seems there are no reviews to this product."
-msgstr "未发现相关此产品的任何评价。"
-
-msgid "View "
-msgstr "查看"
-
-msgid "REVIEWS & RATINGS"
+msgid "Reviews & Ratings"
 msgstr "评论与评分"
-
-msgid "Newest"
-msgstr ""
-
-msgid "Most helpful"
-msgstr ""
-
-msgid "Top ratings"
-msgstr ""
-
-msgid "Low ratings"
-msgstr ""
-
-msgid "Show first:"
-msgstr ""
-
-msgid "Show more"
-msgstr "查看更多"
 
 msgid "Home"
 msgstr "主页"
@@ -200,6 +99,111 @@ msgstr "Mascot test"
 msgid "Social test"
 msgstr "Social test"
 
-msgid "Reviews & Ratings"
-msgstr "评论与评分"
+msgid "Only buyers of that product can rate it"
+msgstr "仅限此产品购买者对其进行评价"
+
+msgid "Show more"
+msgstr "查看更多"
+
+msgid "Your opinion about this product"
+msgstr "关于此产品，请给出您的评价。"
+
+msgid "Cancel"
+msgstr "拒绝"
+
+msgid "Post"
+msgstr "接受"
+
+msgid "You can\'t estimate your own review"
+msgstr "您无法评估自己的评论"
+
+msgid "Please log in at first"
+msgstr "请先登录"
+
+msgid "Helpful"
+msgstr "有助力"
+
+msgid "Useless"
+msgstr "无用"
+
+msgid "Newest"
+msgstr "最新"
+
+msgid "Most helpful"
+msgstr "最有帮助"
+
+msgid "Top ratings"
+msgstr "最高评分"
+
+msgid "Low ratings"
+msgstr "最低评级"
+
+msgid "Show first:"
+msgstr "显示第一："
+
+msgid "STATISTICS"
+msgstr "统计"
+
+msgid "Average rating"
+msgstr "平均评级"
+
+msgid "Product rating"
+msgstr "产品评级"
+
+msgid "INCLUDES"
+msgstr "包括"
+
+msgid "Today"
+msgstr "今天"
+
+msgid "Yesterday"
+msgstr "昨天"
+
+msgid "Popup test"
+msgstr "弹出式测试"
+
+msgid "Choose %s subscription"
+msgstr "选择 %s 订阅"
+
+msgid "per month, paid annually"
+msgstr "每月、每年可各复一次"
+
+msgid "templates"
+msgstr "模板"
+
+msgid "you`ll be charged once a year"
+msgstr "您一年被收取一次费用。"
+
+msgid "Unlimited"
+msgstr "无限期"
+
+msgid "68% of customers choose this subscription"
+msgstr "这里有68%客户在选择订阅"
+
+msgid "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!"
+msgstr "在此一年之内，您任意时间下载年度数百个优质Shopify模板！"
+
+msgid "What’s going to happen if the subscription expires but there are still downloads left?"
+msgstr "如果您订阅到期，但这里仍有下载，请问会发生什么呢？"
+
+msgid "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable."
+msgstr "当订阅到期时，您将无法下载产品，除非您付款，否则您以全价购买它。 不幸的是，%(newString)s 将无法使用，并且购买我公司产品。"
+
+msgid "What’s going to happen if downloads are up before the subscription expires?"
+msgstr "如果在订阅到期之前，下载模板无法进行，请问会发生什么？"
+
+msgid "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price."
+msgstr "以此种情况，订阅将自动结束。 一种方式，您可继续订阅新的或获得另一种下载方式；另一种方式，您可全额购买产品。"
+
+msgid "Contact us in chat"
+msgstr "联系我们聊天"
+
+msgid "Still have questions? %(contactUs)s, we will help with the choice!"
+msgstr "您还有问题吗？%(contactUs)s，我公司全力帮您的!"
+
+msgid "%s savings"
+msgstr "%s 储蓄"
+
+msgid "Choose the plan and get any shopify product cheaper up to 99%"
+msgstr "请您选择计划：获得便宜高达99％的任何shopify产品"
 

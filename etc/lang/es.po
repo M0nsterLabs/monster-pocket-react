@@ -1,21 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
 #
-# Translators:
-#   <>, 2017.
+# Translators
+#
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2017-08-17 03:33:59-0400\n"
 "Project-Id-Version: Template Monster\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-14 10:38+0300\n"
-"PO-Revision-Date: 2017-07-17 07:32+0000\n"
-"Last-Translator: tmes <>\n"
-"Language-Team: Spanish (Castilian) (http://example.com/transifex/projects/p/tm/team/es/)\n"
+"Resource-Id-Version: Plasma Pocket React\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Review must contain at least 60 symbols"
@@ -27,42 +21,17 @@ msgstr "Por favor, elimine los símbolos especiales"
 msgid "Please, write at least 60 symbols for review"
 msgstr "Por favor, escriba al menos 60 símbolos"
 
-msgid "Your opinion about this product"
-msgstr "Su comentario sobre nuestro producto"
-
-msgid "Cancel"
-msgstr "Cancelar"
-
-msgid "Post"
-msgstr "Publicar"
-
 msgid "Thank you for your review!"
 msgstr "¡Gracias por su comentario!"
 
-msgid ""
-"We've generated your one-time promo-code and within 10 minutes it will reach"
-" your email:"
-msgstr ""
-"Hemos generado un código promocional de un solo uso y dentro de 10 minutos "
-"este código será enviado a su dirección de correo electrónico:"
+msgid "We\'ve generated your one-time promo-code and within 10 minutes it will reach your email:"
+msgstr "Hemos generado un código promocional de un solo uso y dentro de 10 minutos este código será enviado a su dirección de correo electrónico:"
 
 msgid "on all our themes"
 msgstr "en todos nuestros productos"
 
 msgid "Please rate the product:"
 msgstr "Por favor, califique el producto"
-
-msgid "STATISTICS"
-msgstr "ESTADÍSTICAS"
-
-msgid "Average rating"
-msgstr "Evaluación promedia"
-
-msgid "Product rating"
-msgstr "Evaluación del producto"
-
-msgid "INCLUDES"
-msgstr "INCLUYE"
 
 msgid "Type your answer here"
 msgstr "Escriba su respuesta aquí"
@@ -72,21 +41,6 @@ msgstr "Enviar"
 
 msgid "Press Ctrl + Enter to send your message"
 msgstr "Ctrl + Intro para enviar su mensaje"
-
-msgid "Reply"
-msgstr "Responder"
-
-msgid "You can't estimate your own review"
-msgstr "No se le permite evaluar su propia opinión"
-
-msgid "Please log in at first"
-msgstr "Por favor, primero inicie sesión"
-
-msgid "Helpful"
-msgstr "De gran ayuda"
-
-msgid "Useless"
-msgstr "Inútil"
 
 msgid "Jan"
 msgstr "Enero"
@@ -124,61 +78,53 @@ msgstr "Noviembre"
 msgid "Dec"
 msgstr "Deciembre"
 
-msgid "Now"
-msgstr "Ahora"
+msgid "Reply"
+msgstr "Responder"
 
-msgid "minutes ago"
+msgid "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)"
+msgstr "Por el momento, sólo Usted puede ver este comentario. Lo sentimos, pero necesitamos revisarlo antes de publicar en el sitio. En caso de que cumple nuestras reglas, se publicará muy pronto :)"
+
+msgid "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review."
+msgstr "Desafortunadamente, no podemos publicar su comentario porque no cumple nuestras reglas. Por favor, inténtelo de nuevo y envíe otra reseña."
+
+msgid "Reviews & Ratings"
+msgstr "Opiniones y comentarios"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Mascot test"
 msgstr ""
 
-msgid "hour ago"
+msgid "Social test"
 msgstr ""
-
-msgid "hours ago"
-msgstr ""
-
-msgid "Today at"
-msgstr "Hoy a las"
-
-msgid "Yesterday at"
-msgstr "Ayer a las"
-
-msgid "at"
-msgstr "a las"
-
-msgid ""
-"The review is visible only for you. Sorry, but we need to check your review "
-"before publication. In case your review corresponds to our rules, it will be"
-" published soon :)"
-msgstr ""
-"Por el momento, sólo Usted puede ver este comentario. Lo sentimos, pero "
-"necesitamos revisarlo antes de publicar en el sitio. En caso de que cumple "
-"nuestras reglas, se publicará muy pronto :)"
-
-msgid ""
-"Unfortunately, we can’t post your review because it doesn’t meet our "
-"guidelines, please try again with another review."
-msgstr ""
-"Desafortunadamente, no podemos publicar su comentario porque no cumple "
-"nuestras reglas. Por favor, inténtelo de nuevo y envíe otra reseña."
 
 msgid "Only buyers of that product can rate it"
 msgstr "Sólo los compradores de ese producto pueden calificarlo"
 
-msgid ""
-"It seems there are no reviews to this product from your locale.\n"
-"You can look at the reviews from other locales."
-msgstr ""
-"Parece que este producto no tiene comentarios en su idioma.\n"
-"Usted puede echar un vistazo a los comentarios en otros idiomas."
+msgid "Show more"
+msgstr "Más info"
 
-msgid "It seems there are no reviews to this product."
-msgstr "Este producto todavía no tiene comentarios."
+msgid "Your opinion about this product"
+msgstr "Su comentario sobre nuestro producto"
 
-msgid "View "
-msgstr "Ver"
+msgid "Cancel"
+msgstr "Cancelar"
 
-msgid "REVIEWS & RATINGS"
-msgstr "OPINIONES Y COMENTARIOS"
+msgid "Post"
+msgstr "Publicar"
+
+msgid "You can\'t estimate your own review"
+msgstr "No se le permite evaluar su propia opinión"
+
+msgid "Please log in at first"
+msgstr "Por favor, primero inicie sesión"
+
+msgid "Helpful"
+msgstr "De gran ayuda"
+
+msgid "Useless"
+msgstr "Inútil"
 
 msgid "Newest"
 msgstr "El más nuevo"
@@ -195,18 +141,69 @@ msgstr "Evaluaciones bajas"
 msgid "Show first:"
 msgstr "Primero mostrar:"
 
-msgid "Show more"
-msgstr "Más info"
+msgid "STATISTICS"
+msgstr "ESTADÍSTICAS"
 
-msgid "Home"
-msgstr "Inicio"
+msgid "Average rating"
+msgstr "Evaluación promedia"
 
-msgid "Mascot test"
+msgid "Product rating"
+msgstr "Evaluación del producto"
+
+msgid "INCLUDES"
+msgstr "INCLUYE"
+
+msgid "Today"
+msgstr "Hoy"
+
+msgid "Yesterday"
+msgstr "Ayer"
+
+msgid "Popup test"
 msgstr ""
 
-msgid "Social test"
-msgstr ""
+msgid "Choose %s subscription"
+msgstr "Elegir suscripción %s"
 
-msgid "Reviews & Ratings"
-msgstr "Opiniones y comentarios"
+msgid "per month, paid annually"
+msgstr "por mes, se paga anualmente"
+
+msgid "templates"
+msgstr "plantillas"
+
+msgid "you`ll be charged once a year"
+msgstr "se le cobrará una vez al año"
+
+msgid "Unlimited"
+msgstr "Ilimitadas"
+
+msgid "68% of customers choose this subscription"
+msgstr "el 68% de los clientes elige esta suscripción"
+
+msgid "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!"
+msgstr "Se le permite descargar una cierta cantidad de plantillas de la colección amplia de temas Shopify durante el año."
+
+msgid "What’s going to happen if the subscription expires but there are still downloads left?"
+msgstr "¿Qué va a pasar si la suscripción caduca, pero aún quedan descargas?"
+
+msgid "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable."
+msgstr "Cuando la suscripción caduca, ya no podrá descargar productos a menos que pague por suscripción, de lo contrario tendrá que comprarlos a los precios completos. %(newString)s Desafortunadamente, las descargas no utilizadas no estarán disponibles."
+
+msgid "What’s going to happen if downloads are up before the subscription expires?"
+msgstr "¿Qué va a pasar en caso de que no haya descargas disponibles antes de que caduque la suscripción?"
+
+msgid "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price."
+msgstr "En este caso, la suscripción caduca automáticamente. Usted podrá adquirir una nueva y obtener descargas adicionales, de lo contrario, tendrá que comprar productos a los precios completos."
+
+msgid "Contact us in chat"
+msgstr "Póngase en contacto a través del chat"
+
+msgid "Still have questions? %(contactUs)s, we will help with the choice!"
+msgstr "¿Todavía tiene preguntas? %(contactUs)s y vamos a ayudarle con la elección!"
+
+msgid "%s savings"
+msgstr "se ahorra %s"
+
+msgid "Choose the plan and get any shopify product cheaper up to 99%"
+msgstr "Elija un plan y obtenga cualquier producto Shopify con un descuento de hasta el 99%"
 
