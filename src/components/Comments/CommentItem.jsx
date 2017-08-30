@@ -289,7 +289,9 @@ export default class CommentItem extends React.Component {
           </div>
           {this.showModeratorMessage()}
           {showForm && this.renderForm()}
-          {showAnswers && this.showAnswers()}
+          <div className="comments__answers-wrap">
+            {showAnswers && this.showAnswers()}
+          </div>
         </div>
       </article>
     );
