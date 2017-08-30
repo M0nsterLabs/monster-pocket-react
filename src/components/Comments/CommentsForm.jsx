@@ -226,14 +226,16 @@ export default class CommentsForm extends React.Component {
               notificationType="N2B"
               value={commentValue}
             />
-            <B1A
-              className="CommentsForm__button"
-              type="submit"
-              icon="message tm-icon"
-            >
-              {this.context.i18n.l("Send Message")}
-            </B1A>
-            <span className="CommentsForm__text t6">{this.context.i18n.l("Press Ctrl + Enter to send your message")}</span>
+            <div className="CommentsForm__action">
+              <B1A
+                className="CommentsForm__button"
+                type="submit"
+                icon="message tm-icon"
+              >
+                {this.context.i18n.l("Send Message")}
+              </B1A>
+              <span className="CommentsForm__text t6">{this.context.i18n.l("Press Ctrl + Enter to send your message")}</span>
+            </div>
           </form>
         </div>
         { showComment && this.showComments() }
