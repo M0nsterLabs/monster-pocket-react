@@ -199,7 +199,7 @@ export default class CommentsForm extends React.Component {
    * @returns {Array}
    */
   showComments = () => {
-    const { access_token, template_id } = this.props;
+    const { access_token, template_id, userAvatar, userMail } = this.props;
     const { comments } = this.state;
     comments.items.sort(function(a, b) {
       return b.date - a.date;
@@ -210,9 +210,9 @@ export default class CommentsForm extends React.Component {
             <div className="Comments__itemNew">
               <CommentItem
                 userName={comment.user_name}
-                userMail={comment.user_email}
+                userMail={userMail}
                 content={comment.content}
-                avatar=""
+                avatar={userAvatar}
                 date={comment.date}
                 status={comment.status}
                 access_token={access_token}

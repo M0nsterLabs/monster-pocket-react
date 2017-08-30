@@ -94,13 +94,19 @@ export default class Comments extends React.Component {
     if (comments.items) {
       return (
         comments.items.map((comment) => {
+          let avatar = '';
+          let email = comment.user_email;
+          if (comment.status === PENDING) {
+            avatar = user.avatar;
+            email = user.mail;
+          }
           let isUserComment = accessToken && parseInt(user.id) === parseInt(comment.user_id);
           return (
             <CommentItem
               userName={comment.user_name}
-              userMail={comment.user_email}
+              userMail={email}
               content={comment.content}
-              avatar=""
+              avatar={avatar}
               date={comment.created_at}
               // key={comment.id}
               status={comment.status}
@@ -365,7 +371,7 @@ export default class Comments extends React.Component {
         this.setState({
           user: {
             id: data.id,
-            name: data.userName,
+            name: data.userName || this.context.i18n.l('Anonymous'),
             avatar: data.avatar,
             mail: data.login,
           }
