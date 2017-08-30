@@ -64,7 +64,7 @@ export default class CommentsForm extends React.Component {
     return (
       <Avatar
         email     = {email ? email : ''}
-        name      = {name ? name : this.context.i18n.l('User')}
+        name      = {name ? name : this.context.i18n.l('Anonymous')}
         size      = {40}
         src       = {avatar ? avatar : ''}
         isRounded = {true}

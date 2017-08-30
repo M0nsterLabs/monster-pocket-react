@@ -60,7 +60,7 @@ export default class CommentsForm extends React.Component {
     return (
       <Avatar
         email     = {email ? email : ''}
-        name      = {name ? name : this.context.i18n.l('User')}
+        name      = {name ? name : this.context.i18n.l('Anonymous')}
         size      = {40}
         src       = {avatar ? avatar : ''}
         isRounded = {true}
@@ -149,7 +149,7 @@ export default class CommentsForm extends React.Component {
 
       let commentTextNew = commentText;
       if (replyToAnswer) {
-        userAnswerName = userAnswerName || this.context.i18n.l("User");
+        userAnswerName = userAnswerName || this.context.i18n.l("Anonymous");
         let reg = new RegExp(userAnswerName,"g");
        // commentTextNew = commentText.replace(reg, "&lt;em&gt;$1&lt;/em&gt;");
         commentTextNew = commentText.replace(reg, userAnswerName);
@@ -225,7 +225,7 @@ export default class CommentsForm extends React.Component {
               ref={c => this.textarea = c}
               name="content"
               notificationType="N2B"
-              value={replyToAnswer ? `${userAnswerName || this.context.i18n.l('User')}, ` : ''}
+              value={replyToAnswer ? `${userAnswerName || this.context.i18n.l('Anonymous')}, ` : ''}
             />
             <B1A
               className="CommentsForm__button"

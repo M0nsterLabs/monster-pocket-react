@@ -53,7 +53,7 @@ export default class CommentItem extends React.Component {
     return (
       <Avatar
         email     = {email ? email : ''}
-        name      = {name ? name : this.context.i18n.l('User')}
+        name      = {name ? name : this.context.i18n.l('Anonymous')}
         size      = {40}
         src       = {avatar ? avatar : ''}
         isRounded = {true}
@@ -263,7 +263,7 @@ export default class CommentItem extends React.Component {
             <div className="comments__describe-header t5">
               <div className="comments__author" itemScope itemType="http://schema.org/Person" itemProp="author">
                 <meta itemProp="name" content={userName} />
-                {userName || this.context.i18n.l('User')}
+                {userName || this.context.i18n.l('Anonymous')}
               </div>
               <FormattedDate timestamp={date} className="comments__date"/>
             </div>
