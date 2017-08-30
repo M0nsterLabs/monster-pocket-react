@@ -1,11 +1,11 @@
 import React from 'react';
-import Reviews from './ReviewWrapper';
+import Comments from './CommentsWrapper';
 
-export default class ReviewTab extends React.Component {
+export default class CommentsTab extends React.Component {
 
   render () {
     return (
-      <Reviews
+      <Comments
         templateId={55555}
         accessToken={''}
       />

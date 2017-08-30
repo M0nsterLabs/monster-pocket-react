@@ -1,0 +1,52 @@
+@import "../../styles/variables.less";
+
+.notification-mod {
+  width: 100%;
+  border-radius: 3px;
+  color: @color-white;
+  padding: 20px @spacing2x @spacing2x 50px;
+  position: relative;
+  box-shadow: 0 5px 10px 0 rgba(35, 50, 56, 0.2);
+  margin-top: @spacing2x;
+  box-sizing: border-box;
+
+  &__text {
+    color: @color-white;
+    margin-bottom: 0;
+  }
+
+  &__icon {
+    left: @spacing2x;
+    position: absolute;
+    top: @spacing2x;
+    font-size: 20px;
+  }
+
+  &__triangle {
+    border-radius: 3px;
+    display: inline-block;
+    height: @spacing2x;
+    left: 50%;
+    position: absolute;
+    top: -7px;
+    transform: rotate(45deg);
+    width: @spacing2x;
+    margin-left: -11px;
+
+    &_pending {
+      background-color: @dark-grey;
+    }
+
+    &_declined {
+      background-color: @orange;
+    }
+  }
+
+  &_pending {
+    background-color: @dark-grey;
+  }
+
+  &_declined {
+    background-color:  @orange;
+  }
+}
