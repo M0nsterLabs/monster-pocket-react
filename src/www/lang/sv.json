@@ -16,15 +16,6 @@
          "Please, write at least 60 symbols for review": [
             "Vänligen, skriv minst 60 symboler i recensionen"
          ],
-         "Your opinion about this product": [
-            ""
-         ],
-         "Cancel": [
-            ""
-         ],
-         "Post": [
-            ""
-         ],
          "Thank you for your review!": [
             "Tack för din recension!"
          ],
@@ -45,9 +36,6 @@
          ],
          "Press Ctrl + Enter to send your message": [
             "Tryck Ctrl+Enter för at skicka ditt meddelande"
-         ],
-         "Reply": [
-            "Svar"
          ],
          "Jan": [
             "Jan"
@@ -85,26 +73,8 @@
          "Dec": [
             "Dec"
          ],
-         "Now": [
-            "Nu"
-         ],
-         "minutes ago": [
-            "minuter sedan"
-         ],
-         "hour ago": [
-            "timme sedan"
-         ],
-         "hours ago": [
-            "timmar sedan"
-         ],
-         "Today at": [
-            "Idag vid"
-         ],
-         "Yesterday at": [
-            "Igår vid"
-         ],
-         "at": [
-            "på"
+         "Reply": [
+            "Svar"
          ],
          "The review is visible only for you. Sorry, but we need to check your review before publication. In case your review corresponds to our rules, it will be published soon :)": [
             "Recensinonen är endast synlig för dig. Ursäkta, men vi behöver kontrollera din recension innan den publiceras. Om din recension följer våra regler kommer den publiceras snart :)"
@@ -112,26 +82,8 @@
          "Unfortunately, we can’t post your review because it doesn’t meet our guidelines, please try again with another review.": [
             "Tyvärr kan vi inte publicera din recension eftersom den inte följer våra riktlinjer, vänligen försök igen med en annan resencion."
          ],
-         "Only buyers of that product can rate it": [
-            ""
-         ],
-         "It seems there are no reviews to this product from your locale.\nYou can look at the reviews from other locales.": [
-            ""
-         ],
-         "It seems there are no reviews to this product.": [
-            ""
-         ],
-         "View ": [
-            "Visa"
-         ],
-         "REVIEWS & RATINGS": [
+         "Reviews & Ratings": [
             "Recensioner & betyg"
-         ],
-         " REVIEWS & RATINGS": [
-            "Recensioner & betyg"
-         ],
-         "Show more": [
-            ""
          ],
          "Home": [
             "Hem"
@@ -142,8 +94,113 @@
          "Social test": [
             ""
          ],
-         "Reviews & Ratings": [
-            "Recensioner & betyg"
+         "Only buyers of that product can rate it": [
+            "Endast köpare av produkten kan betygsätta den"
+         ],
+         "Show more": [
+            "Visa fler"
+         ],
+         "Your opinion about this product": [
+            "Din åsikt om den här produkten"
+         ],
+         "Cancel": [
+            "Avbryt"
+         ],
+         "Post": [
+            "Skicka"
+         ],
+         "You can't estimate your own review": [
+            "Du kan inte uppskatta din egen recension"
+         ],
+         "Please log in at first": [
+            "Var god logga in först"
+         ],
+         "Helpful": [
+            "Hjälpsam"
+         ],
+         "Useless": [
+            "Värdelös"
+         ],
+         "Newest": [
+            "Nyaste"
+         ],
+         "Most helpful": [
+            "Mest hjälpsamma"
+         ],
+         "Top ratings": [
+            "Topp-betyg"
+         ],
+         "Low ratings": [
+            "Låga betyg"
+         ],
+         "Show first:": [
+            "Visa först:"
+         ],
+         "STATISTICS": [
+            "STATISTIK"
+         ],
+         "Average rating": [
+            "Genomsnittliga betyg"
+         ],
+         "Product rating": [
+            "Produktens betyg"
+         ],
+         "INCLUDES": [
+            "INKLUDERAR"
+         ],
+         "Today": [
+            "Idag"
+         ],
+         "Yesterday": [
+            "Igår"
+         ],
+         "Popup test": [
+            ""
+         ],
+         "Choose %s subscription": [
+            "Välj %s prenumeration"
+         ],
+         "per month, paid annually": [
+            "per månad, betalas årsvis"
+         ],
+         "templates": [
+            "mallar"
+         ],
+         "you`ll be charged once a year": [
+            "du debiteras en gång per år"
+         ],
+         "Unlimited": [
+            "Obegränsad"
+         ],
+         "68% of customers choose this subscription": [
+            "68% av kunderna väljer denna prenumeration"
+         ],
+         "You’ll be able to download certain quantity of any from hundreds Shopify themes for year!": [
+            "Du kommer att kunna ladda ner viss mängd av hundratals Shopify-teman under året!"
+         ],
+         "What’s going to happen if the subscription expires but there are still downloads left?": [
+            "Vad händer om prenumerationen löper ut men det fortfarande finns nedladdningar kvar?"
+         ],
+         "When the subscription expires you’re no longer able to download products unless you pay for subscription, in other case you are to buy them at full price. %(newString)s Unfortunately unused downloads will be unavailable.": [
+            "När prenumerationen löper ut kan du inte längre ladda ner produkter om du inte betalar för prenumeration igen, annars ska du köpa dem till full pris. %(newString)s Tyvärr blir oanvända nedladdningar otillgängliga."
+         ],
+         "What’s going to happen if downloads are up before the subscription expires?": [
+            "Vad händer om nedladdningarna tar slut innan prenumerationen löper ut?"
+         ],
+         "In this case the subscription will automatically end. You’ll be able to arrange a new one and get extra downloads, in other case you are to buy products at full price.": [
+            "I så fall avslutas prenumerationen automatiskt. Du kan ordna en ny och få extra nedladdningar, i annat fall ska du köpa produkter till full pris."
+         ],
+         "Contact us in chat": [
+            "Kontakta oss via chatt"
+         ],
+         "Still have questions? %(contactUs)s, we will help with the choice!": [
+            "Har du fortfarande frågor? %(contactUs)s, vi hjälper dig med valet!"
+         ],
+         "%s savings": [
+            "%s sparmedel"
+         ],
+         "Choose the plan and get any shopify product cheaper up to 99%": [
+            "Välj planen och få Valfri shopify produkt billigare med upp till 99% rabatt"
          ]
       }
    }
