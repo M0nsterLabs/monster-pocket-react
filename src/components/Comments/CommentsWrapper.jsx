@@ -52,6 +52,9 @@ export default class Comments extends React.Component {
       mail: '',
     },
     productAuthorId: 0,
+    usersIds: [],
+    usersData: [],
+    allAvatars: false,
   };
 
   componentDidMount () {
@@ -96,7 +99,9 @@ export default class Comments extends React.Component {
         comments.items.map((comment) => {
           let avatar = '';
           let email = comment.user_email;
-          if (comment.status === PENDING) {
+          if (comment.avatar) {
+            avatar = comment.avatar;
+          } else if (comment.status === PENDING) {
             avatar = user.avatar;
             email = user.mail;
           }
@@ -189,8 +194,44 @@ export default class Comments extends React.Component {
             LOCALE = '';
             this.getCommentsOtherLocales();
           }
+        }).then(() => {
+          this.state.comments.items.map((comment) => {
+            this.state.usersIds.push(comment.user_id);
+          });
+        }).then(() => {
+          this.getAvatars();
         });
     }
+  };
+
+  /**
+   * Get users avatars
+   */
+  getAvatars = () => {
+    const { usersIds, comments } = this.state;
+    let { usersData } = this.state;
+    fetch(`${Config.accountServiceURL}users/profiles?ids=${usersIds}`, {
+      method: 'get',
+    })
+      .then(getResponseJSON)
+      .then((data) => {
+        usersData = [...usersData, ...data];
+      })
+      .then(() => {
+        comments.items.map((comment, i) => {
+          return (
+            usersData.map((userData) => {
+              if (comment.user_id != userData.id) return;
+              comment['avatar'] = userData.avatar;
+            })
+          );
+        });
+      })
+      .then(() => {
+        this.setState({
+          allAvatars: true,
+        });
+      });
   };
 
   /**
