@@ -439,7 +439,7 @@ export default class Comments extends React.Component {
                   <div className="Comments">
                     <h2 className="h3">{this.context.i18n.l('Questions & Answers')}</h2>
 
-
+                    {accessToken && this.renderForm()}
                   </div>
                   {this.renderEmptyPage()}
                 </div>
