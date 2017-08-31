@@ -82,7 +82,7 @@ export default class Comments extends React.Component {
       .then(getResponseJSON)
       .then((product) => {
         this.setState({
-          productAuthorId: product.authorUserId
+          productAuthorId: product.authorUserId || 0
         });
       });
   };
