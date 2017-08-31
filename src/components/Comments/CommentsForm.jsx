@@ -105,6 +105,11 @@ export default class CommentsForm extends React.Component {
       user_mail: userMail,
       avatar: userAvatar,
     };
+
+    this.setState({
+      commentValue: ' ',
+    });
+
     comments.addComment(this.props.access_token, params).then((data) => {
       const commentItem = {
         user_name: data.items.user_name,
@@ -121,6 +126,7 @@ export default class CommentsForm extends React.Component {
           items: [ ...this.state.comments.items, commentItem ]
         },
         showComment: true,
+        commentValue: '',
       })
     });
   };

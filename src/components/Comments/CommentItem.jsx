@@ -185,7 +185,7 @@ export default class CommentItem extends React.Component {
         userAvatar={userData.avatar}
         parentId={id}
         author_id={author_id}
-        userAnswerName={userName}
+        userAnswerName={userName || this.context.i18n.l('Anonymous')}
         replyToAnswer
       />
     )

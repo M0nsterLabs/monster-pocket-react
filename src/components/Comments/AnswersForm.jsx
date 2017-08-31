@@ -50,6 +50,10 @@ export default class CommentsForm extends React.Component {
     window.removeEventListener('keydown', this.sendCommentKey);
   }
 
+  componentWillMount () {
+    this.state.commentValue = `${this.props.userAnswerName}, `;
+  }
+
   /**
    * Add ctrl+enter event on send form
    * @param event
@@ -101,6 +105,11 @@ export default class CommentsForm extends React.Component {
       user_mail: userMail,
       avatar: userAvatar,
     };
+
+    this.setState({
+      commentValue: ' ',
+    });
+
     comments.addComment(this.props.access_token, params).then((data) => {
       const commentItem = {
         user_name: data.items.user_name,
@@ -117,6 +126,7 @@ export default class CommentsForm extends React.Component {
           items: [ ...this.state.comments.items, commentItem ]
         },
         showComment: true,
+        commentValue: '',
       })
     });
   };
@@ -251,7 +261,8 @@ export default class CommentsForm extends React.Component {
               ref={c => this.textarea = c}
               name="content"
               notificationType="N2B"
-              value={replyToAnswer ? `${userAnswerName || this.context.i18n.l('Anonymous')}, ` : ''}
+              value={commentValue}
+              autofocus
             />
             <div className="CommentsForm__action">
               <B1A

@@ -137,7 +137,7 @@ export default class AnswerItem extends React.Component {
         userMail={userData.mail}
         userAvatar={userData.avatar}
         parentId={parentId}
-        userAnswerName={userName}
+        userAnswerName={userName || this.context.i18n.l('Anonymous')}
         replyToAnswer
         author_id={author_id}
       />
