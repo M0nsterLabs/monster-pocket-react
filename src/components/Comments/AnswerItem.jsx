@@ -268,7 +268,7 @@ export default class AnswerItem extends React.Component {
       <article
         className={`Comments__item
           ${author === 'moderator' ? 'Comments__itemModerator' : ''}
-          ${author === 'contributor' ? 'Comments__itemContributor' : ''}`}
+          ${author === 'vendor' ? 'Comments__itemContributor' : ''}`}
         itemScope
         itemType="http://schema.org/Question"
       >
@@ -285,8 +285,8 @@ export default class AnswerItem extends React.Component {
                 {author === 'moderator'
                   ? (<span className="Comments__authorModerator t5" >TemplateMonster</span>)
                   : ''}
-                {author === 'contributor'
-                  ? (<span className="Comments__authorContributor t5" >{this.context.i18n.l('Contributor')}</span>)
+                {author === 'vendor'
+                  ? (<span className="Comments__authorContributor t5" >{this.context.i18n.l('Vendor')}</span>)
                   : ''}
               </div>
               <FormattedDate timestamp={date} className="Comments__date"/>
