@@ -39,6 +39,8 @@ export default class CommentItem extends React.Component {
     noVote: PropTypes.string,
     author_id: PropTypes.number,
     avatar: PropTypes.string,
+    locale: PropTypes.string,
+    otherLocales: PropTypes.bool,
   };
 
   static contextTypes = {
@@ -358,7 +360,7 @@ export default class CommentItem extends React.Component {
   };
 
   render () {
-    const { userMail, userName, content, date, access_token, answers, status, id, avatar } = this.props;
+    const { userMail, userName, content, date, access_token, answers, status, id, avatar, locale,  } = this.props;
     const { showForm, voteUp, showAnswers } = this.state;
     let textViewButton;
     if (!_.isEmpty(answers)) {
@@ -385,6 +387,7 @@ export default class CommentItem extends React.Component {
               <div className="Comments__author" itemScope itemType="http://schema.org/Person" itemProp="author">
                 <meta itemProp="name" content={userName} />
                 {userName || this.context.i18n.l('Anonymous')}
+                {otherLocales && <span className={`iti-flag ${locale} Comments__locale`}> </span>}
               </div>
               <FormattedDate timestamp={date} className="Comments__date"/>
             </div>

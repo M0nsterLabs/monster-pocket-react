@@ -55,6 +55,7 @@ export default class Comments extends React.Component {
     usersIds: [],
     usersData: [],
     allAvatars: false,
+    otherLocales : false,
   };
 
   componentDidMount () {
@@ -93,7 +94,7 @@ export default class Comments extends React.Component {
    */
   renderComments = () => {
     const { accessToken, templateId } = this.props;
-    const { comments, user, productAuthorId } = this.state;
+    const { comments, user, productAuthorId, otherLocales } = this.state;
     if (comments.items) {
       return (
         comments.items.map((comment) => {
@@ -125,6 +126,8 @@ export default class Comments extends React.Component {
               vote={accessToken && comment.vote ? comment.vote.type : ''}
               noVote={isUserComment}
               author_id={parseInt(productAuthorId)}
+              locale={comment.locale}
+              otherLocales={otherLocales}
             />
           )
         })
@@ -262,6 +265,9 @@ export default class Comments extends React.Component {
    * Get comments from other locales
    */
   getCommentsOtherLocales = () => {
+    this.setState({
+      otherLocales: true
+    });
     let params = {
       'template_id' : this.props.templateId,
       'per-page'    : 10,

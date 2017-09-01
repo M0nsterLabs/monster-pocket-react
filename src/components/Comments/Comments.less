@@ -145,6 +145,8 @@
 
   &__author {
     font-weight: bold;
+    display: flex;
+    align-items: center;
   }
 
   &__authorModerator, &__authorContributor {
@@ -184,6 +186,11 @@
         margin-bottom: @spacing4x;
       }
     }
+  }
+
+  &__locale {
+    margin-left: @spacing1x;
+    transform: scale(0.5);
   }
 }
 
@@ -260,6 +267,14 @@
         top: 10px;
         font-weight: normal;
       }
+
+      &__notification-icon {
+        top: 10px;
+      }
+    }
+
+    .quark-notification {
+      top: 0 !important;
     }
 
     &.text-area_filled {
