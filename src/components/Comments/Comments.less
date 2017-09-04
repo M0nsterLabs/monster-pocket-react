@@ -250,6 +250,7 @@
       border-left: 1px solid @light-grey;
       border-top: none;
       border-right: none;
+      transition: .3s .5s;
     }
 
     .text-area {
@@ -260,7 +261,8 @@
       &__input {
         max-height: 10px !important;
         min-height: 40px;
-        padding: @spacing1x @spacing4x @spacing1x @spacing2x;
+        padding: 0 @spacing4x 0 @spacing2x;
+        transition: .3s .5s;
       }
 
       &__label {
@@ -269,30 +271,42 @@
       }
 
       &__notification-icon {
-        top: 10px;
+        top: 50%;
+        margin-top: -10px;
       }
     }
 
     .quark-notification {
-      top: 0 !important;
+      top: 50% !important;
+      left: 100% !important;
+      margin-left: @spacing2x;
+      margin-top: -21px;
     }
 
     &.text-area_filled {
+      padding-top: @spacing1x;
+      padding-bottom: @spacing1x;
+      padding-right: @spacing4x;
+
       .text-area {
         &__label {
           display: none;
+        }
+        &__input {
+          min-height: 20px;
         }
       }
     }
 
     &.text-area_focused {
-      padding: @spacing2x;
+      padding: @spacing2x 50px @spacing2x @spacing2x;
       transition: .3s;
 
       &::before {
         background: @color-white;
         border-bottom: 1px solid @light-blue;
         border-left: 1px solid @light-blue;
+        transition: .3s;
       }
 
       .text-area {
@@ -307,6 +321,7 @@
         &__input {
           padding: 0;
           max-height: 100% !important;
+          transition: .3s;
         }
       }
 
@@ -318,14 +333,15 @@
         }
       }
 
-      & + .CommentsForm__button {
-        //display: block;
+      & + .CommentsForm__action {
+        opacity: 1;
+        height: 40px;
+        transition: opacity .1s, height 0s;
       }
     }
   }
 
   &__button {
-   // display: none;
     .button__icon {
       font-size: 20px;
     }
@@ -335,6 +351,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    opacity: 0;
+    height: 0;
+    transition: opacity .3s, height 0s .3s;
   }
 
   &__text {

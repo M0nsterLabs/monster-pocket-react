@@ -13,12 +13,12 @@ import './Comments.less';
 import AnswerItem from './AnswerItem';
 import HtmlToJsx from '../html-to-js';
 import {
-  getResponseJSON
+  getResponseJSON,
 } from 'utils/';
 
 const APPROVED = 'approved';
 const PENDING = 'pending';
-let comments = new ReviewsData(Config.reviewsServiceURL);
+const comments = new ReviewsData(Config.reviewsServiceURL);
 
 export default class CommentItem extends React.Component {
   static propTypes = {
@@ -28,7 +28,7 @@ export default class CommentItem extends React.Component {
     userAvatar: PropTypes.string,
     date: PropTypes.number,
     status: PropTypes.string,
-    access_token: PropTypes.string,
+    accessToken: PropTypes.string,
     answers: PropTypes.arrayOf(PropTypes.object),
     id: PropTypes.number,
     templateId: PropTypes.number,
@@ -36,15 +36,15 @@ export default class CommentItem extends React.Component {
     voteUp: PropTypes.number,
     voteDown: PropTypes.number,
     vote: PropTypes.string,
-    noVote: PropTypes.string,
-    author_id: PropTypes.number,
+    noVote: PropTypes.bool,
+    authorId: PropTypes.number,
     avatar: PropTypes.string,
     locale: PropTypes.string,
     otherLocales: PropTypes.bool,
   };
 
   static contextTypes = {
-    i18n: PropTypes.object
+    i18n: PropTypes.object,
   };
 
   state = {
@@ -85,14 +85,12 @@ export default class CommentItem extends React.Component {
         usersData = [...usersData, ...data];
       })
       .then(() => {
-        answers.map((answer) => {
-          return (
+        answers.map(answer => (
             usersData.map((userData) => {
               if (answer.user_id != userData.id) return;
-              answer['avatar'] = userData.avatar;
+              answer.avatar = userData.avatar;
             })
-          );
-        });
+          ));
       })
       .then(() => {
         this.setState({
@@ -108,18 +106,16 @@ export default class CommentItem extends React.Component {
    * @param avatar
    * @returns {XML}
    */
-  showAvatar = (email, name, avatar) => {
-    return (
-      <Avatar
-        email     = {email ? email : ''}
-        name      = {name ? name : this.context.i18n.l('Anonymous')}
-        size      = {40}
-        src       = {avatar ? avatar : ''}
-        isRounded = {true}
-        className = "review__author-icon"
-      />
-    )
-  };
+  showAvatar = (email, name, avatar) => (
+    <Avatar
+      email={email || ''}
+      name={name || this.context.i18n.l('Anonymous')}
+      size={40}
+      src={avatar || ''}
+      isRounded
+      className="review__author-icon"
+    />
+    );
 
   /**
    * Show moderator message - comment is on review
@@ -133,7 +129,7 @@ export default class CommentItem extends React.Component {
           status={status}
           message={this.context.i18n.l('The comment is visible only for you. Sorry, but we need to check it before publication. When we check it & reply to it, you\'ll get a notifications and an email :)')}
         />
-      )
+      );
     }
   };
 
@@ -142,16 +138,14 @@ export default class CommentItem extends React.Component {
    * @param answer
    * @returns {XML}
    */
-  replyButton = (answer) => {
-    return (
-      <span
-        className="Comments__itemReply tm-icon icon-message"
-        onClick={() => (answer === 'answer' ? this.showFormAnswer(): this.showForm())}
-      >
-          {this.context.i18n.l('Reply')}
-      </span>
-    )
-  };
+  replyButton = answer => (
+    <span
+      className="Comments__itemReply tm-icon icon-message"
+      onClick={() => (answer === 'answer' ? this.showFormAnswer() : this.showForm())}
+    >
+      {this.context.i18n.l('Reply')}
+    </span>
+    );
 
   /**
    * Set state on show answer form
@@ -177,20 +171,20 @@ export default class CommentItem extends React.Component {
    * @returns {XML}
    */
   renderForm = () => {
-    const { templateId, access_token, userData, id, author_id, userName } = this.props;
+    const { templateId, accessToken, userData, id, authorId, userName } = this.props;
     return (
       <AnswersForm
         template_id={templateId}
-        access_token={access_token}
+        accessToken={accessToken}
         userName={userData.name}
         userMail={userData.mail}
         userAvatar={userData.avatar}
         parentId={id}
-        author_id={author_id}
+        authorId={authorId}
         userAnswerName={userName || this.context.i18n.l('Anonymous')}
         replyToAnswer
       />
-    )
+    );
   };
 
   /**
@@ -210,14 +204,14 @@ export default class CommentItem extends React.Component {
    * @param type
    */
   addVote = (type) => {
-    const { access_token, id } = this.props;
-    comments.addCommentVote(access_token, id, {vote_type: type}).then(
+    const { accessToken, id } = this.props;
+    comments.addCommentVote(accessToken, id, { vote_type: type }).then(
       (data) => {
         this.setState({
           voteUp: data.items.vote_up,
-          voteDown: data.items.vote_down
+          voteDown: data.items.vote_down,
         });
-      }
+      },
     );
   };
 
@@ -225,16 +219,16 @@ export default class CommentItem extends React.Component {
    * Add vote up on comment
    */
   addVoteUp = () => {
-    this.addVote("up");
+    this.addVote('up');
     switch (this.state.vote) {
-      case "up":
+      case 'up':
         this.setState({
-          vote: ""
+          vote: '',
         });
         break;
       default:
         this.setState({
-          vote: "up"
+          vote: 'up',
         });
         break;
     }
@@ -244,16 +238,16 @@ export default class CommentItem extends React.Component {
    * Add vote down on comment
    */
   addVoteDown = () => {
-    this.addVote("down");
+    this.addVote('down');
     switch (this.state.vote) {
-      case "down":
+      case 'down':
         this.setState({
-          vote: ""
+          vote: '',
         });
         break;
       default:
         this.setState({
-          vote: "down"
+          vote: 'down',
         });
         break;
     }
@@ -269,25 +263,25 @@ export default class CommentItem extends React.Component {
    * @returns {XML}
    */
   showControl = (type, clickVote, constrolText, controlNotification, stateVote) => {
-    const {vote} = this.state;
-    const {noVote, access_token} = this.props;
+    const { vote } = this.state;
+    const { noVote, accessToken } = this.props;
     return (
-      <div className={`review-votes__control`}>
-          <span
-            className={`review-votes__item review-votes__item-${type} ${vote === type ? `review-votes__item-${type}_active` : ""}`}
-            onClick={() => {!noVote && access_token ? clickVote() : ""}}
-          >
-            {constrolText}
-            {stateVote > 0 && <span className="review-votes__item-counter t5">{stateVote}</span>}
-          </span>
-        {noVote || !access_token
+      <div className={'review-votes__control'}>
+        <span
+          className={`review-votes__item review-votes__item-${type} ${vote === type ? `review-votes__item-${type}_active` : ''}`}
+          onClick={() => { !noVote && accessToken ? clickVote() : ''; }}
+        >
+          {constrolText}
+          {stateVote > 0 && <span className="review-votes__item-counter t5">{stateVote}</span>}
+        </span>
+        {noVote || !accessToken
           ? <N1C
             className="review-votes__notification"
             text={controlNotification}
           />
           : ''}
       </div>
-    )
+    );
   };
 
   /**
@@ -295,28 +289,29 @@ export default class CommentItem extends React.Component {
    * @returns {XML}
    */
   voteControls = () => {
-    const {voteUp, voteDown} = this.state;
-    const {access_token, noVote} = this.props;
-    const {l} = this.context.i18n;
-    let notificationText="";
-    if (access_token) {
+    const { voteUp, voteDown } = this.state;
+    const { accessToken, noVote } = this.props;
+    const { l } = this.context.i18n;
+    let notificationText = '';
+    if (accessToken) {
       notificationText = l("You can't estimate your own comment");
     } else {
-      notificationText = l("Please log in at first");
+      notificationText = l('Please log in at first');
     }
     return (
-      <div className={`review-votes t3 ${noVote || !access_token ? "review-votes__no-vote" : ""}`}>
-        {this.showControl("up", this.addVoteUp, l("Helpful"), notificationText, voteUp)}
-        {this.showControl("down", this.addVoteDown, l("Useless"), notificationText, voteDown)}
+      <div className={`review-votes t3 ${noVote || !accessToken ? 'review-votes__no-vote' : ''}`}>
+        {this.showControl('up', this.addVoteUp, l('Helpful'), notificationText, voteUp)}
+        {this.showControl('down', this.addVoteDown, l('Useless'), notificationText, voteDown)}
       </div>
-    )
+    );
   };
 
   /**
    * Show answers on comment
    */
   showAnswers = () => {
-    const { answers, access_token, templateId, userData, id, author_id, userAvatar, userMail } = this.props;
+    const { answers, accessToken, templateId, userData,
+      id, authorId, userAvatar, userMail } = this.props;
     if (_.isEmpty(answers)) return;
     return (
       <div className="Comments__answersWrap">
@@ -331,25 +326,26 @@ export default class CommentItem extends React.Component {
               email = userMail;
             }
             return (
-              <div className="Comments__answers">
+              <div className="Comments__answers" key={answer.created_at}>
                 <AnswerItem
                   userName={answer.user_name}
                   userMail={email}
                   content={answer.content}
                   avatar={avatar}
                   date={answer.created_at}
-                  // key={comment.id}
+                  key={answer.created_at}
                   status={answer.status}
-                  access_token={access_token}
+                  accessToken={accessToken}
                   id={answer.id}
                   templateId={templateId}
                   userData={userData}
+                  noVote={false}
                   voteUp={answer.vote_up}
                   voteDown={answer.vote_down}
-                  vote={access_token && answer.vote ? answer.vote.type : ''}
+                  vote={accessToken && answer.vote ? answer.vote.type : ''}
                   parentId={id}
                   author={answer.author}
-                  author_id={author_id}
+                  authorId={authorId}
                 />
               </div>
             );
@@ -359,14 +355,15 @@ export default class CommentItem extends React.Component {
     );
   };
 
-  render () {
-    const { userMail, userName, content, date, access_token, answers, status, id, avatar, locale, otherLocales  } = this.props;
+  render() {
+    const { userMail, userName, content, date, accessToken,
+      answers, status, id, avatar, locale, otherLocales } = this.props;
     const { showForm, voteUp, showAnswers } = this.state;
     let textViewButton;
     if (!_.isEmpty(answers)) {
       if (!showAnswers && answers.length === 1) {
         textViewButton = this.context.i18n.l('View %(countAnswers)s answer');
-      } else if (!showAnswers && answers.length > 1 ) {
+      } else if (!showAnswers && answers.length > 1) {
         textViewButton = this.context.i18n.l('View %(countAnswers)s answers');
       } else if (answers.length === 1) {
         textViewButton = this.context.i18n.l('Hide %(countAnswers)s answer');
@@ -376,8 +373,8 @@ export default class CommentItem extends React.Component {
     }
 
     return (
-      <article id={id} className="Comments__item" itemScope itemType="http://schema.org/Question">
-        <meta itemProp="upvoteCount" content = {voteUp} />
+      <article id={id} key={id} className="Comments__item" itemScope itemType="http://schema.org/Question">
+        <meta itemProp="upvoteCount" content={voteUp} />
         <div className="Comments__avatar">
           {this.showAvatar(userMail, userName, avatar)}
         </div>
@@ -387,20 +384,20 @@ export default class CommentItem extends React.Component {
               <div className="Comments__author" itemScope itemType="http://schema.org/Person" itemProp="author">
                 <meta itemProp="name" content={userName} />
                 {userName || this.context.i18n.l('Anonymous')}
-                {otherLocales && <span className={`iti-flag ${locale} Comments__locale`}> </span>}
+                {otherLocales && <span className={`iti-flag ${locale} Comments__locale`} />}
               </div>
-              <FormattedDate timestamp={date} className="Comments__date"/>
+              <FormattedDate timestamp={date} className="Comments__date" />
             </div>
-            <div className="Comments__content t3" itemProp="text">{<HtmlToJsx html={content}/>}</div>
+            <div className="Comments__content t3" itemProp="text">{<HtmlToJsx html={content} />}</div>
             {
               status === APPROVED &&
               <div className="Comments__describeFooter t3">
-                {access_token && this.replyButton()}
+                {accessToken && this.replyButton()}
                 { !_.isEmpty(answers)
                 && <div className="Comments__viewAnswer" onClick={() => this.showComments()}>
                   <meta itemProp="answerCount" content={answers.length} />
                   <Interpolate
-                    with={{countAnswers: answers.length}}
+                    with={{ countAnswers: answers.length }}
                     format={textViewButton}
                   />
                 </div>

@@ -1,14 +1,14 @@
-import React               from 'react';
-import Config              from 'config.js';
-import _                   from 'lodash';
-import PropTypes           from 'prop-types';
+import React from 'react';
+import Config from 'config.js';
+import _ from 'lodash';
+import PropTypes from 'prop-types';
 import ContentEmptyMessage from '../ContentEmptyMessage/';
-import L1                  from 'quark/lib/loaders/L1';
-import L3                  from 'quark/lib/loaders/L3';
-import B2E                 from 'quark/lib/buttons/B2E';
-import DD1                 from 'quark/lib/dropdowns/DD1';
+import L1 from 'quark/lib/loaders/L1';
+import L3 from 'quark/lib/loaders/L3';
+import B2E from 'quark/lib/buttons/B2E';
+import DD1 from 'quark/lib/dropdowns/DD1';
 
-import ReviewsData         from 'plasma-reviews-api-client-js';
+import ReviewsData from 'plasma-reviews-api-client-js';
 
 import CommentItem from './CommentItem';
 import CommentsForm from './CommentsForm';
@@ -22,18 +22,18 @@ import {
 
 import './Comments.less';
 
-let comments = new ReviewsData(Config.reviewsServiceURL);
+const comments = new ReviewsData(Config.reviewsServiceURL);
 let LOCALE = getCurrentLocale();
 const PENDING = 'pending';
 
 export default class Comments extends React.Component {
   static propTypes = {
-    templateId  : PropTypes.number.isRequired,
-    accessToken : PropTypes.string
+    templateId: PropTypes.number.isRequired,
+    accessToken: PropTypes.string,
   };
 
   static contextTypes = {
-    i18n: PropTypes.object
+    i18n: PropTypes.object,
   };
 
   state = {
@@ -55,10 +55,10 @@ export default class Comments extends React.Component {
     usersIds: [],
     usersData: [],
     allAvatars: false,
-    otherLocales : false,
+    otherLocales: false,
   };
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.props.accessToken) {
       this.getUserProfile();
       this.getCommentsUser(LOCALE);
@@ -68,7 +68,7 @@ export default class Comments extends React.Component {
       this.getComments(LOCALE);
       this.getProductData(LOCALE);
     }
-  };
+  }
 
   /**
    * Get product data of template
@@ -78,12 +78,13 @@ export default class Comments extends React.Component {
     const { templateId } = this.props;
 
     fetch(`${Config.productsServiceURL}products/${locale}/${templateId}`, {
-      method: 'get'
+      method: 'get',
     })
-      .then(getResponseJSON)
-      .then((product) => {
+      .then(response => (
+       response.json()
+  )).then((product) => {
         this.setState({
-          productAuthorId: product.authorUserId || 0
+          productAuthorId: product.authorUserId || 0,
         });
       });
   };
@@ -106,7 +107,7 @@ export default class Comments extends React.Component {
             avatar = user.avatar;
             email = user.mail;
           }
-          let isUserComment = accessToken && parseInt(user.id) === parseInt(comment.user_id);
+          const isUserComment = accessToken && parseInt(user.id) === parseInt(comment.user_id);
           return (
             <CommentItem
               userName={comment.user_name}
@@ -114,9 +115,9 @@ export default class Comments extends React.Component {
               content={comment.content}
               avatar={avatar}
               date={comment.created_at}
-              // key={comment.id}
+              key={comment.created_at}
               status={comment.status}
-              access_token={accessToken}
+              accessToken={accessToken}
               answers={comment.answers}
               id={comment.id}
               templateId={templateId}
@@ -125,13 +126,13 @@ export default class Comments extends React.Component {
               voteDown={comment.vote_down}
               vote={accessToken && comment.vote ? comment.vote.type : ''}
               noVote={isUserComment}
-              author_id={parseInt(productAuthorId)}
+              authorId={parseInt(productAuthorId)}
               locale={comment.locale}
               otherLocales={otherLocales}
             />
-          )
+          );
         })
-      )
+      );
     }
   };
 
@@ -144,49 +145,48 @@ export default class Comments extends React.Component {
       isLoading: false,
     });
     let params = {
-      'template_id' : this.props.templateId,
-      'per-page'    : 10,
-      'locale'      : locale,
-      'sort'        : this.state.sort,
-      'expand'      : 'vote,answers',
+      template_id: this.props.templateId,
+      'per-page': 10,
+      locale,
+      sort: this.state.sort,
+      expand: 'vote,answers',
     };
-    const paginationData   = {};
+    const paginationData = {};
     const currentState = this.state.comments;
     if (this.shouldFetchDataItems(currentState)) {
       const requestPageIndex = currentState.currentPageIndex + 1 || 1;
       params = {
         ...params,
-        'page': requestPageIndex
+        page: requestPageIndex,
       };
 
       comments.getComments(params)
         .then((data) => {
-
           paginationData.currentPageIndex = data.currentPageIndex;
           paginationData.lastPageIndex = data.lastPageIndex;
           paginationData.totalCount = data.totalCount;
 
           if (paginationData.totalCount > 10) {
             this.setState({
-              showMoreVisible: true
-            })
+              showMoreVisible: true,
+            });
           }
 
           this.setState({
             comments: {
               items: [...this.state.comments.items, ...data.items],
-              totalCount: this.state.comments.totalCount+data.totalCount,
+              totalCount: this.state.comments.totalCount + data.totalCount,
               ...paginationData,
             },
             isLoading: true,
-            localeIterator: this.state.localeIterator+1
-          })
+            localeIterator: this.state.localeIterator + 1,
+          });
         })
         .then(() => {
           if (paginationData.currentPageIndex === paginationData.lastPageIndex) {
             this.setState({
-              showMoreVisible: false
-            })
+              showMoreVisible: false,
+            });
           }
         })
         .then(() => {
@@ -221,14 +221,12 @@ export default class Comments extends React.Component {
         usersData = [...usersData, ...data];
       })
       .then(() => {
-        comments.items.map((comment) => {
-          return (
+        comments.items.map(comment => (
             usersData.map((userData) => {
               if (comment.user_id != userData.id) return;
-              comment['avatar'] = userData.avatar;
+              comment.avatar = userData.avatar;
             })
-          );
-        });
+          ));
       })
       .then(() => {
         this.setState({
@@ -242,22 +240,22 @@ export default class Comments extends React.Component {
    * @param locale
    */
   getCommentsUser = (locale) => {
-    let params = {
-      'access_token': this.props.accessToken,
-      'template_id': this.props.templateId,
+    const params = {
+      access_token: this.props.accessToken,
+      template_id: this.props.templateId,
       'per-page': 50,
-      'locale': locale,
-      'sort': this.state.sort,
-      'status': 'pending',
+      locale,
+      sort: this.state.sort,
+      status: 'pending',
     };
     comments.getCommentsUser(params)
       .then((data) => {
         this.setState({
           comments: {
             items: [...this.state.comments.items, ...data.items],
-            totalCount: this.state.comments.totalCount+data.totalCount,
+            totalCount: this.state.comments.totalCount + data.totalCount,
           },
-        })
+        });
       });
   };
 
@@ -266,17 +264,17 @@ export default class Comments extends React.Component {
    */
   getCommentsOtherLocales = () => {
     this.setState({
-      otherLocales: true
+      otherLocales: true,
     });
-    let params = {
-      'template_id' : this.props.templateId,
-      'per-page'    : 10,
-      'sort'        : this.state.sort,
-      'expand'      : 'vote',
+    const params = {
+      template_id: this.props.templateId,
+      'per-page': 10,
+      sort: this.state.sort,
+      expand: 'vote',
     };
     comments.getComments(params).then((data) => {
       this.setState({
-        countCommentsOtherLocale: data.totalCount
+        countCommentsOtherLocale: data.totalCount,
       });
     });
   };
@@ -288,7 +286,7 @@ export default class Comments extends React.Component {
    */
   shouldFetchDataItems = (currentState) => {
     const currentItemsCount = currentState.items ? currentState.items.length : 0;
-    const totalItemsCount   = currentState.totalCount;
+    const totalItemsCount = currentState.totalCount;
     return currentItemsCount === 0 || currentItemsCount < totalItemsCount;
   };
 
@@ -315,11 +313,11 @@ export default class Comments extends React.Component {
     this.setState({
       sort: sortedBy,
       comments: {
-        items: []
+        items: [],
       },
     }, () => {
       this.getComments(LOCALE);
-    })
+    });
   };
 
   /**
@@ -338,16 +336,16 @@ export default class Comments extends React.Component {
         className="reviews__sort"
         options={sortValue.map(sortItem => ({
           label: sortItem,
-          icon: ``,
-          value: `sort${sortItem.replace(/\s/g,'')}`,
+          icon: '',
+          value: `sort${sortItem.replace(/\s/g, '')}`,
         }))}
         ref={(ref) => { form = ref; }}
         label={this.context.i18n.l('Show first:')}
         pattern=""
-        defaultValue={"Most helpful" || null}
+        defaultValue={'Most helpful' || null}
         onChange={value => this.changeSortValue(value)}
       />
-    )
+    );
   };
 
   /**
@@ -370,19 +368,17 @@ export default class Comments extends React.Component {
    * Show empty comments page
    * @returns {XML}
    */
-  renderEmptyPage = () => {
-    return (
-      <ContentEmptyMessage
-        page         = {'comments'}
-        show         = {this.state.isEmpty}
-        description  = {this.context.i18n.l(`It seems there are no comments to this product from your locale.\nYou can look at the comments from other locales.`)}
-        textNoLocale = {this.context.i18n.l(`It seems there are no comments to this product.`)}
-        isButton     = {this.state.countCommentsOtherLocale > 0}
-        buttonText   = {this.context.i18n.l(`View ${this.state.countCommentsOtherLocale} Comments From Other Locales`)}
-        buttonClick  = {this.otherLocale}
-      />
-    )
-  };
+  renderEmptyPage = () => (
+    <ContentEmptyMessage
+      page={'comments'}
+      show={this.state.isEmpty}
+      description={this.context.i18n.l('It seems there are no comments to this product from your locale.\nYou can look at the comments from other locales.')}
+      textNoLocale={this.context.i18n.l('It seems there are no comments to this product.')}
+      isButton={this.state.countCommentsOtherLocale > 0}
+      buttonText={this.context.i18n.l(`View ${this.state.countCommentsOtherLocale} Comments From Other Locales`)}
+      buttonClick={this.otherLocale}
+    />
+    );
 
   /**
    * Show form
@@ -394,13 +390,13 @@ export default class Comments extends React.Component {
     return (
       <CommentsForm
         template_id={templateId}
-        access_token={accessToken}
+        accessToken={accessToken}
         userName={user.name}
         userMail={user.mail}
         userAvatar={user.avatar}
-        author_id={parseInt(productAuthorId)}
+        authorId={parseInt(productAuthorId)}
       />
-    )
+    );
   };
 
   /**
@@ -408,10 +404,10 @@ export default class Comments extends React.Component {
    */
   getUserProfile = () => {
     fetch(`${Config.accountServiceURL}users/profile`, {
-      method  : 'get',
-      headers : {
-        'Authorization': this.props.accessToken
-      }
+      method: 'get',
+      headers: {
+        Authorization: this.props.accessToken,
+      },
     })
       .then(getResponseJSON)
       .then((data) => {
@@ -421,12 +417,12 @@ export default class Comments extends React.Component {
             name: data.userName || this.context.i18n.l('Anonymous'),
             avatar: data.avatar,
             mail: data.login,
-          }
+          },
         });
       });
   };
 
-  render () {
+  render() {
     const { accessToken } = this.props;
     const { comments } = this.state;
 
@@ -436,7 +432,7 @@ export default class Comments extends React.Component {
         {
           comments.totalCount === 0 && !this.state.isLoading
           ? (
-            <L1 className="ContentLoader"/>
+            <L1 className="ContentLoader" />
           )
           : (
             comments.totalCount === 0
@@ -455,27 +451,28 @@ export default class Comments extends React.Component {
                   <div className="Comments__header">
                     <h2 className="h3">
                       <span className="Comments__totalCount">{comments.totalCount} </span>
-                      {this.context.i18n.l(`Questions & Answers`)}
+                      {this.context.i18n.l('Questions & Answers')}
                     </h2>
                     {this.sortComments()}
                   </div>
 
-                  {accessToken && this.renderForm()}
-
                   {_.isEmpty(this.state.comments.items)
-                    ? <L1 className="ContentLoader"/>
+                    ? <L1 className="ContentLoader" />
                     :
-                    this.renderComments()
+                    <div className="Comments__content">
+                      {accessToken && this.renderForm()}
+                      {this.renderComments()}
+                    </div>
                   }
 
                   {
                     this.state.showMoreVisible && !_.isEmpty(this.state.comments.items) && (
                       <B2E
-                        className = "Comments__btn"
-                        id        = "ShowMoreComments"
-                        onClick   = {this.loadDownloads}
-                        disabled  = {!this.state.isLoading}
-                        isLoading = {!this.state.isLoading}
+                        className="Comments__btn"
+                        id="ShowMoreComments"
+                        onClick={this.loadDownloads}
+                        disabled={!this.state.isLoading}
+                        isLoading={!this.state.isLoading}
                       >
                         {!this.state.isLoading ? (
                           <L3 />

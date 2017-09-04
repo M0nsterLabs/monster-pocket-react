@@ -1,0 +1,16 @@
+src/components/ContentEmptyMessage/*
+src/components/mascot/*
+src/components/NotificationModeration/*
+src/components/popups/*
+src/components/Review/*
+src/components/social_proof/*
+src/containers/*
+src/i18n/*
+src/icons/*
+src/images/*
+src/model/*
+src/pages/*
+src/service/*
+src/styles/*
+src/utils/*
+src/www/*
