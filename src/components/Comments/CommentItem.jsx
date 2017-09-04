@@ -360,7 +360,7 @@ export default class CommentItem extends React.Component {
   };
 
   render () {
-    const { userMail, userName, content, date, access_token, answers, status, id, avatar, locale,  } = this.props;
+    const { userMail, userName, content, date, access_token, answers, status, id, avatar, locale, otherLocales  } = this.props;
     const { showForm, voteUp, showAnswers } = this.state;
     let textViewButton;
     if (!_.isEmpty(answers)) {
