@@ -59,7 +59,8 @@ export default class CommentsForm extends React.Component {
    * @param event
    */
   sendCommentKey = (event) => {
-    if (event.keyCode === 13 && event.ctrlKey && document.querySelector('.text-area.text-area_focused')) {
+    const area = ReactDOM.findDOMNode(this.AnswerForm);
+    if (event.keyCode === 13 && event.ctrlKey && area.contains(event.target) && document.querySelector('.AnswerTextArea.text-area.text-area_focused')) {
       this.handleFormSubmit(event);
     }
   };
@@ -253,9 +254,10 @@ export default class CommentsForm extends React.Component {
             onSubmit={(event) => {
               this.handleFormSubmit(event);
             }}
+            ref={c => this.AnswerForm = c}
           >
             <TA5
-              className="CommentsForm__textarea"
+              className="CommentsForm__textarea AnswerTextArea"
               id="answer-text"
               label={this.context.i18n.l("Ask the author any question about the product")}
               ref={c => this.textarea = c}
