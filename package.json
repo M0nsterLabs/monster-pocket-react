@@ -64,7 +64,6 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-react": "^7.3.0",
     "eslint-plugin-standard": "^2.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
@@ -108,7 +107,8 @@
     "plasma-reviews-api-client-js": "git+https://github.com/Plasma-Platform/Plasma-Reviews-JS-Client.git#hotfix/PLASMA-974",
     "qs": "^6.5.0",
     "quark": "git+https://git@github.com/templatemonster/QUARK-React.git#feature/PTR-2225",
-    "tm-products-api-client-js": "^1.0.14"
+    "tm-products-api-client-js": "^1.0.14",
+    "eslint-plugin-react": "^7.3.0"
   },
   "babel": {
     "presets": [
