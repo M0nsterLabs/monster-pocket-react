@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Config from 'config.js';
 import PropTypes from 'prop-types';
 import Avatar from 'quark/lib/Avatar';
