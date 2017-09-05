@@ -21,7 +21,7 @@
     "test": "./node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill --require bluebird --require isomorphic-fetch",
     "test:coverage": "./node_modules/.bin/istanbul cover --report clover ./node_modules/.bin/_mocha -- -u exports -R spec test/**/*  --compilers js:babel-register --require babel-polyfill --require bluebird --require isomorphic-fetch",
     "test-coverage": "jest --coverage",
-    "lint:js": "eslint ./src/** --ext .jsx,.js --color -f stylish --fix",
+    "lint:js": "eslint ./src/** --ext .jsx,.js --color -f stylish --fix"
   },
   "jest": {
     "moduleNameMapper": {
