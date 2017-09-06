@@ -201,7 +201,7 @@ export default class CommentItem extends React.Component {
 
   /**
    * Votes on comment
-   * @param type
+   * @param {string} type - 'up' or 'down'
    */
   addVote = (type) => {
     const { accessToken, id } = this.props;
@@ -274,12 +274,12 @@ export default class CommentItem extends React.Component {
           {constrolText}
           {stateVote > 0 && <span className="review-votes__item-counter t5">{stateVote}</span>}
         </span>
-        {noVote || !accessToken
-          ? <N1C
-            className="review-votes__notification"
-            text={controlNotification}
-          />
-          : ''}
+        {(noVote || !accessToken)
+        && <N1C
+          className="review-votes__notification"
+          text={controlNotification}
+        />
+        }
       </div>
     );
   };

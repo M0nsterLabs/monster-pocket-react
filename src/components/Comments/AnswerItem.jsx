@@ -149,7 +149,7 @@ export default class AnswerItem extends React.Component {
 
   /**
    * Votes on answers
-   * @param type
+   * @param {string} type - 'up' or 'down'
    */
   addVote = (type) => {
     const { accessToken, id } = this.props;
@@ -298,12 +298,8 @@ export default class AnswerItem extends React.Component {
                 <div className="Comments__author" itemScope itemType="http://schema.org/Person" itemProp="author">
                   <meta itemProp="name" content={userName} />
                   {userName || this.context.i18n.l('Anonymous')}
-                  {author === 'moderator'
-                  ? (<span className="Comments__authorModerator t5" >TemplateMonster</span>)
-                  : ''}
-                  {author === 'vendor'
-                  ? (<span className="Comments__authorContributor t5" >{this.context.i18n.l('Vendor')}</span>)
-                  : ''}
+                  {(author === 'moderator') && (<span className="Comments__authorModerator t5" >TemplateMonster</span>)}
+                  {(author === 'vendor') && (<span className="Comments__authorContributor t5" >{this.context.i18n.l('Vendor')}</span>)}
                 </div>
                 <FormattedDate timestamp={date} className="Comments__date" />
               </div>
