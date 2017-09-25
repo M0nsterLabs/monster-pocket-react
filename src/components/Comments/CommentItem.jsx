@@ -6,15 +6,15 @@ import Interpolate from 'react-interpolate-component';
 import ReviewsData from 'plasma-reviews-api-client-js';
 import Avatar from 'quark/lib/Avatar';
 import N1C from 'quark/lib/notifications/N1C';
+import {
+  getResponseJSON,
+} from 'utils/';
 import FormattedDate from '../formattedDate';
 import NotificationModeration from '../NotificationModeration/';
 import AnswersForm from './AnswersForm';
 import './Comments.less';
 import AnswerItem from './AnswerItem';
 import HtmlToJsx from '../html-to-js';
-import {
-  getResponseJSON,
-} from 'utils/';
 
 const APPROVED = 'approved';
 const PENDING = 'pending';
@@ -41,6 +41,28 @@ export default class CommentItem extends React.Component {
     avatar: PropTypes.string,
     locale: PropTypes.string,
     otherLocales: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    content: '',
+    userMail: '',
+    userName: '',
+    userAvatar: '',
+    date: 0,
+    status: '',
+    accessToken: '',
+    answers: [],
+    id: 0,
+    templateId: 0,
+    userData: {},
+    voteUp: 0,
+    voteDown: 0,
+    vote: '',
+    noVote: false,
+    authorId: 0,
+    avatar: '',
+    locale: '',
+    otherLocales: false,
   };
 
   static contextTypes = {
@@ -164,27 +186,6 @@ export default class CommentItem extends React.Component {
       showForm: true,
       showFormAnswer: true,
     });
-  };
-
-  /**
-   * Show comment form
-   * @returns {XML}
-   */
-  renderForm = () => {
-    const { templateId, accessToken, userData, id, authorId, userName } = this.props;
-    return (
-      <AnswersForm
-        template_id={templateId}
-        accessToken={accessToken}
-        userName={userData.name}
-        userMail={userData.mail}
-        userAvatar={userData.avatar}
-        parentId={id}
-        authorId={authorId}
-        userAnswerName={userName || this.context.i18n.l('Anonymous')}
-        replyToAnswer
-      />
-    );
   };
 
   /**
@@ -352,6 +353,27 @@ export default class CommentItem extends React.Component {
           })
         }
       </div>
+    );
+  };
+
+  /**
+   * Show comment form
+   * @returns {XML}
+   */
+  renderForm = () => {
+    const { templateId, accessToken, userData, id, authorId, userName } = this.props;
+    return (
+      <AnswersForm
+        templateId={templateId}
+        accessToken={accessToken}
+        userName={userData.name}
+        userMail={userData.mail}
+        userAvatar={userData.avatar}
+        parentId={id}
+        authorId={authorId}
+        userAnswerName={userName || this.context.i18n.l('Anonymous')}
+        replyToAnswer
+      />
     );
   };
 

@@ -6,29 +6,39 @@ import Avatar from 'quark/lib/Avatar';
 import TA5 from 'quark/lib/textareas/TA5';
 import B1A from 'quark/lib/buttons/B1A';
 import ReviewsData from 'plasma-reviews-api-client-js';
+import {
+  getCurrentLocale,
+} from 'utils/index';
 import CommentItem from './CommentItem';
 
 import './Comments.less';
 
-import {
-  getCurrentLocale,
-} from 'utils/';
-
 const comments = new ReviewsData(Config.reviewsServiceURL);
 const LOCALE = getCurrentLocale();
 
-export default class CommentsForm extends React.Component {
+export default class AnswersForm extends React.Component {
   static propTypes = {
-    template_id: PropTypes.number,
+    templateId: PropTypes.number,
     accessToken: PropTypes.string,
     userMail: PropTypes.string,
     userName: PropTypes.string,
     userAvatar: PropTypes.string,
     parentId: PropTypes.number,
-    userData: PropTypes.object,
     replyToAnswer: PropTypes.bool,
     userAnswerName: PropTypes.string,
     authorId: PropTypes.number,
+  };
+
+  static defaultProps = {
+    templateId: 0,
+    accessToken: '',
+    userMail: '',
+    userName: '',
+    userAvatar: '',
+    parentId: 0,
+    replyToAnswer: false,
+    userAnswerName: '',
+    authorId: 0,
   };
 
   static contextTypes = {
@@ -42,6 +52,10 @@ export default class CommentsForm extends React.Component {
     },
     commentValue: '',
   };
+
+  componentWillMount() {
+    this.state.commentValue = `${this.props.userAnswerName}, `;
+  }
 
   componentDidMount() {
     window.addEventListener('keydown', this.sendCommentKey);
@@ -66,10 +80,6 @@ export default class CommentsForm extends React.Component {
       }
     }
   };
-
-  componentWillMount() {
-    this.state.commentValue = `${this.props.userAnswerName}, `;
-  }
 
   /**
    * Add ctrl+enter event on send form
@@ -115,7 +125,7 @@ export default class CommentsForm extends React.Component {
       textarea.classList.remove('text-area_filled');
     });
 
-    const { accessToken, template_id, userName, userMail, userAvatar } = this.props;
+    const { accessToken, templateId, userName, userMail, userAvatar } = this.props;
     const user = {
       user_name: userName,
       user_mail: userMail,
@@ -134,7 +144,7 @@ export default class CommentsForm extends React.Component {
         date: data.items.created_at,
         status: data.items.status,
         accessToken,
-        templateId: template_id,
+        templateId,
         userData: user,
       };
       this.setState({
@@ -185,7 +195,7 @@ export default class CommentsForm extends React.Component {
    * @param event
    */
   handleFormSubmit = (event) => {
-    const { template_id, userName, userMail, parentId, replyToAnswer, authorId } = this.props;
+    const { templateId, userName, userMail, parentId, replyToAnswer, authorId } = this.props;
     let { userAnswerName } = this.props;
     event.preventDefault();
     const commentText = this.textarea.input.inputElement.value;
@@ -199,13 +209,13 @@ export default class CommentsForm extends React.Component {
       }
 
       const commentsData = {
-        template_id: template_id,
+        template_id: templateId,
         content: commentTextNew,
         locale: LOCALE,
         user_name: userName,
         user_email: userMail,
         parent_id: parentId,
-        authorId: authorId,
+        authorId,
       };
       this.sendComment(commentsData);
     } else {
@@ -221,10 +231,9 @@ export default class CommentsForm extends React.Component {
    * @returns {Array}
    */
   showComments = () => {
-    const { accessToken, template_id, userMail } = this.props;
-    const { comments } = this.state;
+    const { accessToken, templateId, userMail } = this.props;
     return (
-      comments.items.map(comment => (
+      this.state.comments.items.map(comment => (
         <div className="Comments__itemNew">
           <CommentItem
             key={comment.date}
@@ -237,7 +246,7 @@ export default class CommentsForm extends React.Component {
             accessToken={accessToken}
             answers={comment.answers}
             parentId={comment.id}
-            templateId={template_id}
+            templateId={templateId}
             userData={comment.userData}
           />
         </div>
@@ -248,7 +257,7 @@ export default class CommentsForm extends React.Component {
 
 
   render() {
-    const { userMail, userName, userAvatar, replyToAnswer, userAnswerName } = this.props;
+    const { userMail, userName, userAvatar } = this.props;
     const { showComment, commentValue } = this.state;
 
     return (

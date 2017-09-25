@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Config from 'config.js';
-import _ from 'lodash';
-import Interpolate from 'react-interpolate-component';
 import ReviewsData from 'plasma-reviews-api-client-js';
 import Avatar from 'quark/lib/Avatar';
 import N1C from 'quark/lib/notifications/N1C';
@@ -37,25 +35,25 @@ export default class AnswerItem extends React.Component {
   };
 
   static defaultProps = {
-    content: PropTypes.string,
-    userMail: PropTypes.string,
-    userName: PropTypes.string,
-    userAvatar: PropTypes.string,
-    date: PropTypes.number,
-    status: PropTypes.string,
-    accessToken: PropTypes.string,
-    answers: PropTypes.arrayOf(PropTypes.object),
-    id: PropTypes.number,
-    templateId: PropTypes.number,
-    userData: PropTypes.object,
-    voteUp: PropTypes.number,
-    voteDown: PropTypes.number,
-    vote: PropTypes.string,
-    noVote: PropTypes.bool,
-    parentId: PropTypes.number,
-    author: PropTypes.string,
-    authorId: PropTypes.number,
-    avatar: PropTypes.string,
+    content: '',
+    userMail: '',
+    userName: '',
+    userAvatar: '',
+    date: 0,
+    status: '',
+    accessToken: '',
+    answers: [],
+    id: 0,
+    templateId: 0,
+    userData: {},
+    voteUp: 0,
+    voteDown: 0,
+    vote: '',
+    noVote: false,
+    parentId: 0,
+    author: '',
+    authorId: 0,
+    avatar: '',
   };
 
   static contextTypes = {
@@ -262,7 +260,7 @@ export default class AnswerItem extends React.Component {
     const { templateId, accessToken, userData, parentId, userName, authorId } = this.props;
     return (
       <AnswersForm
-        template_id={templateId}
+        templateId={templateId}
         accessToken={accessToken}
         userName={userData.name}
         userMail={userData.mail}

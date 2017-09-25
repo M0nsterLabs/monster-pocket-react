@@ -6,27 +6,34 @@ import Avatar from 'quark/lib/Avatar';
 import TA5 from 'quark/lib/textareas/TA5';
 import B1A from 'quark/lib/buttons/B1A';
 import ReviewsData from 'plasma-reviews-api-client-js';
-import CommentItem from './CommentItem';
-import NotificationModeration from '../NotificationModeration/';
-
-import './Comments.less';
-
 import {
   getCurrentLocale,
 } from 'utils/';
+import CommentItem from './CommentItem';
+import './Comments.less';
 
 const comments = new ReviewsData(Config.reviewsServiceURL);
 const LOCALE = getCurrentLocale();
 
 export default class CommentsForm extends React.Component {
   static propTypes = {
-    template_id: PropTypes.number,
+    templateId: PropTypes.number,
     accessToken: PropTypes.string,
     userMail: PropTypes.string,
     userName: PropTypes.string,
     userAvatar: PropTypes.string,
     parentId: PropTypes.number,
     authorId: PropTypes.number,
+  };
+
+  static defaultProps = {
+    templateId: 0,
+    accessToken: '',
+    userMail: '',
+    userName: '',
+    userAvatar: '',
+    parentId: 0,
+    authorId: 0,
   };
 
   static contextTypes = {
@@ -108,7 +115,7 @@ export default class CommentsForm extends React.Component {
       textarea.classList.remove('text-area_filled');
     });
 
-    const { accessToken, template_id, userName, userMail, userAvatar } = this.props;
+    const { accessToken, templateId, userName, userMail, userAvatar } = this.props;
     const user = {
       user_name: userName,
       user_mail: userMail,
@@ -126,8 +133,8 @@ export default class CommentsForm extends React.Component {
         content: data.items.content,
         date: data.items.created_at,
         status: data.items.status,
-        accessToken: accessToken,
-        templateId: template_id,
+        accessToken,
+        templateId,
         userData: user,
       };
       this.setState({
@@ -188,19 +195,19 @@ export default class CommentsForm extends React.Component {
    * @param event
    */
   handleFormSubmit = (event) => {
-    const { template_id, userName, userMail, parentId, authorId } = this.props;
+    const { templateId, userName, userMail, parentId, authorId } = this.props;
     event.preventDefault();
     const textArea = document.getElementById('comment-text');
     const reviewText = textArea.value;
 
     if (this.textValidationRule(reviewText).isValid) {
       const commentsData = {
-        template_id: template_id,
+        template_id: templateId,
         content: reviewText,
         locale: LOCALE,
         user_name: userName,
         user_email: userMail,
-        authorId: authorId,
+        authorId,
       };
       if (parentId) {
         commentsData.parent_id = parentId;
@@ -219,7 +226,7 @@ export default class CommentsForm extends React.Component {
    * @returns {Array}
    */
   showComments = () => {
-    const { accessToken, template_id, userAvatar, userMail } = this.props;
+    const { accessToken, templateId, userAvatar, userMail } = this.props;
     const { comments } = this.state;
     comments.items.sort((a, b) => b.date - a.date);
     return (
@@ -236,7 +243,7 @@ export default class CommentsForm extends React.Component {
             accessToken={accessToken}
             answers={comment.answers}
             parentId={comment.id}
-            templateId={template_id}
+            templateId={templateId}
             userData={comment.userData}
           />
         </div>

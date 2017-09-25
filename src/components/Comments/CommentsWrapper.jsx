@@ -2,24 +2,19 @@ import React from 'react';
 import Config from 'config.js';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
-import ContentEmptyMessage from '../ContentEmptyMessage/';
 import L1 from 'quark/lib/loaders/L1';
 import L3 from 'quark/lib/loaders/L3';
 import B2E from 'quark/lib/buttons/B2E';
 import DD1 from 'quark/lib/dropdowns/DD1';
-
 import ReviewsData from 'plasma-reviews-api-client-js';
-
-import CommentItem from './CommentItem';
-import CommentsForm from './CommentsForm';
-
 import {
-  getCdnImageUrl,
-  infiniteDataLoader,
   getCurrentLocale,
   getResponseJSON,
 } from 'utils/';
 
+import ContentEmptyMessage from '../ContentEmptyMessage/';
+import CommentItem from './CommentItem';
+import CommentsForm from './CommentsForm';
 import './Comments.less';
 
 const comments = new ReviewsData(Config.reviewsServiceURL);
@@ -30,6 +25,10 @@ export default class Comments extends React.Component {
   static propTypes = {
     templateId: PropTypes.number.isRequired,
     accessToken: PropTypes.string,
+  };
+
+  static defaultProps = {
+    accessToken: '',
   };
 
   static contextTypes = {
@@ -83,57 +82,10 @@ export default class Comments extends React.Component {
       .then(response => (
        response.json()
   )).then((product) => {
-        this.setState({
-          productAuthorId: product.authorUserId || 0,
-        });
-      });
-  };
-
-  /**
-   * Show all comments on template
-   * @returns {Array}
-   */
-  renderComments = () => {
-    const { accessToken, templateId } = this.props;
-    const { comments, user, productAuthorId, otherLocales } = this.state;
-    if (comments.items) {
-      return (
-        comments.items.map((comment) => {
-          let avatar = '';
-          let email = comment.user_email;
-          if (comment.avatar) {
-            avatar = comment.avatar;
-          } else if (comment.status === PENDING) {
-            avatar = user.avatar;
-            email = user.mail;
-          }
-          const isUserComment = accessToken && parseInt(user.id) === parseInt(comment.user_id);
-          return (
-            <CommentItem
-              userName={comment.user_name}
-              userMail={email}
-              content={comment.content}
-              avatar={avatar}
-              date={comment.created_at}
-              key={comment.created_at}
-              status={comment.status}
-              accessToken={accessToken}
-              answers={comment.answers}
-              id={comment.id}
-              templateId={templateId}
-              userData={user}
-              voteUp={comment.vote_up}
-              voteDown={comment.vote_down}
-              vote={accessToken && comment.vote ? comment.vote.type : ''}
-              noVote={isUserComment}
-              authorId={parseInt(productAuthorId)}
-              locale={comment.locale}
-              otherLocales={otherLocales}
-            />
-          );
-        })
-      );
-    }
+    this.setState({
+      productAuthorId: product.authorUserId || 0,
+    });
+  });
   };
 
   /**
@@ -272,11 +224,12 @@ export default class Comments extends React.Component {
       sort: this.state.sort,
       expand: 'vote',
     };
-    comments.getComments(params).then((data) => {
-      this.setState({
-        countCommentsOtherLocale: data.totalCount,
+    comments.getComments(params)
+      .then((data) => {
+        this.setState({
+          countCommentsOtherLocale: data.totalCount,
+        });
       });
-    });
   };
 
   /**
@@ -365,6 +318,53 @@ export default class Comments extends React.Component {
   };
 
   /**
+   * Show all comments on template
+   * @returns {Array}
+   */
+  renderComments = () => {
+    const { accessToken, templateId } = this.props;
+    const { comments, user, productAuthorId, otherLocales } = this.state;
+    if (comments.items) {
+      return (
+        comments.items.map((comment) => {
+          let avatar = '';
+          let email = comment.user_email;
+          if (comment.avatar) {
+            avatar = comment.avatar;
+          } else if (comment.status === PENDING) {
+            avatar = user.avatar;
+            email = user.mail;
+          }
+          const isUserComment = accessToken && parseInt(user.id) === parseInt(comment.user_id);
+          return (
+            <CommentItem
+              userName={comment.user_name}
+              userMail={email}
+              content={comment.content}
+              avatar={avatar}
+              date={comment.created_at}
+              key={comment.created_at}
+              status={comment.status}
+              accessToken={accessToken}
+              answers={comment.answers}
+              id={comment.id}
+              templateId={templateId}
+              userData={user}
+              voteUp={comment.vote_up}
+              voteDown={comment.vote_down}
+              vote={accessToken && comment.vote ? comment.vote.type : ''}
+              noVote={isUserComment}
+              authorId={parseInt(productAuthorId)}
+              locale={comment.locale}
+              otherLocales={otherLocales}
+            />
+          );
+        })
+      );
+    }
+  };
+
+  /**
    * Show empty comments page
    * @returns {XML}
    */
@@ -389,7 +389,7 @@ export default class Comments extends React.Component {
     const { user, productAuthorId } = this.state;
     return (
       <CommentsForm
-        template_id={templateId}
+        templateId={templateId}
         accessToken={accessToken}
         userName={user.name}
         userMail={user.mail}
