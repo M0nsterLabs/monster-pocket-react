@@ -5,6 +5,7 @@ import Home from '../src/pages/Home';
 import Mascot from '../src/pages/MascotTest';
 import Socials from '../src/pages/SocialTest';
 import Review from '../src/pages/ReviewTest';
+import Comments from '../src/pages/CommentsTest';
 import i18n from '../src/i18n';
 import PopUp from '../src/pages/PopUpTest';
 
@@ -25,6 +26,7 @@ localeService.whenLocaleIsLoaded(function (provider) {
           <Route path='/socials_test' component={Socials}/>
           <Route path='/popups_test' component={PopUp}/>
           <Route path='/review_test' component={Review}/>
+          <Route path='/comments_test' component={Comments}/>
         </Route>
       </Router>
     </i18n.Provider>,

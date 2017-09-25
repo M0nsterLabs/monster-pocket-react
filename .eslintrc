@@ -1,32 +1,14 @@
 {
-  "root": true,
   "parser": "babel-eslint",
-  "extends": "standard",
+  "extends": "airbnb",
   "plugins": [
-    "standard",
-    "promise",
     "react",
+    "jsx-a11y",
+    "import"
   ],
-  "rules": {
-    "no-multi-spaces": "off",
-    "key-spacing": ["error", {
-      "align": {
-        "beforeColon": true,
-        "afterColon": true,
-        "on": "colon"
-      }
-    }],
-    "no-return-assign": "off",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "semi": [
-      "error", "always"
-    ]
-  },
   "env": {
-    "es6": true,
     "browser": true,
     "node": true,
-    "jasmine": true
-  }
+    "es6": true
+  },
 }

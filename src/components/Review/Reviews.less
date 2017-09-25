@@ -87,6 +87,7 @@
         &-arrow {
           position: absolute;
           right: 0;
+          top: 6px;
         }
 
         &-content {
@@ -185,7 +186,7 @@
           color: @basic;
 
           &_pending, &_declined {
-            color: @secodary;
+            color: @secondary;
           }
         }
 
@@ -226,7 +227,7 @@
             &__author {
               display: flex;
               flex-direction: row;
-              color: @secodary;
+              color: @secondary;
               padding-bottom: @spacing2x;
 
               &-label {
@@ -334,7 +335,7 @@
 
               &-text {
                 vertical-align: middle;
-                color: @secodary;
+                color: @secondary;
               }
             }
           }
@@ -425,7 +426,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        color: @secodary;
+        color: @secondary;
       }
     }
   }
@@ -570,7 +571,7 @@
       background-repeat: no-repeat;
       position: relative;
       padding-left: 27px;
-      color: @secodary;
+      color: @secondary;
       line-height: 24px;
 
       &:before {
@@ -624,10 +625,10 @@
       }
 
       &-counter {
-        color: @secodary;
+        color: @secondary;
         height: @spacing2x;
         padding: 0 5px;
-        border: 1px solid @secodary;
+        border: 1px solid @secondary;
         border-radius: 3px;
         margin-left: 10px;
       }
@@ -639,7 +640,7 @@
 
         &:hover {
           .review-votes__item {
-            color: @secodary;
+            color: @secondary;
 
             &:before, &:after {
               background-image: svg-load("../../images/icon-like-contour.svg",
@@ -648,8 +649,8 @@
             }
 
             &-counter {
-              border: 1px solid @secodary;
-              color: @secodary;
+              border: 1px solid @secondary;
+              color: @secondary;
             }
           }
         }
@@ -800,7 +801,7 @@
     }
 
     &-name {
-      color: @secodary;
+      color: @secondary;
     }
   }
 
@@ -835,7 +836,7 @@
   }
 
   &__text {
-    color: @secodary;
+    color: @secondary;
     max-width: 756px;
     word-wrap: break-word;
 
@@ -929,7 +930,7 @@
 
       .text-area {
         &__label {
-          color: @secodary !important;
+          color: @secondary !important;
           font-weight: normal;
         }
 

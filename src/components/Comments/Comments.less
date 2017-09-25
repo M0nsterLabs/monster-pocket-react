@@ -1,0 +1,379 @@
+@import "../../styles/variables.less";
+
+.Comments {
+  &__count {
+    display: none;
+  }
+
+  &__btn {
+    &.button {
+      display: block;
+      margin: auto;
+      min-width: 120px;
+    }
+  }
+
+  .h3 {
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: @spacing4x;
+  }
+
+  &__item {
+    display: flex;
+    margin-bottom: @spacing4x;
+
+    &Reply {
+      cursor: pointer;
+      color: @primary;
+      margin-right: @spacing4x;
+
+      &:before {
+        padding-right: 10px;
+      }
+    }
+
+    .Comments__form {
+      .Comments__item {
+        &New {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__itemModerator {
+    .Comments__describe {
+      border: 2px solid @important-2;
+
+      &:before {
+        border-bottom: 2px solid @important-2;
+        border-left: 2px solid @important-2;
+        left: -7px;
+      }
+    }
+  }
+
+  &__itemContributor {
+    .Comments__describe {
+      border: 2px solid @success;
+
+      &:before {
+        border-bottom: 2px solid @success;
+        border-left: 2px solid @success;
+        left: -7px;
+      }
+    }
+  }
+
+  &__viewAnswer {
+    cursor: pointer;
+    color: @primary;
+  }
+
+  &__votes {
+    flex-grow: 1;
+    text-align: right;
+  }
+
+  &__avatar {
+    margin-right: 15px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .Comments__item {
+      margin: @spacing4x 0 0;
+
+      .CommentsForm {
+        margin: 0;
+      }
+    }
+  }
+
+  &__describe {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: @spacing2x @spacing2x @spacing2x 25px;
+    border: 1px solid @light-grey-2;
+    border-radius: @border_radius;
+    box-sizing: border-box;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 14px;
+      width: 9px;
+      height: 9px;
+      transform: rotate(45deg);
+      background: @color-white;
+      border-radius: 0 0 0 4px;
+      border-bottom: 1px solid @light-grey-2;
+      border-left: 1px solid @light-grey-2;
+      border-top: none;
+      border-right: none;
+    }
+
+    &Header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: @spacing2x;
+      color: @secondary;
+    }
+
+    &Footer {
+      display: flex;
+    }
+  }
+
+  &__content {
+    margin-bottom: @spacing2x;
+    color: @basic;
+    text-align: left;
+  }
+
+  &__author {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+
+  &__authorModerator,
+  &__authorContributor {
+    font-weight: normal;
+    border-radius: 2px;
+    margin-left: 10px;
+    padding: 0 3px;
+  }
+
+  &__authorModerator {
+    color: @important-2;
+    border: 1px solid @important-2;
+  }
+
+  &__authorContributor {
+    color: @success;
+    border: 1px solid @success;
+  }
+
+  &__answers {
+    margin-top: @spacing2x;
+
+    &Wrap {
+      margin-top: @spacing2x;
+    }
+
+    .Comments__item {
+      margin: 0;
+    }
+  }
+
+  &__form {
+    .Comments__item {
+      margin-bottom: 0;
+
+      &New {
+        margin-bottom: @spacing4x;
+      }
+    }
+  }
+
+  &__locale {
+    margin-left: @spacing1x;
+    transform: scale(0.5);
+  }
+}
+
+.PageContent {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  min-height: calc(100vh - 290px);
+
+  &__loader {
+    margin-top: @spacing4x;
+  }
+
+  &__empty {
+    text-align: center;
+
+    .h3 {
+      font-weight: bold;
+      margin-bottom: @spacing4x;
+    }
+
+    .reviews {
+      text-align: left;
+    }
+
+    .Comments {
+      .h3 {
+        text-align: left;
+        letter-spacing: 2px;
+      }
+    }
+  }
+}
+
+.CommentsForm {
+  width: 100%;
+  margin-bottom: @spacing4x;
+
+  &__textarea {
+    margin-bottom: @spacing2x;
+    padding: 0;
+
+    transition: .3s .5s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 14px;
+      width: 9px;
+      height: 9px;
+      transform: rotate(45deg);
+      background: @light-grey;
+      border-radius: 0 0 0 4px;
+      border-bottom: 1px solid @light-grey;
+      border-left: 1px solid @light-grey;
+      border-top: none;
+      border-right: none;
+      transition: .3s .5s;
+    }
+
+    .text-area {
+      &__limit {
+        display: none;
+      }
+
+      &__input {
+        max-height: 10px !important;
+        min-height: 40px;
+        padding: 0 @spacing4x 0 @spacing2x;
+        transition: .3s .5s;
+      }
+
+      &__label {
+        top: 10px;
+        font-weight: normal;
+      }
+
+      &__notification-icon {
+        top: 50%;
+        margin-top: -10px;
+      }
+    }
+
+    .quark-notification {
+      top: 50% !important;
+      left: 100% !important;
+      margin-left: @spacing2x;
+      margin-top: -21px;
+    }
+
+    &.text-area_filled {
+      padding-top: @spacing1x;
+      padding-bottom: @spacing1x;
+      padding-right: @spacing4x;
+
+      .text-area {
+        &__label {
+          display: none;
+        }
+        &__input {
+          min-height: 20px;
+        }
+      }
+    }
+
+    &.text-area_focused {
+      padding: @spacing2x 50px @spacing2x @spacing2x;
+      transition: .3s;
+
+      &::before {
+        background: @color-white;
+        border-bottom: 1px solid @light-blue;
+        border-left: 1px solid @light-blue;
+        transition: .3s;
+      }
+
+      .text-area {
+        &__limit {
+          display: block;
+        }
+
+        &__label {
+          top: 19px;
+        }
+
+        &__input {
+          padding: 0;
+          max-height: 100% !important;
+          transition: .3s;
+        }
+      }
+
+      &.text-area_filled {
+        .text-area {
+          &__label {
+            top: 8px;
+          }
+        }
+      }
+
+      & + .CommentsForm__action {
+        opacity: 1;
+        height: 40px;
+        transition: opacity .1s, height 0s;
+      }
+    }
+  }
+
+  &__button {
+    .button__icon {
+      font-size: 20px;
+    }
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    opacity: 0;
+    height: 0;
+    transition: opacity .3s, height 0s .3s;
+  }
+
+  &__text {
+    margin-left: @spacing2x;
+    color: @secondary;
+  }
+}
+
+.ContentLoader {
+  align-self: center;
+}
+
+.Answer {
+  .Comments__form {
+    margin-top: @spacing2x;
+
+    .Comments__itemNew {
+      margin-top: @spacing2x;
+    }
+  }
+}
